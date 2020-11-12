@@ -4,17 +4,20 @@ import { Button } from 'react-bootstrap'
 import './Button.scss'
 
 type Props = {
-  message: string
+  text?: string
+  onClick?: () => {}
 }
 
 const defaultProps: Props = {
-  message: 'Hello world'
+  text: 'Initial button'
 }
 
 const ButtonComponent: FC<Props> = (props: Props) => {
+  const {text, ...rest} = props
+
   return (
-    <Button className='btn'>
-      {defaultProps.message}
+    <Button className='btn' {...rest}>
+      { text ? text : defaultProps.text }
     </Button>
   )
 }
