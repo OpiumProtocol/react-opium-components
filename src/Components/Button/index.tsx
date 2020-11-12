@@ -4,26 +4,25 @@ import { Button } from 'react-bootstrap'
 import './Button.scss'
 
 type Props = {
-  message: string
   text?: string
   onClick: () => void
 }
 
 const defaultProps: Props = {
-  message: 'Initial message',
-  text: 'Initial button',
+  text: 'Initial button text',
   onClick: () => {}
 }
 
 const generateProps = (defaults: Props, props: Props): Props => {
   const obj: any = {}
-  for (const key in props) {
-    if (key === undefined) {
+  for (let key in defaults) {
+    if (!props[key]) {
       obj[key] = defaults[key]
       continue
     }
     obj[key] = props[key]
   }
+
   return obj
 }
 
