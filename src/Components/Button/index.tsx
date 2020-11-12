@@ -4,11 +4,13 @@ import { Button } from 'react-bootstrap'
 import './Button.scss'
 
 type Props = {
+  message: string
   text?: string
   onClick: () => void
 }
 
 const defaultProps: Props = {
+  message: 'Initial message',
   text: 'Initial button',
   onClick: () => {}
 }
