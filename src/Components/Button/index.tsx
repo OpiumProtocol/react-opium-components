@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 
 import './Button.scss'
 
-type Props = {
+interface Props {
   text?: string
   onClick: () => void
 }
@@ -14,16 +14,7 @@ const defaultProps: Props = {
 }
 
 const generateProps = (defaults: Props, props: Props): Props => {
-  const obj: any = {}
-  for (let key in defaults) {
-    if (!props[key]) {
-      obj[key] = defaults[key]
-      continue
-    }
-    obj[key] = props[key]
-  }
-
-  return obj
+  return { ...defaults, ...props }
 }
 
 const ButtonComponent: FC<Props> = (props: Props) => {
