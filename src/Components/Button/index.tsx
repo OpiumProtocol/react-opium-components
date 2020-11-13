@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Button } from 'react-bootstrap'
 
-type Props = {
-  message: string
+import './Button.scss'
+
+interface Props {
+  text?: string
+  onClick: () => void
 }
 
 const defaultProps: Props = {
-  message: 'Hello world'
+  text: 'Initial button text',
+  onClick: () => {}
 }
 
-const ButtonComponent: React.FC<Props> = (props: Props) => {
+const generateRenderProps = (defaults: Props, props: Props): Props => {
+  return { ...defaults, ...props }
+}
+
+const ButtonComponent: FC<Props> = (props: Props) => {
+  const { text, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
-    <Button>{defaultProps.message}</Button>
+    <Button className='btn' {...rest}>
+      { text }
+    </Button>
   )
 }
+
 export default ButtonComponent
