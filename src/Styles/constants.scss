@@ -1,0 +1,183 @@
+$headerSidePadding: 1rem;
+
+$sizes: (
+	defaultRadiusPx: 2px,
+	smallPopupWidth: 430px,
+	largePopupWidth: 920px,
+);
+
+$colors: (
+	bodyColor: #fafafa,
+	red: #ff5a5a,
+	pureRed: #E3000F,
+	pureYellow: #F2C94C,
+	blue1: #197cd8,
+	blue1Hover: rgba(45, 142, 233, 0.9),
+	blue2: #56ccf2,
+	blue3: #6ea9e4,
+	blue4: #bbebfa,
+	white: #fff,
+	whiteOpaque: rgba(255, 255, 255, 0.75),
+	whiteOpaque1: rgba(255, 255, 255, 0.4),
+	blackOpaque: rgba(0, 0, 0, 0.1),
+	black: rgb(0, 0, 0),
+	black2: #353538,
+	black3: #121212,
+	orange: #eabb2a,
+	green: #0dbc7d,
+	green2: #36d69c,
+	green3: #b3f3dc,
+	green4: #18CBAB,
+	gray1: #1e1e22,
+	gray2: #4b4b4e,
+	gray3: #78787a,
+	gray4: #a5a5a7,
+	gray5: #ededf0,
+	gray6: #f3f3f3,
+	gray6Opaque: rgba(237, 237, 240, 0.5),
+	gray7: #ebebec,
+	gray8: #d2d2d3,
+	gray9: #e5e5e5,
+	gray10: #e8e8e8,
+	gray11: #b2b2b2,
+	gray6-30: rgba(243, 243, 244, 0.3),
+	greyColor: #ededf0,
+);
+
+$breakpoints: (
+	mobileS: 320px,
+	mobileM: 375px,
+	mobileL: 425px,
+	mobileXL: 570px,
+	tablet: 768px,
+	laptopS: 1024px,
+	laptopM: 1280px,
+	laptopL: 1366px,
+	laptop: 1440px,
+	desktopM: 1920px,
+	desktopL: 2560px
+);
+
+$font-sizes: (
+	xss: 0.7rem,
+	xs: 0.9rem,
+	s: 1rem,
+	m: 1.2rem,
+	l: 1.4rem,
+	xl: 1.8rem,
+	xxl: 2rem
+);
+
+
+@function size($size-name) {
+	@return map-get($sizes, $size-name);
+}
+
+@function color($color-name) {
+	@return map-get($colors, $color-name);
+}
+
+@function breakpoint($point-size) {
+	@return map-get($breakpoints, $point-size);
+}
+
+@function fz($font-size) {
+	@return map-get($font-sizes, $font-size);
+}
+
+@function indent($size) {
+	@return $size * 8px;
+}
+
+@mixin btn-variant($bg, $color, $border-color) {
+	background-color: $bg;
+	color: $color;
+	border-color: $border-color;
+	&:active,
+	&:focus,
+	&:hover {
+		color: $color !important;
+		background-color: darken($bg, 3%) !important;
+		border-color: darken($border-color, 3%) !important;
+		box-shadow: none !important;
+	}
+	&:active {
+		box-shadow: inset 0 0 3px color(gray4) !important;
+  }
+}
+
+@mixin text-one-row {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin font {
+	font-family: "Gerbera", sans-serif;
+  font-style: normal;
+	font-size: fz(s);
+	font-weight: 400;
+}
+
+@mixin panel {
+	background: #fff;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+	display: flex;
+  flex-direction: column;
+}
+
+@mixin desktop-up {
+	@media screen and (max-width: breakpoint(desktopL)) {
+		@content;
+	}
+}
+@mixin desktopM-up {
+	@media screen and (max-width: breakpoint(desktopM)) {
+		@content;
+	}
+}
+@mixin laptop-up {
+	@media screen and (max-width: breakpoint(laptop)) {
+		@content;
+	}
+}
+@mixin laptopL-up {
+	@media screen and (max-width: breakpoint(laptopL)) {
+		@content;
+	}
+}
+@mixin laptopM-up {
+	@media screen and (max-width: breakpoint(laptopM)) {
+		@content;
+	}
+}
+@mixin laptopS-up {
+	@media screen and (max-width: breakpoint(laptopS)) {
+		@content;
+	}
+}
+@mixin tablet-up {
+	@media screen and (max-width: breakpoint(tablet)) {
+		@content;
+	}
+}
+@mixin mobileXL-up {
+	@media screen and (max-width: breakpoint(mobileXL)) {
+		@content;
+	}
+}
+@mixin mobile-up {
+	@media screen and (max-width: breakpoint(mobileL)) {
+		@content;
+	}
+}
+@mixin mobileS-up {
+	@media screen and (max-width: breakpoint(mobileS)) {
+		@content;
+	}
+}
+@mixin landscape-up {
+	@media screen and (max-device-height: breakpoint(mobileL)) and (orientation: landscape) {
+		@content;
+	}
+}

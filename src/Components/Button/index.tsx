@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Button } from 'react-bootstrap'
 
-import './Button.scss'
+import syles from './Button.module.scss'
 
 interface Props {
   text?: string
@@ -21,7 +21,7 @@ const ButtonComponent: FC<Props> = (props: Props) => {
   const { text, ...rest } = generateProps(defaultProps, props)
 
   return (
-    <Button className='btn' {...rest}>
+    <Button className={syles.btn} {...rest}>
       { text }
     </Button>
   )
