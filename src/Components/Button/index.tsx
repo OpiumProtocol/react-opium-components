@@ -13,12 +13,12 @@ const defaultProps: Props = {
   onClick: () => {}
 }
 
-const generateProps = (defaults: Props, props: Props): Props => {
+const generateRenderProps = (defaults: Props, props: Props): Props => {
   return { ...defaults, ...props }
 }
 
 const ButtonComponent: FC<Props> = (props: Props) => {
-  const { text, ...rest } = generateProps(defaultProps, props)
+  const { text, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
     <Button className='btn' {...rest}>
