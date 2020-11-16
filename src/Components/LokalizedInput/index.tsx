@@ -1,7 +1,7 @@
 import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Form } from 'react-bootstrap'
 
-import './LokalizedInput.scss'
+import { generateRenderProps } from '../../Utils/helpers'
 
 interface Props {
   type?: string
@@ -15,12 +15,8 @@ const defaultProps: Props = {
   type: 'text',
   lokale: 'en',
   value: 'Initial input text',
-  onClick: () => {},
-  onChange: () => {},
-}
-
-const generateRenderProps = (defaults: Props, props: Props): Props => {
-  return { ...defaults, ...props }
+  onClick: () => { },
+  onChange: () => { },
 }
 
 const localize = (number: number | string, locale: string) => {
