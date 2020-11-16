@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 import { Button } from 'react-bootstrap'
 
-import './Button.scss'
+import { generateRenderProps } from '../../Utils/helpers'
+
+import styles from './Button.module.scss'
 
 interface Props {
   text?: string
@@ -10,19 +12,15 @@ interface Props {
 
 const defaultProps: Props = {
   text: 'Initial button text',
-  onClick: () => {}
-}
-
-const generateRenderProps = (defaults: Props, props: Props): Props => {
-  return { ...defaults, ...props }
+  onClick: () => { }
 }
 
 const ButtonComponent: FC<Props> = (props: Props) => {
   const { text, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
-    <Button className='btn' {...rest}>
-      { text }
+    <Button className={styles.btn} {...rest}>
+      { text}
     </Button>
   )
 }
