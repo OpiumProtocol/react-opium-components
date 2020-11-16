@@ -30,7 +30,7 @@ const defaultProps: Props = {
 }
 
 const TabsComponent: FC<Props> = (props: Props) => {
-  const [activeTabKey, setActiveTabKey] = useState<string>('tab1')
+  const [ activeTabKey, setActiveTabKey ] = useState<string>('tab1')
 
   const renderProps = generateRenderProps(defaultProps, props)
 
@@ -46,14 +46,10 @@ const TabsComponent: FC<Props> = (props: Props) => {
   return (
     <div className="history step-7 step-8">
       <Tabs
-        id="uncontrolled-tab-example"
+        id="opium-tabs-component"
         activeKey={activeTabKey}
         onSelect={(key: string) => setActiveTabKey(key)}
       >
-        {/* <Tab eventKey="tab1" title={'Tab1'}>Tab1 content</Tab>
-        <Tab eventKey="tab2" title={'Tab2'}>Tab2 content</Tab>
-        <Tab eventKey="tab3" title={'Tab3'}>Tab3 content</Tab>
-        <Tab eventKey="tab4" title={'Tab4'}>Tab4 content</Tab> */}
         {tabItems}
       </Tabs>
     </div>

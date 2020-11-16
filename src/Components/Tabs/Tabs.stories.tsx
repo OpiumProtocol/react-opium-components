@@ -35,4 +35,4 @@ export const tabs = () => {
   )
 }
 
-export default { title: 'Tabs component', decorators: [withKnobs] }
+export default { title: 'Tabs component', decorators: [ withKnobs ] }
