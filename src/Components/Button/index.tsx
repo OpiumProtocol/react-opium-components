@@ -7,20 +7,24 @@ import styles from './Button.module.scss'
 
 interface Props {
   text?: string
+  className?: string
+  style?: { color: string, borderColor: string }
   onClick: () => void
 }
 
 const defaultProps: Props = {
+  className: '',
   text: 'Initial button text',
-  onClick: () => { }
+  style: { color: '', borderColor: '' },
+  onClick: () => { },
 }
 
 const ButtonComponent: FC<Props> = (props: Props) => {
-  const { text, ...rest } = generateRenderProps(defaultProps, props)
+  const { text, className, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
-    <Button className={styles.btn} {...rest}>
-      { text}
+    <Button className={`${styles.btn} ${className}`} {...rest}>
+      {text}
     </Button>
   )
 }

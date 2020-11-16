@@ -92,10 +92,6 @@ module.exports = {
       'error',
       'always',
     ],
-    'array-bracket-spacing': [
-      'error',
-      'always',
-    ],
     'space-infix-ops': [ 'error', { 'int32Hint': false } ]
   },
 }
