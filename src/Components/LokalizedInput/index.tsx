@@ -1,6 +1,8 @@
 import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Form } from 'react-bootstrap'
 
+import './LokalizedInput.scss'
+
 interface Props {
   type?: string
   lokale?: string
