@@ -7,6 +7,7 @@ import styles from './Button.module.scss'
 
 interface Props {
   text?: string
+  variant?: string
   className?: string
   style?: { color: string, borderColor: string }
   onClick: () => void
@@ -14,6 +15,7 @@ interface Props {
 
 const defaultProps: Props = {
   className: '',
+  variant: 'primary',
   text: 'Initial button text',
   style: { color: '', borderColor: '' },
   onClick: () => { },

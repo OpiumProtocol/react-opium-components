@@ -5,6 +5,7 @@ import LokalizedInput from './Components/LokalizedInput'
 import DropdownSelector from './Components/DropdownSelector'
 import Segments from './Components/Segments'
 import TextBlock from './Components/TextBlock'
+import Popup from './Components/Popup'
 
 export {
   Table,
@@ -13,5 +14,6 @@ export {
   LokalizedInput,
   DropdownSelector,
   Segments,
-  TextBlock
+  TextBlock,
+  Popup,
 }
