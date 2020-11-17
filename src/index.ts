@@ -3,6 +3,7 @@ import Tabs from './Components/Tabs'
 import Button from './Components/Button'
 import LokalizedInput from './Components/LokalizedInput'
 import DropdownSelector from './Components/DropdownSelector'
+import Segments from './Components/Segments'
 
 export {
   Table,
@@ -10,4 +11,5 @@ export {
   Button,
   LokalizedInput,
   DropdownSelector,
+  Segments
 }
