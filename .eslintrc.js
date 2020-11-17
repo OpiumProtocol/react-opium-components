@@ -86,16 +86,12 @@ module.exports = {
     ],
     'react/prop-types': [
       2,
-      { ignore: [ 'children' ] }
+      { ignore: ['children'] }
     ],
     'object-curly-spacing': [
       'error',
       'always',
     ],
-    'array-bracket-spacing': [
-      'error',
-      'always',
-    ],
-    'space-infix-ops': [ 'error', { 'int32Hint': false } ]
+    'space-infix-ops': ['error', { 'int32Hint': false }]
   },
 }
