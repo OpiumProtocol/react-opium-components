@@ -44,7 +44,7 @@ const TabsComponent: FC<Props> = (props: Props) => {
   })
 
   return (
-    <div className="history step-7 step-8">
+    <div>
       <Tabs
         id="opium-tabs-component"
         activeKey={activeTabKey}
