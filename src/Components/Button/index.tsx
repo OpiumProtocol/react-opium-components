@@ -6,23 +6,27 @@ import { generateRenderProps } from '../../Utils/helpers'
 import styles from './Button.module.scss'
 
 interface Props {
-  variant?: string
   text?: string
+  variant?: string
+  className?: string
+  style?: { color: string, borderColor: string }
   onClick: () => void
 }
 
 const defaultProps: Props = {
-  variant: 'primary',
   text: 'Initial button text',
-  onClick: () => { }
+  variant: 'primary',
+  className: '',
+  style: { color: '', borderColor: '' },
+  onClick: () => { },
 }
 
 const ButtonComponent: FC<Props> = (props: Props) => {
-  const { text, ...rest } = generateRenderProps(defaultProps, props)
+  const { text, className, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
-    <Button className={styles.btn} {...rest}>
-      { text}
+    <Button className={`${styles.btn} ${className}`} {...rest}>
+      {text}
     </Button>
   )
 }
