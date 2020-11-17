@@ -24,7 +24,7 @@ const defaultProps: Props = {
   bodyScrollHeight: '200',
 }
 
-const DropdownSelector: FC<Props> = (props: Props) => {
+const Table: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const { thead, tbody, className, bodyScrollHeight } = renderProps
@@ -68,4 +68,4 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   )
 }
 
-export default DropdownSelector
+export default Table
