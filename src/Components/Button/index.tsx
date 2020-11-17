@@ -6,11 +6,13 @@ import { generateRenderProps } from '../../Utils/helpers'
 import styles from './Button.module.scss'
 
 interface Props {
+  variant?: string
   text?: string
   onClick: () => void
 }
 
 const defaultProps: Props = {
+  variant: 'primary',
   text: 'Initial button text',
   onClick: () => { }
 }
