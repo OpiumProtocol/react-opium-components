@@ -1,16 +1,16 @@
-import React, { FC, useState, BaseSyntheticEvent, ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { Form, Modal } from 'react-bootstrap'
-import { v4 as uuidv4 } from 'uuid'
 
 import Button from '../Button'
 import Loading from '../Loading'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
-import './Alert.module.scss'
+import './Alert.scss'
 
 type Props = {
-  title?: string,
+  title?: string
+  size?: 'sm' | 'lg' | 'xl'
   description?: string | ReactNode
   attention?: boolean
   loading?: boolean
@@ -29,6 +29,7 @@ type Props = {
 
 const defaultProps: Props = {
   title: '',
+  size: 'sm',
   description: '',
   attention: false,
   loading: false,
@@ -47,8 +48,10 @@ const defaultProps: Props = {
 
 const Alert: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
+
   const {
     title,
+    size,
     description,
     attention,
     loading,
@@ -81,14 +84,14 @@ const Alert: FC<Props> = (props: Props) => {
 
   return (
     <Modal
-      size="sm"
+      size={size}
       show={popupIsOpen}
       onHide={closePopup}
       className="attention-popup"
     >
-      {!hideCross && <button className="close-button" onClick={() => closePopup()} />}
+      {!hideCross && <button className="close-button" onClick={closePopup} />}
       <Modal.Body>
-        {title && <Modal.Title>{title}</ Modal.Title>}
+        {title && <Modal.Title style={{ marginTop: '5rem' }}>{title}</ Modal.Title>}
         {attention && renderAttention()}
         {description && <p className="modal-description">{description}</p>}
         {showCheckBox && <Form.Check type="checkbox" className='modal-checkbox' id='checkbox'>
@@ -98,12 +101,19 @@ const Alert: FC<Props> = (props: Props) => {
       </Modal.Body>
       <Modal.Footer>
         <div className="buttons-wrap">
-          {showActionButton && <Button variant="primary" onClick={() => handleAction()}>
-            {actionButtonTitle}
-          </Button>}
-          <Button variant="secondary" onClick={() => closePopup()}>
-            {cancelButtonTitle}
-          </Button>
+          {
+            showActionButton &&
+            <Button
+              variant="primary"
+              onClick={handleAction}
+              text={actionButtonTitle}
+            />
+          }
+          <Button
+            variant="secondary"
+            onClick={closePopup}
+            text={cancelButtonTitle}
+          />
         </div>
       </Modal.Footer>
     </Modal>

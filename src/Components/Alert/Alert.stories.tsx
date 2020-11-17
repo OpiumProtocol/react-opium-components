@@ -5,7 +5,8 @@ import Button from '../Button'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 export const alert = () => {
-  const [popupIsOpen, setPopupIsOpen] = useState(false)
+  const [ popupIsOpen, setPopupIsOpen ] = useState(false)
+  const [ checkBoxChecked, setCheckBoxChecked ] = useState(false)
   text('Text', 'Alert!')
 
   return (
@@ -13,7 +14,8 @@ export const alert = () => {
       <Button text="Show / hide alert" onClick={() => setPopupIsOpen(!popupIsOpen)} />
       <Alert
         title='Alert title'
-        description='Lorem lorem'
+        size='lg'
+        description='Description. Lorem lorem'
         attention={true}
         loading={false}
         closePopup={() => setPopupIsOpen(false)}
@@ -23,8 +25,8 @@ export const alert = () => {
         actionButtonTitle='Action'
         cancelButtonTitle='Cancel'
         showCheckBox={true}
-        handleCheckBoxChange={() => { }}
-        checkBoxChecked={true}
+        handleCheckBoxChange={() => setCheckBoxChecked(!checkBoxChecked)}
+        checkBoxChecked={checkBoxChecked}
         checkBoxLabel='Checkbox'
         hideCross={false}
       />
@@ -32,4 +34,4 @@ export const alert = () => {
   )
 }
 
-export default { title: 'Alert component', decorators: [withKnobs] }
+export default { title: 'Alert component', decorators: [ withKnobs ] }
