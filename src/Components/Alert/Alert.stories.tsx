@@ -1,18 +1,44 @@
 import React, { useState } from 'react'
+import { withKnobs, text } from '@storybook/addon-knobs'
+
 import Alert from './index'
 import Button from '../Button'
 
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { generateThemeColors } from '../../Utils/helpers'
+
+import {
+  Theme,
+  Colors,
+  colorSchemeDark,
+  colorSchemeLight,
+} from '../../Constants/Types/theme.types'
 
 export const alert = () => {
-  const [ popupIsOpen, setPopupIsOpen ] = useState(false)
-  const [ checkBoxChecked, setCheckBoxChecked ] = useState(false)
+  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
+  const [popupIsOpen, setPopupIsOpen] = useState(false)
+  const [checkBoxChecked, setCheckBoxChecked] = useState(false)
   text('Text', 'Alert!')
 
   return (
     <>
-      <Button text="Show / hide alert" onClick={() => setPopupIsOpen(!popupIsOpen)} />
+      <div style={{ display: 'flex', marginBottom: '5rem' }}>
+        <Button
+          theme={theme}
+          text="Light theme"
+          variant='secondary'
+          style={{ marginRight: '1rem' }}
+          onClick={() => setTheme(Theme.LIGHT)}
+        />
+        <Button
+          theme={theme}
+          text="Dark theme"
+          variant='primary'
+          onClick={() => setTheme(Theme.DARK)}
+        />
+      </div>
+      <Button theme={theme} text="Show / hide alert" onClick={() => setPopupIsOpen(!popupIsOpen)} />
       <Alert
+        theme={theme}
         title='Alert title'
         size='lg'
         description='Description. Lorem lorem'
@@ -34,4 +60,4 @@ export const alert = () => {
   )
 }
 
-export default { title: 'Alert component', decorators: [ withKnobs ] }
+export default { title: 'Alert component', decorators: [withKnobs] }
