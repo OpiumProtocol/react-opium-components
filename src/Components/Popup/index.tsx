@@ -10,9 +10,9 @@ import './Popup.scss'
 type Props = {
   size?: 'sm' | 'lg' | 'xl'
   title?: string
+  component?: ReactNode
   hideCross?: boolean
   closePopup: Function
-  description?: ReactNode
   popupIsOpen: boolean
   handleAction?: Function
   showActionButton?: boolean
@@ -24,9 +24,9 @@ type Props = {
 const defaultProps: Props = {
   size: 'sm',
   title: '',
+  component: '',
   hideCross: false,
   closePopup: () => { },
-  description: '',
   popupIsOpen: false,
   handleAction: () => { },
   showActionButton: true,
@@ -41,9 +41,9 @@ const Popup: FC<Props> = (props: Props) => {
   const {
     size,
     title,
+    component,
     hideCross,
     closePopup,
-    description,
     popupIsOpen,
     handleAction,
     showActionButton,
@@ -62,7 +62,7 @@ const Popup: FC<Props> = (props: Props) => {
       {!hideCross && <button className="close-button" onClick={closePopup} />}
       <Modal.Body>
         {title && <Modal.Title>{title}</ Modal.Title>}
-        {description && <div className="modal-description">{description}</div>}
+        {component && <div className="modal-description">{component}</div>}
       </Modal.Body>
       <Modal.Footer>
         <div className="buttons-wrap">
