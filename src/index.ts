@@ -1,19 +1,23 @@
-import Table from './Components/Table'
 import Tabs from './Components/Tabs'
+import Alert from './Components/Alert'
+import Popup from './Components/Popup'
+import Table from './Components/Table'
 import Button from './Components/Button'
-import LokalizedInput from './Components/LokalizedInput'
-import DropdownSelector from './Components/DropdownSelector'
+import Loading from './Components/Loading'
 import Segments from './Components/Segments'
 import TextBlock from './Components/TextBlock'
-import Popup from './Components/Popup'
+import LokalizedInput from './Components/LokalizedInput'
+import DropdownSelector from './Components/DropdownSelector'
 
 export {
-  Table,
   Tabs,
+  Alert,
+  Popup,
+  Table,
   Button,
-  LokalizedInput,
-  DropdownSelector,
+  Loading,
   Segments,
   TextBlock,
-  Popup,
+  LokalizedInput,
+  DropdownSelector,
 }
