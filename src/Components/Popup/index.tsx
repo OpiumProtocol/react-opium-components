@@ -1,86 +1,56 @@
 import React, { FC, ReactNode } from 'react'
-import { Form, Modal } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 
 import Button from '../Button'
-// import Loading from '../Loading'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
 import './Popup.scss'
 
 type Props = {
-  title?: string
   size?: 'sm' | 'lg' | 'xl'
-  description?: string | ReactNode
-  attention?: boolean
-  loading?: boolean
+  title?: string
+  hideCross?: boolean
   closePopup: Function
+  description?: ReactNode
   popupIsOpen: boolean
-  showActionButton?: boolean
   handleAction?: Function
+  showActionButton?: boolean
+  showCancelButton?: boolean
   actionButtonTitle?: string
   cancelButtonTitle: string
-  showCheckBox?: boolean
-  handleCheckBoxChange?: Function
-  checkBoxChecked?: boolean
-  checkBoxLabel?: string
-  hideCross?: boolean
 }
 
 const defaultProps: Props = {
-  title: '',
   size: 'sm',
-  description: '',
-  attention: false,
-  loading: false,
+  title: '',
+  hideCross: false,
   closePopup: () => { },
+  description: '',
   popupIsOpen: false,
-  showActionButton: true,
   handleAction: () => { },
+  showActionButton: true,
+  showCancelButton: true,
   actionButtonTitle: '',
   cancelButtonTitle: '',
-  showCheckBox: true,
-  handleCheckBoxChange: () => { },
-  checkBoxChecked: true,
-  checkBoxLabel: '',
-  hideCross: false,
 }
 
 const Popup: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
-    title,
     size,
-    description,
-    attention,
-    loading,
+    title,
+    hideCross,
     closePopup,
+    description,
     popupIsOpen,
-    showActionButton,
     handleAction,
+    showActionButton,
+    showCancelButton,
     actionButtonTitle,
     cancelButtonTitle,
-    showCheckBox,
-    handleCheckBoxChange,
-    checkBoxChecked,
-    checkBoxLabel,
-    hideCross,
   } = renderProps
-
-  const renderAttention = () => {
-    return (
-      <div className="attention-icon-wrap" >
-        {/* {loading ?
-          <Loading type='spinningBubbles' height='6rem' />
-          :
-          <svg className="attention-icon">
-            <use xlinkHref="./sprite.svg#attention"></use>
-          </svg>
-        } */}
-      </div>
-    )
-  }
 
   return (
     <Modal
@@ -91,13 +61,8 @@ const Popup: FC<Props> = (props: Props) => {
     >
       {!hideCross && <button className="close-button" onClick={closePopup} />}
       <Modal.Body>
-        {title && <Modal.Title style={{ marginTop: '5rem' }}>{title}</ Modal.Title>}
-        {attention && renderAttention()}
+        {title && <Modal.Title>{title}</ Modal.Title>}
         {description && <div className="modal-description">{description}</div>}
-        {showCheckBox && <Form.Check type="checkbox" className='modal-checkbox' id='checkbox'>
-          <Form.Check.Input checked={checkBoxChecked} onChange={() => handleCheckBoxChange()} type="checkbox" />
-          <Form.Check.Label>{checkBoxLabel}</Form.Check.Label>
-        </Form.Check>}
       </Modal.Body>
       <Modal.Footer>
         <div className="buttons-wrap">
@@ -109,11 +74,14 @@ const Popup: FC<Props> = (props: Props) => {
               text={actionButtonTitle}
             />
           }
-          <Button
-            variant="secondary"
-            onClick={closePopup}
-            text={cancelButtonTitle}
-          />
+          {
+            showCancelButton &&
+            <Button
+              variant="secondary"
+              onClick={closePopup}
+              text={cancelButtonTitle}
+            />
+          }
         </div>
       </Modal.Footer>
     </Modal>

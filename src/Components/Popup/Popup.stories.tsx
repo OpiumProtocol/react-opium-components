@@ -6,14 +6,11 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 
 export const popup = () => {
   const [popupIsOpen, setPopupIsOpen] = useState(false)
-  const [checkBoxChecked, setCheckBoxChecked] = useState(false)
-  const [loading, setLoading] = useState(true)
 
-  text('Text', 'Alert!')
+  text('Text', 'Popup!')
 
   const handleClick = () => {
     setPopupIsOpen(!popupIsOpen)
-    setTimeout(() => (setLoading(false)), 2000)
   }
 
   const renderJSX = () => {
@@ -30,22 +27,17 @@ export const popup = () => {
     <>
       <Button text="Show / hide popup" onClick={handleClick} />
       <Popup
-        title=''
         size='lg'
-        description={renderJSX()}
-        attention={false}
-        loading={loading}
+        title='Title'
+        hideCross={false}
         closePopup={() => setPopupIsOpen(false)}
+        description={renderJSX()}
         popupIsOpen={popupIsOpen}
-        showActionButton={false}
         handleAction={() => { }}
+        showActionButton={false}
+        showCancelButton={true}
         actionButtonTitle='Action'
         cancelButtonTitle='Cancel'
-        showCheckBox={false}
-        handleCheckBoxChange={() => setCheckBoxChecked(!checkBoxChecked)}
-        checkBoxChecked={checkBoxChecked}
-        checkBoxLabel='Checkbox'
-        hideCross={false}
       />
     </>
   )
