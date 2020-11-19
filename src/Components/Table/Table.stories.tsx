@@ -10,7 +10,7 @@ import { Theme } from '../../Constants/Types/theme.types'
 export const table = () => {
   const message = text('Text', 'Table')
 
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
+  const [theme, setTheme] = useState<Theme>(Theme.DARK)
 
   const tableHead = [
     <span key={uuidv4()}>Head1</span>,

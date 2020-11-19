@@ -11,7 +11,7 @@ import './LokalizedInput.scss'
 export const lokalizedInput = () => {
   const message = text('Text', 'LokalizedInput')
 
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
+  const [theme, setTheme] = useState<Theme>(Theme.DARK)
   const [string, setString] = useState<string>(message)
   const [number, setNumber] = useState<number>(0)
 

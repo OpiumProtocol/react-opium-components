@@ -15,7 +15,7 @@ type Props = {
 }
 
 const loadingProps = {
-  theme: Theme.LIGHT,
+  theme: Theme.DARK,
   className: 'loading',
   color: '',
   height: '4rem',

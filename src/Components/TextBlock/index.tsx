@@ -13,7 +13,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-  theme: Theme.LIGHT,
+  theme: Theme.DARK,
   content: [
     'Initial text \u000A line one',
     '\x41 \x41 \x41',

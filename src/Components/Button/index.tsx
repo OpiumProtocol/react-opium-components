@@ -16,7 +16,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-  theme: Theme.LIGHT,
+  theme: Theme.DARK,
   className: '',
   variant: 'primary',
   text: 'Initial button text',

@@ -7,7 +7,7 @@ import Button from '../Button'
 import { Theme } from '../../Constants/Types/theme.types'
 
 export const popup = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
+  const [theme, setTheme] = useState<Theme>(Theme.DARK)
   const [popupIsOpen, setPopupIsOpen] = useState(false)
 
   const message = text('Text', 'Popup')

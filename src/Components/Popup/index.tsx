@@ -24,7 +24,7 @@ type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.LIGHT,
+  theme: Theme.DARK,
   size: 'sm',
   title: '',
   component: '',

@@ -16,7 +16,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-  theme: Theme.LIGHT,
+  theme: Theme.DARK,
   thead: [<span key={uuidv4()}>Head</span>],
   tbody: [
     [<span key={uuidv4()}>Cell 1</span>],

@@ -7,7 +7,7 @@ import Button from '../Button'
 import { Theme } from '../../Constants/Types/theme.types'
 
 export const textBlock = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
+  const [theme, setTheme] = useState<Theme>(Theme.DARK)
   const message = text('Text', 'TextBlock')
 
   const styles = {

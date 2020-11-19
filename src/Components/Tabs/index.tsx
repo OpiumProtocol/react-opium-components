@@ -17,7 +17,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-  theme: Theme.LIGHT,
+  theme: Theme.DARK,
   items: [
     {
       title: 'Tab1',

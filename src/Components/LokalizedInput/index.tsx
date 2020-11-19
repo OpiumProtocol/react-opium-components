@@ -14,7 +14,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
-  theme: Theme.LIGHT,
+  theme: Theme.DARK,
   type: 'text',
   lokale: 'en',
   value: 'Initial input text',
