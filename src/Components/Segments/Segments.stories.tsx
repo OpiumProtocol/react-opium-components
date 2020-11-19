@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
-import Segments from './index'
-
 import { withKnobs, text } from '@storybook/addon-knobs'
 
+import Segments from './index'
+import Button from '../Button'
+
+import { Theme } from '../../Constants/Types/theme.types'
+
 export const segments = () => {
-  text('Text', 'Segments!')
+  const message = text('Text', 'Segments')
+
+  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
 
   const [currentValue, setCurrentValue] = useState('')
 
@@ -16,11 +21,30 @@ export const segments = () => {
   ]
 
   return (
-    <Segments
-      items={items}
-      currentValue={currentValue}
-      onClick={(val: string) => setCurrentValue(val)}
-    />
+    <>
+      <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
+      <div style={{ display: 'flex', marginBottom: '5rem' }}>
+        <Button
+          theme={theme}
+          text="Light theme"
+          variant='secondary'
+          style={{ marginRight: '1rem' }}
+          onClick={() => setTheme(Theme.LIGHT)}
+        />
+        <Button
+          theme={theme}
+          text="Dark theme"
+          variant='primary'
+          onClick={() => setTheme(Theme.DARK)}
+        />
+      </div>
+      <Segments
+        theme={theme}
+        items={items}
+        currentValue={currentValue}
+        onClick={(val: string) => setCurrentValue(val)}
+      />
+    </>
   )
 }
 

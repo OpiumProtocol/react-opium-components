@@ -3,10 +3,12 @@ import { v4 as uuidv4 } from 'uuid'
 import Scrollbars from 'react-custom-scrollbars'
 
 import { generateRenderProps } from '../../Utils/helpers'
+import { Theme } from '../../Constants/Types/theme.types'
 
 import './Table.scss'
 
 interface Props {
+  theme: Theme
   thead: Array<JSX.Element>
   tbody: Array<Array<JSX.Element>>
   className?: string
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
+  theme: Theme.LIGHT,
   thead: [<span key={uuidv4()}>Head</span>],
   tbody: [
     [<span key={uuidv4()}>Cell 1</span>],
@@ -27,7 +30,7 @@ const defaultProps: Props = {
 const Table: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { thead, tbody, className, bodyScrollHeight } = renderProps
+  const { theme, thead, tbody, className, bodyScrollHeight } = renderProps
 
   const list = (
     <ul className="table-body">

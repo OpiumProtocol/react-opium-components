@@ -4,23 +4,18 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import Alert from './index'
 import Button from '../Button'
 
-import { generateThemeColors } from '../../Utils/helpers'
-
-import {
-  Theme,
-  Colors,
-  colorSchemeDark,
-  colorSchemeLight,
-} from '../../Constants/Types/theme.types'
+import { Theme } from '../../Constants/Types/theme.types'
 
 export const alert = () => {
   const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
   const [popupIsOpen, setPopupIsOpen] = useState(false)
   const [checkBoxChecked, setCheckBoxChecked] = useState(false)
-  text('Text', 'Alert!')
+  
+  const message = text('Text', 'Alert')
 
   return (
     <>
+      <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}

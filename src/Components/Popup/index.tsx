@@ -4,10 +4,12 @@ import { Modal } from 'react-bootstrap'
 import Button from '../Button'
 
 import { generateRenderProps } from '../../Utils/helpers'
+import { Theme } from '../../Constants/Types/theme.types'
 
 import './Popup.scss'
 
 type Props = {
+  theme: Theme
   size?: 'sm' | 'lg' | 'xl'
   title?: string
   component?: ReactNode
@@ -22,6 +24,7 @@ type Props = {
 }
 
 const defaultProps: Props = {
+  theme: Theme.LIGHT,
   size: 'sm',
   title: '',
   component: '',
@@ -39,6 +42,7 @@ const Popup: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
+    theme,
     size,
     title,
     component,
@@ -58,6 +62,7 @@ const Popup: FC<Props> = (props: Props) => {
       show={popupIsOpen}
       onHide={closePopup}
       className="attention-popup"
+      contentClassName={`color-scheme-${theme}`}
     >
       {!hideCross && <button className="close-button" onClick={closePopup} />}
       <Modal.Body>
@@ -69,6 +74,7 @@ const Popup: FC<Props> = (props: Props) => {
           {
             showActionButton &&
             <Button
+              theme={theme}
               variant="primary"
               onClick={handleAction}
               text={actionButtonTitle}
@@ -77,6 +83,7 @@ const Popup: FC<Props> = (props: Props) => {
           {
             showCancelButton &&
             <Button
+              theme={theme}
               variant="secondary"
               onClick={closePopup}
               text={cancelButtonTitle}

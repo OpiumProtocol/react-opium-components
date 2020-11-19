@@ -2,11 +2,13 @@ import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 
+import { Theme } from '../../Constants/Types/theme.types'
 import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropdownSelector.scss'
 
 interface Props {
+  theme: Theme
   initialOption: string
   items?: { text: string, value: string }[]
   onClick: () => void
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
+  theme: Theme.LIGHT,
   initialOption: 'Initial item',
   items: [],
   onClick: () => { },
@@ -22,15 +25,15 @@ const defaultProps: Props = {
 
 const DropdownSelector: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { initialOption, items, onClick, onSelect } = renderProps
+  const { initialOption, items, onClick, onSelect, theme } = renderProps
 
   return (
-    <Dropdown>
-      <Dropdown.Toggle id="dropdown-selector-component">
+    <Dropdown className={`color-scheme-${theme}`}>
+      <Dropdown.Toggle id="dropdown-selector-component" className={`color-scheme-${theme}`}>
         {'Dropdown Title'}
       </Dropdown.Toggle>
-      <Dropdown.Menu>
-        <Dropdown.Item onClick={() => { }}>
+      <Dropdown.Menu className={`color-scheme-${theme}`}>
+        <Dropdown.Item onClick={() => { }} className={`color-scheme-${theme}`} >
           {initialOption}
         </Dropdown.Item>
         {
@@ -40,6 +43,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
               eventKey={el.value}
               onClick={onClick}
               onSelect={onSelect}
+              className={`color-scheme-${theme}`}
             >
               {el.text}
             </Dropdown.Item>

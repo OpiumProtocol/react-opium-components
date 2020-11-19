@@ -1,12 +1,14 @@
 import React, { FC, useState } from 'react'
 import { Tab, Tabs } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
+import { Theme } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
 import './Tabs.scss'
 
 interface Props {
+  theme: Theme
   items?: {
     title: string,
     eventKey: string,
@@ -15,6 +17,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
+  theme: Theme.LIGHT,
   items: [
     {
       title: 'Tab1',
@@ -34,7 +37,7 @@ const TabsComponent: FC<Props> = (props: Props) => {
 
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { items } = renderProps
+  const { items, theme } = renderProps
 
   const tabItems = items.map((item) => {
     const { title, eventKey, content } = item

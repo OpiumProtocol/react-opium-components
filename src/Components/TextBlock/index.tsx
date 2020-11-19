@@ -1,33 +1,32 @@
-import React, { FC } from 'react'
+import React, { CSSProperties, FC } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { Theme } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
-import styles from './TextBlock.module.scss'
+import './TextBlock.scss'
 
 interface Props {
+  theme: Theme
   content?: Array<string>
-  textStyles?: Object
+  styles?: CSSProperties
 }
 
 const defaultProps: Props = {
+  theme: Theme.LIGHT,
   content: [
     'Initial text \u000A line one',
     '\x41 \x41 \x41',
     '\u000A',
     '',
     'Initial text line two',
-    'First &middot; Second',
-    '<p>Paragraph</p>',
-    '<span>String String</span> \n <strong>String String</strong>',
-    '',
   ],
 
-  textStyles: {
-    color: 'black',
-    backgroundColor: 'white',
-    border: '2px black solid',
-  }
+  // styles: {
+  //   color: 'black',
+  //   backgroundColor: 'white',
+  //   border: '2px black solid',
+  // }
 }
 
 function createMarkup(content: string) {
@@ -36,10 +35,10 @@ function createMarkup(content: string) {
 }
 
 const TextBlock: FC<Props> = (props: Props) => {
-  const { content, textStyles } = generateRenderProps(defaultProps, props)
+  const { content, theme, styles } = generateRenderProps(defaultProps, props)
 
   return (
-    <div className={styles.textBox} style={textStyles}>
+    <div className={`text-block color-scheme-${theme}`} style={styles}>
       {
         content.map((contentLine) => (
           <div key={uuidv4()} dangerouslySetInnerHTML={createMarkup(contentLine)} />

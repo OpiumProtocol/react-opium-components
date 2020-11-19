@@ -1,18 +1,22 @@
 import React, { FC } from 'react'
-import Button from '../Button'
 import { v4 as uuidv4 } from 'uuid'
 
+import Button from '../Button'
+
 import { generateRenderProps } from '../../Utils/helpers'
+import { Theme } from '../../Constants/Types/theme.types'
 
 import styles from './Segments.module.scss'
 
 interface Props {
+  theme: Theme
   currentValue?: string
   items?: { text: string, value: string }[]
   onClick: (val: string) => void
 }
 
 const defaultProps: Props = {
+  theme: Theme.LIGHT,
   currentValue: '',
   items: [
     { text: 'First', value: '1' },
@@ -23,7 +27,7 @@ const defaultProps: Props = {
 
 const Segments: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { currentValue, items, onClick } = renderProps
+  const { currentValue, items, theme, onClick } = renderProps
 
   const renderColor = (value) => {
     // if (value === currentValue) return '#18CBAB'
@@ -32,10 +36,11 @@ const Segments: FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className={styles.segments}>
+    <div className="segments">
       {
         items.map((el) => (
           <Button
+            theme={theme}
             key={uuidv4()}
             text={el.text}
             className={styles.segmentsItem}

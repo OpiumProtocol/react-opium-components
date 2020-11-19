@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
+import { withKnobs, text } from '@storybook/addon-knobs'
+
 import Popup from './index'
 import Button from '../Button'
 
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { Theme } from '../../Constants/Types/theme.types'
 
 export const popup = () => {
+  const [theme, setTheme] = useState<Theme>(Theme.LIGHT)
   const [popupIsOpen, setPopupIsOpen] = useState(false)
 
-  text('Text', 'Popup!')
+  const message = text('Text', 'Popup')
 
   const handleClick = () => {
     setPopupIsOpen(!popupIsOpen)
@@ -25,8 +28,25 @@ export const popup = () => {
 
   return (
     <>
-      <Button text="Show / hide popup" onClick={handleClick} />
+      <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
+      <div style={{ display: 'flex', marginBottom: '5rem' }}>
+        <Button
+          theme={theme}
+          text="Light theme"
+          variant='secondary'
+          style={{ marginRight: '1rem' }}
+          onClick={() => setTheme(Theme.LIGHT)}
+        />
+        <Button
+          theme={theme}
+          text="Dark theme"
+          variant='primary'
+          onClick={() => setTheme(Theme.DARK)}
+        />
+      </div>
+      <Button theme={theme} text="Show / hide popup" onClick={handleClick} />
       <Popup
+        theme={theme}
         size='lg'
         title='Title'
         component={renderJSX()}

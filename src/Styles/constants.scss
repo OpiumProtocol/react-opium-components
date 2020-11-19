@@ -2,6 +2,7 @@ $headerSidePadding: 1rem;
 
 $sizes: (
 	defaultRadiusPx: 2px,
+	radius4Px: 4px,
 	smallPopupWidth: 430px,
 	largePopupWidth: 920px,
 );
@@ -95,7 +96,7 @@ $font-sizes: (
 @mixin btn-variant($bg, $color, $border-color) {
 	background-color: $bg;
 	color: $color;
-	border-color: $border-color;
+	border: 1px solid $border-color;
 	&:active,
 	&:focus,
 	&:hover {
@@ -103,6 +104,7 @@ $font-sizes: (
 		background-color: darken($bg, 3%) !important;
 		border-color: darken($border-color, 3%) !important;
 		box-shadow: none !important;
+		border-style: solid;
 	}
 	&:active {
 		box-shadow: inset 0 0 3px color(gray4) !important;
@@ -113,6 +115,32 @@ $font-sizes: (
 	background-color: $bg;
 	color: $color;
 	border-color: $border-color;
+	border-style: solid;
+}
+
+@mixin loader-component($color) {
+	fill: $color;
+	height: 4rem;
+    width: 6rem;
+}
+
+@mixin dropdown-component($bg, $color, $border-color) {
+	background-color: $bg !important;
+	color: $color !important;
+	border-color: $border-color !important;
+	border-style: solid;
+}
+
+@mixin text-block-component($bg, $color, $border-color) {
+	background-color: $bg;
+	color: $color;
+	border: 1px solid $border-color;
+}
+
+@mixin localized-input-component($bg, $color, $border-color) {
+	background-color: $bg;
+	color: $color;
+	border: 1px solid $border-color;
 }
 
 @mixin text-one-row {
