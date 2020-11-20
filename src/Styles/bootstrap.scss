@@ -55,6 +55,7 @@ form {
   }
 }
 
+/** LOKALIZEDINPUT */
 .form-control {
   height: auto;
   font-size: fz(s);
@@ -80,7 +81,10 @@ form {
      @include localized-input-component(color(darkBlue2), color(white), transparent);
   }
 }
+/** LOKALIZEDINPUT END */
 
+
+/** BUTTON */
 .btn {
   padding: indent(1.5) indent(3);
   border: 2px solid currentColor;
@@ -91,39 +95,32 @@ form {
   outline: none !important;
   letter-spacing: 0.04em;
   width: fit-content;
-  // @include btn-variant(color(white), color(black3), transparent);
-
-  //
+  
   &.color-scheme-LIGHT {
     @include btn-variant(color(white), color(black3), transparent);
 	}
 	&.color-scheme-DARK {
     @include btn-variant(color(darkBlue2), color(white), color(darkBlue3));
   }
-   //
 
   &.btn-primary {
-    // @include btn-variant(color(white), color(pureRed), color(pureRed));
-    //
-    &.color-scheme-LIGHT {
+   &.color-scheme-LIGHT {
       @include btn-variant(color(gray6), color(pureRed), color(pureRed));
-	  }
-	  &.color-scheme-DARK {
+	 }
+	 &.color-scheme-DARK {
       @include btn-variant(color(darkBlue2), color(gray4), color(darkBlue3));
-    }
-      //
+   }
   }
+
   &.btn-secondary {
-    // @include btn-variant(color(white), color(black3), color(black3));
-    //
     &.color-scheme-LIGHT {
        @include btn-variant(color(whiteOpaque), color(gray4), color(gray4));
     }
     &.color-scheme-DARK {
        @include btn-variant(color(gray4), color(whiteOpaque), color(gray4));
     }
-    //
   }
+
   &.btn-transparent {
     @include btn-variant(transparent, color(black3), transparent);
     border: 0;
@@ -133,55 +130,75 @@ form {
     @include btn-variant(color(white), color(gray11), color(gray11));
   }
 }
+/** BUTTON END */
 
+
+/** TABS */
 .nav-tabs {
-   padding: 0 indent(2);
-   border: 0;
-   position: relative;
-   top: -1px;
-   .nav-item {
+    padding: 0 indent(2);
+    border: 0;
+    position: relative;
+    top: -1px;
+
+    &.color-scheme-LIGHT .nav-item{
+      @include tabs-component(color(transparent), color(black3), transparent);
+    }
+    &.color-scheme-DARK .nav-item{
+      @include tabs-component(color(darkBlue2), color(white), color(darkBlue3));
+    }
+
+    .nav-item {
       outline: none;
       font-weight: bold;
       font-size: fz(m);
       color: color(gray11);
+      border: 0;
+      background: transparent;
       line-height: 1.5;
       display: inline-block;
       position: relative;
       text-decoration: none;
-      background: transparent;
-      border: 0;
       padding: 0 .2em .4em .2em;
       &:not(:last-child) {
-         margin-right: 2em;
+        margin-right: 2em;
       }
       &.active {
-         box-shadow: inset 0px -2px 0px 0px color(pureRed);
-         color: color(black3);
-         cursor: default;
-         background: transparent;
+        box-shadow: inset 0px -2px 0px 0px color(pureRed);
+        cursor: default;
+        color: color(black3);
+        background: transparent;
       }
    }
 }
-
 .tab-content {
-   @include panel;
-   .tab-pane {
-      animation: .3s linear 0s fade;
-      display: none !important;
-      &.active {
-         display: block !important;
-      }
-      @keyframes fade {
-         from {
-            opacity: 0;
-         }
-         to {
-            opacity: 1;
-         }
-      }
-   }
-}
+  @include panel;
+  .tab-pane {
+    animation: .3s linear 0s fade;
+    display: none !important;
+    &.active {
+      display: block !important;
 
+      &.color-scheme-LIGHT {
+        @include tabs-component(color(gray5), color(black3), transparent);
+      }
+      &.color-scheme-DARK {
+        @include tabs-component(color(darkBlue2), color(white), color(darkBlue3));
+      }
+    }
+
+    @keyframes fade {
+       from {
+          opacity: 0;
+       }
+       to {
+          opacity: 1;
+       }
+    }
+  }
+}
+/** TABS END */
+
+/** ALERT+POPUP */
 .modal {
    display: flex !important;
    justify-content: center;
@@ -286,7 +303,10 @@ form {
       }
    }
 }
+/** ALERT+POPUP END */
 
+
+/** LOADING */
 .loading {
    &.color-scheme-LIGHT {
       @include loader-component(color(pureRed));
@@ -295,7 +315,10 @@ form {
       @include loader-component(color(gray4));
    }
 }
+/** LOADING END */
 
+
+/** DROPDOWN */
 .dropdown {
   width: fit-content;
 }
@@ -339,13 +362,6 @@ form {
     z-index: -1;
     border: size(defaultRadiusPx);
   }
-
-  // &.color-scheme-LIGHT {
-  //   @include btn-variant(color(gray3), color(pureRed), color(pureRed));
-  // }
-  // &.color-scheme-DARK {
-  //   @include btn-variant(color(darkBlue2), color(gray4), color(darkBlue3));
-  // }
 }
 
 .dropdown-menu {
@@ -385,3 +401,28 @@ form {
      @include dropdown-component(color(darkBlue2), color(white), color(darkBlue3));
   }
 }
+/** DROPDOWN END*/
+
+/** TABLE */
+.table-head {
+  &.color-scheme-LIGHT {
+    @include table-component(color(gray6), color(black3), transparent);
+  }
+  &.color-scheme-DARK {
+     @include table-component(color(darkBlue2), color(white), color(darkBlue3));
+  }
+}
+
+.table-row {
+  &.color-scheme-LIGHT {
+    @include table-component(color(gray6), color(black3), transparent);
+  }
+  &.color-scheme-DARK {
+     @include table-component(color(darkBlue2), color(white), color(darkBlue3));
+  }
+
+  &:hover {
+    color: color(black3);
+  }
+}
+/** TABLE END */

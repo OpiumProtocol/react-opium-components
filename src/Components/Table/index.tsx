@@ -36,7 +36,7 @@ const Table: FC<Props> = (props: Props) => {
     <ul className="table-body">
       {
         tbody.map((row) => (
-          <ul key={uuidv4()} className="table-row">
+          <ul key={uuidv4()} className={`table-row color-scheme-${theme}`}>
             {
               row.map((cell) => (
                 <li key={uuidv4()} className="table-cell cell">{cell}</li>
@@ -50,7 +50,7 @@ const Table: FC<Props> = (props: Props) => {
 
   return (
     <div className={`custom-table ${className}`}>
-      <ul className="table-head">
+      <ul className={`table-head color-scheme-${theme}`}>
         {thead.map((title) => (
           <li className="table-head-cell cell" key={uuidv4()}>{title}</li>
         ))}
