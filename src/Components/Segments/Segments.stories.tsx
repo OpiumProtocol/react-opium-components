@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Segments from './index'
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
@@ -10,14 +10,13 @@ export const segments = () => {
   const message = text('Text', 'Segments')
 
   const [theme, setTheme] = useState<Theme>(Theme.DARK)
-
   const [currentValue, setCurrentValue] = useState('')
 
   const items = [
-    { text: 'First', value: '1' },
-    { text: 'Second', value: '2' },
-    { text: 'Third', value: '3' },
-    // { text: 'Fourth', value: '4' },
+    { label: 'First', value: '1' },
+    { label: 'Second', value: '2' },
+    { label: 'Third', value: '3' },
+    { label: 'Fourth', value: '4' },
   ]
 
   return (
@@ -26,14 +25,14 @@ export const segments = () => {
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          text="Light theme"
+          label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(Theme.LIGHT)}
         />
         <Button
           theme={theme}
-          text="Dark theme"
+          label="Dark theme"
           variant='primary'
           onClick={() => setTheme(Theme.DARK)}
         />
@@ -48,4 +47,16 @@ export const segments = () => {
   )
 }
 
-export default { title: 'Segments component', decorators: [withKnobs] }
+Segments.defaultProps = {
+  theme: Theme.DARK,
+  currentValue: '',
+  items: [],
+  onClick: () => { },
+}
+
+export default {
+  title: 'Segments component',
+  decorators: [withKnobs],
+  component: Segments,
+  parameters: {},
+}

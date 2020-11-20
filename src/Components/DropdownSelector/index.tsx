@@ -17,7 +17,7 @@ interface Props {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  initialOption: 'Initial item',
+  initialOption: '',
   items: [],
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },

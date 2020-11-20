@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 import { Form, Modal } from 'react-bootstrap'
 
-import Button from '../Button'
+import Button from '../OpiumButton'
 import Loading from '../Loading'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -9,7 +9,7 @@ import { Theme } from '../../Constants/Types/theme.types'
 
 import './Alert.scss'
 
-type Props = {
+export type Props = {
   theme: Theme
   title?: string
   size?: 'sm' | 'lg' | 'xl'

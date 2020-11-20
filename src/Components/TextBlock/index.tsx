@@ -6,7 +6,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './TextBlock.scss'
 
-interface Props {
+export interface Props {
   theme: Theme
   content?: Array<string>
   styles?: CSSProperties
@@ -14,19 +14,8 @@ interface Props {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  content: [
-    'Initial text \u000A line one',
-    '\x41 \x41 \x41',
-    '\u000A',
-    '',
-    'Initial text line two',
-  ],
-
-  // styles: {
-  //   color: 'black',
-  //   backgroundColor: 'white',
-  //   border: '2px black solid',
-  // }
+  content: [],
+  styles: {},
 }
 
 function createMarkup(content: string) {

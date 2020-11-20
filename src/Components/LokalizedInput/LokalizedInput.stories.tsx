@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 import LokalizedInput from './index'
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
@@ -32,14 +32,14 @@ export const lokalizedInput = () => {
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          text="Light theme"
+          label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(Theme.LIGHT)}
         />
         <Button
           theme={theme}
-          text="Dark theme"
+          label="Dark theme"
           variant='primary'
           onClick={() => setTheme(Theme.DARK)}
         />
@@ -55,4 +55,18 @@ export const lokalizedInput = () => {
   )
 }
 
-export default { title: 'LocalizedInput component', decorators: [withKnobs] }
+LokalizedInput.defaultProps = {
+  theme: Theme.DARK,
+  type: 'text',
+  lokale: 'en',
+  value: '',
+  onClick: () => { },
+  onChange: () => { },
+}
+
+export default {
+  title: 'LocalizedInput component',
+  decorators: [withKnobs],
+  component: LokalizedInput,
+  parameters: {},
+}

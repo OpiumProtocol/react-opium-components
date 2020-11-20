@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 import TextBlock from './index'
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
 export const textBlock = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.DARK)
   const message = text('Text', 'TextBlock')
+
+  const [theme, setTheme] = useState<Theme>(Theme.DARK)
 
   const styles = {
     color: 'darkred',
@@ -35,14 +36,14 @@ export const textBlock = () => {
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          text="Light theme"
+          label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(Theme.LIGHT)}
         />
         <Button
           theme={theme}
-          text="Dark theme"
+          label="Dark theme"
           variant='primary'
           onClick={() => setTheme(Theme.DARK)}
         />
@@ -50,10 +51,21 @@ export const textBlock = () => {
       <TextBlock
         theme={theme}
         content={content}
-        // styles={styles}
+      // styles={styles}
       />
     </div>
   )
 }
 
-export default { title: 'TextBlock component', decorators: [withKnobs] }
+TextBlock.defaultProps = {
+  theme: Theme.DARK,
+  content: [],
+  styles: {},
+}
+
+export default {
+  title: 'TextBlock component',
+  decorators: [withKnobs],
+  component: TextBlock,
+  parameters: {},
+}

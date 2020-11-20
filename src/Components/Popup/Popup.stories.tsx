@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Popup from './index'
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
@@ -32,19 +32,19 @@ export const popup = () => {
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          text="Light theme"
+          label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(Theme.LIGHT)}
         />
         <Button
           theme={theme}
-          text="Dark theme"
+          label="Dark theme"
           variant='primary'
           onClick={() => setTheme(Theme.DARK)}
         />
       </div>
-      <Button theme={theme} text="Show / hide popup" onClick={handleClick} />
+      <Button theme={theme} label="Show / hide popup" onClick={handleClick} />
       <Popup
         theme={theme}
         size='lg'
@@ -63,4 +63,24 @@ export const popup = () => {
   )
 }
 
-export default { title: 'Popup component', decorators: [withKnobs] }
+Popup.defaultProps = {
+  theme: Theme.DARK,
+  size: 'sm',
+  title: '',
+  component: '',
+  hideCross: false,
+  closePopup: () => { },
+  popupIsOpen: false,
+  handleAction: () => { },
+  showActionButton: true,
+  showCancelButton: true,
+  actionButtonTitle: '',
+  cancelButtonTitle: '',
+}
+
+export default {
+  title: 'Popup component',
+  decorators: [withKnobs],
+  component: Popup,
+  parameters: {},
+}
