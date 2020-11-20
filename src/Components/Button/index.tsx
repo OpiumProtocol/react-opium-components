@@ -1,31 +1,37 @@
-import React, { FC } from 'react'
+import React, { FC, CSSProperties } from 'react'
 import { Button } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
+import { Theme } from '../../Constants/Types/theme.types'
 
-import styles from './Button.module.scss'
+import './Button.scss'
 
 interface Props {
+  theme: Theme
   text?: string
   variant?: string
   className?: string
-  style?: { color: string, borderColor: string }
+  style?: CSSProperties
   onClick: () => void
 }
 
 const defaultProps: Props = {
-  text: 'Initial button text',
-  variant: 'primary',
+  theme: Theme.DARK,
   className: '',
+  variant: 'primary',
+  text: 'Initial button text',
   style: { color: '', borderColor: '' },
   onClick: () => { },
 }
 
 const ButtonComponent: FC<Props> = (props: Props) => {
-  const { text, className, ...rest } = generateRenderProps(defaultProps, props)
+  const { text, theme, className, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
-    <Button className={`${styles.btn} ${className}`} {...rest}>
+    <Button
+      className={`color-scheme-${theme} ${className}`}
+      {...rest}
+    >
       {text}
     </Button>
   )

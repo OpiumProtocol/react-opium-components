@@ -1,151 +1,204 @@
 @import "~bootstrap/scss/bootstrap";
 
 .card {
-   @include panel;
-   padding: indent(4);
-   display: flex;
-   flex-direction: column;
-   .card-header {
-      padding: 0 0 indent(4) 0;
-      background: transparent;
-      border: 0;
-   }
-   .card-title {
-      font-weight: bold;
-      font-size: fz(m);
-      color: color(black);
-      text-align: center;
-      margin: 0;
-   }
-   .card-body {
-      padding: 0;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-   }
+  @include panel;
+  padding: indent(4);
+  display: flex;
+  flex-direction: column;
+  .card-header {
+    padding: 0 0 indent(4) 0;
+    background: transparent;
+    border: 0;
+  }
+  .card-title {
+    font-weight: bold;
+    font-size: fz(m);
+    color: color(black);
+    text-align: center;
+    margin: 0;
+  }
+  .card-body {
+    padding: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 form {
-   .form-label {
-      color: color(gray4);
-      display: block;
-      margin-bottom: indent(1);
-   }
-   .custom-checkbox {
-      color: color(gray4);
-      font-size: fz(xs);
-      margin-bottom: indent(3);
-   }
-   .custom-control-input {
-      &:focus {
-         & ~ .custom-control-label:before {
-            box-shadow: none !important;
-         }
+  .form-label {
+    color: color(gray4);
+    display: block;
+    margin-bottom: indent(1);
+  }
+  .custom-checkbox {
+    color: color(gray4);
+    font-size: fz(xs);
+    margin-bottom: indent(3);
+  }
+  .custom-control-input {
+    &:focus {
+      & ~ .custom-control-label:before {
+        box-shadow: none !important;
       }
-   }
-   .custom-control-label {
-      &:before {
-         top: 2px;
-         border-radius: size(defaultRadiusPx) !important;
-         border-color: color(gray11) !important;
-      }
-      &:after {
-         top: 2px;
-      }
-   }
+    }
+  }
+  .custom-control-label {
+    &:before {
+      top: 2px;
+      border-radius: size(defaultRadiusPx) !important;
+      border-color: color(gray11) !important;
+    }
+    &:after {
+      top: 2px;
+    }
+  }
 }
+
+/** LOKALIZEDINPUT */
 .form-control {
-   height: auto;
-   font-size: fz(s);
-   color: color(black3);
-   background: color(gray6);
-   border-radius: size(defaultRadiusPx);
-   padding: indent(1) indent(3);
-   width: 100%;
-   border: 0;
-   margin-bottom: indent(3);
-   box-shadow: none;
-   line-height: 2.4;
-   &:focus {
-      background: color(gray6);
-      border: 0;
-      box-shadow: unset,
-   }
-}
+  height: auto;
+  font-size: fz(s);
+  background: color(gray6);
+  color: color(black3);
+  border: 0;
+  border-radius: size(defaultRadiusPx);
+  padding: indent(1) indent(3);
+  width: 100%;
+  margin-bottom: indent(3);
+  box-shadow: none;
+  line-height: 2.4;
+  &:focus {
+    background: color(gray6);
+    border: 0;
+    box-shadow: unset,
+  }
 
+  &.color-scheme-LIGHT {
+    @include localized-input-component(color(gray6), color(black3), transparent);
+  }
+  &.color-scheme-DARK {
+     @include localized-input-component(color(darkBlue2), color(white), transparent);
+  }
+}
+/** LOKALIZEDINPUT END */
+
+
+/** BUTTON */
 .btn {
-   padding: indent(1.5) indent(3);
-   border: 2px solid currentColor;
-   background-color: transparent;
-   font-size: fz(s);
-   border-radius: size(defaultRadiusPx);
-   cursor: pointer;
-   outline: none !important;
-   letter-spacing: 0.04em;
-   @include btn-variant(color(white), color(black3), transparent);
-   &.btn-primary {
-      @include btn-variant(color(white), color(pureRed), color(pureRed));
-   }
-   &.btn-secondary {
-      @include btn-variant(color(white), color(black3), color(black3));
-   }
-   &.btn-transparent {
-      @include btn-variant(transparent, color(black3), transparent);
-      border: 0;
-      color: color(black3);
-   }
-   &.btn-dark {
-      @include btn-variant(color(white), color(gray11), color(gray11));
-   }
-}
+  padding: indent(1.5) indent(3);
+  border: 2px solid currentColor;
+  background-color: transparent;
+  font-size: fz(s);
+  border-radius: size(defaultRadiusPx);
+  cursor: pointer;
+  outline: none !important;
+  letter-spacing: 0.04em;
+  width: fit-content;
+  
+  &.color-scheme-LIGHT {
+    @include btn-variant(color(white), color(black3), transparent);
+	}
+	&.color-scheme-DARK {
+    @include btn-variant(color(darkBlue2), color(white), color(darkBlue3));
+  }
 
+  &.btn-primary {
+   &.color-scheme-LIGHT {
+      @include btn-variant(color(gray6), color(pureRed), color(pureRed));
+	 }
+	 &.color-scheme-DARK {
+      @include btn-variant(color(darkBlue2), color(gray4), color(darkBlue3));
+   }
+  }
+
+  &.btn-secondary {
+    &.color-scheme-LIGHT {
+       @include btn-variant(color(whiteOpaque), color(gray4), color(gray4));
+    }
+    &.color-scheme-DARK {
+       @include btn-variant(color(gray4), color(whiteOpaque), color(gray4));
+    }
+  }
+
+  &.btn-transparent {
+    @include btn-variant(transparent, color(black3), transparent);
+    border: 0;
+    color: color(black3);
+  }
+  &.btn-dark {
+    @include btn-variant(color(white), color(gray11), color(gray11));
+  }
+}
+/** BUTTON END */
+
+
+/** TABS */
 .nav-tabs {
-   padding: 0 indent(2);
-   border: 0;
-   position: relative;
-   top: -1px;
-   .nav-item {
+    padding: 0 indent(2);
+    border: 0;
+    position: relative;
+    top: -1px;
+
+    &.color-scheme-LIGHT .nav-item{
+      @include tabs-component(color(transparent), color(black3), transparent);
+    }
+    &.color-scheme-DARK .nav-item{
+      @include tabs-component(color(darkBlue2), color(white), color(darkBlue3));
+    }
+
+    .nav-item {
       outline: none;
       font-weight: bold;
       font-size: fz(m);
       color: color(gray11);
+      border: 0;
+      background: transparent;
       line-height: 1.5;
       display: inline-block;
       position: relative;
       text-decoration: none;
-      background: transparent;
-      border: 0;
       padding: 0 .2em .4em .2em;
       &:not(:last-child) {
-         margin-right: 2em;
+        margin-right: 2em;
       }
       &.active {
-         box-shadow: inset 0px -2px 0px 0px color(pureRed);
-         color: color(black3);
-         cursor: default;
-         background: transparent;
+        box-shadow: inset 0px -2px 0px 0px color(pureRed);
+        cursor: default;
+        color: color(black3);
+        background: transparent;
       }
    }
 }
 .tab-content {
-   @include panel;
-   .tab-pane {
-      animation: .3s linear 0s fade;
-      display: none !important;
-      &.active {
-         display: block !important;
-      }
-      @keyframes fade {
-         from {
-            opacity: 0;
-         }
-         to {
-            opacity: 1;
-         }
-      }
-   }
-}
+  @include panel;
+  .tab-pane {
+    animation: .3s linear 0s fade;
+    display: none !important;
+    &.active {
+      display: block !important;
 
+      &.color-scheme-LIGHT {
+        @include tabs-component(color(gray5), color(black3), transparent);
+      }
+      &.color-scheme-DARK {
+        @include tabs-component(color(darkBlue2), color(white), color(darkBlue3));
+      }
+    }
+
+    @keyframes fade {
+       from {
+          opacity: 0;
+       }
+       to {
+          opacity: 1;
+       }
+    }
+  }
+}
+/** TABS END */
+
+/** ALERT+POPUP */
 .modal {
    display: flex !important;
    justify-content: center;
@@ -180,6 +233,13 @@ form {
       padding: indent(2) 0;
       position: relative;
       max-height: calc(100vh - 50px);
+
+      &.color-scheme-LIGHT {
+         @include popup-alert-component(color(gray5), color(black3), transparent);
+      }
+      &.color-scheme-DARK {
+         @include popup-alert-component(color(darkBlue2), color(white), color(darkBlue3));
+      }
    }
    .modal-header {
       border: 0;
@@ -243,3 +303,126 @@ form {
       }
    }
 }
+/** ALERT+POPUP END */
+
+
+/** LOADING */
+.loading {
+   &.color-scheme-LIGHT {
+      @include loader-component(color(pureRed));
+   }
+   &.color-scheme-DARK {
+      @include loader-component(color(gray4));
+   }
+}
+/** LOADING END */
+
+
+/** DROPDOWN */
+.dropdown {
+  width: fit-content;
+}
+
+.dropdown-toggle {
+  padding: .5rem 1rem;
+  // border: 2px solid white;
+  // color: color(gray4);
+  // background: transparent;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 20px;
+  &:active,
+  &:focus,
+  &:hover {
+    // color: color(black3) !important;
+    // background: transparent !important;
+    box-shadow: none !important;
+  }
+  &:after {
+    color: color(pureRed);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: - .3em;
+    width: 100%;
+    height: calc(100% + .6em);
+    // background: color(gray6);
+    z-index: -1;
+    border: size(defaultRadiusPx);
+  }
+}
+
+.dropdown-menu {
+  left: -.6em !important;
+  @include panel;
+
+  &.color-scheme-LIGHT {
+    @include dropdown-component(color(gray6), color(black3), transparent);
+  }
+  &.color-scheme-DARK {
+     @include dropdown-component(color(darkBlue2), color(white), color(darkBlue3));
+  }
+}
+
+.dropdown-item {
+  font-size: fz(xs);
+  padding-top: indent(1);
+  padding-bottom: indent(1);
+  line-height: 1.5;
+  text-transform: none;
+  text-decoration: none;
+  color: color(black3);
+  &:active,
+  &:focus {
+    color: color(black3);
+    background: transparent;
+  }
+  &:hover {
+    color: color(black3);
+    background: color(bodyColor);
+  }
+
+  &.color-scheme-LIGHT {
+    @include dropdown-component(color(gray6), color(black3), transparent);
+  }
+  &.color-scheme-DARK {
+     @include dropdown-component(color(darkBlue2), color(white), color(darkBlue3));
+  }
+}
+/** DROPDOWN END*/
+
+/** TABLE */
+.table-head {
+  &.color-scheme-LIGHT {
+    @include table-component(color(gray6), color(black3), transparent);
+  }
+  &.color-scheme-DARK {
+     @include table-component(color(darkBlue2), color(white), color(darkBlue3));
+  }
+}
+
+.table-row {
+  &.color-scheme-LIGHT {
+    @include table-component(color(gray6), color(black3), transparent);
+  }
+  &.color-scheme-DARK {
+     @include table-component(color(darkBlue2), color(white), color(darkBlue3));
+  }
+
+  &:hover {
+    color: color(black3);
+  }
+}
+/** TABLE END */

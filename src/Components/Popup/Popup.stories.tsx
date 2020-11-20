@@ -1,17 +1,30 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import Alert from './index'
+import Popup from './index'
 import Button from '../Button'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
-export const alert = () => {
+export const popup = () => {
   const [theme, setTheme] = useState<Theme>(Theme.DARK)
   const [popupIsOpen, setPopupIsOpen] = useState(false)
-  const [checkBoxChecked, setCheckBoxChecked] = useState(false)
-  
-  const message = text('Text', 'Alert')
+
+  const message = text('Text', 'Popup')
+
+  const handleClick = () => {
+    setPopupIsOpen(!popupIsOpen)
+  }
+
+  const renderJSX = () => {
+    return (
+      <div>
+        <h1>Heading 1</h1>
+        <p style={{ color: 'red' }}>Red Coloured Text</p>
+        <p>Some text...</p>
+      </div >
+    )
+  }
 
   return (
     <>
@@ -31,28 +44,23 @@ export const alert = () => {
           onClick={() => setTheme(Theme.DARK)}
         />
       </div>
-      <Button theme={theme} text="Show / hide alert" onClick={() => setPopupIsOpen(!popupIsOpen)} />
-      <Alert
+      <Button theme={theme} text="Show / hide popup" onClick={handleClick} />
+      <Popup
         theme={theme}
-        title='Alert title'
         size='lg'
-        description='Description. Lorem lorem'
-        attention={true}
-        loading={false}
+        title='Title'
+        component={renderJSX()}
+        hideCross={false}
         closePopup={() => setPopupIsOpen(false)}
         popupIsOpen={popupIsOpen}
-        showActionButton={true}
         handleAction={() => { }}
+        showActionButton={false}
+        showCancelButton={true}
         actionButtonTitle='Action'
         cancelButtonTitle='Cancel'
-        showCheckBox={true}
-        handleCheckBoxChange={() => setCheckBoxChecked(!checkBoxChecked)}
-        checkBoxChecked={checkBoxChecked}
-        checkBoxLabel='Checkbox'
-        hideCross={false}
       />
     </>
   )
 }
 
-export default { title: 'Alert component', decorators: [withKnobs] }
+export default { title: 'Popup component', decorators: [withKnobs] }

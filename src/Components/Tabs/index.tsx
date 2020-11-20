@@ -1,12 +1,14 @@
 import React, { FC, useState } from 'react'
 import { Tab, Tabs } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
+import { Theme } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
 import './Tabs.scss'
 
 interface Props {
+  theme: Theme
   items?: {
     title: string,
     eventKey: string,
@@ -15,6 +17,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
+  theme: Theme.DARK,
   items: [
     {
       title: 'Tab1',
@@ -30,16 +33,23 @@ const defaultProps: Props = {
 }
 
 const TabsComponent: FC<Props> = (props: Props) => {
-  const [ activeTabKey, setActiveTabKey ] = useState<string>('tab1')
+  const [activeTabKey, setActiveTabKey] = useState<string>('tab1')
 
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { items } = renderProps
+  const { items, theme } = renderProps
 
   const tabItems = items.map((item) => {
     const { title, eventKey, content } = item
     return (
-      < Tab key={uuidv4()} eventKey={eventKey} title={title}>{content}</Tab>
+      < Tab
+        key={uuidv4()}
+        title={title}
+        eventKey={eventKey}
+        className={`color-scheme-${theme}`}
+      >
+        {content}
+      </Tab>
     )
   })
 
@@ -48,6 +58,7 @@ const TabsComponent: FC<Props> = (props: Props) => {
       <Tabs
         id="opium-tabs-component"
         activeKey={activeTabKey}
+        className={`color-scheme-${theme}`}
         onSelect={(key: string) => setActiveTabKey(key)}
       >
         {tabItems}

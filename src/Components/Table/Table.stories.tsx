@@ -1,11 +1,16 @@
-import React from 'react'
-import Table from './index'
+import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-
 import { withKnobs, text } from '@storybook/addon-knobs'
 
+import Table from './index'
+import Button from '../Button'
+
+import { Theme } from '../../Constants/Types/theme.types'
+
 export const table = () => {
-  text('Text', 'Table!')
+  const message = text('Text', 'Table')
+
+  const [theme, setTheme] = useState<Theme>(Theme.DARK)
 
   const tableHead = [
     <span key={uuidv4()}>Head1</span>,
@@ -36,12 +41,31 @@ export const table = () => {
   ]
 
   return (
-    <Table
-      thead={tableHead}
-      tbody={tableBody}
-      className={''}
-      bodyScrollHeight={260}
-    />
+    <>
+      <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
+      <div style={{ display: 'flex', marginBottom: '5rem' }}>
+        <Button
+          theme={theme}
+          text="Light theme"
+          variant='secondary'
+          style={{ marginRight: '1rem' }}
+          onClick={() => setTheme(Theme.LIGHT)}
+        />
+        <Button
+          theme={theme}
+          text="Dark theme"
+          variant='primary'
+          onClick={() => setTheme(Theme.DARK)}
+        />
+      </div>
+      <Table
+        theme={theme}
+        thead={tableHead}
+        tbody={tableBody}
+        className={''}
+        bodyScrollHeight={260}
+      />
+    </>
   )
 }
 

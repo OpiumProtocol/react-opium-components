@@ -1,9 +1,11 @@
 import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Form } from 'react-bootstrap'
 
+import { Theme } from '../../Constants/Types/theme.types'
 import { generateRenderProps } from '../../Utils/helpers'
 
 interface Props {
+  theme: Theme
   type?: string
   lokale?: string
   value?: string | number
@@ -12,6 +14,7 @@ interface Props {
 }
 
 const defaultProps: Props = {
+  theme: Theme.DARK,
   type: 'text',
   lokale: 'en',
   value: 'Initial input text',
@@ -25,10 +28,10 @@ const localize = (number: number | string, locale: string) => {
 }
 
 const LokalizedInput: FC<Props> = (props: Props) => {
-  const [ isEditing, setIsEditing ] = useState<boolean>(false)
+  const [isEditing, setIsEditing] = useState<boolean>(false)
 
   const renderProps = generateRenderProps(defaultProps, props)
-  const { type, value, lokale, onChange } = renderProps
+  const { type, theme, value, lokale, onChange } = renderProps
 
   return (
     <>
@@ -38,6 +41,7 @@ const LokalizedInput: FC<Props> = (props: Props) => {
             case 'number':
               return isEditing
                 ? <Form.Control
+                  className={`color-scheme-${theme}`}
                   type="number"
                   value={value === 0 ? '' : value}
                   onChange={(e) => onChange(+e.target.value)}
@@ -45,6 +49,7 @@ const LokalizedInput: FC<Props> = (props: Props) => {
                   onSelect={(e: BaseSyntheticEvent) => e.target.select()}
                 />
                 : <Form.Control
+                  className={`color-scheme-${theme}`}
                   type="text"
                   value={localize(value, lokale)}
                   onChange={(e) => onChange(+e.target.value)}
@@ -55,6 +60,7 @@ const LokalizedInput: FC<Props> = (props: Props) => {
             default:
               return (
                 <Form.Control
+                  className={`color-scheme-${theme}`}
                   type={type}
                   value={value === 0 ? '' : value}
                   onChange={(e) => onChange(e.target.value)}

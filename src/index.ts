@@ -1,5 +1,6 @@
 import Tabs from './Components/Tabs'
 import Alert from './Components/Alert'
+import Popup from './Components/Popup'
 import Table from './Components/Table'
 import Button from './Components/Button'
 import Loading from './Components/Loading'
@@ -11,6 +12,7 @@ import DropdownSelector from './Components/DropdownSelector'
 export {
   Tabs,
   Alert,
+  Popup,
   Table,
   Button,
   Loading,

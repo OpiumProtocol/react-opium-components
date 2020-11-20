@@ -5,10 +5,12 @@ import Button from '../Button'
 import Loading from '../Loading'
 
 import { generateRenderProps } from '../../Utils/helpers'
+import { Theme } from '../../Constants/Types/theme.types'
 
 import './Alert.scss'
 
 type Props = {
+  theme: Theme
   title?: string
   size?: 'sm' | 'lg' | 'xl'
   description?: string | ReactNode
@@ -28,6 +30,7 @@ type Props = {
 }
 
 const defaultProps: Props = {
+  theme: Theme.DARK,
   title: '',
   size: 'sm',
   description: '',
@@ -50,6 +53,7 @@ const Alert: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
+    theme,
     title,
     size,
     description,
@@ -71,12 +75,13 @@ const Alert: FC<Props> = (props: Props) => {
   const renderAttention = () => {
     return (
       <div className="attention-icon-wrap" >
-        {loading ?
-          <Loading type='spinningBubbles' height='6rem' />
-          :
-          <svg className="attention-icon">
-            <use xlinkHref="./sprite.svg#attention"></use>
-          </svg>
+        {
+          loading ?
+            <Loading theme={theme} type='spinningBubbles' height='6rem' />
+            :
+            <svg className="attention-icon">
+              <use xlinkHref="./sprite.svg#attention"></use>
+            </svg>
         }
       </div>
     )
@@ -88,6 +93,7 @@ const Alert: FC<Props> = (props: Props) => {
       show={popupIsOpen}
       onHide={closePopup}
       className="attention-popup"
+      contentClassName={`color-scheme-${theme}`}
     >
       {!hideCross && <button className="close-button" onClick={closePopup} />}
       <Modal.Body>
@@ -104,12 +110,14 @@ const Alert: FC<Props> = (props: Props) => {
           {
             showActionButton &&
             <Button
+              theme={theme}
               variant="primary"
               onClick={handleAction}
               text={actionButtonTitle}
             />
           }
           <Button
+            theme={theme}
             variant="secondary"
             onClick={closePopup}
             text={cancelButtonTitle}
