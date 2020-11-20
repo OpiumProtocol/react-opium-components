@@ -125,9 +125,9 @@ $font-sizes: (
 }
 
 @mixin dropdown-component($bg, $color, $border-color) {
-	background-color: $bg !important;
-	color: $color !important;
-	border-color: $border-color !important;
+	background-color: $bg;
+	color: $color;
+	border-color: $border-color;
 	border-style: solid;
 }
 
@@ -146,7 +146,7 @@ $font-sizes: (
 @mixin tabs-component($bg, $color, $border-color) {
 	background-color: $bg;
 	color: $color;
-	border: 1px solid $border-color;
+	border: 0px solid $border-color;
 }
 
 @mixin localized-input-component($bg, $color, $border-color) {

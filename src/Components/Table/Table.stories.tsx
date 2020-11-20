@@ -41,7 +41,7 @@ export const table = () => {
   ]
 
   return (
-    <>
+    <div style={{ padding: '0 3rem' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
@@ -65,7 +65,7 @@ export const table = () => {
         className={''}
         bodyScrollHeight={260}
       />
-    </>
+    </div>
   )
 }
 

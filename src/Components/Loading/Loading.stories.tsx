@@ -11,7 +11,7 @@ export const loading = () => {
   const message = text('Text', 'Loading')
 
   return (
-    <>
+    <div style={{ padding: '0 3rem' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
@@ -29,7 +29,7 @@ export const loading = () => {
         />
       </div>
       <Loading theme={theme} />
-    </>
+    </div>
   )
 }
 

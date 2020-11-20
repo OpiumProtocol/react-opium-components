@@ -9,7 +9,7 @@ export const button = () => {
   const message = text('Text', 'Button')
 
   return (
-    <>
+    <div style={{ padding: '0 3rem' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
@@ -27,7 +27,7 @@ export const button = () => {
         />
       </div>
       <Button theme={theme} text={message} onClick={() => { }} />
-    </>
+    </div>
   )
 }
 

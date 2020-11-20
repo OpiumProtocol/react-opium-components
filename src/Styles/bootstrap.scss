@@ -135,40 +135,47 @@ form {
 
 /** TABS */
 .nav-tabs {
-    padding: 0 indent(2);
-    border: 0;
-    position: relative;
-    top: -1px;
+  padding: 0 indent(2);
+  border: 0;
+  position: relative;
+  top: -1px;
 
-    &.color-scheme-LIGHT .nav-item{
-      @include tabs-component(color(transparent), color(black3), transparent);
-    }
-    &.color-scheme-DARK .nav-item{
-      @include tabs-component(color(darkBlue2), color(white), color(darkBlue3));
-    }
-
-    .nav-item {
-      outline: none;
-      font-weight: bold;
-      font-size: fz(m);
-      color: color(gray11);
-      border: 0;
+  &.color-scheme-LIGHT .nav-item {
+    @include tabs-component(color(transparent), color(gray4), transparent);
+    &.active {
+      box-shadow: inset 0px -2px 0px 0px color(pureRed);
+      cursor: default;
+      color: color(black3);
       background: transparent;
-      line-height: 1.5;
-      display: inline-block;
-      position: relative;
-      text-decoration: none;
-      padding: 0 .2em .4em .2em;
-      &:not(:last-child) {
-        margin-right: 2em;
-      }
-      &.active {
-        box-shadow: inset 0px -2px 0px 0px color(pureRed);
-        cursor: default;
-        color: color(black3);
-        background: transparent;
-      }
-   }
+    }
+  }
+
+  &.color-scheme-DARK .nav-item {
+    @include tabs-component(color(transparent), color(gray3), color(transparent));
+    &.active {
+      box-shadow: inset 0px -2px 0px 0px color(pureRed);
+      cursor: default;
+      color: color(gray4);
+      background: transparent;
+    }
+  }
+
+  .nav-item {
+    outline: none;
+    font-weight: bold;
+    font-size: fz(m);
+    color: color(gray11);
+    border: 0;
+    background: transparent;
+    line-height: 1.5;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    padding: 0 .2em .4em .2em;
+    &:not(:last-child) {
+      margin-right: 2em;
+    }
+  }
 }
 .tab-content {
   @include panel;
@@ -324,7 +331,10 @@ form {
 }
 
 .dropdown-toggle {
-  padding: .5rem 1rem;
+  padding-right: indent(3);
+  padding-left: indent(3);
+  padding-top: indent(1);
+  padding-bottom: indent(1);
   // border: 2px solid white;
   // color: color(gray4);
   // background: transparent;
@@ -336,12 +346,11 @@ form {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  padding-right: 20px;
   &:active,
   &:focus,
   &:hover {
-    // color: color(black3) !important;
-    // background: transparent !important;
+    color: color(black3) !important;
+    background: transparent !important;
     box-shadow: none !important;
   }
   &:after {
@@ -390,8 +399,12 @@ form {
     background: transparent;
   }
   &:hover {
-    color: color(black3);
-    background: color(bodyColor);
+    &.color-scheme-LIGHT {
+      @include dropdown-component(color(gray5), color(black3), transparent);
+    }
+    &.color-scheme-DARK {
+       @include dropdown-component(color(darkBlue3), color(white), transparent);
+    }
   }
 
   &.color-scheme-LIGHT {

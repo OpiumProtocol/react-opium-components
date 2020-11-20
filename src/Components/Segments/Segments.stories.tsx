@@ -21,7 +21,7 @@ export const segments = () => {
   ]
 
   return (
-    <>
+    <div style={{ padding: '0 3rem' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
@@ -44,7 +44,7 @@ export const segments = () => {
         currentValue={currentValue}
         onClick={(val: string) => setCurrentValue(val)}
       />
-    </>
+    </div>
   )
 }
 
