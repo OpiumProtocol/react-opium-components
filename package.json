@@ -1,7 +1,10 @@
 {
-  "name": "react-opium-components",
+  "name": "@opiumteam/react-opium-components",
   "version": "0.1.0",
+  "description": "Opium ReactJS components",
   "private": true,
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "dependencies": {
     "@storybook/addon-docs": "^6.1.1",
     "@storybook/addon-essentials": "^6.1.1",
@@ -33,6 +36,19 @@
     "eject": "react-scripts eject",
     "lint": "eslint --config ./.eslintrc.js --ext js,jsx,ts,tsx src"
   },
+  "license": "ISC",
+  "author": "Opium Team <hi@opium.team>",
+  "contributors": [
+    {
+      "name": "Ali Nuraldin",
+      "email": "ali@opium.team"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpiumProtocol/react-opium-components.git"
+  },
+  "files": ["/lib"],
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import LokalizedInput from './index'
+import LocalizedInput from './index'
 import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
-import './LokalizedInput.scss'
+import './LocalizedInput.scss'
 
-export const lokalizedInput = () => {
-  const message = text('Text', 'LokalizedInput')
+export const localizedInput = () => {
+  const message = text('Text', 'LocalizedInput')
 
   const [theme, setTheme] = useState<Theme>(Theme.DARK)
   const [string, setString] = useState<string>(message)
@@ -44,7 +44,7 @@ export const lokalizedInput = () => {
           onClick={() => setTheme(Theme.DARK)}
         />
       </div>
-      <LokalizedInput
+      <LocalizedInput
         theme={theme}
         type={type}
         value={setValue()}
@@ -55,10 +55,10 @@ export const lokalizedInput = () => {
   )
 }
 
-LokalizedInput.defaultProps = {
+LocalizedInput.defaultProps = {
   theme: Theme.DARK,
   type: 'text',
-  lokale: 'en',
+  locale: 'en',
   value: '',
   onClick: () => { },
   onChange: () => { },
@@ -67,6 +67,6 @@ LokalizedInput.defaultProps = {
 export default {
   title: 'LocalizedInput component',
   decorators: [withKnobs],
-  component: LokalizedInput,
+  component: LocalizedInput,
   parameters: {},
 }

@@ -6,7 +6,7 @@ import Loading from './Components/Loading'
 import Segments from './Components/Segments'
 import Button from './Components/OpiumButton'
 import TextBlock from './Components/TextBlock'
-import LokalizedInput from './Components/LokalizedInput'
+import LocalizedInput from './Components/LocalizedInput'
 import DropdownSelector from './Components/DropdownSelector'
 
 export {
@@ -18,6 +18,6 @@ export {
   Segments,
   Button,
   TextBlock,
-  LokalizedInput,
+  LocalizedInput,
   DropdownSelector,
 }
