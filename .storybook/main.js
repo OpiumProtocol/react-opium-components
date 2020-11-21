@@ -1,8 +1,29 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../src/Components/**/*.stories.tsx'],
-  addons: ['@storybook/addon-knobs/register'],
+  stories: [
+    '../src/Components/**/*.stories.tsx',
+    '../src/**/*.stories.@(tsx|js|mdx)',
+  ],
+  addons: [
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        // actions, backgrounds, controls, docs, viewport, toolbars
+        controls: false,
+        actions: false,
+      }
+    },
+    '@storybook/addon-knobs/register',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null,
+      },
+    },
+  ],
   typescript: {
     check: false,
     checkOptions: {},

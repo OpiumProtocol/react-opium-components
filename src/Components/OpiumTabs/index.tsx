@@ -1,13 +1,14 @@
 import React, { FC, useState } from 'react'
-import { Tab, Tabs } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
+import { Tab, Tabs } from 'react-bootstrap'
+
 import { Theme } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
-import './Tabs.scss'
+import './OpiumTabs.scss'
 
-interface Props {
+export type Props = {
   theme: Theme
   items?: {
     title: string,
@@ -18,21 +19,10 @@ interface Props {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  items: [
-    {
-      title: 'Tab1',
-      eventKey: 'tab1',
-      content: <p key={uuidv4()}>Tab1 content</p>
-    },
-    {
-      title: 'Tab2',
-      eventKey: 'tab2',
-      content: <p key={uuidv4()}>Tab2 content</p>
-    },
-  ]
+  items: [],
 }
 
-const TabsComponent: FC<Props> = (props: Props) => {
+const OpiumTabs: FC<Props> = (props: Props) => {
   const [activeTabKey, setActiveTabKey] = useState<string>('tab1')
 
   const renderProps = generateRenderProps(defaultProps, props)
@@ -67,4 +57,4 @@ const TabsComponent: FC<Props> = (props: Props) => {
   )
 }
 
-export default TabsComponent
+export default OpiumTabs

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { BaseSyntheticEvent, useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 import DropdownSelector from './index'
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
@@ -18,19 +18,19 @@ export const dropdownSelector = () => {
   ]
 
   return (
-    <>
+    <div style={{ padding: '0 3rem' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          text="Light theme"
+          label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(Theme.LIGHT)}
         />
         <Button
           theme={theme}
-          text="Dark theme"
+          label="Dark theme"
           variant='primary'
           onClick={() => setTheme(Theme.DARK)}
         />
@@ -42,8 +42,21 @@ export const dropdownSelector = () => {
         onClick={() => { }}
         onSelect={() => { }}
       />
-    </>
+    </div>
   )
 }
 
-export default { title: 'DropdownSelector component', decorators: [withKnobs] }
+DropdownSelector.defaultProps = {
+  theme: Theme.DARK,
+  initialOption: '',
+  items: [],
+  onClick: () => { },
+  onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
+}
+
+export default {
+  title: 'DropdownSelector component',
+  decorators: [withKnobs],
+  component: DropdownSelector,
+  parameters: {},
+}

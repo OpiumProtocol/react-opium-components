@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Table from './index'
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
@@ -41,19 +41,19 @@ export const table = () => {
   ]
 
   return (
-    <>
+    <div style={{ padding: '0 3rem' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          text="Light theme"
+          label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(Theme.LIGHT)}
         />
         <Button
           theme={theme}
-          text="Dark theme"
+          label="Dark theme"
           variant='primary'
           onClick={() => setTheme(Theme.DARK)}
         />
@@ -65,8 +65,21 @@ export const table = () => {
         className={''}
         bodyScrollHeight={260}
       />
-    </>
+    </div>
   )
 }
 
-export default { title: 'Table component', decorators: [withKnobs] }
+Table.defaultProps = {
+  theme: Theme.DARK,
+  thead: [],
+  tbody: [[]],
+  className: '',
+  bodyScrollHeight: '200',
+}
+
+export default {
+  title: 'Table component',
+  decorators: [withKnobs],
+  component: Table,
+  parameters: {},
+}

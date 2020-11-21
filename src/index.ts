@@ -1,22 +1,22 @@
-import Tabs from './Components/Tabs'
 import Alert from './Components/Alert'
 import Popup from './Components/Popup'
 import Table from './Components/Table'
-import Button from './Components/Button'
+import Tabs from './Components/OpiumTabs'
 import Loading from './Components/Loading'
 import Segments from './Components/Segments'
+import Button from './Components/OpiumButton'
 import TextBlock from './Components/TextBlock'
 import LokalizedInput from './Components/LokalizedInput'
 import DropdownSelector from './Components/DropdownSelector'
 
 export {
-  Tabs,
   Alert,
   Popup,
   Table,
-  Button,
+  Tabs,
   Loading,
   Segments,
+  Button,
   TextBlock,
   LokalizedInput,
   DropdownSelector,

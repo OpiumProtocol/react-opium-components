@@ -1,14 +1,14 @@
 import React, { FC, ReactNode } from 'react'
 import { Modal } from 'react-bootstrap'
 
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { Theme } from '../../Constants/Types/theme.types'
 
 import './Popup.scss'
 
-type Props = {
+export type Props = {
   theme: Theme
   size?: 'sm' | 'lg' | 'xl'
   title?: string
@@ -77,7 +77,7 @@ const Popup: FC<Props> = (props: Props) => {
               theme={theme}
               variant="primary"
               onClick={handleAction}
-              text={actionButtonTitle}
+              label={actionButtonTitle}
             />
           }
           {
@@ -86,7 +86,7 @@ const Popup: FC<Props> = (props: Props) => {
               theme={theme}
               variant="secondary"
               onClick={closePopup}
-              text={cancelButtonTitle}
+              label={cancelButtonTitle}
             />
           }
         </div>

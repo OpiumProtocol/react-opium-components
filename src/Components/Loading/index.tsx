@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Loader, { LoadingType } from 'react-loading'
 import { Theme } from '../../Constants/Types/theme.types'
 
@@ -10,11 +10,12 @@ type Props = {
   theme: Theme
   height?: string
   width?: string,
+  color?: string,
   type?: LoadingType
   className?: string
 }
 
-const loadingProps = {
+const defaultProps = {
   theme: Theme.DARK,
   className: 'loading',
   color: '',
@@ -23,8 +24,8 @@ const loadingProps = {
   type: 'bubbles' as LoadingType,
 }
 
-const Loading: React.FC<Props> = (props: Props) => {
-  const { className, theme, ...rest } = generateRenderProps(loadingProps, props)
+const Loading: FC<Props> = (props: Props) => {
+  const { className, theme, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
     <Loader

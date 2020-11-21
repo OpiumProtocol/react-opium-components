@@ -1,27 +1,24 @@
 import React, { FC } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import Button from '../Button'
+import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { Theme } from '../../Constants/Types/theme.types'
 
 import styles from './Segments.module.scss'
 
-interface Props {
+export interface Props {
   theme: Theme
   currentValue?: string
-  items?: { text: string, value: string }[]
+  items?: { label: string, value: string }[]
   onClick: (val: string) => void
 }
 
 const defaultProps: Props = {
   theme: Theme.DARK,
   currentValue: '',
-  items: [
-    { text: 'First', value: '1' },
-    { text: 'Second', value: '2' },
-  ],
+  items: [],
   onClick: () => { },
 }
 
@@ -42,7 +39,7 @@ const Segments: FC<Props> = (props: Props) => {
           <Button
             theme={theme}
             key={uuidv4()}
-            text={el.text}
+            label={el.label}
             className={styles.segmentsItem}
             onClick={() => onClick(el.value)}
             style={{ color: renderColor(el.value), borderColor: renderColor(el.value) }}

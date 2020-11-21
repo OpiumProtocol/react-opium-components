@@ -17,7 +17,7 @@ interface Props {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  initialOption: 'Initial item',
+  initialOption: '',
   items: [],
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
@@ -29,7 +29,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
 
   return (
     <Dropdown className={`color-scheme-${theme}`}>
-      <Dropdown.Toggle id="dropdown-selector-component" className={`color-scheme-${theme}`}>
+      <Dropdown.Toggle id="dropdown-selector-toggle" className={`color-scheme-${theme}`}>
         {'Dropdown Title'}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>

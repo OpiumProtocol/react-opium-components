@@ -17,7 +17,7 @@ const defaultProps: Props = {
   theme: Theme.DARK,
   type: 'text',
   lokale: 'en',
-  value: 'Initial input text',
+  value: '',
   onClick: () => { },
   onChange: () => { },
 }

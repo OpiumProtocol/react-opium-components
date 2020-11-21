@@ -7,7 +7,7 @@ import { Theme } from '../../Constants/Types/theme.types'
 
 import './Table.scss'
 
-interface Props {
+export interface Props {
   theme: Theme
   thead: Array<JSX.Element>
   tbody: Array<Array<JSX.Element>>
@@ -17,12 +17,8 @@ interface Props {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  thead: [<span key={uuidv4()}>Head</span>],
-  tbody: [
-    [<span key={uuidv4()}>Cell 1</span>],
-    [<span key={uuidv4()}>Cell 2</span>],
-    [<span key={uuidv4()}>Cell 3</span>],
-  ],
+  thead: [],
+  tbody: [],
   className: '',
   bodyScrollHeight: '200',
 }

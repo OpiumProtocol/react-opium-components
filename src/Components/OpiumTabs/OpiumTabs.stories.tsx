@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import Tabs from './index'
-import Button from '../Button'
+import OpiumTabs from './index'
+import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
 
-export const tabs = () => {
-  const message = text('Text', 'Tabs')
+export const opiumTabs = () => {
+  const message = text('Text', 'OpiumTabs')
 
   const [theme, setTheme] = useState<Theme>(Theme.DARK)
 
@@ -36,26 +36,36 @@ export const tabs = () => {
   ]
 
   return (
-    <>
+    <div style={{ padding: '0 3rem' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          text="Light theme"
+          label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(Theme.LIGHT)}
         />
         <Button
           theme={theme}
-          text="Dark theme"
+          label="Dark theme"
           variant='primary'
           onClick={() => setTheme(Theme.DARK)}
         />
       </div>
-      <Tabs theme={theme} items={items} />
-    </>
+      <OpiumTabs theme={theme} items={items} />
+    </div>
   )
 }
 
-export default { title: 'Tabs component', decorators: [withKnobs] }
+OpiumTabs.defaultProps = {
+  theme: Theme.DARK,
+  items: [],
+}
+
+export default {
+  title: 'OpiumTabs component',
+  decorators: [withKnobs],
+  component: OpiumTabs,
+  // parameters: {},
+}
