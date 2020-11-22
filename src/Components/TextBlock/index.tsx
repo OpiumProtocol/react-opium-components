@@ -29,7 +29,7 @@ const TextBlock: FC<Props> = (props: Props) => {
   return (
     <div className={`text-block color-scheme-${theme}`} style={styles}>
       {
-        content.map((contentLine) => (
+        content.map((contentLine: string) => (
           <div key={uuidv4()} dangerouslySetInnerHTML={createMarkup(contentLine)} />
         ))
       }

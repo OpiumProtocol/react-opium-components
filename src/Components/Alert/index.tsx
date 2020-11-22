@@ -113,14 +113,14 @@ const Alert: FC<Props> = (props: Props) => {
               theme={theme}
               variant="primary"
               onClick={handleAction}
-              text={actionButtonTitle}
+              label={actionButtonTitle}
             />
           }
           <Button
             theme={theme}
             variant="secondary"
             onClick={closePopup}
-            text={cancelButtonTitle}
+            label={cancelButtonTitle}
           />
         </div>
       </Modal.Footer>

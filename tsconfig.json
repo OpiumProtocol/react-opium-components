@@ -17,10 +17,16 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
-    "experimentalDecorators": true
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "rootDir": "src",
+    "outDir": "dist",
   },
-  "include": ["../src"],
+  "include": [
+    "./src"
+  ],
   "exclude": []
 }

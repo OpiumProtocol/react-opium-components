@@ -18,7 +18,7 @@ export interface Props {
   /** Defines the button styles */
   style?: CSSProperties
   /** Defines the button action */
-  onClick: () => void
+  onClick: Function
 }
 
 export const defaultProps: Props = {
@@ -27,7 +27,7 @@ export const defaultProps: Props = {
   variant: 'primary',
   label: '',
   style: { },
-  onClick: () => { },
+  onClick: () => {},
 }
 
 const OpiumButton: FC<Props> = (props: Props) => {
