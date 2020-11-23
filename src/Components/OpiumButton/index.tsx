@@ -27,7 +27,7 @@ export const defaultProps: Props = {
   variant: 'primary',
   label: '',
   style: { },
-  onClick: () => { },
+  onClick: () => {},
 }
 
 const OpiumButton: FC<Props> = (props: Props) => {

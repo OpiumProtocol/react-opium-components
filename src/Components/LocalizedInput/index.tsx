@@ -24,7 +24,7 @@ interface Props {
 const defaultProps: Props = {
   theme: Theme.DARK,
   type: 'text',
-  lokale: 'en',
+  locale: 'en',
   value: '',
   onClick: () => { },
   onChange: () => { },
@@ -35,11 +35,11 @@ const localize = (number: number | string, locale: string) => {
   return formatter.format(+number)
 }
 
-const LokalizedInput: FC<Props> = (props: Props) => {
+const LocalizedInput: FC<Props> = (props: Props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false)
 
   const renderProps = generateRenderProps(defaultProps, props)
-  const { type, theme, value, lokale, onChange } = renderProps
+  const { type, theme, value, locale, onChange } = renderProps
 
   return (
     <>
@@ -59,7 +59,7 @@ const LokalizedInput: FC<Props> = (props: Props) => {
                 : <Form.Control
                   className={`color-scheme-${theme}`}
                   type="text"
-                  value={localize(value, lokale)}
+                  value={localize(value, locale)}
                   onChange={(e) => onChange(+e.target.value)}
                   onFocus={() => setIsEditing(true)}
                   onSelect={(e: BaseSyntheticEvent) => e.target.select()}
@@ -81,4 +81,4 @@ const LokalizedInput: FC<Props> = (props: Props) => {
   )
 }
 
-export default LokalizedInput
+export default LocalizedInput

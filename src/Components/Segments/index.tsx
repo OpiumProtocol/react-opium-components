@@ -6,7 +6,7 @@ import Button from '../OpiumButton'
 import { generateRenderProps } from '../../Utils/helpers'
 import { Theme } from '../../Constants/Types/theme.types'
 
-import styles from './Segments.module.scss'
+import './Segments.scss'
 
 export interface Props {
   /** Define theme */
@@ -30,7 +30,7 @@ const Segments: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const { currentValue, items, theme, onClick } = renderProps
 
-  const renderColor = (value) => {
+  const renderColor = (value: string) => {
     // if (value === currentValue) return '#18CBAB'
     if (value === currentValue) return '#E3000F'
     return '#b2b2b2'
@@ -39,12 +39,12 @@ const Segments: FC<Props> = (props: Props) => {
   return (
     <div className="segments">
       {
-        items.map((el) => (
+        items.map((el: any) => (
           <Button
             theme={theme}
             key={uuidv4()}
             label={el.label}
-            className={styles.segmentsItem}
+            className='segmentsItem'
             onClick={() => onClick(el.value)}
             style={{ color: renderColor(el.value), borderColor: renderColor(el.value) }}
           />

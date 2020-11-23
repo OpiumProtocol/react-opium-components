@@ -42,7 +42,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
           {initialOption}
         </Dropdown.Item>
         {
-          items.map((el) => (
+          items.map((el: any) => (
             <Dropdown.Item
               key={uuidv4()}
               eventKey={el.value}

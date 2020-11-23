@@ -1,7 +1,9 @@
 {
-  "name": "react-opium-components",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@opiumteam/react-opium-components",
+  "version": "0.1.1",
+  "description": "Opium ReactJS components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@storybook/addon-docs": "^6.1.2",
     "@storybook/addon-essentials": "^6.1.2",
@@ -13,26 +15,45 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
+    "@types/react-custom-scrollbars": "^4.0.7",
     "@types/react-dom": "^16.9.8",
     "@types/uuid": "^8.3.0",
-    "bootstrap": "^4.5.3",
     "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "babel-loader": "8.1.0",
+    "bootstrap": "^4.5.3",
     "react-bootstrap": "^1.4.0",
     "react-custom-scrollbars": "^4.2.1",
-    "react-dom": "^16.14.0",
     "react-loading": "^2.0.3",
     "react-scripts": "4.0.0",
     "typescript": "^4.0.5",
     "uuid": "^8.3.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0"
   },
   "scripts": {
     "start": "start-storybook -p 40000 -c .storybook",
-    "build": "react-scripts build",
+    "build": "webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --config ./.eslintrc.js --ext js,jsx,ts,tsx src"
   },
+  "license": "ISC",
+  "author": "Opium Team <hi@opium.team>",
+  "contributors": [
+    {
+      "name": "Ali Nuraldin",
+      "email": "ali@opium.team"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpiumProtocol/react-opium-components.git"
+  },
+  "files": [
+    "dist"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -63,7 +84,6 @@
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.2.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.1",
     "eslint-config-airbnb": "^18.1.0",
@@ -74,11 +94,15 @@
     "html-webpack-plugin": "^4.5.0",
     "husky": "^4.2.5",
     "mini-css-extract-plugin": "^1.3.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^4.14.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.11"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   }
 }

@@ -55,7 +55,7 @@ form {
   }
 }
 
-/** LOKALIZEDINPUT */
+/** LocalizedINPUT */
 .form-control {
   height: auto;
   font-size: fz(s);
@@ -81,7 +81,7 @@ form {
      @include localized-input-component(color(darkBlue2), color(white), transparent);
   }
 }
-/** LOKALIZEDINPUT END */
+/** LocalizedINPUT END */
 
 
 /** BUTTON */
