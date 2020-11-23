@@ -8,10 +8,15 @@ import { Theme } from '../../Constants/Types/theme.types'
 import './Table.scss'
 
 export interface Props {
+  /** Define theme */
   theme: Theme
+  /** Set table head items */
   thead: Array<JSX.Element>
+  /** Set table body items */
   tbody: Array<Array<JSX.Element>>
+  /** Set class selectors */
   className?: string
+  /** Set body scroll height */
   bodyScrollHeight?: number | string
 }
 

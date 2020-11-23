@@ -7,8 +7,11 @@ import { generateRenderProps } from '../../Utils/helpers'
 import './TextBlock.scss'
 
 export interface Props {
+  /** Define theme */
   theme: Theme
+  /** Insert content */
   content?: Array<string>
+  /** Set styles */
   styles?: CSSProperties
 }
 

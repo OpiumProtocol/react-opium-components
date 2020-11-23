@@ -7,11 +7,17 @@ import { generateRenderProps } from '../../Utils/helpers'
 import './Loading.scss'
 
 type Props = {
+  /** Define theme */
   theme: Theme
+  /** Set height */
   height?: string
+  /** Set width */
   width?: string,
+  /** Set loader color */
   color?: string,
+  /** Set loader type */
   type?: LoadingType
+  /** Set class selectors for additional customizing */
   className?: string
 }
 
