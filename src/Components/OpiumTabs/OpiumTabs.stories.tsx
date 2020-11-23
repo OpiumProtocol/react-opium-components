@@ -53,7 +53,7 @@ export const opiumTabs = () => {
           onClick={() => setTheme(Theme.DARK)}
         />
       </div>
-      <OpiumTabs defaultActiveKey={items[0].eventKey} id="opium-tabs-component" theme={theme} items={items} />
+      <OpiumTabs defaultActiveKey={'tab3'} id="opium-tabs-component" theme={theme} items={items} />
     </div>
   )
 }
