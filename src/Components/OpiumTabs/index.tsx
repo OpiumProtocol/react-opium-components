@@ -9,7 +9,9 @@ import { generateRenderProps } from '../../Utils/helpers'
 import './OpiumTabs.scss'
 
 export type Props = {
+  /** Define theme */
   theme: Theme
+  /** Set tab items */
   items?: {
     title: string,
     eventKey: string,

@@ -10,23 +10,40 @@ import { Theme } from '../../Constants/Types/theme.types'
 import './Alert.scss'
 
 export type Props = {
+  /** Define theme */
   theme: Theme
+  /** Set title */
   title?: string
+  /** Set size */
   size?: 'sm' | 'lg' | 'xl'
+  /** Insert content */
   description?: string | ReactNode
-  attention?: boolean
-  loading?: boolean
-  closePopup: Function
-  popupIsOpen: boolean
-  showActionButton?: boolean
-  handleAction?: Function
-  actionButtonTitle?: string
-  cancelButtonTitle: string
-  showCheckBox?: boolean
-  handleCheckBoxChange?: Function
-  checkBoxChecked?: boolean
-  checkBoxLabel?: string
+  /** Hide close button */
   hideCross?: boolean
+  /** Show attention */
+  attention?: boolean
+  /** Show loader in attention block */
+  loading?: boolean
+  /** Close alert function */
+  closePopup: Function
+  /** Flag, that opens alert */
+  popupIsOpen: boolean
+  /** Show action/confirm button */
+  showActionButton?: boolean
+  /** Function, that became active by clicking on action button */
+  handleAction?: Function
+  /** Set title for action button */
+  actionButtonTitle?: string
+  /** Set title for cancel button */
+  cancelButtonTitle: string
+  /** Show checkbox */
+  showCheckBox?: boolean
+  /** Function, that became active by changing checkbox state */
+  handleCheckBoxChange?: Function
+  /** Checkbox initial state */
+  checkBoxChecked?: boolean
+  /** Set checkbox label */
+  checkBoxLabel?: string
 }
 
 const defaultProps: Props = {

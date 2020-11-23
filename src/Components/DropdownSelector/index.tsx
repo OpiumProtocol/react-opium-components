@@ -7,11 +7,16 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropdownSelector.scss'
 
-interface Props {
+export type Props = {
+  /** Define theme */
   theme: Theme
+  /** Set initial droping down option */
   initialOption: string
+  /** Set droping down options */
   items?: { text: string, value: string }[]
+  /** Function, that became active by clicking on an option */
   onClick: () => void
+  /** Function, that became active after an option has become selected */
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => any
 }
 

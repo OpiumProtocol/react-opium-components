@@ -9,17 +9,29 @@ import { Theme } from '../../Constants/Types/theme.types'
 import './Popup.scss'
 
 export type Props = {
+  /** Define theme */
   theme: Theme
-  size?: 'sm' | 'lg' | 'xl'
+  /** Set title */
   title?: string
-  component?: ReactNode
+  /** Set size */
+  size?: 'sm' | 'lg' | 'xl'
+  /** Insert content */
+  component?: string | ReactNode
+  /** Hide close button */
   hideCross?: boolean
+  /** Close popup function */
   closePopup: Function
+  /** Flag, that opens popup */
   popupIsOpen: boolean
+  /** Function, that became active by clicking on action button */
   handleAction?: Function
+  /** Show action/confirm button */
   showActionButton?: boolean
+  /** Show cancel button */
   showCancelButton?: boolean
+  /** Set title for action button */
   actionButtonTitle?: string
+  /** Set title for cancel button */
   cancelButtonTitle: string
 }
 

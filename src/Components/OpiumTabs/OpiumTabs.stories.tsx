@@ -67,5 +67,5 @@ export default {
   title: 'OpiumTabs component',
   decorators: [withKnobs],
   component: OpiumTabs,
-  // parameters: {},
+  parameters: {},
 }

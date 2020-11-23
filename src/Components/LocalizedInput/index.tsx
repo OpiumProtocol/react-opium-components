@@ -2,14 +2,22 @@ import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Form } from 'react-bootstrap'
 
 import { Theme } from '../../Constants/Types/theme.types'
+import { LocalizedInputType } from '../../Constants/Types/LocalizedInput.types'
+
 import { generateRenderProps } from '../../Utils/helpers'
 
-interface Props {
+export type Props = {
+  /** Define theme */
   theme: Theme
-  type?: string
+  /** Define input type */
+  type?: LocalizedInputType
+  /** Set lokale */
   locale?: string
+  /** Set initial value */
   value?: string | number
+  /** Function, that became active by submitting */
   onClick: () => void
+  /** Function, that became active on input change */
   onChange: Function
 }
 

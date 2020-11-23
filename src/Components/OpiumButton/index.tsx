@@ -6,19 +6,19 @@ import { Theme } from '../../Constants/Types/theme.types'
 
 import './Button.scss'
 
-export interface Props {
-  /** Defines the button theme */
+export type Props = {
+  /** Define theme */
   theme: Theme
-  /** Defines the button written text */
+  /** Set button title */
   label: string
-  /** Defines the button variant */
+  /** Set button variant */
   variant?: 'primary' | 'secondary'
-  /** Defines the button class selectors */
+  /** Set class selectors */
   className?: string
-  /** Defines the button styles */
+  /** Set styles */
   style?: CSSProperties
-  /** Defines the button action */
-  onClick: Function
+  /** Set on click action */
+  onClick: () => void
 }
 
 export const defaultProps: Props = {
