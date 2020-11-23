@@ -28,8 +28,8 @@ export const defaultProps: Props = {
   className: '',
   variant: 'primary',
   label: '',
-  style: { },
-  onClick: () => {},
+  style: {},
+  onClick: () => { },
 }
 
 const OpiumButton: FC<Props> = (props: Props) => {
