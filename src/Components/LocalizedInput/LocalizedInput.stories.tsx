@@ -5,7 +5,7 @@ import LocalizedInput from './index'
 import Button from '../OpiumButton'
 
 import { Theme } from '../../Constants/Types/theme.types'
-import { LokalizedInputType } from '../../Constants/Types/LokalizedInput.types'
+import { LocalizedInputType } from '../../Constants/Types/LocalizedInput.types'
 
 import './LocalizedInput.scss'
 
@@ -25,7 +25,7 @@ export const localizedInput = () => {
     return type === 'text' || !type ? string : number
   }
 
-  const type: LokalizedInputType = 'text'
+  const type: LocalizedInputType = 'text'
 
   return (
     <div style={{ padding: '0 3rem' }}>

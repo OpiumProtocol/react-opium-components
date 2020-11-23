@@ -2,7 +2,7 @@ import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Form } from 'react-bootstrap'
 
 import { Theme } from '../../Constants/Types/theme.types'
-import { LokalizedInputType } from '../../Constants/Types/LokalizedInput.types'
+import { LocalizedInputType } from '../../Constants/Types/LocalizedInput.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -10,7 +10,7 @@ export type Props = {
   /** Define theme */
   theme: Theme
   /** Define input type */
-  type?: LokalizedInputType
+  type?: LocalizedInputType
   /** Set lokale */
   locale?: string
   /** Set initial value */
