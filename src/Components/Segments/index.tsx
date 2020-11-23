@@ -8,10 +8,14 @@ import { Theme } from '../../Constants/Types/theme.types'
 
 import './Segments.scss'
 
-export interface Props {
+export type Props = {
+  /** Define theme */
   theme: Theme
+  /** Set active item */
   currentValue?: string
+  /** Set items */
   items?: { label: string, value: string }[]
+  /** Function, that fires active item */
   onClick: (val: string) => void
 }
 
