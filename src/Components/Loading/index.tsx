@@ -6,7 +6,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './Loading.scss'
 
-type Props = {
+export type Props = {
   /** Define theme */
   theme: Theme
   /** Set height */

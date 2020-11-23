@@ -7,7 +7,7 @@ import { Theme } from '../../Constants/Types/theme.types'
 
 import './Table.scss'
 
-export interface Props {
+export type Props = {
   /** Define theme */
   theme: Theme
   /** Set table head items */

@@ -6,13 +6,13 @@ import { LokalizedInputType } from '../../Constants/Types/LokalizedInput.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
-interface Props {
+export type Props = {
   /** Define theme */
   theme: Theme
   /** Define input type */
   type?: LokalizedInputType
   /** Set lokale */
-  lokale?: string
+  locale?: string
   /** Set initial value */
   value?: string | number
   /** Function, that became active by submitting */

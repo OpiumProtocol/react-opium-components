@@ -6,7 +6,7 @@ import { Theme } from '../../Constants/Types/theme.types'
 
 import './Button.scss'
 
-export interface Props {
+export type Props = {
   /** Define theme */
   theme: Theme
   /** Set button title */

@@ -1829,11 +1829,7 @@
     core-js "^3.0.1"
     ts-dedent "^2.0.0"
 
-<<<<<<< HEAD
 "@storybook/addon-docs@6.1.2", "@storybook/addon-docs@^6.1.2":
-=======
-"@storybook/addon-docs@6.1.2", "@storybook/addon-docs@^6.1.1":
->>>>>>> dev
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/@storybook/addon-docs/-/addon-docs-6.1.2.tgz#7bb79fd60de516e29cbcae88ed286c48831d848b"
   integrity sha512-h9oyd7D0zgSc/LM73oTaVHF8H+et5tzXQ1CDtnh9Fpe9YgxItsJ7jke9z8dNapH6X+pmHE2rN1itqvasjpTsgA==
@@ -1879,11 +1875,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-<<<<<<< HEAD
 "@storybook/addon-essentials@^6.1.2":
-=======
-"@storybook/addon-essentials@^6.1.1":
->>>>>>> dev
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.1.2.tgz#5cc5146bb257937e0602d1a4b9f8d05dffa8531b"
   integrity sha512-wQmDD9+p36K26PMxpMcuZblyXFAjJ0pG6JNxy3XULuPGZfeRPQGlmcU2JTDUVbryOJfxHu0nzDI7D+CJ8Q2wAg==
@@ -1901,11 +1893,7 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
-<<<<<<< HEAD
 "@storybook/addon-knobs@^6.1.2":
-=======
-"@storybook/addon-knobs@^6.1.1":
->>>>>>> dev
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-6.1.2.tgz#6daf89fd4fdf6830ca0546b22f448ade3f49b10f"
   integrity sha512-pNQIJJF68PBBEHNKzgXGUb1IyO3jtF+Gwkuxn5r1msrp4p7yTckl5alH4Abiy9hvcjThhyCTULLO2eee7eawLg==
@@ -2218,11 +2206,7 @@
   dependencies:
     core-js "^3.0.1"
 
-<<<<<<< HEAD
 "@storybook/react@^6.1.2":
-=======
-"@storybook/react@^6.1.1":
->>>>>>> dev
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.1.2.tgz#863662543a18c3a2ecea7a5646ec711c29163b05"
   integrity sha512-q7Nj++ucjk9pVt/0jUlhoqzeypbzKdmRyN80hPAsSmvpzONlJtK82VA0iujBh9G6T+cT289nq2pf555tQfiAdQ==

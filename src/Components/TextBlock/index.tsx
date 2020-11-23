@@ -6,7 +6,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './TextBlock.scss'
 
-export interface Props {
+export type Props = {
   /** Define theme */
   theme: Theme
   /** Insert content */

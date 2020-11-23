@@ -7,7 +7,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropdownSelector.scss'
 
-interface Props {
+export type Props = {
   /** Define theme */
   theme: Theme
   /** Set initial droping down option */

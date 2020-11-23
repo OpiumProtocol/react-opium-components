@@ -54,6 +54,13 @@ DropdownSelector.defaultProps = {
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
 
+// export default {
+//   title: 'DropdownSelector component',
+//   decorators: [withKnobs],
+//   component: DropdownSelector,
+//   parameters: {},
+// }
+
 export default {
   title: 'DropdownSelector component',
   decorators: [withKnobs],
