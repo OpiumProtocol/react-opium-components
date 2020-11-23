@@ -15,9 +15,9 @@ export type Props = {
     eventKey: string,
     content: JSX.Element,
   }[]
-  /** */
+  /** Default tab key value */
   defaultActiveKey?: string,
-  /** */
+  /** id */
   id?: string,
 }
 

@@ -11,6 +11,8 @@ export interface Props {
   theme: Theme
   /** Defines the button written text */
   label: string
+  /** Disabled flag */
+  disabled?: boolean
   /** Defines the button variant */
   variant?: 'primary' | 'secondary'
   /** Defines the button class selectors */
