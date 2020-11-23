@@ -11,6 +11,8 @@ export type Props = {
   theme: Theme
   /** Set button title */
   label: string
+  /** Disabled flag */
+  disabled?: boolean
   /** Set button variant */
   variant?: 'primary' | 'secondary'
   /** Set class selectors */
@@ -26,8 +28,8 @@ export const defaultProps: Props = {
   className: '',
   variant: 'primary',
   label: '',
-  style: { },
-  onClick: () => {},
+  style: {},
+  onClick: () => { },
 }
 
 const OpiumButton: FC<Props> = (props: Props) => {
