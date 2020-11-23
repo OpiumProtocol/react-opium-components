@@ -15,6 +15,10 @@ export type Props = {
     eventKey: string,
     content: JSX.Element,
   }[]
+  /** */
+  defaultActiveKey?: string,
+  /** */
+  id?: string,
 }
 
 const defaultProps: Props = {
@@ -27,7 +31,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
 
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { items, theme } = renderProps
+  const { items, theme, defaultActiveKey, id } = renderProps
 
   const tabItems = items.map((item: any) => {
     const { title, eventKey, content } = item
@@ -44,16 +48,15 @@ const OpiumTabs: FC<Props> = (props: Props) => {
   })
 
   return (
-    <div>
-      <Tabs
-        id="opium-tabs-component"
-        activeKey={activeTabKey}
-        className={`color-scheme-${theme}`}
-        onSelect={(key: string | null) => setActiveTabKey(key)}
-      >
-        {tabItems}
-      </Tabs>
-    </div>
+    <Tabs
+      id={id}
+      activeKey={activeTabKey}
+      defaultActiveKey={defaultActiveKey}
+      className={`color-scheme-${theme}`}
+      onSelect={(key: string | null) => setActiveTabKey(key)}
+    >
+      {tabItems}
+    </Tabs>
   )
 }
 
