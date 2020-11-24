@@ -3,7 +3,7 @@ export enum Theme {
   DARK = 'DARK'
 }
 
-type ColorScheme = {
+export type ColorScheme = {
   color: string
   backgroundColor: string
   borderColor: string

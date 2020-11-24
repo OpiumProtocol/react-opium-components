@@ -9,31 +9,34 @@ import './DropdownSelector.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set initial droping down option */
   initialOption: string
   /** Set droping down options */
   items?: { text: string, value: string }[]
   /** Function, that became active by clicking on an option */
-  onClick: () => void
+  onClick?: () => void
   /** Function, that became active after an option has become selected */
-  onSelect: (eventKey: any, event: BaseSyntheticEvent) => any
+  onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any
+  /** Set class selectors */
+  className?: string
 }
 
 const defaultProps: Props = {
   theme: Theme.DARK,
   initialOption: '',
   items: [],
+  className: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
 
 const DropdownSelector: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { initialOption, items, onClick, onSelect, theme } = renderProps
+  const { initialOption, items, onClick, onSelect, theme, className } = renderProps
 
   return (
-    <Dropdown className={`color-scheme-${theme}`}>
+    <Dropdown className={`color-scheme-${theme} ${className}`}>
       <Dropdown.Toggle id="dropdown-selector-toggle" className={`color-scheme-${theme}`}>
         {'Dropdown Title'}
       </Dropdown.Toggle>

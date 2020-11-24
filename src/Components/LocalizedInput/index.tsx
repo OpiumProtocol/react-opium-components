@@ -8,7 +8,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Define input type */
   type?: LocalizedInputType
   /** Set lokale */
@@ -16,9 +16,11 @@ export type Props = {
   /** Set initial value */
   value?: string | number
   /** Function, that became active by submitting */
-  onClick: () => void
+  onClick?: () => void
   /** Function, that became active on input change */
-  onChange: Function
+  onChange?: Function
+  /** Set class selectors */
+  className?: string
 }
 
 const defaultProps: Props = {
@@ -26,6 +28,7 @@ const defaultProps: Props = {
   type: 'text',
   locale: 'en',
   value: '',
+  className: '',
   onClick: () => { },
   onChange: () => { },
 }
@@ -39,7 +42,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false)
 
   const renderProps = generateRenderProps(defaultProps, props)
-  const { type, theme, value, locale, onChange } = renderProps
+  const { type, theme, value, locale, onChange, className } = renderProps
 
   return (
     <>
@@ -49,7 +52,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             case 'number':
               return isEditing
                 ? <Form.Control
-                  className={`color-scheme-${theme}`}
+                  className={`color-scheme-${theme} ${className}`}
                   type="number"
                   value={value === 0 ? '' : value}
                   onChange={(e) => onChange(+e.target.value)}
@@ -57,7 +60,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
                   onSelect={(e: BaseSyntheticEvent) => e.target.select()}
                 />
                 : <Form.Control
-                  className={`color-scheme-${theme}`}
+                  className={`color-scheme-${theme} ${className}`}
                   type="text"
                   value={localize(value, locale)}
                   onChange={(e) => onChange(+e.target.value)}

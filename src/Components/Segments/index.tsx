@@ -10,13 +10,15 @@ import './Segments.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set active item */
   currentValue?: string
   /** Set items */
   items?: { label: string, value: string }[]
   /** Function, that fires active item */
   onClick: (val: string) => void
+  /** Set class selectors */
+  className?: string
 }
 
 const defaultProps: Props = {
@@ -24,11 +26,12 @@ const defaultProps: Props = {
   currentValue: '',
   items: [],
   onClick: () => { },
+  className: ''
 }
 
 const Segments: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { currentValue, items, theme, onClick } = renderProps
+  const { currentValue, items, theme, onClick, className } = renderProps
 
   const renderColor = (value: string) => {
     // if (value === currentValue) return '#18CBAB'
@@ -44,7 +47,7 @@ const Segments: FC<Props> = (props: Props) => {
             theme={theme}
             key={uuidv4()}
             label={el.label}
-            className='segmentsItem'
+            className={`segmentsItem ${className}`}
             onClick={() => onClick(el.value)}
             style={{ color: renderColor(el.value), borderColor: renderColor(el.value) }}
           />

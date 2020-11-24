@@ -10,7 +10,7 @@ import './OpiumTabs.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set tab items */
   items?: {
     title: string,
@@ -21,16 +21,19 @@ export type Props = {
   defaultActiveKey?: string,
   /** id */
   id?: string,
+  /** Set class selectors */
+  className?: string
 }
 
 const defaultProps: Props = {
   theme: Theme.DARK,
   items: [],
+  className: ''
 }
 
 const OpiumTabs: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { items, theme, defaultActiveKey, id } = renderProps  
+  const { items, theme, defaultActiveKey, id, className } = renderProps
   
   const [activeTabKey, setActiveTabKey] = useState<string | null>(defaultActiveKey || items[0].eventKey)
 
@@ -41,7 +44,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
         key={uuidv4()}
         title={title}
         eventKey={eventKey}
-        className={`color-scheme-${theme}`}
+        className={`color-scheme-${theme} ${className}`}
       >
         {content}
       </Tab>
