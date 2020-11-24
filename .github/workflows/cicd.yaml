@@ -28,3 +28,4 @@ jobs:
       with:
         token: ${{ secrets.NPM_TOKEN }}
         tag: pr-${{ github.event.number }}-${{ github.event.pull_request.head.sha }}
+        check-version: false
