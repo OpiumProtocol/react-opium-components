@@ -9,7 +9,7 @@ import './Table.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set table head items */
   thead: Array<JSX.Element>
   /** Set table body items */

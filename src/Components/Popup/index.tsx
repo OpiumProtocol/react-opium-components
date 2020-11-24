@@ -10,7 +10,7 @@ import './Popup.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set title */
   title?: string
   /** Set size */
@@ -33,6 +33,8 @@ export type Props = {
   actionButtonTitle?: string
   /** Set title for cancel button */
   cancelButtonTitle: string
+  /** Set class selectors */
+  className?: string
 }
 
 const defaultProps: Props = {
@@ -48,6 +50,8 @@ const defaultProps: Props = {
   showCancelButton: true,
   actionButtonTitle: '',
   cancelButtonTitle: '',
+  /** Set class selectors */
+  className: ''
 }
 
 const Popup: FC<Props> = (props: Props) => {
@@ -66,6 +70,7 @@ const Popup: FC<Props> = (props: Props) => {
     showCancelButton,
     actionButtonTitle,
     cancelButtonTitle,
+    className,
   } = renderProps
 
   return (
@@ -73,7 +78,7 @@ const Popup: FC<Props> = (props: Props) => {
       size={size}
       show={popupIsOpen}
       onHide={closePopup}
-      className="attention-popup"
+      className={`attention-popup ${className}`}
       contentClassName={`color-scheme-${theme}`}
     >
       {!hideCross && <button className="close-button" onClick={closePopup} />}

@@ -8,7 +8,7 @@ import './Button.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set button title */
   label: string
   /** Disabled flag */

@@ -11,7 +11,7 @@ import './Alert.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set title */
   title?: string
   /** Set size */
@@ -44,6 +44,8 @@ export type Props = {
   checkBoxChecked?: boolean
   /** Set checkbox label */
   checkBoxLabel?: string
+  /** Set class selectors */
+  className?: string
 }
 
 const defaultProps: Props = {
@@ -64,6 +66,7 @@ const defaultProps: Props = {
   checkBoxChecked: true,
   checkBoxLabel: '',
   hideCross: false,
+  className: ''
 }
 
 const Alert: FC<Props> = (props: Props) => {
@@ -87,11 +90,12 @@ const Alert: FC<Props> = (props: Props) => {
     checkBoxChecked,
     checkBoxLabel,
     hideCross,
+    className,
   } = renderProps
 
   const renderAttention = () => {
     return (
-      <div className="attention-icon-wrap" >
+      <div className={`attention-icon-wrap ${className}`} >
         {
           loading ?
             <Loading theme={theme} type='spinningBubbles' height='6rem' />

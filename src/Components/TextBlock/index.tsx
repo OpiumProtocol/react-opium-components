@@ -8,9 +8,11 @@ import './TextBlock.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Insert content */
   content?: Array<string>
+  /** Set class selectors */
+  className?: string
   /** Set styles */
   styles?: CSSProperties
 }
@@ -18,6 +20,7 @@ export type Props = {
 const defaultProps: Props = {
   theme: Theme.DARK,
   content: [],
+  className: '',
   styles: {},
 }
 
@@ -27,10 +30,10 @@ function createMarkup(content: string) {
 }
 
 const TextBlock: FC<Props> = (props: Props) => {
-  const { content, theme, styles } = generateRenderProps(defaultProps, props)
+  const { content, theme, styles, className } = generateRenderProps(defaultProps, props)
 
   return (
-    <div className={`text-block color-scheme-${theme}`} style={styles}>
+    <div className={`text-block color-scheme-${theme} ${className}`} style={styles}>
       {
         content.map((contentLine: string) => (
           <div key={uuidv4()} dangerouslySetInnerHTML={createMarkup(contentLine)} />
