@@ -22,10 +22,11 @@ export {
   TextBlock,
   LocalizedInput,
   DropdownSelector,
+
+  Theme
 }
 
 export type {
-  Theme,
   ColorScheme,
   Colors
 }
