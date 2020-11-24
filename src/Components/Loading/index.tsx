@@ -8,7 +8,7 @@ import './Loading.scss'
 
 export type Props = {
   /** Define theme */
-  theme: Theme
+  theme?: Theme
   /** Set height */
   height?: string
   /** Set width */
