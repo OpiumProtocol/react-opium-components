@@ -9,6 +9,8 @@ import TextBlock from './Components/TextBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import DropdownSelector from './Components/DropdownSelector'
 
+import { Theme, ColorScheme, Colors } from './Constants/Types/theme.types'
+
 export {
   Alert,
   Popup,
@@ -20,4 +22,10 @@ export {
   TextBlock,
   LocalizedInput,
   DropdownSelector,
+}
+
+export type {
+  Theme,
+  ColorScheme,
+  Colors
 }
