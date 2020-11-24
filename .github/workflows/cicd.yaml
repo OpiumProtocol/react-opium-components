@@ -1,8 +1,8 @@
-name: "CI Pipeline"
+name: "CI/CD Pipeline"
 on: pull_request
 
 jobs:
-  ci:
+  cicd:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,3 +31,9 @@ jobs:
       run: yarn lint
     - name: Check TypeScript
       run: yarn build
+    - name: Test tag
+      run: echo pr-${{ github.event.number }}-${{ github.head_ref }}
+    # - uses: JS-DevTools/npm-publish@v1
+    #   with:
+    #     token: ${{ secrets.NPM_TOKEN }}
+    #     tag: 
