@@ -13,18 +13,11 @@ jobs:
       with:
         node-version: '10'
         check-latest: true
-    - name: Cache node modules
+    - name: Cache yarn
       uses: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
       with:
-        # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
     - name: Install dependencies
       run: yarn
     - name: Check linter
@@ -32,7 +25,7 @@ jobs:
     - name: Check TypeScript
       run: yarn build
     - name: Test tag
-      run: echo pr-${{ github.event.number }}-${{ github.head_ref }}
+      run: echo pr-${{ github.event.number }}-${GITHUB_SHA}
     # - uses: JS-DevTools/npm-publish@v1
     #   with:
     #     token: ${{ secrets.NPM_TOKEN }}
