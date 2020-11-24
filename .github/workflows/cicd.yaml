@@ -24,8 +24,10 @@ jobs:
       run: yarn lint
     - name: Check TypeScript
       run: yarn build
+    - name: Bump version
+      run: yarn version --new-version $(node -p -e "require('./package.json').version")-pr-${{ github.event.number }}-${{ github.event.pull_request.head.sha }} --no-git-tag-version
     - uses: JS-DevTools/npm-publish@v1
       with:
         token: ${{ secrets.NPM_TOKEN }}
-        # tag: pr-${{ github.event.number }}-${{ github.event.pull_request.head.sha }}
+        tag: next
         check-version: false
