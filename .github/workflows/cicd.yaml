@@ -4,6 +4,8 @@ on: pull_request
 jobs:
   cicd:
     runs-on: ubuntu-latest
+    env:
+      SHA8: ${GITHUB_SHA::8}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -27,4 +29,4 @@ jobs:
     - uses: JS-DevTools/npm-publish@v1
       with:
         token: ${{ secrets.NPM_TOKEN }}
-        tag: pr-${{ github.event.number }}-${GITHUB_SHA}
+        tag: pr-${{ github.event.number }}-$SHA8
