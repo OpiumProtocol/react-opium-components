@@ -24,9 +24,7 @@ jobs:
       run: yarn lint
     - name: Check TypeScript
       run: yarn build
-    - name: Test tag
-      run: echo pr-${{ github.event.number }}-${GITHUB_SHA}
-    # - uses: JS-DevTools/npm-publish@v1
-    #   with:
-    #     token: ${{ secrets.NPM_TOKEN }}
-    #     tag: 
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        tag: pr-${{ github.event.number }}-${GITHUB_SHA}
