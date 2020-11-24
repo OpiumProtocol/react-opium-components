@@ -38,7 +38,7 @@ const TextBlock: FC<Props> = (props: Props) => {
         content.map((contentLine: string) => (
           <div
             key={uuidv4()}
-            style={{ width: '100%', height: '100%' }}
+            style={{ width: '100%' }}
             dangerouslySetInnerHTML={createMarkup(contentLine)}
           />
         ))
