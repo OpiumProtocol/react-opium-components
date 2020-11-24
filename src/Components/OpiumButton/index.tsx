@@ -20,7 +20,7 @@ export type Props = {
   /** Set styles */
   style?: CSSProperties
   /** Set on click action */
-  onClick: () => void
+  onClick: Function // () => void
 }
 
 export const defaultProps: Props = {
