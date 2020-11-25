@@ -1,4 +1,4 @@
-import React, { FC, useState, BaseSyntheticEvent } from 'react'
+import React, { FC, useState, BaseSyntheticEvent, ReactNode } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: Theme
   /** Title, if controlled */
-  title?: string
+  title?: string | ReactNode
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */

@@ -56,6 +56,7 @@ export const dropdownSelector = () => {
 DropdownSelector.defaultProps = {
   theme: Theme.DARK,
   items: [],
+  title: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
