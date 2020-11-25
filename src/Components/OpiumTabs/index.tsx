@@ -46,7 +46,9 @@ const OpiumTabs: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const { items, theme, defaultActiveKey, id, className } = renderProps
 
-  const [activeTabKey, setActiveTabKey] = useState<string | null>(defaultActiveKey || items[0].eventKey)
+  const initialTabKey = defaultActiveKey || (items.length && items[0].eventKey)
+
+  const [activeTabKey, setActiveTabKey] = useState<string | null>(initialTabKey)
 
   return (
     <Tabs

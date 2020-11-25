@@ -50,7 +50,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     uncontrolled,
   } = renderProps
 
-  const [selectorTitle, setSelectorTitle] = useState<any>(items[0].title)
+  const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].title : '')
 
   const handleSelect = (key: any, event: BaseSyntheticEvent) => {
     setSelectorTitle(event.target.innerText)
