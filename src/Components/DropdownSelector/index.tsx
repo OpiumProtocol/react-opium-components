@@ -24,8 +24,6 @@ export type Props = {
   className?: string
   /** Set class selectors */
   isControlled?: boolean
-  /** Set class selectors */
-  dropDownItemAs?: string | ReactNode
 }
 
 const defaultProps: Props = {
@@ -50,7 +48,6 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     onSelect,
     className,
     uncontrolled,
-    dropDownItemAs,
   } = renderProps
 
   const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].title : '')
