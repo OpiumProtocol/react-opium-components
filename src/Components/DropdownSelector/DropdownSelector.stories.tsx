@@ -39,7 +39,7 @@ export const dropdownSelector = () => {
       </div>
       <DropdownSelector
         theme={theme}
-        initialTitle={title}
+        title={title}
         items={items}
         eventKey={eventKey}
         onClick={() => { }}

@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: Theme
   /** Title, if controlled */
-  initialTitle?: string
+  title?: string
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
@@ -33,7 +33,7 @@ const defaultProps: Props = {
     { title: 'Second', value: '2', href: '' },
   ],
   className: '',
-  initialTitle: '',
+  title: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
@@ -41,7 +41,7 @@ const defaultProps: Props = {
 const DropdownSelector: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const {
-    initialTitle,
+    title,
     items,
     theme,
     onClick,
@@ -59,7 +59,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`color-scheme-${theme} ${className}`}>
       <Dropdown.Toggle id="dropdown-selector-toggle" className={`color-scheme-${theme}`}>
-        {initialTitle || selectorTitle}
+        {title || selectorTitle}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         {
