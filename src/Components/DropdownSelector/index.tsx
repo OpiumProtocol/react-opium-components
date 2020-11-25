@@ -15,7 +15,7 @@ export type Props = {
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
-  items?: { title?: string, value?: string, href?: string, to?: string, as?: string | ReactNode }[]
+  items?: { title?: string | ReactNode, value?: string, href?: string, to?: string, as?: string | ReactNode }[]
   /** Function, that became active by clicking on an option */
   onClick?: Function
   /** Function, that became active after an option has become selected */
