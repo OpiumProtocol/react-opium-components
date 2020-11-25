@@ -15,7 +15,7 @@ export type Props = {
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
-  items?: { title?: string, value?: string, href?: string, to?: string }[]
+  items?: { title?: string, value?: string, href?: string, to?: string, as?: string | ReactNode }[]
   /** Function, that became active by clicking on an option */
   onClick?: Function
   /** Function, that became active after an option has become selected */
@@ -75,7 +75,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
               onClick={onClick}
               onSelect={uncontrolled ? handleSelect : onSelect}
               className={`color-scheme-${theme}`}
-              as={dropDownItemAs}
+              as={item.as}
             >
               {item.title}
             </Dropdown.Item>
