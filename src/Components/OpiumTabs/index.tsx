@@ -27,7 +27,18 @@ export type Props = {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  items: [],
+  items: [
+    {
+      title: 'Tab1',
+      eventKey: 'tab1',
+      content: <p key={uuidv4()}>Tab1 content</p>
+    },
+    {
+      title: 'Tab2',
+      eventKey: 'tab2',
+      content: <p key={uuidv4()}>Tab2 content</p>
+    },
+  ],
   className: ''
 }
 
