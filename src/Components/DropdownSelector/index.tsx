@@ -23,7 +23,7 @@ export type Props = {
   /** Set class selectors */
   className?: string
   /** Set class selectors */
-  isControlled?: boolean
+  uncontrolled?: boolean
 }
 
 const defaultProps: Props = {

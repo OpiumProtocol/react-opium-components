@@ -47,7 +47,7 @@ export const dropdownSelector = () => {
           setEventKey(key)
           setTitle(event.target.innerText)
         }}
-        isControlled={true}
+        uncontrolled={false}
       />
     </div>
   )
