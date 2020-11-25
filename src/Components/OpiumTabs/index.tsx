@@ -56,7 +56,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
       onSelect={(key: string | null) => setActiveTabKey(key)}
     >
       {
-        items.length && items.map((item: any) => {
+        items.length ? items.map((item: any) => {
           const { title, eventKey, content } = item
           return (
             <Tab
@@ -68,7 +68,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
               {content}
             </Tab>
           )
-        })
+        }) : null
       }
     </Tabs>
   )

@@ -63,7 +63,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         {
-          items.length && items.map((item: any, idx: number) => (
+          items.length ? items.map((item: any, idx: number) => (
             <Dropdown.Item
               key={uuidv4()}
               eventKey={`${idx}`}
@@ -74,7 +74,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
             >
               {item.title}
             </Dropdown.Item>
-          ))
+          )) : null
         }
       </Dropdown.Menu>
     </Dropdown>
