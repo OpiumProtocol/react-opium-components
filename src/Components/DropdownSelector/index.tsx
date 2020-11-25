@@ -28,7 +28,10 @@ export type Props = {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  items: [],
+  items: [
+    { title: 'First', value: '1' },
+    { title: 'Second', value: '2' },
+  ],
   className: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
