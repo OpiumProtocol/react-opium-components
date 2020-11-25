@@ -75,7 +75,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
               onClick={onClick}
               onSelect={uncontrolled ? handleSelect : onSelect}
               className={`color-scheme-${theme}`}
-              dropDownItemAs={dropDownItemAs}
+              as={dropDownItemAs}
             >
               {item.title}
             </Dropdown.Item>
