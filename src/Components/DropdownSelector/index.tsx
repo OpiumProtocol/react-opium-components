@@ -15,7 +15,7 @@ export type Props = {
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
-  items?: { title: string, value?: string, href?: string }[]
+  items?: { title?: string, value?: string, href?: string }[]
   /** Function, that became active by clicking on an option */
   onClick?: () => void
   /** Function, that became active after an option has become selected */
@@ -63,7 +63,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         {
-          items.map((item: any, idx: number) => (
+          items.length && items.map((item: any, idx: number) => (
             <Dropdown.Item
               key={uuidv4()}
               eventKey={`${idx}`}
