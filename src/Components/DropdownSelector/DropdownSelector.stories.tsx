@@ -39,8 +39,8 @@ export const dropdownSelector = () => {
       </div>
       <DropdownSelector
         theme={theme}
+        initialTitle={title}
         items={items}
-        title={title}
         eventKey={eventKey}
         onClick={() => { }}
         onSelect={(key: any, event: BaseSyntheticEvent) => {
