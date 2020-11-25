@@ -33,6 +33,7 @@ const defaultProps: Props = {
     { title: 'Second', value: '2' },
   ],
   className: '',
+  title: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
