@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: Theme
   /** Title, if controlled */
-  title?: Theme
+  title?: string
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
