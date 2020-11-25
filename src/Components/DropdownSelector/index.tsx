@@ -71,6 +71,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
               key={uuidv4()}
               eventKey={`${idx}`}
               href={item.href}
+              to={item.to}
               onClick={onClick}
               onSelect={uncontrolled ? handleSelect : onSelect}
               className={`color-scheme-${theme}`}
