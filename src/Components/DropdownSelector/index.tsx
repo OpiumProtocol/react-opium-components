@@ -15,7 +15,7 @@ export type Props = {
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
-  items?: { title: string, value: string }[]
+  items?: { title: string, value?: string, href?: string }[]
   /** Function, that became active by clicking on an option */
   onClick?: () => void
   /** Function, that became active after an option has become selected */
@@ -29,8 +29,8 @@ export type Props = {
 const defaultProps: Props = {
   theme: Theme.DARK,
   items: [
-    { title: 'First', value: '1' },
-    { title: 'Second', value: '2' },
+    { title: 'First', value: '1', href: '' },
+    { title: 'Second', value: '2', href: '' },
   ],
   className: '',
   title: '',
