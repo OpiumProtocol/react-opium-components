@@ -22,7 +22,7 @@ export type Props = {
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any
   /** Set class selectors */
   className?: string
-  /** Set class selectors */
+  /** Set component uncontrolled */
   uncontrolled?: boolean
 }
 

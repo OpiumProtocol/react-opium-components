@@ -42,6 +42,7 @@ export const segments = () => {
         items={items}
         currentValue={currentValue}
         onClick={(val: string) => setCurrentValue(val)}
+        uncontrolled={false}
       />
     </div>
   )
