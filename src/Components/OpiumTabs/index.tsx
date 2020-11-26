@@ -27,29 +27,28 @@ export type Props = {
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  items: [],
+  items: [
+    {
+      title: 'Tab1',
+      eventKey: 'tab1',
+      content: <p key={uuidv4()}>Tab1 content</p>
+    },
+    {
+      title: 'Tab2',
+      eventKey: 'tab2',
+      content: <p key={uuidv4()}>Tab2 content</p>
+    },
+  ],
   className: ''
 }
 
 const OpiumTabs: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const { items, theme, defaultActiveKey, id, className } = renderProps
-  
-  const [activeTabKey, setActiveTabKey] = useState<string | null>(defaultActiveKey || items[0].eventKey)
 
-  const tabItems = items.map((item: any) => {
-    const { title, eventKey, content } = item
-    return (
-      <Tab
-        key={uuidv4()}
-        title={title}
-        eventKey={eventKey}
-        className={`color-scheme-${theme} ${className}`}
-      >
-        {content}
-      </Tab>
-    )
-  })
+  const initialTabKey = defaultActiveKey || (items.length && items[0].eventKey)
+
+  const [activeTabKey, setActiveTabKey] = useState<string | null>(initialTabKey)
 
   return (
     <Tabs
@@ -58,7 +57,21 @@ const OpiumTabs: FC<Props> = (props: Props) => {
       className={`color-scheme-${theme}`}
       onSelect={(key: string | null) => setActiveTabKey(key)}
     >
-      {tabItems}
+      {
+        items.length ? items.map((item: any) => {
+          const { title, eventKey, content } = item
+          return (
+            <Tab
+              key={uuidv4()}
+              title={title}
+              eventKey={eventKey}
+              className={`color-scheme-${theme} ${className}`}
+            >
+              {content}
+            </Tab>
+          )
+        }) : null
+      }
     </Tabs>
   )
 }

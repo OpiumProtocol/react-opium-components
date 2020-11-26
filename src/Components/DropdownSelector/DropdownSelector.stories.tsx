@@ -7,15 +7,17 @@ import Button from '../OpiumButton'
 import { Theme } from '../../Constants/Types/theme.types'
 
 export const dropdownSelector = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.DARK)
-  const message = text('Text', 'DropdownSelector')
-
   const items = [
-    { text: 'First', value: '1' },
-    { text: 'Second', value: '2' },
-    { text: 'Third', value: '3' },
-    { text: 'Fourth', value: '4' },
+    { title: 'First', value: '1' },
+    { title: 'Second', value: '2' },
+    { title: 'Third', value: '3' },
+    { title: 'Fourth', value: '4' },
   ]
+
+  const [theme, setTheme] = useState<Theme>(Theme.DARK)
+  const [eventKey, setEventKey] = useState<any>('1')
+  const [title, setTitle] = useState<any>(items[0].title)
+  const message = text('Text', 'DropdownSelector')
 
   return (
     <div style={{ padding: '0 3rem' }}>
@@ -37,10 +39,15 @@ export const dropdownSelector = () => {
       </div>
       <DropdownSelector
         theme={theme}
-        initialOption='Initial'
+        title={title}
         items={items}
+        eventKey={eventKey}
         onClick={() => { }}
-        onSelect={() => { }}
+        onSelect={(key: any, event: BaseSyntheticEvent) => {
+          setEventKey(key)
+          setTitle(event.target.innerText)
+        }}
+        uncontrolled={false}
       />
     </div>
   )
@@ -48,18 +55,11 @@ export const dropdownSelector = () => {
 
 DropdownSelector.defaultProps = {
   theme: Theme.DARK,
-  initialOption: '',
   items: [],
+  title: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
-
-// export default {
-//   title: 'DropdownSelector component',
-//   decorators: [withKnobs],
-//   component: DropdownSelector,
-//   parameters: {},
-// }
 
 export default {
   title: 'DropdownSelector component',

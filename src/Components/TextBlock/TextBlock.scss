@@ -4,6 +4,7 @@
   padding: indent(1);
   width: fit-content;
   border-radius: size(radius4Px);
+  white-space: normal;
 
   &.color-scheme-LIGHT {
     @include text-block-component(color(gray6), color(black3), color(gray4));

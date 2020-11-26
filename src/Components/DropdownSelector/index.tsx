@@ -1,4 +1,4 @@
-import React, { FC, useState, BaseSyntheticEvent } from 'react'
+import React, { FC, useState, BaseSyntheticEvent, ReactNode } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -10,52 +10,73 @@ import './DropdownSelector.scss'
 export type Props = {
   /** Define theme */
   theme?: Theme
-  /** Set initial droping down option */
-  initialOption: string
-  /** Set droping down options */
-  items?: { text: string, value: string }[]
+  /** Title, if controlled */
+  title?: string | ReactNode
+  /** Value passed to the onSelect handler, useful for identifying the selected menu item */
+  eventKey?: any
+  /** Set dropping down options */
+  items?: { title?: string | ReactNode, value?: string, href?: string, to?: string, as?: string | ReactNode }[]
   /** Function, that became active by clicking on an option */
-  onClick?: () => void
+  onClick?: Function
   /** Function, that became active after an option has become selected */
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any
   /** Set class selectors */
   className?: string
+  /** Set component uncontrolled */
+  uncontrolled?: boolean
 }
 
 const defaultProps: Props = {
   theme: Theme.DARK,
-  initialOption: '',
-  items: [],
+  items: [
+    { title: 'First', value: '1', href: '' },
+    { title: 'Second', value: '2', href: '' },
+  ],
   className: '',
+  title: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
 
 const DropdownSelector: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { initialOption, items, onClick, onSelect, theme, className } = renderProps
+  const {
+    title,
+    items,
+    theme,
+    onClick,
+    onSelect,
+    className,
+    uncontrolled,
+  } = renderProps
+
+  const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].title : '')
+
+  const handleSelect = (key: any, event: BaseSyntheticEvent) => {
+    setSelectorTitle(event.target.innerText)
+  }
 
   return (
     <Dropdown className={`color-scheme-${theme} ${className}`}>
       <Dropdown.Toggle id="dropdown-selector-toggle" className={`color-scheme-${theme}`}>
-        {'Dropdown Title'}
+        {title || selectorTitle}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
-        <Dropdown.Item onClick={() => { }} className={`color-scheme-${theme}`} >
-          {initialOption}
-        </Dropdown.Item>
         {
-          items.map((el: any) => (
+          items.length ? items.map((item: any, idx: number) => (
             <Dropdown.Item
               key={uuidv4()}
-              eventKey={el.value}
+              eventKey={`${idx}`}
+              href={item.href}
+              to={item.to}
               onClick={onClick}
-              onSelect={onSelect}
+              onSelect={uncontrolled ? handleSelect : onSelect}
               className={`color-scheme-${theme}`}
+              as={item.as}
             >
-              {el.text}
+              {item.title}
             </Dropdown.Item>
-          ))
+          )) : null
         }
       </Dropdown.Menu>
     </Dropdown>
