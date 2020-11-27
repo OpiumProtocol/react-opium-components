@@ -5,5 +5,5 @@ interface CssExports {
   'color-scheme-LIGHT': string;
   'text-block': string;
 }
-export const cssExports: CssExports;
-export default cssExports;
+export const cssExports: CssExports
+export default cssExports

@@ -10,5 +10,5 @@ interface CssExports {
   'table-head-cell': string;
   'table-row': string;
 }
-export const cssExports: CssExports;
-export default cssExports;
+export const cssExports: CssExports
+export default cssExports

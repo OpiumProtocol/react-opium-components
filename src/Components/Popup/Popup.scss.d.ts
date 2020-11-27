@@ -1576,5 +1576,5 @@ interface CssExports {
   'w-smallPopupWidth': string;
   'was-validated': string;
 }
-export const cssExports: CssExports;
-export default cssExports;
+export const cssExports: CssExports
+export default cssExports
