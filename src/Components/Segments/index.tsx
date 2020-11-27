@@ -4,13 +4,13 @@ import { v4 as uuidv4 } from 'uuid'
 import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Segments.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Set items */
   items?: { label: string, value: string }[]
   /** Set active item value */
@@ -24,7 +24,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   currentValue: '',
   items: [
     { label: 'First', value: '1' },

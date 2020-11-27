@@ -5,13 +5,13 @@ import Button from '../OpiumButton'
 import Loading from '../Loading'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Alert.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Set title */
   title?: string
   /** Set size */
@@ -49,7 +49,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   title: '',
   size: 'sm',
   description: '',

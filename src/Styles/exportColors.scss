@@ -1,0 +1,31 @@
+@import './colors.scss';
+
+:export {
+  gray1: $gray1;
+  gray2: $gray2;
+  gray3: $gray3;
+  gray4: $gray4;
+  gray5: $gray5;
+  gray6: $gray6;
+  gray6_30: $gray6_30;
+  red0: $red;
+  red0_20: $red_20;
+  blue1: $blue1;
+  blue3: $blue3;
+  blue3_30: $blue3_30;
+  yellow3: $yellow3;
+  green1: $green1;
+  green1_30: $green1_30;
+  green3: $green3;
+  white0: $white;
+  darkgray0_20: $darkgray_20;
+  darkgray1: $darkgray1;
+  darkgray1_40: $darkgray1_40;
+  darkgray2: $darkgray2;
+  darkgray3: $darkgray3;
+  darkgray4: $darkgray4;
+  darkgray5: $darkgray5;
+  darkgray6: $darkgray6;
+  darkred0_30: $darkred_30;
+  transparent0: transparent;
+}

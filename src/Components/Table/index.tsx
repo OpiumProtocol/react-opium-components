@@ -3,13 +3,13 @@ import { v4 as uuidv4 } from 'uuid'
 import Scrollbars from 'react-custom-scrollbars'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Table.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Set table head items */
   thead: Array<JSX.Element>
   /** Set table body items */
@@ -21,7 +21,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   thead: [],
   tbody: [],
   className: '',

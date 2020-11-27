@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Loader, { LoadingType } from 'react-loading'
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -8,7 +8,7 @@ import './Loading.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Set height */
   height?: string
   /** Set width */
@@ -22,7 +22,7 @@ export type Props = {
 }
 
 const defaultProps = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   className: 'loading',
   color: '',
   height: '4rem',

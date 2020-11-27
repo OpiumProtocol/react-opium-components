@@ -4,7 +4,9 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import DropdownSelector from './index'
 import Button from '../OpiumButton'
 
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
+
+import colors from '../../Styles/exportColors.scss'
 
 export const dropdownSelector = () => {
   const items = [
@@ -14,27 +16,30 @@ export const dropdownSelector = () => {
     { title: 'Fourth', value: '4' },
   ]
 
-  const [theme, setTheme] = useState<Theme>(Theme.DARK)
+  const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
   const [eventKey, setEventKey] = useState<any>('1')
   const [title, setTitle] = useState<any>(items[0].title)
   const message = text('Text', 'DropdownSelector')
 
+  const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
+  const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
+
   return (
-    <div style={{ padding: '0 3rem' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
+    <div style={{ padding: '3rem', backgroundColor }}>
+      <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
           label="Light theme"
           variant='secondary'
           style={{ marginRight: '1rem' }}
-          onClick={() => setTheme(Theme.LIGHT)}
+          onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
           variant='primary'
-          onClick={() => setTheme(Theme.DARK)}
+          onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
       <DropdownSelector
@@ -54,7 +59,7 @@ export const dropdownSelector = () => {
 }
 
 DropdownSelector.defaultProps = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   items: [],
   title: '',
   onClick: () => { },

@@ -1,14 +1,14 @@
 import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Form } from 'react-bootstrap'
 
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 import { LocalizedInputType } from '../../Constants/Types/LocalizedInput.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Define input type */
   type?: LocalizedInputType
   /** Set lokale */
@@ -24,7 +24,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   type: 'text',
   locale: 'en',
   value: '',
