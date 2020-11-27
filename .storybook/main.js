@@ -34,11 +34,26 @@ module.exports = {
     },
   },
   webpackFinal: async (config, { configType }) => {
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
-    });
+    config.module.rules.push(
+      { 
+        test: /\.scss$/, 
+        use: [ 
+          { loader: 'style-loader' },
+          { loader: 'css-loader' }, 
+          { loader: 'sass-loader' },
+        ],
+        exclude: path.resolve(__dirname, '../src/Styles/variables.scss')
+      },
+      {
+        test: /\.scss$/,
+        include: path.resolve(__dirname, '../src/Styles/variables.scss'),
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { modules: true }  },
+          { loader: 'sass-loader',  },
+        ]
+      }
+    );
 
     return config;
   },
