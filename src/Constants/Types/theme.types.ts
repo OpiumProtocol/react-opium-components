@@ -1,4 +1,3 @@
-import variables from '../../Styles/variables.scss'
 
 export enum Theme {
   LIGHT = 'LIGHT',
@@ -13,7 +12,7 @@ export type ColorScheme = {
 }
 
 export const colorSchemeLight: ColorScheme = {
-  color: variables.textColor,
+  color: 'black',
   backgroundColor: 'white',
   borderColor: 'black',
   borderStyle: 'solid',

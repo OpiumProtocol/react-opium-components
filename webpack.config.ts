@@ -42,11 +42,11 @@ module.exports = {
           { loader: 'css-loader', options: { modules: true } }, 
           { loader: 'sass-loader' },
         ],
-        exclude: path.resolve(__dirname, './src/Styles/variables.scss')
+        exclude: path.resolve(__dirname, './src/Styles/exportColors.scss')
       },
       {
         test: /\.scss$/,
-        include: path.resolve(__dirname, './src/Styles/variables.scss'),
+        include: path.resolve(__dirname, './src/Styles/exportColors.scss'),
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', options: { modules: true } },
