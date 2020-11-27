@@ -35,9 +35,23 @@ module.exports = {
           }
         ]
       },
+      { 
+        test: /\.scss$/, 
+        use: [ 
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { modules: true } }, 
+          { loader: 'sass-loader' },
+        ],
+        exclude: path.resolve(__dirname, './src/Styles/exportColors.scss')
+      },
       {
-        test: /\.(sa|sc|c)ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        test: /\.scss$/,
+        include: path.resolve(__dirname, './src/Styles/exportColors.scss'),
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { modules: true } },
+          { loader: 'sass-loader', },
+        ]
       }
     ]
   },
