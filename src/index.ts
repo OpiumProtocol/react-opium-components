@@ -11,6 +11,8 @@ import DropdownSelector from './Components/DropdownSelector'
 
 import { Theme, ColorScheme, Colors } from './Constants/Types/theme.types'
 
+import styleConstants from './Styles/variables.scss'
+
 export {
   Alert,
   Popup,
@@ -22,7 +24,7 @@ export {
   TextBlock,
   LocalizedInput,
   DropdownSelector,
-
+  styleConstants,
   Theme
 }
 
