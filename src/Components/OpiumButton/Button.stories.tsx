@@ -77,14 +77,14 @@ export const button = () => {
   )
 }
 
-// Button.defaultProps = {
-//   theme: ETheme.DARK,
-//   className: '',
-//   variant: 'primary',
-//   label: '',
-//   style: {},
-//   onClick: () => { },
-// }
+Button.defaultProps = {
+  theme: ETheme.DARK,
+  className: '',
+  variant: 'primary',
+  label: '',
+  style: {},
+  onClick: () => { },
+}
 
 export default {
   title: 'OpiumButton',

@@ -27,7 +27,6 @@
      @include localized-input-component(color(darkBlue2), color(white), transparent);
   }
 }
-/** LocalizedINPUT END */
 
 
 /** BUTTON */
@@ -41,42 +40,7 @@
   outline: none !important;
   letter-spacing: 0.04em;
   width: fit-content;
-  
-  &.color-scheme-LIGHT {
-    @include btn-variant(color(white), color(black3), transparent);
-	}
-	&.color-scheme-DARK {
-    @include btn-variant(color(darkBlue2), color(white), color(darkBlue3));
-  }
-
-  &.btn-primary {
-   &.color-scheme-LIGHT {
-      @include btn-variant(color(gray6), color(pureRed), color(pureRed));
-	 }
-	 &.color-scheme-DARK {
-      @include btn-variant(color(darkBlue2), color(gray4), color(darkBlue3));
-   }
-  }
-
-  &.btn-secondary {
-    &.color-scheme-LIGHT {
-       @include btn-variant(color(whiteOpaque), color(gray4), color(gray4));
-    }
-    &.color-scheme-DARK {
-       @include btn-variant(color(gray4), color(whiteOpaque), color(gray4));
-    }
-  }
-
-  &.btn-transparent {
-    @include btn-variant(transparent, color(black3), transparent);
-    border: 0;
-    color: color(black3);
-  }
-  &.btn-dark {
-    @include btn-variant(color(white), color(gray11), color(gray11));
-  }
 }
-/** BUTTON END */
 
 
 /** TABS */
@@ -149,7 +113,7 @@
     }
   }
 }
-/** TABS END */
+
 
 /** ALERT+POPUP */
 .modal {
@@ -256,7 +220,6 @@
       }
    }
 }
-/** ALERT+POPUP END */
 
 
 /** LOADING */
@@ -268,7 +231,6 @@
       @include loader-component(color(gray4));
    }
 }
-/** LOADING END */
 
 
 /** DROPDOWN */
@@ -360,7 +322,7 @@
      @include dropdown-component(color(darkBlue2), color(white), color(darkBlue3));
   }
 }
-/** DROPDOWN END*/
+
 
 /** TABLE */
 .table-head {
@@ -384,4 +346,3 @@
     color: color(black3);
   }
 }
-/** TABLE END */
