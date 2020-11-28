@@ -72,9 +72,9 @@ $cell10: 95px;
       display: flex;
       &:hover {
          background: color(bodyColor);
-         .btn {
-            display: block;
-         }
+      }
+      & .btn {
+         display: block;
       }
       &:last-child {
          border-bottom: 1px solid color(gray5);
