@@ -96,7 +96,7 @@ $cell10: 95px;
 
 @media screen and (max-width: 1024px) {
    .custom-table .table-row .btn {
-      display: initial;
+      // display: initial;
       width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
