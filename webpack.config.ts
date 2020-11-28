@@ -39,7 +39,7 @@ module.exports = {
         test: /\.scss$/, 
         use: [ 
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { modules: true } }, 
+          { loader: 'css-loader' }, 
           { loader: 'sass-loader' },
         ],
         exclude: path.resolve(__dirname, './src/Styles/exportColors.scss')
