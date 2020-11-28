@@ -69,7 +69,7 @@ const defaultProps: Props = {
   className: ''
 }
 
-const Alert: FC<Props> = (props: Props) => {
+const AAlert: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
@@ -149,4 +149,4 @@ const Alert: FC<Props> = (props: Props) => {
   )
 }
 
-export default Alert
+export default AAlert

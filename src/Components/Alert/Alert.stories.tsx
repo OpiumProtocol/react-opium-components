@@ -13,7 +13,7 @@ export const alert = () => {
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
   const [popupIsOpen, setPopupIsOpen] = useState(false)
-  const [checkBoxChecked, setCheckBoxChecked] = useState(false)
+  const [checkBoxChecked, setCheckBoxChecked] = useState(false)  
 
   const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
   const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
@@ -60,25 +60,25 @@ export const alert = () => {
   )
 }
 
-Alert.defaultProps = {
-  theme: ETheme.DARK,
-  title: '',
-  size: 'sm',
-  description: '',
-  attention: false,
-  loading: false,
-  closePopup: () => { },
-  popupIsOpen: false,
-  showActionButton: true,
-  handleAction: () => { },
-  actionButtonTitle: '',
-  cancelButtonTitle: '',
-  showCheckBox: true,
-  handleCheckBoxChange: () => { },
-  checkBoxChecked: true,
-  checkBoxLabel: '',
-  hideCross: false,
-}
+// Alert.defaultProps = {
+//   theme: ETheme.DARK,
+//   title: '',
+//   size: 'sm',
+//   description: '',
+//   attention: false,
+//   loading: false,
+//   closePopup: () => { },
+//   popupIsOpen: false,
+//   showActionButton: true,
+//   handleAction: () => { },
+//   actionButtonTitle: '',
+//   cancelButtonTitle: '',
+//   showCheckBox: true,
+//   handleCheckBoxChange: () => { },
+//   checkBoxChecked: true,
+//   checkBoxLabel: '',
+//   hideCross: false,
+// }
 
 export default {
   title: 'Alert component',

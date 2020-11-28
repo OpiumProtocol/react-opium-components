@@ -3,7 +3,7 @@ import { withKnobs, text, color } from '@storybook/addon-knobs'
 
 import Button from './index'
 
-import { ETheme } from '../../Constants/Types/theme.types'
+import { themes, ETheme } from '../../Constants/Types/theme.types'
 
 import colors from '../../Styles/exportColors.scss'
 
@@ -33,7 +33,7 @@ export const button = () => {
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
           theme={theme}
-          label={label}
+          label={`${label} is on`}
           variant='secondary'
           style={{ marginRight: '1rem' }}
           onClick={handleClick}
@@ -77,14 +77,14 @@ export const button = () => {
   )
 }
 
-Button.defaultProps = {
-  theme: ETheme.DARK,
-  className: '',
-  variant: 'primary',
-  label: '',
-  style: {},
-  onClick: () => { },
-}
+// Button.defaultProps = {
+//   theme: ETheme.DARK,
+//   className: '',
+//   variant: 'primary',
+//   label: '',
+//   style: {},
+//   onClick: () => { },
+// }
 
 export default {
   title: 'OpiumButton',

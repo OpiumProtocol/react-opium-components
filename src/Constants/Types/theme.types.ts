@@ -1,37 +1,8 @@
-import colors from '../../Styles/exportColors.scss'
-
-const {
-  gray1,
-  gray2,
-  gray3,
-  gray4,
-  gray6,
-  gray6_30,
-  white0,
-  red0,
-  red0_20,
-  green1,
-  green1_30,
-  yellow3,
-  blue1,
-  darkgray1,
-  darkgray2,
-  darkgray4,
-  darkgray6,
-  transparent0,
-} = colors
+import _ from '../../Styles/exportColors.scss'
 
 export enum ETheme {
   LIGHT = 'LIGHT',
-  DARK = 'DARK'
-}
-
-type TColorSet = {
-  primary: string,
-  secondary: string,
-  danger: string,
-  success: string,
-  warning: string,
+  DARK = 'DARK',
 }
 
 export type TColorScheme = {
@@ -41,52 +12,60 @@ export type TColorScheme = {
   borderStyle: string
 }
 
+type TColorSet = {
+  primary: { value: string, hover: string },
+  secondary: { value: string, hover: string },
+  danger: { value: string, hover: string },
+  success: { value: string, hover: string },
+  warning: { value: string, hover: string },
+}
+
 export const colorSchemeLight: TColorScheme = {
   color: {
-    primary: blue1,
-    secondary: gray2,
-    danger: red0,
-    success: gray2,
-    warning: gray3,
+    primary: { value: _.blue1, hover: _.white0 },
+    secondary: { value: _.gray4, hover: _.white0 },
+    danger: { value: _.red0, hover: _.red2 },
+    success: { value: _.gray4, hover: _.green1_darken },
+    warning: { value: _.gray4, hover: _.yellow3_darken },
   },
   backgroundColor: {
-    primary: white0,
-    secondary: gray6_30,
-    danger: red0_20,
-    success: green1_30,
-    warning: yellow3,
+    primary: { value: _.white0, hover: _.blue1 },
+    secondary: { value: _.gray6_30, hover: _.gray5 },
+    danger: { value: _.red0_20, hover: _.red0_40 },
+    success: { value: _.green1_30, hover: _.green1_50 },
+    warning: { value: _.yellow3_60, hover: _.yellow3 },
   },
   borderColor: {
-    primary: blue1,
-    secondary: gray4,
-    danger: transparent0,
-    success: transparent0,
-    warning: transparent0,
+    primary: { value: _.blue1, hover: _.blue1 },
+    secondary: { value: _.gray6, hover: _.gray5 },
+    danger: { value: _.transparent0, hover: _.transparent0 },
+    success: { value: _.transparent0, hover: _.transparent0 },
+    warning: { value: _.transparent0, hover: _.transparent0 },
   },
   borderStyle: 'solid',
 }
 
 export const colorSchemeDark: TColorScheme = {
   color: {
-    primary: darkgray4,
-    secondary: darkgray6,
-    danger: red0,
-    success: white0,
-    warning: white0,
+    primary: { value: _.darkgray4, hover: _.white0 },
+    secondary: { value: _.darkgray4, hover: _.darkgray6 },
+    danger: { value: _.red0_50, hover: _.red0 },
+    success: { value: _.green1, hover: _.white0 },
+    warning: { value: _.yellow3, hover: _.white0 },
   },
   backgroundColor: {
-    primary: darkgray1,
-    secondary: darkgray2,
-    danger: red0_20,
-    success: green1_30,
-    warning: yellow3,
+    primary: { value: _.darkgray1, hover: _.darkgray1_darken },
+    secondary: { value: _.darkgray2, hover: _.darkgray3 },
+    danger: { value: _.red0_20, hover: _.red0_40 },
+    success: { value: _.green1_30, hover: _.green1_40 },
+    warning: { value: _.yellow3_60, hover: _.yellow3_70 },
   },
   borderColor: {
-    primary: darkgray2,
-    secondary: darkgray2,
-    danger: transparent0,
-    success: transparent0,
-    warning: transparent0,
+    primary: { value: _.darkgray2, hover: _.darkgray3 },
+    secondary: { value: _.transparent0, hover: _.transparent0 },
+    danger: { value: _.transparent0, hover: _.transparent0 },
+    success: { value: _.transparent0, hover: _.transparent0 },
+    warning: { value: _.transparent0, hover: _.transparent0 },
   },
   borderStyle: 'solid',
 }
