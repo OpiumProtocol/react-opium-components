@@ -71,7 +71,7 @@ export const colorSchemeDark: TColorScheme = {
 }
 
 export type TThemes = {
-  [theme in ETheme]?: TColorScheme
+  [theme in ETheme]: TColorScheme
 }
 
 export const themes: TThemes = {
