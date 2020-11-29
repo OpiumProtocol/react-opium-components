@@ -51,21 +51,21 @@
   top: -1px;
 
   &.color-scheme-LIGHT .nav-item {
-    @include tabs-component(color(transparent), color(gray4), transparent);
+    @include tabs-component(color(transparent), color(gray3), transparent);
     &.active {
-      box-shadow: inset 0px -2px 0px 0px color(pureRed);
+      box-shadow: inset 0px -2px 0px 0px color(gray8);
       cursor: default;
-      color: color(black3);
+      color: color(gray3);
       background: transparent;
     }
   }
 
   &.color-scheme-DARK .nav-item {
-    @include tabs-component(color(transparent), color(gray3), color(transparent));
+    @include tabs-component(color(transparent), color(darkgray7), color(transparent));
     &.active {
-      box-shadow: inset 0px -2px 0px 0px color(pureRed);
+      box-shadow: inset 0px -2px 0px 0px color(darkBlue3);
       cursor: default;
-      color: color(gray4);
+      color: color(darkgray7);
       background: transparent;
     }
   }
