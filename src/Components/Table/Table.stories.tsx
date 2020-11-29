@@ -42,7 +42,7 @@ export const table = () => {
     ],
   ]
 
-  const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
+  const backgroundColor = theme === ETheme.DARK ? colors.darkBlue1 : colors.white0
   const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
 
   return (

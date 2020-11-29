@@ -27,6 +27,7 @@ $colors: (
 	whiteOpaque: rgba(255, 255, 255, 0.75),
 	whiteOpaque1: rgba(255, 255, 255, 0.4),
 	blackOpaque: rgba(0, 0, 0, 0.1),
+	white1: #f8f8f9,
 	black2: #353538,
 	black3: #121212,
 	orange: #eabb2a,
@@ -45,9 +46,13 @@ $colors: (
 	gray9: #e5e5e5,
 	gray10: #e8e8e8,
 	gray11: #b2b2b2,
+	gray12: #F1F2F4,
 	gray6Opaque: rgba(237, 237, 240, 0.5),
 	gray6-30: rgba(243, 243, 244, 0.3),
 	greyColor: #ededf0,
+	darkgray7: #767a8a,
+	
+
 );
 
 $breakpoints: (
@@ -139,10 +144,13 @@ $font-sizes: (
 	border: 1px solid $border-color;
 }
 
-@mixin table-component($bg, $color, $border-color) {
+@mixin table-component($bg, $color, $border-color, $hover-color) {
 	background-color: $bg;
 	color: $color;
 	border: 1px solid $border-color;
+	&:hover {
+		background-color: $hover-color;
+	}
 }
 
 @mixin tabs-component($bg, $color, $border-color) {
