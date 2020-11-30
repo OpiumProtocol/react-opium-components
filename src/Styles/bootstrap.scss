@@ -15,7 +15,7 @@
   line-height: 2.4;
 
   &.color-scheme-LIGHT {
-    @include localized-input-component(color(gray6), color(black3), transparent);
+    @include localized-input-component(color(white), color(black3), color(blue1));
   }
   &.color-scheme-DARK {
      @include localized-input-component(color(darkBlue2), color(white), transparent);
