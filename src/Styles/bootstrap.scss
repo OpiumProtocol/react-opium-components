@@ -93,6 +93,7 @@
     animation: .3s linear 0s fade;
     display: none !important;
     border-radius: 10px;
+    overflow: hidden;
     &.active {
       display: block !important;
 
