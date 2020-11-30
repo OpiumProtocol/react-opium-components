@@ -7,9 +7,9 @@
   white-space: normal;
 
   &.color-scheme-LIGHT {
-    @include text-block-component(color(gray6), color(black3), color(gray4));
+    @include text-block-component(color(gray6), color(gray3), color(gray4));
   }
   &.color-scheme-DARK {
-     @include text-block-component(color(darkBlue2), color(white), color(gray4));
+     @include text-block-component(color(darkBlue2), color(darkgray7), color(gray4));
   }
 }

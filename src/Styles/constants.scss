@@ -1,3 +1,5 @@
+@import './colors.scss';
+
 $headerSidePadding: 1rem;
 
 $sizes: (
@@ -12,19 +14,20 @@ $colors: (
 	red: #ff5a5a,
 	pureRed: #E3000F,
 	pureYellow: #F2C94C,
-	blue1: #197cd8,
 	blue1Hover: rgba(45, 142, 233, 0.9),
+	blue1: #197cd8,
 	blue2: #56ccf2,
 	blue3: #6ea9e4,
 	blue4: #bbebfa,
+	white: #fff,
+	black: rgb(0, 0, 0),
 	darkBlue1: rgb(10, 10, 30),
 	darkBlue2: rgb(20, 20, 41),
 	darkBlue3: rgb(39, 39, 59),
-	white: #fff,
 	whiteOpaque: rgba(255, 255, 255, 0.75),
 	whiteOpaque1: rgba(255, 255, 255, 0.4),
 	blackOpaque: rgba(0, 0, 0, 0.1),
-	black: rgb(0, 0, 0),
+	white1: #f8f8f9,
 	black2: #353538,
 	black3: #121212,
 	orange: #eabb2a,
@@ -38,14 +41,18 @@ $colors: (
 	gray4: #a5a5a7,
 	gray5: #ededf0,
 	gray6: #f3f3f3,
-	gray6Opaque: rgba(237, 237, 240, 0.5),
 	gray7: #ebebec,
 	gray8: #d2d2d3,
 	gray9: #e5e5e5,
 	gray10: #e8e8e8,
 	gray11: #b2b2b2,
+	gray12: #F1F2F4,
+	gray6Opaque: rgba(237, 237, 240, 0.5),
 	gray6-30: rgba(243, 243, 244, 0.3),
 	greyColor: #ededf0,
+	darkgray7: #767a8a,
+	
+
 );
 
 $breakpoints: (
@@ -137,10 +144,13 @@ $font-sizes: (
 	border: 1px solid $border-color;
 }
 
-@mixin table-component($bg, $color, $border-color) {
+@mixin table-component($bg, $color, $border-color, $hover-color) {
 	background-color: $bg;
 	color: $color;
 	border: 1px solid $border-color;
+	&:hover {
+		background-color: $hover-color;
+	}
 }
 
 @mixin tabs-component($bg, $color, $border-color) {

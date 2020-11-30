@@ -4,13 +4,13 @@ import { Modal } from 'react-bootstrap'
 import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Popup.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Set title */
   title?: string
   /** Set size */
@@ -38,7 +38,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   size: 'sm',
   title: '',
   component: '',

@@ -9,7 +9,7 @@ import TextBlock from './Components/TextBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import DropdownSelector from './Components/DropdownSelector'
 
-import { Theme, ColorScheme, Colors, ColorsTheme } from './Constants/Types/theme.types'
+import { ETheme, TColorScheme, TThemes, themes } from './Constants/Types/theme.types'
 
 export {
   Alert,
@@ -22,11 +22,11 @@ export {
   TextBlock,
   LocalizedInput,
   DropdownSelector,
-  ColorsTheme,
-  Theme
+  themes,
+  ETheme,
 }
 
 export type {
-  ColorScheme,
-  Colors
+  TColorScheme,
+  TThemes,
 }

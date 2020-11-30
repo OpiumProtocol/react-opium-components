@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Tab, Tabs } from 'react-bootstrap'
 
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -10,7 +10,7 @@ import './OpiumTabs.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Set tab items */
   items?: {
     title: string,
@@ -26,7 +26,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   items: [
     {
       title: 'Tab1',

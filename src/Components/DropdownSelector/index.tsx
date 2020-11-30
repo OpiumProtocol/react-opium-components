@@ -2,14 +2,14 @@ import React, { FC, useState, BaseSyntheticEvent, ReactNode } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropdownSelector.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Title, if controlled */
   title?: string | ReactNode
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
@@ -27,7 +27,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   items: [
     { title: 'First', value: '1', href: '' },
     { title: 'Second', value: '2', href: '' },

@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { Theme } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -8,7 +8,7 @@ import './TextBlock.scss'
 
 export type Props = {
   /** Define theme */
-  theme?: Theme
+  theme?: ETheme
   /** Insert content */
   content?: Array<string>
   /** Set class selectors */
@@ -18,7 +18,7 @@ export type Props = {
 }
 
 const defaultProps: Props = {
-  theme: Theme.DARK,
+  theme: ETheme.DARK,
   content: [],
   className: '',
   styles: {},

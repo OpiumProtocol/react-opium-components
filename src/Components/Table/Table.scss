@@ -23,7 +23,6 @@ $cell10: 95px;
    }
    &:nth-child(4) {
       width: $cell4;
-      border-left: 1px solid color(gray5);
    }
    &:nth-child(5) {
       width: $cell5;
@@ -59,7 +58,6 @@ $cell10: 95px;
    }
    .table-head-cell {
       font-size: fz(xs);
-      color: color(gray4);
       padding: indent(1) indent(2);
       text-transform: uppercase;
       line-height: 1.2;
@@ -68,20 +66,14 @@ $cell10: 95px;
       align-items: center;
    }
    .table-row {
-      border-top: 1px solid color(gray5);
+      
       display: flex;
-      &:hover {
-         background: color(bodyColor);
-         .btn {
-            display: block;
-         }
+      & .btn {
+         display: block;
       }
-      &:last-child {
-         border-bottom: 1px solid color(gray5);
-      }
-      .btn {
-         display: none;
-      }
+      // .btn {
+      //    display: none;
+      // }
    }
    .table-cell {
       padding: indent(1) indent(2);

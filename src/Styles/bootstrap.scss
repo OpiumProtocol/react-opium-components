@@ -1,59 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-
-.card {
-  @include panel;
-  padding: indent(4);
-  display: flex;
-  flex-direction: column;
-  .card-header {
-    padding: 0 0 indent(4) 0;
-    background: transparent;
-    border: 0;
-  }
-  .card-title {
-    font-weight: bold;
-    font-size: fz(m);
-    color: color(black);
-    text-align: center;
-    margin: 0;
-  }
-  .card-body {
-    padding: 0;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-form {
-  .form-label {
-    color: color(gray4);
-    display: block;
-    margin-bottom: indent(1);
-  }
-  .custom-checkbox {
-    color: color(gray4);
-    font-size: fz(xs);
-    margin-bottom: indent(3);
-  }
-  .custom-control-input {
-    &:focus {
-      & ~ .custom-control-label:before {
-        box-shadow: none !important;
-      }
-    }
-  }
-  .custom-control-label {
-    &:before {
-      top: 2px;
-      border-radius: size(defaultRadiusPx) !important;
-      border-color: color(gray11) !important;
-    }
-    &:after {
-      top: 2px;
-    }
-  }
-}
+@import "./colors.scss";
 
 /** LocalizedINPUT */
 .form-control {
@@ -81,7 +27,6 @@ form {
      @include localized-input-component(color(darkBlue2), color(white), transparent);
   }
 }
-/** LocalizedINPUT END */
 
 
 /** BUTTON */
@@ -95,42 +40,7 @@ form {
   outline: none !important;
   letter-spacing: 0.04em;
   width: fit-content;
-  
-  &.color-scheme-LIGHT {
-    @include btn-variant(color(white), color(black3), transparent);
-	}
-	&.color-scheme-DARK {
-    @include btn-variant(color(darkBlue2), color(white), color(darkBlue3));
-  }
-
-  &.btn-primary {
-   &.color-scheme-LIGHT {
-      @include btn-variant(color(gray6), color(pureRed), color(pureRed));
-	 }
-	 &.color-scheme-DARK {
-      @include btn-variant(color(darkBlue2), color(gray4), color(darkBlue3));
-   }
-  }
-
-  &.btn-secondary {
-    &.color-scheme-LIGHT {
-       @include btn-variant(color(whiteOpaque), color(gray4), color(gray4));
-    }
-    &.color-scheme-DARK {
-       @include btn-variant(color(gray4), color(whiteOpaque), color(gray4));
-    }
-  }
-
-  &.btn-transparent {
-    @include btn-variant(transparent, color(black3), transparent);
-    border: 0;
-    color: color(black3);
-  }
-  &.btn-dark {
-    @include btn-variant(color(white), color(gray11), color(gray11));
-  }
 }
-/** BUTTON END */
 
 
 /** TABS */
@@ -141,21 +51,21 @@ form {
   top: -1px;
 
   &.color-scheme-LIGHT .nav-item {
-    @include tabs-component(color(transparent), color(gray4), transparent);
+    @include tabs-component(color(transparent), color(gray3), transparent);
     &.active {
-      box-shadow: inset 0px -2px 0px 0px color(pureRed);
+      box-shadow: inset 0px -2px 0px 0px color(gray8);
       cursor: default;
-      color: color(black3);
+      color: color(gray3);
       background: transparent;
     }
   }
 
   &.color-scheme-DARK .nav-item {
-    @include tabs-component(color(transparent), color(gray3), color(transparent));
+    @include tabs-component(color(transparent), color(darkgray7), color(transparent));
     &.active {
-      box-shadow: inset 0px -2px 0px 0px color(pureRed);
+      box-shadow: inset 0px -2px 0px 0px color(darkBlue3);
       cursor: default;
-      color: color(gray4);
+      color: color(darkgray7);
       background: transparent;
     }
   }
@@ -203,7 +113,7 @@ form {
     }
   }
 }
-/** TABS END */
+
 
 /** ALERT+POPUP */
 .modal {
@@ -310,7 +220,6 @@ form {
       }
    }
 }
-/** ALERT+POPUP END */
 
 
 /** LOADING */
@@ -322,7 +231,6 @@ form {
       @include loader-component(color(gray4));
    }
 }
-/** LOADING END */
 
 
 /** DROPDOWN */
@@ -414,28 +322,32 @@ form {
      @include dropdown-component(color(darkBlue2), color(white), color(darkBlue3));
   }
 }
-/** DROPDOWN END*/
+
 
 /** TABLE */
 .table-head {
   &.color-scheme-LIGHT {
-    @include table-component(color(gray6), color(black3), transparent);
+    @include table-component(color(gray12), color(gray3), transparent, color(gray12));
   }
   &.color-scheme-DARK {
-     @include table-component(color(darkBlue2), color(white), color(darkBlue3));
+     @include table-component(color(darkBlue1), color(darkgray7), color(darkBlue3), color(darkBlue1));
   }
 }
-
+// ($bg, $color, $border-color, $hover-color)
 .table-row {
   &.color-scheme-LIGHT {
-    @include table-component(color(gray6), color(black3), transparent);
+    @include table-component(color(gray12), color(gray3), transparent, color(white1));
+    border-top: 1px solid color(gray8);
+    &:last-child {
+     border-bottom: 1px solid color(gray8);
+  }
   }
   &.color-scheme-DARK {
-     @include table-component(color(darkBlue2), color(white), color(darkBlue3));
+     @include table-component(color(darkBlue1), color(darkgray7), color(darkBlue3), color(darkBlue2));
+     border-top: 1px solid color(darkBlue3);
+     &:last-child {
+      border-bottom: 1px solid color(darkBlue3);
+   }
   }
 
-  &:hover {
-    color: color(black3);
-  }
 }
-/** TABLE END */
