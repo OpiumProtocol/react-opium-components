@@ -73,6 +73,8 @@ const OpiumButton: FC<Props> = (props: Props) => {
     ? generateRenderProps(hovered, style)
     : generateRenderProps(styled, style)
 
+  if (variant === 'primary') buttonStyle.borderRadius = '30px'
+
   return (
     <Button
       className={`${className}`}

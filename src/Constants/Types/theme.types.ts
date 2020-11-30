@@ -5,13 +5,6 @@ export enum ETheme {
   DARK = 'DARK',
 }
 
-export type TColorScheme = {
-  color: TColorSet
-  backgroundColor: TColorSet
-  borderColor: TColorSet
-  borderStyle: string
-}
-
 type TColorSet = {
   primary: { value: string, hover: string },
   secondary: { value: string, hover: string },
@@ -20,9 +13,16 @@ type TColorSet = {
   warning: { value: string, hover: string },
 }
 
+export type TColorScheme = {
+  color: TColorSet
+  backgroundColor: TColorSet
+  borderColor: TColorSet
+  borderStyle: string
+}
+
 export const colorSchemeLight: TColorScheme = {
   color: {
-    primary: { value: _.gray2, hover: _.white0 },
+    primary: { value: _.blue1, hover: _.white0 },
     secondary: { value: _.gray3, hover: _.white0 },
     danger: { value: _.red0, hover: _.red2 },
     success: { value: _.gray4, hover: _.green1_darken },
@@ -47,21 +47,21 @@ export const colorSchemeLight: TColorScheme = {
 
 export const colorSchemeDark: TColorScheme = {
   color: {
-    primary: { value: _.darkgray6, hover: _.white0 },
+    primary: { value: _.blue1, hover: _.white0 },
     secondary: { value: _.darkgray7, hover: _.darkgray6 },
     danger: { value: _.red0_50, hover: _.red0 },
     success: { value: _.green1, hover: _.white0 },
     warning: { value: _.yellow3, hover: _.white0 },
   },
   backgroundColor: {
-    primary: { value: _.darkBlue1, hover: _.darkgray1_darken },
+    primary: { value: _.darkBlue1, hover: _.blue1 },
     secondary: { value: _.darkgray1, hover: _.darkgray3 },
     danger: { value: _.red0_20, hover: _.red0_40 },
     success: { value: _.green1_30, hover: _.green1_40 },
     warning: { value: _.yellow3_60, hover: _.yellow3_70 },
   },
   borderColor: {
-    primary: { value: _.darkgray2, hover: _.darkgray3 },
+    primary: { value: _.blue1, hover: _.blue1 },
     secondary: { value: _.transparent0, hover: _.transparent0 },
     danger: { value: _.transparent0, hover: _.transparent0 },
     success: { value: _.transparent0, hover: _.transparent0 },
