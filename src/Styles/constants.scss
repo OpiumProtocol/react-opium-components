@@ -147,7 +147,7 @@ $font-sizes: (
 @mixin table-component($bg, $color, $border-color, $hover-color) {
 	background-color: $bg;
 	color: $color;
-	border: 1px solid $border-color;
+	border-bottom: 1px solid $border-color;
 	&:hover {
 		background-color: $hover-color;
 	}

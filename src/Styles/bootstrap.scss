@@ -55,7 +55,7 @@
     &.active {
       box-shadow: inset 0px -2px 0px 0px color(gray8);
       cursor: default;
-      color: color(gray3);
+      color: color(blue1);
       background: transparent;
     }
   }
@@ -329,7 +329,7 @@
 /** TABLE */
 .table-head {
   &.color-scheme-LIGHT {
-    @include table-component(color(gray12), color(gray3), transparent, color(gray12));
+    @include table-component(color(gray12), color(gray3), color(gray8), color(gray12));
   }
   &.color-scheme-DARK {
      @include table-component(color(darkBlue1), color(darkgray7), color(darkBlue3), color(darkBlue1));
