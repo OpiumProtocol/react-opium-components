@@ -11,25 +11,8 @@
   border-radius: size(defaultRadiusPx);
   padding: indent(1) indent(3);
   width: 100%;
-  margin-bottom: indent(3);
   box-shadow: none;
   line-height: 2.4;
-  /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=NUMBER] {
-  -moz-appearance: textfield;
-}
-  &:focus {
-    background: color(gray6);
-    border: 0;
-    box-shadow: unset,
-  }
 
   &.color-scheme-LIGHT {
     @include localized-input-component(color(gray6), color(black3), transparent);
