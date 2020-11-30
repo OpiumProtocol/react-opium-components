@@ -5,7 +5,7 @@ import LocalizedInput from './index'
 import Button from '../OpiumButton'
 
 import { ETheme } from '../../Constants/Types/theme.types'
-import { LocalizedInputType } from '../../Constants/Types/LocalizedInput.types'
+import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
 
 import './LocalizedInput.scss'
 import colors from '../../Styles/exportColors.scss'
@@ -23,10 +23,10 @@ export const localizedInput = () => {
   }
 
   const setValue = () => {
-    return type === 'text' || !type ? string : number
+    return type === EFieldType.NUMBER || !type ? number : string
   }
 
-  const type: LocalizedInputType = 'text'
+  const type: EFieldType = EFieldType.NUMBER
 
   const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
   const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
@@ -62,7 +62,7 @@ export const localizedInput = () => {
 
 LocalizedInput.defaultProps = {
   theme: ETheme.DARK,
-  type: 'text',
+  type: EFieldType.NUMBER,
   locale: 'en',
   value: '',
   onClick: () => { },
