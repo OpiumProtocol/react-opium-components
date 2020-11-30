@@ -42,7 +42,7 @@ const Segments: FC<Props> = (props: Props) => {
 
   const renderColor = (val: string) => {
     // if (val === currentVal || val === currentValue) return '#18CBAB'
-    if (val === currentVal || val === currentValue) return '#E3000F'
+    if (val === currentVal || val === currentValue) return '#227CD7'
     return '#b2b2b2'
   }
 

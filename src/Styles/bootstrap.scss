@@ -271,18 +271,25 @@
   &:hover {
     &.color-scheme-LIGHT {
       @include dropdown-component($blue1, $white0, $blue1);
+      &:after {
+        color: color(white);
+      }
     }
     &.color-scheme-DARK {
       @include dropdown-component($blue1, $white0, $blue1);
+      &:after {
+        color: color(white);
+      }
     }
     box-shadow: none !important;
   }
   &:after {
-    color: color(pureRed);
+    color: color(blue1);
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+
   }
   &:before {
     content: '';

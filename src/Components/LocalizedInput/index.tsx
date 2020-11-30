@@ -11,7 +11,7 @@ export type Props = {
   theme?: ETheme
   /** Define input type */
   type?: LocalizedInputType
-  /** Set lokale */
+  /** Set locale */
   locale?: string
   /** Set initial value */
   value?: string | number
