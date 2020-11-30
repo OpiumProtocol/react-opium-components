@@ -49,8 +49,6 @@ $cell10: 95px;
    padding: 0 indent(1);
    // width: 50rem;
    .table-head {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
       display: flex;
       margin: 0;
    }
@@ -72,10 +70,6 @@ $cell10: 95px;
       display: flex;
       & .btn {
          display: block;
-      }
-      &:last-child {
-         border-bottom-left-radius: 10px;
-         border-bottom-right-radius: 10px;
       }
    }
    .table-cell {
