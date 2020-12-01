@@ -74,8 +74,8 @@ const Segments: FC<Props> = (props: Props) => {
     setCurrentVal(val)
   }
 
-  const handleEnter = (idx: number) => {
-    setCurrentVal(`${idx}`)
+  const handleEnter = (value: string) => {
+    setCurrentVal(value)
     setHover(true)
   }
 
@@ -96,7 +96,7 @@ const Segments: FC<Props> = (props: Props) => {
             className='segments-item'
             style={styleItem(value)}
             onClick={uncontrolled ? () => uncontrolledClick(value) : () => onClick(value)}
-            onMouseEnter={() => handleEnter(idx + 1)}
+            onMouseEnter={() => handleEnter(value)}
             onMouseLeave={() => handleLeave()}
           />
         ))
