@@ -45,9 +45,11 @@ export const segments = () => {
       <Segments
         theme={theme}
         items={items}
+        variant='secondary'
         currentValue={currentValue}
         onClick={(val: string) => setCurrentValue(val)}
         uncontrolled={false}
+        className=''
       />
     </div>
   )
