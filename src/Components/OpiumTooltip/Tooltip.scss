@@ -1,0 +1,47 @@
+@import '../../Styles/index.scss';
+
+// .popover > .arrow::after{
+//   border-right-color: red !important;
+// }
+
+// tooltip-component($bg)
+
+.popover {
+  & .popover-body.color-scheme-LIGHT {
+    @include tooltip-component($gray3, $white0, $gray3);
+  }
+
+  & .popover-body.color-scheme-DARK {
+    @include tooltip-component($gray5, $gray1, $gray5);
+  }
+
+  &.color-scheme-LIGHT.bs-popover-bottom {
+    & .arrow::after {
+      border-bottom-color: $gray3;
+    }
+    & .arrow::after {
+      border-right-color: $gray3;
+    }
+    & .arrow::after {
+      border-left-color: $gray3;
+    }
+    & .arrow::after {
+      border-top-color: $gray3;
+    }
+  }
+
+  &.color-scheme-DARK {
+    & .bs-popover-bottom > .arrow::after {
+      border-bottom-color: $gray5;
+    }
+    & .bs-popover-right > .arrow::after {
+      border-right-color: $gray5;
+    }
+    & .bs-popover-left > .arrow::after {
+      border-left-color: $gray5;
+    }
+    & .bs-popover-top > .arrow::after {
+      border-top-color: $gray5;
+    }
+  }
+}

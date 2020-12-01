@@ -118,6 +118,13 @@ $font-sizes: (
   	}
 }
 
+@mixin tooltip-component($bg, $color, $border) {
+	background-color: $bg;
+	color: $color;
+	border-color: $border;
+	border-radius: 3px;
+}
+
 @mixin popup-alert-component($bg, $color, $border-color) {
 	background-color: $bg;
 	color: $color;
