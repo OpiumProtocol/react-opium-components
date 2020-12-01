@@ -46,7 +46,7 @@ $cell10: 95px;
 }
 
 .custom-table {
-   padding: 0 indent(1);
+   // padding: 0 indent(1);
    // width: 50rem;
    .table-head {
       display: flex;
@@ -71,9 +71,6 @@ $cell10: 95px;
       & .btn {
          display: block;
       }
-      // .btn {
-      //    display: none;
-      // }
    }
    .table-cell {
       padding: indent(1) indent(2);

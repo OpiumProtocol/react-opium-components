@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import _ from '../../Styles/exportColors.scss'
+
 
 import Button from '../OpiumButton'
 
@@ -41,9 +43,8 @@ const Segments: FC<Props> = (props: Props) => {
   const [currentVal, setCurrentVal] = useState('')
 
   const renderColor = (val: string) => {
-    // if (val === currentVal || val === currentValue) return '#18CBAB'
-    if (val === currentVal || val === currentValue) return '#E3000F'
-    return '#b2b2b2'
+    if (val === currentVal || val === currentValue) return _.blue1
+    return _.gray3
   }
 
   const uncontrolledClick = (val: string) => {

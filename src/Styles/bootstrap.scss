@@ -11,17 +11,11 @@
   border-radius: size(defaultRadiusPx);
   padding: indent(1) indent(3);
   width: 100%;
-  margin-bottom: indent(3);
   box-shadow: none;
   line-height: 2.4;
-  &:focus {
-    background: color(gray6);
-    border: 0;
-    box-shadow: unset,
-  }
 
   &.color-scheme-LIGHT {
-    @include localized-input-component(color(gray6), color(black3), transparent);
+    @include localized-input-component(color(white), color(black3), color(blue1));
   }
   &.color-scheme-DARK {
      @include localized-input-component(color(darkBlue2), color(white), transparent);
@@ -40,6 +34,10 @@
   outline: none !important;
   letter-spacing: 0.04em;
   width: fit-content;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 
@@ -55,7 +53,7 @@
     &.active {
       box-shadow: inset 0px -2px 0px 0px color(gray8);
       cursor: default;
-      color: color(gray3);
+      color: color(blue1);
       background: transparent;
     }
   }
@@ -65,7 +63,7 @@
     &.active {
       box-shadow: inset 0px -2px 0px 0px color(darkBlue3);
       cursor: default;
-      color: color(darkgray7);
+      color: color(blue1);
       background: transparent;
     }
   }
@@ -92,6 +90,8 @@
   .tab-pane {
     animation: .3s linear 0s fade;
     display: none !important;
+    border-radius: 10px;
+    overflow: hidden;
     &.active {
       display: block !important;
 
@@ -254,19 +254,36 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  &.color-scheme-LIGHT {
+    @include dropdown-component($white0, $blue1, $blue1);
+  }
+  &.color-scheme-DARK {
+    @include dropdown-component($darkBlue1, $blue1, $blue1);
+  }
   &:active,
   &:focus,
   &:hover {
-    color: color(black3) !important;
-    background: transparent !important;
+    &.color-scheme-LIGHT {
+      @include dropdown-component($blue1, $white0, $blue1);
+      &:after {
+        color: color(white);
+      }
+    }
+    &.color-scheme-DARK {
+      @include dropdown-component($blue1, $white0, $blue1);
+      &:after {
+        color: color(white);
+      }
+    }
     box-shadow: none !important;
   }
   &:after {
-    color: color(pureRed);
+    color: color(blue1);
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+
   }
   &:before {
     content: '';
@@ -286,10 +303,10 @@
   @include panel;
 
   &.color-scheme-LIGHT {
-    @include dropdown-component(color(gray6), color(black3), transparent);
+    @include dropdown-component($white0, $blue1, $blue1);
   }
   &.color-scheme-DARK {
-     @include dropdown-component(color(darkBlue2), color(white), color(darkBlue3));
+     @include dropdown-component($darkBlue3, $white0, $blue1);
   }
 }
 
@@ -300,26 +317,25 @@
   line-height: 1.5;
   text-transform: none;
   text-decoration: none;
-  color: color(black3);
-  &:active,
-  &:focus {
-    color: color(black3);
-    background: transparent;
-  }
-  &:hover {
-    &.color-scheme-LIGHT {
-      @include dropdown-component(color(gray5), color(black3), transparent);
-    }
-    &.color-scheme-DARK {
-       @include dropdown-component(color(darkBlue3), color(white), transparent);
-    }
-  }
-
+  // color: color(black3);
   &.color-scheme-LIGHT {
-    @include dropdown-component(color(gray6), color(black3), transparent);
+    @include dropdown-component($white0, $blue1, $blue1);
   }
   &.color-scheme-DARK {
-     @include dropdown-component(color(darkBlue2), color(white), color(darkBlue3));
+     @include dropdown-component($darkBlue3, $blue1, $blue1);
+  }
+  // &:active,
+  // &:focus {
+    // color: color(black3);
+    // background: transparent;
+  // }
+  &:hover {
+    &.color-scheme-LIGHT {
+      @include dropdown-component($blue1, $white0, $blue1);
+    }
+    &.color-scheme-DARK {
+       @include dropdown-component($blue1, $white0, $blue1);
+    }
   }
 }
 
@@ -327,7 +343,7 @@
 /** TABLE */
 .table-head {
   &.color-scheme-LIGHT {
-    @include table-component(color(gray12), color(gray3), transparent, color(gray12));
+    @include table-component(color(gray12), color(gray3), color(gray8), color(gray12));
   }
   &.color-scheme-DARK {
      @include table-component(color(darkBlue1), color(darkgray7), color(darkBlue3), color(darkBlue1));

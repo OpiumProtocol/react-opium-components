@@ -2,7 +2,7 @@ import React, { FC, useState, BaseSyntheticEvent } from 'react'
 import { Form } from 'react-bootstrap'
 
 import { ETheme } from '../../Constants/Types/theme.types'
-import { LocalizedInputType } from '../../Constants/Types/LocalizedInput.types'
+import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -10,8 +10,8 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Define input type */
-  type?: LocalizedInputType
-  /** Set lokale */
+  type?: EFieldType
+  /** Set locale */
   locale?: string
   /** Set initial value */
   value?: string | number
@@ -25,7 +25,7 @@ export type Props = {
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  type: 'text',
+  type: EFieldType.NUMBER,
   locale: 'en',
   value: '',
   className: '',
@@ -49,7 +49,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
       {
         (() => {
           switch (type) {
-            case 'number':
+            case EFieldType.NUMBER:
               return isEditing
                 ? <Form.Control
                   className={`color-scheme-${theme} ${className}`}
