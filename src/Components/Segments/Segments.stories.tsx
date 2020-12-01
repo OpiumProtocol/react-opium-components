@@ -15,7 +15,7 @@ export const segments = () => {
   const [currentValue, setCurrentValue] = useState('')
 
   const items = [
-    { label: 'First', value: '1' },
+    { label: 'Firstaasdasdasdsdas', value: '1' },
     { label: 'Second', value: '2' },
     { label: 'Third', value: '3' },
     { label: 'Fourth', value: '4' },
