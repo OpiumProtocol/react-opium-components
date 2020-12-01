@@ -23,6 +23,8 @@ export type Props = {
   className?: string
   /** Set component uncontrolled */
   uncontrolled?: boolean
+  /** Disabled flag */
+  disabled?: boolean
 }
 
 const defaultProps: Props = {
@@ -38,7 +40,7 @@ const defaultProps: Props = {
 
 const Segments: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { currentValue, items, theme, onClick, className, uncontrolled } = renderProps
+  const { currentValue, items, theme, onClick, className, uncontrolled, disabled } = renderProps
 
   const [currentVal, setCurrentVal] = useState('')
 
@@ -62,6 +64,7 @@ const Segments: FC<Props> = (props: Props) => {
             className={`segmentsItem ${className}`}
             style={{ color: renderColor(value), borderColor: renderColor(value) }}
             onClick={uncontrolled ? () => uncontrolledClick(value) : () => onClick(value)}
+            disabled={disabled}
           />
         ))
       }
