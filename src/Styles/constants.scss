@@ -182,7 +182,6 @@ $font-sizes: (
 }
 
 @mixin font {
-	font-family: "Gerbera", sans-serif;
     font-style: normal;
 	font-size: fz(s);
 	font-weight: 400;
