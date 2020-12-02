@@ -6,6 +6,7 @@ import {
   ETheme,
   colorSchemeDark,
   colorSchemeLight,
+  getVariant,
 } from '../../Constants/Types/theme.types'
 
 import './Button.scss'
@@ -25,6 +26,8 @@ export type Props = {
   style?: CSSProperties
   /** Set on click action */
   onClick: Function
+  onMouseEnter?: Function
+  onMouseLeave?: Function
 }
 
 export const defaultProps: Props = {
@@ -39,21 +42,21 @@ export const defaultProps: Props = {
 const OpiumButton: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
 
-  const { label, theme, style, variant, className, ...rest } = generateRenderProps(defaultProps, props)
+  const {
+    label,
+    theme,
+    style,
+    variant,
+    className,
+    onMouseEnter,
+    onMouseLeave,
+    ...rest } = generateRenderProps(defaultProps, props)
 
   const colorScheme = theme === ETheme.DARK
     ? { ...colorSchemeDark }
     : { ...colorSchemeLight }
 
   const { color, backgroundColor, borderColor } = colorScheme
-  const getVariant = (variant: any) => {
-    if (variant === 'primary') return 'primary'
-    if (variant === 'secondary') return 'secondary'
-    if (variant === 'danger') return 'danger'
-    if (variant === 'success') return 'success'
-    if (variant === 'warning') return 'warning'
-    return 'primary'
-  }
 
   const styled = {
     color: color[getVariant(variant)].value,
@@ -79,8 +82,8 @@ const OpiumButton: FC<Props> = (props: Props) => {
     <Button
       className={`${className}`}
       style={buttonStyle}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
+      onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
       {...rest}
     >
       {label}

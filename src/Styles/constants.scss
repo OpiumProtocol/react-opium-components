@@ -51,8 +51,6 @@ $colors: (
 	gray6-30: rgba(243, 243, 244, 0.3),
 	greyColor: #ededf0,
 	darkgray7: #767a8a,
-	
-
 );
 
 $breakpoints: (
@@ -163,6 +161,11 @@ $font-sizes: (
 	background-color: $bg;
 	color: $color;
 	border: 1px solid $border-color;
+	&:focus {
+		background-color: $bg !important;
+		color: $color !important;
+		border: 1px solid $border-color !important;
+	}
 }
 
 @mixin text-one-row {

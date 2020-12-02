@@ -21,6 +21,8 @@ export type Props = {
   onChange?: Function
   /** Set class selectors */
   className?: string
+  /** Disabled flag */
+  disabled?: boolean
 }
 
 const defaultProps: Props = {
@@ -42,7 +44,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false)
 
   const renderProps = generateRenderProps(defaultProps, props)
-  const { type, theme, value, locale, onChange, className } = renderProps
+  const { type, theme, value, locale, onChange, className, disabled } = renderProps
 
   return (
     <>
@@ -52,29 +54,32 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             case EFieldType.NUMBER:
               return isEditing
                 ? <Form.Control
-                  className={`color-scheme-${theme} ${className}`}
+                  className={`color-scheme-${theme} ${className} ${disabled && 'disabled'}`}
                   type="number"
                   value={value === 0 ? '' : value}
                   onChange={(e) => onChange(+e.target.value)}
                   onBlur={() => setIsEditing(false)}
                   onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+                  disabled={disabled}
                 />
                 : <Form.Control
-                  className={`color-scheme-${theme} ${className}`}
+                  className={`color-scheme-${theme} ${className} ${disabled && 'disabled'}`}
                   type="text"
                   value={localize(value, locale)}
                   onChange={(e) => onChange(+e.target.value)}
                   onFocus={() => setIsEditing(true)}
                   onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+                  disabled={disabled}
                 />
 
             default:
               return (
                 <Form.Control
-                  className={`color-scheme-${theme}`}
+                  className={`color-scheme-${theme} ${disabled && 'disabled'}`}
                   type={type}
                   value={value === 0 ? '' : value}
                   onChange={(e) => onChange(e.target.value)}
+                  disabled={disabled}
                 />
               )
           }
