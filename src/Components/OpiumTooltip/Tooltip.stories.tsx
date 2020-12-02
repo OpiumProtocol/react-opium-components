@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withKnobs, text, color } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Tooltip from './index'
 import Button from '../OpiumButton'
@@ -25,12 +25,6 @@ export const tooltip = () => {
     }
   }
 
-  const component = <Button
-    theme={theme}
-    label={'!'}
-    onClick={() => { }}
-  />
-
   const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
   const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
 
@@ -47,10 +41,9 @@ export const tooltip = () => {
         />
       </div>
       <Tooltip
-        trigger="click"
         theme={theme}
-        component={component}
-        placement='bottom'
+        label={'!'}
+        placement='top-start'
       />
     </div>
   )
@@ -59,7 +52,6 @@ export const tooltip = () => {
 Tooltip.defaultProps = {
   theme: ETheme.DARK,
   className: '',
-  variant: 'primary',
   style: {},
 }
 

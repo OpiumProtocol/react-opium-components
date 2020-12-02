@@ -15,32 +15,32 @@
     @include tooltip-component($gray5, $gray1, $gray5);
   }
 
-  &.color-scheme-LIGHT.bs-popover-bottom {
-    & .arrow::after {
+  &.color-scheme-LIGHT {
+    &.bs-popover-bottom > .arrow::after {
       border-bottom-color: $gray3;
     }
-    & .arrow::after {
+    &.bs-popover-right > .arrow::after {
       border-right-color: $gray3;
     }
-    & .arrow::after {
+    &.bs-popover-left > .arrow::after {
       border-left-color: $gray3;
     }
-    & .arrow::after {
+    &.bs-popover-top > .arrow::after {
       border-top-color: $gray3;
     }
   }
 
   &.color-scheme-DARK {
-    & .bs-popover-bottom > .arrow::after {
+    &.bs-popover-bottom > .arrow::after {
       border-bottom-color: $gray5;
     }
-    & .bs-popover-right > .arrow::after {
+    &.bs-popover-right > .arrow::after {
       border-right-color: $gray5;
     }
-    & .bs-popover-left > .arrow::after {
+    &.bs-popover-left > .arrow::after {
       border-left-color: $gray5;
     }
-    & .bs-popover-top > .arrow::after {
+    &.bs-popover-top > .arrow::after {
       border-top-color: $gray5;
     }
   }

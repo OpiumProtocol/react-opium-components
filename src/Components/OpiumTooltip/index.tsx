@@ -1,14 +1,11 @@
-import React, { FC, CSSProperties, useState } from 'react'
-import { Button, OverlayTrigger, Popover } from 'react-bootstrap'
+import React, { FC, CSSProperties } from 'react'
+import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { OverlayTriggerType } from 'react-bootstrap/esm/OverlayTrigger'
 
+import Button from '../OpiumButton'
+
 import { generateRenderProps } from '../../Utils/helpers'
-import {
-  ETheme,
-  colorSchemeDark,
-  colorSchemeLight,
-  getVariant,
-} from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import _ from '../../Styles/exportColors.scss'
 import './Tooltip.scss'
@@ -17,31 +14,26 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Trigger component */
-  component: JSX.Element
+  component?: JSX.Element
+  /** Trigger label */
+  label: string
   /** Side placement */
-  placement?: 'right' | 'top' | 'bottom' | 'left'
+  placement?: 'right' | 'top' | 'bottom' | 'left' | 'top-start' | 'top-end' | 'right-start' | 'right-end' | 'bottom-end' | 'bottom-start' | 'left-end' | 'left-start' | 'auto-start' | 'auto' | 'auto-end'
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
   trigger?: 'hover' | 'click' | 'focus' | OverlayTriggerType[]
-  /** Set button variant */
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning'
   /** Set class selectors */
   className?: string
   /** Set styles */
   style?: CSSProperties
-  /** Set on click action */
-  // onClick: Function
-  onMouseEnter?: Function
-  onMouseLeave?: Function
 }
 
 export const defaultProps: Props = {
   theme: ETheme.DARK,
   className: '',
   placement: 'right',
-  variant: 'primary',
-  component: <Button variant="secondary">Popover on {'right'}</Button>,
+  label: '!',
   style: {},
 }
 
@@ -50,19 +42,15 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     label,
     theme,
     style,
-    variant,
     trigger,
     component,
     className,
-    placement,
-    onMouseEnter,
-    onMouseLeave,
-    ...rest } = generateRenderProps(defaultProps, props)
+    placement } = generateRenderProps(defaultProps, props)
 
   const componentStyle = {
     marginRight: '1rem',
     fontSize: '1.1rem',
-    fontWeight: 'bold',
+    fontWeight: 900,
     borderRadius: '40px',
     padding: '0.5rem 1.1rem',
     color: _.white0,
@@ -76,14 +64,25 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
       trigger={trigger}
       placement={placement}
       overlay={
-        <Popover id={`popover-positioned-${placement}`} className={`color-scheme-${theme} ${placement}`}>
+        <Popover
+          id={`popover-positioned-${placement}`}
+          className={`${className} color-scheme-${theme}`}
+        >
           <Popover.Content className={`color-scheme-${theme}`}>
             <strong>Holy guacamole!</strong> Check this info.
           </Popover.Content>
         </Popover>
       }
     >
-      {React.cloneElement(component, { style: componentStyle })}
+      {
+        component
+          ? component
+          : <Button
+            label={label}
+            onClick={() => { }}
+            style={{ ...componentStyle, ...style }}
+          />
+      }
     </OverlayTrigger>
   )
 }
