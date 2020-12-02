@@ -9,7 +9,12 @@
         padding: 0;
     }
 
-    & .modal-content.modal-transparent {
+    & .modal-content.color-scheme-LIGHT.modal-transparent {
+        background-color: transparent;
+        border: 1px solid transparent;
+    }
+
+    & .modal-content.color-scheme-DARK.modal-transparent {
         background-color: transparent;
         border: 1px solid transparent;
     }
