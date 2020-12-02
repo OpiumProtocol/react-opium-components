@@ -52,7 +52,7 @@ export const popup = () => {
       <Button theme={theme} label="Show / hide popup" onClick={handleClick} />
       <Popup
         theme={theme}
-        size='sm'
+        size='xs'
         title='Title'
         component={renderJSX()}
         hideCross={false}

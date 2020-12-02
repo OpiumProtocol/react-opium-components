@@ -2,6 +2,10 @@
 
 .modal {
     & .modal-fit-content {
-        width: fit-content
+        width: fit-content;
+    }
+
+    & .modal-p-0 {
+        padding: 0;
     }
 }
