@@ -15,7 +15,7 @@ export const segments = () => {
   const [currentValue, setCurrentValue] = useState('')
 
   const items = [
-    { label: 'First', value: '1' },
+    { label: 'Firstaasdasdasdsdas', value: '1' },
     { label: 'Second', value: '2' },
     { label: 'Third', value: '3' },
     { label: 'Fourth', value: '4' },
@@ -45,9 +45,11 @@ export const segments = () => {
       <Segments
         theme={theme}
         items={items}
+        variant='secondary'
         currentValue={currentValue}
         onClick={(val: string) => setCurrentValue(val)}
         uncontrolled={false}
+        className=''
       />
     </div>
   )

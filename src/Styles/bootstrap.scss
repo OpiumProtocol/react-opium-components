@@ -8,7 +8,7 @@
   background: color(gray6);
   color: color(black3);
   border: 0;
-  border-radius: size(defaultRadiusPx);
+  border-radius: 10px;
   padding: indent(1) indent(3);
   width: 100%;
   box-shadow: none;
@@ -86,7 +86,6 @@
   }
 }
 .tab-content {
-  @include panel;
   .tab-pane {
     animation: .3s linear 0s fade;
     display: none !important;

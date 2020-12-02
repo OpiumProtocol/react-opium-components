@@ -78,3 +78,11 @@ export const themes: TThemes = {
   [ETheme.DARK]: colorSchemeDark,
   [ETheme.LIGHT]: colorSchemeLight,
 }
+
+export const getVariant = (variant?: any) => {
+  if (variant === 'secondary') return 'secondary'
+  if (variant === 'danger') return 'danger'
+  if (variant === 'success') return 'success'
+  if (variant === 'warning') return 'warning'
+  return 'primary'
+}
