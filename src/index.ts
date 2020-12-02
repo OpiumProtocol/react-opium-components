@@ -7,6 +7,7 @@ import Tooltip from './Components/OpiumTooltip'
 import Segments from './Components/Segments'
 import Button from './Components/OpiumButton'
 import TextBlock from './Components/TextBlock'
+import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import DropdownSelector from './Components/DropdownSelector'
 
@@ -22,6 +23,7 @@ export {
   Segments,
   Button,
   TextBlock,
+  NumberBlock,
   LocalizedInput,
   DropdownSelector,
   themes,
