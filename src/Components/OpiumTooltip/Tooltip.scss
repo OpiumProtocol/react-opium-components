@@ -1,11 +1,5 @@
 @import '../../Styles/index.scss';
 
-// .popover > .arrow::after{
-//   border-right-color: red !important;
-// }
-
-// tooltip-component($bg)
-
 .popover {
   & .popover-body.color-scheme-LIGHT {
     @include tooltip-component($gray3, $white0, $gray3);

@@ -65,6 +65,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
       placement={placement}
       overlay={
         <Popover
+          style={{ borderColor: 'transparent' }}
           id={`popover-positioned-${placement}`}
           className={`${className} color-scheme-${theme}`}
         >
