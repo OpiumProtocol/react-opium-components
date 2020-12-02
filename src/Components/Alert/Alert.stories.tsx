@@ -43,7 +43,7 @@ export const alert = () => {
         size='lg'
         description='Description. Lorem lorem'
         attention={true}
-        loading={false}
+        loading={true}
         closePopup={() => setPopupIsOpen(false)}
         popupIsOpen={popupIsOpen}
         showActionButton={true}

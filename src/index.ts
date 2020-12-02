@@ -3,6 +3,7 @@ import Popup from './Components/Popup'
 import Table from './Components/Table'
 import Tabs from './Components/OpiumTabs'
 import Loading from './Components/Loading'
+import Tooltip from './Components/OpiumTooltip'
 import Segments from './Components/Segments'
 import Button from './Components/OpiumButton'
 import TextBlock from './Components/TextBlock'
@@ -17,6 +18,7 @@ export {
   Table,
   Tabs,
   Loading,
+  Tooltip,
   Segments,
   Button,
   TextBlock,
