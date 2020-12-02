@@ -1,1 +1,7 @@
 @import '../../Styles/index.scss';
+
+.modal {
+    & .modal-fit-content {
+        width: fit-content
+    }
+}

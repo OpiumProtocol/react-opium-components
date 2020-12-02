@@ -14,7 +14,7 @@ export type Props = {
   /** Set title */
   title?: string
   /** Set size */
-  size?: 'sm' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'lg' | 'xl'
   /** Insert content */
   component?: string | ReactNode
   /** Hide close button */
@@ -87,6 +87,7 @@ const Popup: FC<Props> = (props: Props) => {
       size={size}
       show={popupIsOpen}
       onHide={closePopup}
+      dialogClassName={size === 'xs' ? 'modal-fit-content' : ''}
       className={!borderless ? `attention-popup ${className}` : `${className}`}
       contentClassName={`color-scheme-${theme}`}
       style={!borderless ? {} : borderlessStyle}
