@@ -56,6 +56,7 @@ export const popup = () => {
         title='Title'
         component={renderJSX()}
         hideCross={false}
+        borderless={true}
         closePopup={() => setPopupIsOpen(false)}
         popupIsOpen={popupIsOpen}
         handleAction={() => { }}
