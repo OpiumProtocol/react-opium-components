@@ -8,4 +8,9 @@
     & .modal-content.modal-p-0 {
         padding: 0;
     }
+
+    & .modal-content.modal-transparent {
+        background-color: transparent;
+        border: 1px solid transparent;
+    }
 }
