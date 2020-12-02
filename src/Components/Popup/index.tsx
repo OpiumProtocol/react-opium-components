@@ -14,11 +14,13 @@ export type Props = {
   /** Set title */
   title?: string
   /** Set size */
-  size?: 'sm' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'lg' | 'xl'
   /** Insert content */
   component?: string | ReactNode
   /** Hide close button */
   hideCross?: boolean
+  /** Borderless flag */
+  borderless?: boolean
   /** Close popup function */
   closePopup: Function
   /** Flag, that opens popup */
@@ -43,6 +45,7 @@ const defaultProps: Props = {
   title: '',
   component: '',
   hideCross: false,
+  borderless: false,
   closePopup: () => { },
   popupIsOpen: false,
   handleAction: () => { },
@@ -63,6 +66,7 @@ const Popup: FC<Props> = (props: Props) => {
     title,
     component,
     hideCross,
+    borderless,
     closePopup,
     popupIsOpen,
     handleAction,
@@ -73,41 +77,52 @@ const Popup: FC<Props> = (props: Props) => {
     className,
   } = renderProps
 
+  const borderlessStyle = {
+    padding: '0',
+    margin: '0',
+  }
+
   return (
     <Modal
       size={size}
       show={popupIsOpen}
       onHide={closePopup}
-      className={`attention-popup ${className}`}
-      contentClassName={`color-scheme-${theme}`}
+      className={!borderless ? `attention-popup ${className}` : `${className}`}
+      dialogClassName={size === 'xs' ? 'modal-fit-content' : ''}
+      contentClassName={!borderless ? `color-scheme-${theme}` : `color-scheme-${theme} modal-p-0 modal-transparent`}
+      style={!borderless ? {} : borderlessStyle}
     >
       {!hideCross && <button className="close-button" onClick={closePopup} />}
-      <Modal.Body>
+      <Modal.Body style={!borderless ? {} : borderlessStyle}>
         {title && <Modal.Title>{title}</ Modal.Title>}
-        {component && <div className="modal-description">{component}</div>}
+        <div className="modal-description">{component}</div>
       </Modal.Body>
-      <Modal.Footer>
-        <div className="buttons-wrap">
-          {
-            showActionButton &&
-            <Button
-              theme={theme}
-              variant="primary"
-              onClick={handleAction}
-              label={actionButtonTitle}
-            />
-          }
-          {
-            showCancelButton &&
-            <Button
-              theme={theme}
-              variant="secondary"
-              onClick={closePopup}
-              label={cancelButtonTitle}
-            />
-          }
-        </div>
-      </Modal.Footer>
+      {
+        !borderless
+          ? <Modal.Footer>
+            <div className="buttons-wrap">
+              {
+                showActionButton &&
+                <Button
+                  theme={theme}
+                  variant="primary"
+                  onClick={handleAction}
+                  label={actionButtonTitle}
+                />
+              }
+              {
+                showCancelButton &&
+                <Button
+                  theme={theme}
+                  variant="secondary"
+                  onClick={closePopup}
+                  label={cancelButtonTitle}
+                />
+              }
+            </div>
+          </Modal.Footer>
+          : null
+      }
     </Modal>
   )
 }
