@@ -8,8 +8,8 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import colors from '../../Styles/exportColors.scss'
 
-export const textBlock = () => {
-  const message = text('Text', 'TextBlock')
+export const infoBlock = () => {
+  const message = text('Text', 'InfoBlock')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
