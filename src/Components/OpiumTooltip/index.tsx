@@ -49,7 +49,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
 
   const componentStyle = {
     marginRight: '1rem',
-    fontSize: '1.1rem',
+    fontSize: '0.5rem',
     fontWeight: 900,
     borderRadius: '40px',
     padding: '0.5rem 1.1rem',
