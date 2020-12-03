@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Insert content */
-  content?: string | number
+  content?: number
   /** To fixed value */
   toFixed?: number
   /** Set styles */
@@ -29,53 +29,11 @@ const NumberBlock: FC<Props> = (props: Props) => {
 
   const color = theme === ETheme.DARK ? _.white0 : _.gray2
 
-  if (`${Number(content)}` === 'NaN') {
-    return <span style={{ color }}>Bad format</span>
-  }
-
-  if (!content.includes('.') && `${Number(content)}` === 'NaN') {
-    return <span style={{ color }}>Bad format</span>
-  }
-
-  let tofixed = (content.toString().split('.').length > 1)
-    ? content.toString().split('.')[1].length : 1
-
-  tofixed = toFixed ? toFixed : tofixed
-
-  if (content) {
-    // Handle numbers
-    if (Number(content)) {
-      const [int, dec] = Number(content)
-        .toFixed(tofixed)
-        .toString()
-        .split('.')
-
-      return (
-        <span style={{ color }}>
-          {`${int}.`}
-          {dec}
-        </span>
-      )
-    }
-
-    // handle Dates (only 'dd/mm/yyyy hh:mm' format)
-    if (content.includes('/') && content.includes(' ')) {
-      const [date, time, ...rest] = content.split(' ')
-      return (
-        <span>
-          {`${date} `}
-          <span style={{ color }}>
-            {time}
-            {rest ? ` ${rest}` : ''}
-          </span>
-        </span>
-      )
-    }
-
-    // default
-    return <span style={{ color }}>{content}</span>
-  }
-  return null
+  return (
+    <span style={{ color, ...styles }}>
+      {toFixed ? content.toFixed(toFixed) : content}
+    </span>
+  )
 }
 
 export default NumberBlock

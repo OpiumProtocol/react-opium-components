@@ -32,7 +32,7 @@ export const numberBlock = () => {
     borderRadius: '5px',
   }
 
-  const content = '100000034000.2'
+  const content = 1231.23123
 
   const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
   const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
@@ -52,7 +52,7 @@ export const numberBlock = () => {
       <NumberBlock
         theme={theme}
         content={content}
-        // toFixed={7}
+        toFixed={2}
       // styles={styles}
       />
     </div>
