@@ -63,17 +63,16 @@ const InfoBlock: FC<Props> = (props: Props) => {
 
   return (
     <Alert className={className} style={styled}>
-      {heading ? <Alert.Heading>{heading}</Alert.Heading> : null}
-      {linkTitle ? <Alert.Link as={as} href={href} to={to}>{linkTitle}</Alert.Link> : null}
+      {heading && <Alert.Heading>{heading}</Alert.Heading>}
+      {linkTitle && <Alert.Link as={as} href={href} to={to}>{linkTitle}</Alert.Link>}
       {
         content.length
-          ? content.map((item: string, idx: number, arr: string[]) => {
+          && content.map((item: string, idx: number, arr: string[]) => {
             if (idx + 1 === arr.length) {
               return (<p className="mb-0" key={uuidv4()}>{item}</p>)
             }
             return (<p key={uuidv4()}>{item}</p>)
           })
-          : null
       }
     </Alert >
   )
