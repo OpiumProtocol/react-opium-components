@@ -21,15 +21,8 @@ export const textBlock = () => {
   }
 
   const content = [
-    'Initial text \u000A line one',
-    '\x41 \x41 \x41',
-    '\u000A',
-    '',
+    'Initial text line one',
     'Initial text line two',
-    'First &middot; Second',
-    '<p>Paragraph</p>',
-    '<span>String String</span> \n <strong>String String</strong>',
-    '',
   ]
 
   const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
@@ -56,7 +49,7 @@ export const textBlock = () => {
       <InfoBlock
         theme={theme}
         content={content}
-      // styles={styles}
+        variant='info'
       />
     </div>
   )
@@ -65,7 +58,6 @@ export const textBlock = () => {
 InfoBlock.defaultProps = {
   theme: ETheme.DARK,
   content: [],
-  styles: {},
 }
 
 export default {

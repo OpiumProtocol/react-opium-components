@@ -11,6 +11,9 @@ type TColorSet = {
   danger: { value: string, hover: string },
   success: { value: string, hover: string },
   warning: { value: string, hover: string },
+  info: { value: string, hover: string },
+  link: { value: string, hover: string },
+  error: { value: string, hover: string },
 }
 
 export type TColorScheme = {
@@ -27,6 +30,9 @@ export const colorSchemeLight: TColorScheme = {
     danger: { value: _.red0, hover: _.red2 },
     success: { value: _.gray4, hover: _.green1_darken },
     warning: { value: _.gray4, hover: _.yellow3_darken },
+    info: { value: _.white0, hover: _.white0 },
+    link: { value: _.white0, hover: _.white0 },
+    error: { value: _.white0, hover: _.white0 },
   },
   backgroundColor: {
     primary: { value: _.white0, hover: _.blue1 },
@@ -34,6 +40,9 @@ export const colorSchemeLight: TColorScheme = {
     danger: { value: _.red0_20, hover: _.red0_40 },
     success: { value: _.green1_30, hover: _.green1_50 },
     warning: { value: _.yellow3_60, hover: _.yellow3 },
+    info: { value: _.blue2, hover: _.blue2 },
+    link: { value: _.blue4, hover: _.blue4 },
+    error: { value: _.red0, hover: _.red0 },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1 },
@@ -41,6 +50,9 @@ export const colorSchemeLight: TColorScheme = {
     danger: { value: _.transparent0, hover: _.transparent0 },
     success: { value: _.transparent0, hover: _.transparent0 },
     warning: { value: _.transparent0, hover: _.transparent0 },
+    info: { value: _.transparent0, hover: _.transparent0 },
+    link: { value: _.transparent0, hover: _.transparent0 },
+    error: { value: _.transparent0, hover: _.transparent0 },
   },
   borderStyle: 'solid',
 }
@@ -52,6 +64,9 @@ export const colorSchemeDark: TColorScheme = {
     danger: { value: _.red0_50, hover: _.red0 },
     success: { value: _.green1, hover: _.white0 },
     warning: { value: _.yellow3, hover: _.white0 },
+    info: { value: _.white0, hover: _.white0 },
+    link: { value: _.white0, hover: _.white0 },
+    error: { value: _.white0, hover: _.white0 },
   },
   backgroundColor: {
     primary: { value: _.darkBlue1, hover: _.blue1 },
@@ -59,6 +74,9 @@ export const colorSchemeDark: TColorScheme = {
     danger: { value: _.red0_20, hover: _.red0_40 },
     success: { value: _.green1_30, hover: _.green1_40 },
     warning: { value: _.yellow3_60, hover: _.yellow3_70 },
+    info: { value: _.blue2, hover: _.blue2 },
+    link: { value: _.blue4, hover: _.blue4 },
+    error: { value: _.red0, hover: _.red0 },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1 },
@@ -66,6 +84,9 @@ export const colorSchemeDark: TColorScheme = {
     danger: { value: _.transparent0, hover: _.transparent0 },
     success: { value: _.transparent0, hover: _.transparent0 },
     warning: { value: _.transparent0, hover: _.transparent0 },
+    info: { value: _.transparent0, hover: _.transparent0 },
+    link: { value: _.transparent0, hover: _.transparent0 },
+    error: { value: _.transparent0, hover: _.transparent0 },
   },
   borderStyle: 'solid',
 }
@@ -84,5 +105,8 @@ export const getVariant = (variant?: any) => {
   if (variant === 'danger') return 'danger'
   if (variant === 'success') return 'success'
   if (variant === 'warning') return 'warning'
+  if (variant === 'info') return 'info'
+  if (variant === 'link') return 'link'
+  if (variant === 'error') return 'error'
   return 'primary'
 }
