@@ -15,6 +15,8 @@ export type Props = {
   theme?: ETheme
   /** Trigger component */
   component?: JSX.Element
+  /** Tooltip content */
+  content?: string | JSX.Element
   /** Trigger label */
   label: string
   /** Side placement */
@@ -35,6 +37,7 @@ export const defaultProps: Props = {
   placement: 'right',
   label: '!',
   style: {},
+  content: <span><strong>Holy guacamole!</strong> Check this info.</span>,
 }
 
 const OpiumTooltip: FC<Props> = (props: Props) => {
@@ -43,13 +46,14 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     theme,
     style,
     trigger,
+    content,
     component,
     className,
     placement } = generateRenderProps(defaultProps, props)
 
   const componentStyle = {
     marginRight: '1rem',
-    fontSize: '1.1rem',
+    fontSize: '0.5rem',
     fontWeight: 900,
     borderRadius: '40px',
     padding: '0.5rem 1.1rem',
@@ -70,7 +74,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
           className={`${className} color-scheme-${theme}`}
         >
           <Popover.Content className={`color-scheme-${theme}`}>
-            <strong>Holy guacamole!</strong> Check this info.
+            {content}
           </Popover.Content>
         </Popover>
       }
