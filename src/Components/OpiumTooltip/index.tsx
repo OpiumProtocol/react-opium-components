@@ -57,7 +57,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     fontSize: '0.6rem',
     fontWeight: 900,
     borderRadius: '30px',
-    padding: '0.25rem 0.6rem',
+    padding: '0.15rem 0.5rem',
     color: _.white0,
     backgroundColor: _.blue2,
     borderColor: _.transparent0,
