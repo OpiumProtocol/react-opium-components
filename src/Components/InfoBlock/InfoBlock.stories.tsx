@@ -20,10 +20,7 @@ export const infoBlock = () => {
     borderRadius: '5px',
   }
 
-  const content = [
-    'Initial text line one',
-    'Initial text line two',
-  ]
+  const content = 'Initial text line one\nInitial text line two\n\nLine three'
 
   const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
   const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
@@ -57,7 +54,7 @@ export const infoBlock = () => {
 
 InfoBlock.defaultProps = {
   theme: ETheme.DARK,
-  content: [],
+  content: '',
 }
 
 export default {

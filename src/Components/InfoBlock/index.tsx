@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Insert content */
-  content?: Array<string>
+  content?: string
   /** Set heading */
   heading?: string
   /** Set link */
@@ -29,14 +29,14 @@ export type Props = {
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  content: [],
+  content: '',
   className: '',
   link: {},
 }
 
 function createMarkup(content: string) {
   if (content === '') return { __html: '</br>' }
-  return content
+  return { __html: content }
 }
 
 const InfoBlock: FC<Props> = (props: Props) => {
@@ -66,13 +66,13 @@ const InfoBlock: FC<Props> = (props: Props) => {
       {heading && <Alert.Heading>{heading}</Alert.Heading>}
       {linkTitle && <Alert.Link as={as} href={href} to={to}>{linkTitle}</Alert.Link>}
       {
-        content.length
-          && content.map((item: string, idx: number, arr: string[]) => {
-            if (idx + 1 === arr.length) {
-              return (<p className="mb-0" key={uuidv4()}>{item}</p>)
-            }
-            return (<p key={uuidv4()}>{item}</p>)
-          })
+        content.split('\n').map((contentLine: string) => (
+          <div
+            key={uuidv4()}
+            style={{ width: '100%' }}
+            dangerouslySetInnerHTML={createMarkup(contentLine)}
+          />
+        ))
       }
     </Alert >
   )
