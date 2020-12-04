@@ -86,7 +86,7 @@ const InfoBlock: FC<Props> = (props: Props) => {
         </Alert.Link>
       }
       {
-        content.split('\n').map((contentLine: string) => (
+        content && content.split('\n').map((contentLine: string) => (
           <div
             key={uuidv4()}
             style={{ width: '100%' }}
