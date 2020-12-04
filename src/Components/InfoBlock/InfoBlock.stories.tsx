@@ -47,8 +47,9 @@ export const infoBlock = () => {
       <InfoBlock
         link={{
           as: 'a',
-          href: 'www.google.com',
+          href: '//www.google.com',
           title: 'Google',
+          newTab: true,
         }}
         theme={theme}
         content={content}

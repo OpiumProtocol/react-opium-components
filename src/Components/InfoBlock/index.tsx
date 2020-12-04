@@ -20,6 +20,7 @@ export type Props = {
     to?: string
     href?: string
     title?: string
+    newTab?: boolean
   }
   /** Set color variant */
   variant?: 'info' | 'link' | 'error'
@@ -41,7 +42,7 @@ function createMarkup(content: string) {
 
 const InfoBlock: FC<Props> = (props: Props) => {
   const { content, heading, theme, variant, link, className } = generateRenderProps(defaultProps, props)
-  const { as, to, href, title: linkTitle } = link
+  const { as, to, href, title: linkTitle, newTab } = link
 
   const { color, backgroundColor, borderColor } = theme === ETheme.DARK
     ? { ...colorSchemeDark }
@@ -61,16 +62,27 @@ const InfoBlock: FC<Props> = (props: Props) => {
   //   borderStyle: 'solid',
   // }
 
-  const target = (as === SafeAnchor || as === 'a') ? '_blank' : undefined
-  const rel = (as === SafeAnchor || as === 'a') ? 'noreferrer' : undefined
+  const target = newTab ? '_blank' : undefined
+  const rel = newTab ? 'noreferrer' : undefined
+  const style = {
+    textDecoration: 'none',
+    color: 'white',
+  }
 
   return (
     <Alert className={className} style={styled}>
       {heading && <Alert.Heading>{heading}</Alert.Heading>}
       {
-        target
-          ? <a href={href} target={target} rel={rel}>{linkTitle}</a>
-          : <Alert.Link as={as} to={to} target={target} rel={rel}>{linkTitle}</Alert.Link>
+        linkTitle && <Alert.Link
+          as={as}
+          to={to}
+          href={href}
+          style={style}
+          rel={rel}
+          target={target}
+        >
+          {linkTitle}
+        </Alert.Link>
       }
       {
         content.split('\n').map((contentLine: string) => (
