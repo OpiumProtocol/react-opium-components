@@ -68,15 +68,9 @@ const InfoBlock: FC<Props> = (props: Props) => {
     <Alert className={className} style={styled}>
       {heading && <Alert.Heading>{heading}</Alert.Heading>}
       {
-        linkTitle && <Alert.Link
-          as={as}
-          to={to}
-          href={href}
-          rel={rel}
-          target={target}
-        >
-          {linkTitle}
-        </Alert.Link>
+        target
+          ? <a href={href} target={target} rel={rel}>{linkTitle}</a>
+          : <Alert.Link as={as} to={to} target={target} rel={rel}>{linkTitle}</Alert.Link>
       }
       {
         content.split('\n').map((contentLine: string) => (
