@@ -1,5 +1,5 @@
-import React, { CSSProperties, FC } from 'react'
-import { Alert } from 'react-bootstrap'
+import React, { CSSProperties, FC, ReactNode } from 'react'
+import { Alert, SafeAnchor } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 import { ETheme, themes, colorSchemeDark, colorSchemeLight, getVariant } from '../../Constants/Types/theme.types'
 
@@ -16,7 +16,7 @@ export type Props = {
   heading?: string
   /** Set link */
   link?: {
-    as?: JSX.Element
+    as?: ReactNode
     to?: string
     href?: string
     title?: string
@@ -61,10 +61,23 @@ const InfoBlock: FC<Props> = (props: Props) => {
   //   borderStyle: 'solid',
   // }
 
+  const target = (as === SafeAnchor || as === 'a') ? '_blank' : undefined
+  const rel = (as === SafeAnchor || as === 'a') ? 'noreferrer' : undefined
+
   return (
     <Alert className={className} style={styled}>
       {heading && <Alert.Heading>{heading}</Alert.Heading>}
-      {linkTitle && <Alert.Link as={as} href={href} to={to}>{linkTitle}</Alert.Link>}
+      {
+        linkTitle && <Alert.Link
+          as={as}
+          to={to}
+          href={href}
+          rel={rel}
+          target={target}
+        >
+          {linkTitle}
+        </Alert.Link>
+      }
       {
         content.split('\n').map((contentLine: string) => (
           <div

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
+import { SafeAnchor } from 'react-bootstrap'
 
 import InfoBlock from './index'
 import Button from '../OpiumButton'
@@ -44,6 +45,11 @@ export const infoBlock = () => {
         />
       </div>
       <InfoBlock
+        link={{
+          as: 'a',
+          href: 'www.google.com',
+          title: 'Google',
+        }}
         theme={theme}
         content={content}
         variant='info'
