@@ -21,6 +21,7 @@ export type Props = {
     href?: string
     title?: string
     newTab?: boolean
+    style?: CSSProperties
   }
   /** Set color variant */
   variant?: 'info' | 'link' | 'error'
@@ -42,7 +43,7 @@ function createMarkup(content: string) {
 
 const InfoBlock: FC<Props> = (props: Props) => {
   const { content, heading, theme, variant, link, className } = generateRenderProps(defaultProps, props)
-  const { as, to, href, title: linkTitle, newTab } = link
+  const { as, to, href, title: linkTitle, newTab, style } = link
 
   const { color, backgroundColor, borderColor } = theme === ETheme.DARK
     ? { ...colorSchemeDark }
@@ -64,7 +65,7 @@ const InfoBlock: FC<Props> = (props: Props) => {
 
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
-  const style = {
+  const linkStyles = {
     textDecoration: 'none',
     color: 'white',
   }
@@ -77,7 +78,7 @@ const InfoBlock: FC<Props> = (props: Props) => {
           as={as}
           to={to}
           href={href}
-          style={style}
+          style={{ ...linkStyles, ...style }}
           rel={rel}
           target={target}
         >

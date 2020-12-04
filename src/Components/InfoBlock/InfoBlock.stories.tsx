@@ -50,6 +50,9 @@ export const infoBlock = () => {
           href: '//www.google.com',
           title: 'Google',
           newTab: true,
+          style: {
+            color: 'orange',
+          }
         }}
         theme={theme}
         content={content}
