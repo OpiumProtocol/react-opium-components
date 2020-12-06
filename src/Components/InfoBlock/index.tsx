@@ -64,7 +64,7 @@ const InfoBlock: FC<Props> = (props: Props) => {
     borderStyle: 'solid',
     borderRadius: wide ? 0 : '10px',
     width: wide ? '100%' : 'unset',
-    textAlign: 'center'
+    textAlign: 'center' as 'center'
   }
 
   const target = newTab ? '_blank' : undefined
