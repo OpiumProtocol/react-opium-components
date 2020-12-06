@@ -52,11 +52,12 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     placement } = generateRenderProps(defaultProps, props)
 
   const componentStyle = {
+    width: 'fit-content',
     marginRight: '1rem',
-    fontSize: '0.5rem',
+    fontSize: '0.6rem',
     fontWeight: 900,
-    borderRadius: '40px',
-    padding: '0.5rem 1.1rem',
+    borderRadius: '30px',
+    padding: '0.15rem 0.5rem',
     color: _.white0,
     backgroundColor: _.blue2,
     borderColor: _.transparent0,
