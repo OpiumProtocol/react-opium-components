@@ -110,3 +110,8 @@ export const getVariant = (variant?: any) => {
   if (variant === 'error') return 'error'
   return 'primary'
 }
+
+
+// export const getVariant = (variant?: string): string => {
+//   return variant || 'primary'
+// }
