@@ -7,6 +7,12 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './InfoBlock.scss'
 
+export enum EVariant {
+  info = 'info',
+  link = 'link',
+  error = 'error'
+}
+
 export type Props = {
   /** Define theme */
   theme?: ETheme
@@ -24,9 +30,11 @@ export type Props = {
     style?: CSSProperties
   }
   /** Set color variant */
-  variant?: 'info' | 'link' | 'error'
+  variant?: EVariant
   /** Set class selectors */
   className?: string
+
+  wide?: boolean
 }
 
 const defaultProps: Props = {
@@ -42,7 +50,7 @@ function createMarkup(content: string) {
 }
 
 const InfoBlock: FC<Props> = (props: Props) => {
-  const { content, heading, theme, variant, link, className } = generateRenderProps(defaultProps, props)
+  const { content, heading, theme, variant, link, className, wide } = generateRenderProps(defaultProps, props)
   const { as, to, href, title: linkTitle, newTab, style } = link
 
   const { color, backgroundColor, borderColor } = theme === ETheme.DARK
@@ -54,14 +62,9 @@ const InfoBlock: FC<Props> = (props: Props) => {
     backgroundColor: backgroundColor[getVariant(variant)].value,
     borderColor: borderColor[getVariant(variant)].value,
     borderStyle: 'solid',
+    borderRadius: wide ? 0 : '10px',
+    width: wide ? '100%' : 'unset'
   }
-
-  // const hovered = {
-  //   color: color[getVariant(variant)].hover,
-  //   backgroundColor: backgroundColor[getVariant(variant)].hover,
-  //   borderColor: borderColor[getVariant(variant)].hover,
-  //   borderStyle: 'solid',
-  // }
 
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
