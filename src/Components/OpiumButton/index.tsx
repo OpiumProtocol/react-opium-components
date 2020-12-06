@@ -63,6 +63,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
     backgroundColor: backgroundColor[getVariant(variant)].value,
     borderColor: borderColor[getVariant(variant)].value,
     borderStyle: 'solid',
+    borderRadius: '30px'
   }
 
   const hovered = {
@@ -70,13 +71,12 @@ const OpiumButton: FC<Props> = (props: Props) => {
     backgroundColor: backgroundColor[getVariant(variant)].hover,
     borderColor: borderColor[getVariant(variant)].hover,
     borderStyle: 'solid',
+    borderRadius: '30px'
   }
 
   const buttonStyle = hover
     ? generateRenderProps(hovered, style)
     : generateRenderProps(styled, style)
-
-  if (variant === 'primary') buttonStyle.borderRadius = '30px'
 
   return (
     <Button

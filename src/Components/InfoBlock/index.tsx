@@ -63,7 +63,8 @@ const InfoBlock: FC<Props> = (props: Props) => {
     borderColor: borderColor[getVariant(variant)].value,
     borderStyle: 'solid',
     borderRadius: wide ? 0 : '10px',
-    width: wide ? '100%' : 'unset'
+    width: wide ? '100%' : 'unset',
+    textAlign: 'center'
   }
 
   const target = newTab ? '_blank' : undefined
