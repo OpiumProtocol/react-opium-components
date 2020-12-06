@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
-import { SafeAnchor } from 'react-bootstrap'
 
 import InfoBlock, { EVariant } from './index'
 import Button from '../OpiumButton'

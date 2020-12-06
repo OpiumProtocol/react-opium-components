@@ -6,7 +6,7 @@ import Loading from './Components/Loading'
 import Tooltip from './Components/OpiumTooltip'
 import Segments from './Components/Segments'
 import Button from './Components/OpiumButton'
-import InfoBlock from './Components/InfoBlock'
+import InfoBlock, { EVariant } from './Components/InfoBlock'
 import TextBlock from './Components/TextBlock'
 import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
@@ -30,6 +30,7 @@ export {
   DropdownSelector,
   themes,
   ETheme,
+  EVariant
 }
 
 export type {
