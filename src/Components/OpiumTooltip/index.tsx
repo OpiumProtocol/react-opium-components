@@ -9,7 +9,6 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import _ from '../../Styles/exportColors.scss'
 import './Tooltip.scss'
-import InfoLogo from '../../Images/Info.svg'
 
 export type Props = {
   /** Define theme */
@@ -36,14 +35,14 @@ export const defaultProps: Props = {
   theme: ETheme.DARK,
   className: '',
   placement: 'right',
-  // label: '!',
+  label: '!',
   style: {},
   content: <span><strong>Holy guacamole!</strong> Check this info.</span>,
 }
 
 const OpiumTooltip: FC<Props> = (props: Props) => {
   const {
-    // label,
+    label,
     theme,
     style,
     trigger,
@@ -83,7 +82,11 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
       {
         component
           ? component
-          : <img src={InfoLogo}/>
+          : <Button
+            label={label}
+            onClick={() => { }}
+            style={{ ...componentStyle, ...style }}
+          />
       }
     </OverlayTrigger>
   )

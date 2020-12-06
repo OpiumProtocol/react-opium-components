@@ -43,6 +43,7 @@ export const tooltip = () => {
       <Tooltip
         trigger="click"
         theme={theme}
+        label={'!'}
         placement='top-start'
       />
     </div>

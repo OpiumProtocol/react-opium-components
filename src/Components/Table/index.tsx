@@ -61,7 +61,7 @@ const Table: FC<Props> = (props: Props) => {
           <Scrollbars
             style={{ width: '100%' }}
             autoHeight
-            autoHeightMax={bodyScrollHeight}
+            // autoHeightMax={bodyScrollHeight}
             renderThumbHorizontal={() => <div />}
           >
             {list}
