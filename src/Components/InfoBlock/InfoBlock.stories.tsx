@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import { SafeAnchor } from 'react-bootstrap'
 
-import InfoBlock from './index'
+import InfoBlock, { EVariant } from './index'
 import Button from '../OpiumButton'
 
 import { ETheme } from '../../Constants/Types/theme.types'
@@ -56,7 +56,7 @@ export const infoBlock = () => {
         }}
         theme={theme}
         content={content}
-        variant='info'
+        variant={EVariant.info}
       />
     </div>
   )

@@ -298,8 +298,7 @@
 }
 
 .dropdown-menu {
-  left: -.6em !important;
-  @include panel;
+  width: 100%;
 
   &.color-scheme-LIGHT {
     @include dropdown-component($white0, $blue1, $blue1);

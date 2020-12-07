@@ -57,6 +57,7 @@ const Segments: FC<Props> = (props: Props) => {
     backgroundColor: backgroundColor[getVariant(variant)].value,
     borderColor: borderColor[getVariant(variant)].value,
     borderStyle: 'solid',
+    borderRadius: 'unset'
   }
 
   const hovered = {
@@ -64,6 +65,7 @@ const Segments: FC<Props> = (props: Props) => {
     backgroundColor: backgroundColor[getVariant(variant)].hover,
     borderColor: borderColor[getVariant(variant)].hover,
     borderStyle: 'solid',
+    borderRadius: 'unset'
   }
 
   const styleItem = (val: string) => {
