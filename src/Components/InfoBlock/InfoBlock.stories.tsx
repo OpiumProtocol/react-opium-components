@@ -20,7 +20,7 @@ export const infoBlock = () => {
     borderRadius: '5px',
   }
 
-  const content = 'Initial text line one\nInitial text line two\n\nLine three'
+  const content = 'Initial text line'
 
   const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
   const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
@@ -49,13 +49,21 @@ export const infoBlock = () => {
           href: '//www.google.com',
           title: 'Google',
           newTab: true,
-          style: {
-            color: 'orange',
-          }
         }}
         theme={theme}
         content={content}
-        variant={EVariant.info}
+        variant={EVariant.success}
+      />
+      <InfoBlock
+        link={{
+          as: 'a',
+          href: '//www.google.com',
+          title: 'Google',
+          newTab: true,
+        }}
+        theme={theme}
+        content={content}
+        variant={EVariant.warning}
       />
     </div>
   )
