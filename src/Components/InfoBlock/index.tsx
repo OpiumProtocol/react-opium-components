@@ -10,7 +10,9 @@ import './InfoBlock.scss'
 export enum EVariant {
   info = 'info',
   link = 'link',
-  error = 'error'
+  error = 'error',
+  success = 'success',
+  warning = 'warning'
 }
 
 export type Props = {
