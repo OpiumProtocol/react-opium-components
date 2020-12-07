@@ -16,6 +16,8 @@ export type Props = {
   theme?: ETheme
   /** Set button title */
   label: string
+  /** Providing a href will render an <a> element, styled as a button. */
+  href?: string
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
@@ -43,6 +45,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
 
   const {
+    href,
     label,
     theme,
     style,
@@ -80,6 +83,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
 
   return (
     <Button
+      href={href}
       className={`${className}`}
       style={buttonStyle}
       onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
