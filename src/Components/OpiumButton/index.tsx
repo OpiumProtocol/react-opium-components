@@ -18,6 +18,8 @@ export type Props = {
   label: string
   /** Providing a href will render an <a> element, styled as a button. */
   href?: string
+  /** If the component is an <a> element, should be link opened in a new tab. */
+  newTab?: boolean
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
@@ -46,6 +48,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
 
   const {
     href,
+    newTab,
     label,
     theme,
     style,
@@ -81,9 +84,14 @@ const OpiumButton: FC<Props> = (props: Props) => {
     ? generateRenderProps(hovered, style)
     : generateRenderProps(styled, style)
 
+  const target = newTab ? '_blank' : undefined
+  const rel = newTab ? 'noreferrer' : undefined
+
   return (
     <Button
       href={href}
+      rel={rel}
+      target={target}
       className={`${className}`}
       style={buttonStyle}
       onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
