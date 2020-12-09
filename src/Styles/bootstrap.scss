@@ -14,6 +14,10 @@
   box-shadow: none;
   line-height: 2.4;
 
+  &.disabled {
+    cursor: not-allowed !important;
+  }
+
   &.color-scheme-LIGHT {
     @include localized-input-component($white0, $black3, $blue1);
   }
