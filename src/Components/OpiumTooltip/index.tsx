@@ -29,6 +29,7 @@ export type Props = {
   className?: string
   /** Set styles */
   style?: CSSProperties
+  /** Close if click outside */
   rootClose?: boolean
 }
 
