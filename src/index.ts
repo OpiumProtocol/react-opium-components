@@ -20,6 +20,8 @@ import {
   TColorScheme,
 } from './Constants/Types/theme.types'
 
+import colors from './Styles/exportColors.scss'
+
 export {
   Tabs,
   Alert,
@@ -38,6 +40,7 @@ export {
   themes,
   ETheme,
   EVariant,
+  colors,
 }
 
 export type {

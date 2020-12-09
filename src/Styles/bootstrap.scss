@@ -14,11 +14,15 @@
   box-shadow: none;
   line-height: 2.4;
 
+  &.disabled {
+    cursor: not-allowed;
+  }
+
   &.color-scheme-LIGHT {
-    @include localized-input-component(color(white), color(black3), color(blue1));
+    @include localized-input-component($white0, $black3, $blue1);
   }
   &.color-scheme-DARK {
-     @include localized-input-component(color(darkBlue2), color(white), transparent);
+     @include localized-input-component($darkblue2, $white0, transparent);
   }
 }
 
@@ -257,7 +261,7 @@
     @include dropdown-component($white0, $blue1, $blue1);
   }
   &.color-scheme-DARK {
-    @include dropdown-component($darkBlue1, $blue1, $blue1);
+    @include dropdown-component($darkblue1, $blue1, $blue1);
   }
   &:active,
   &:focus,
@@ -304,7 +308,7 @@
     @include dropdown-component($white0, $blue1, $blue1);
   }
   &.color-scheme-DARK {
-     @include dropdown-component($darkBlue3, $white0, $blue1);
+     @include dropdown-component($darkblue3, $white0, $blue1);
   }
 }
 
@@ -320,7 +324,7 @@
     @include dropdown-component($white0, $blue1, $blue1);
   }
   &.color-scheme-DARK {
-     @include dropdown-component($darkBlue3, $blue1, $blue1);
+     @include dropdown-component($darkblue3, $blue1, $blue1);
   }
   // &:active,
   // &:focus {
