@@ -231,7 +231,8 @@
       @include loader-component($blue1);
    }
    &.color-scheme-DARK {
-      @include loader-component(color(gray4));
+      @include loader-component($blue1);
+      // @include loader-component(color(gray4));
    }
 }
 
