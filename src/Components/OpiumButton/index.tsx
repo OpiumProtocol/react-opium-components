@@ -30,7 +30,9 @@ export type Props = {
   style?: CSSProperties
   /** Set on click action */
   onClick: Function
+  /** Handler, that works on mouse enter event */
   onMouseEnter?: Function
+  /** Handler, that works on mouse leave event */
   onMouseLeave?: Function
 }
 
