@@ -30,6 +30,7 @@ export type Props = {
   /** Set styles */
   style?: CSSProperties
   rootClose?: boolean
+  show?: boolean
 }
 
 export const defaultProps: Props = {
@@ -51,7 +52,8 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     component,
     className,
     placement,
-    rootClose } = generateRenderProps(defaultProps, props)
+    rootClose,
+    show } = generateRenderProps(defaultProps, props)
 
   const componentStyle = {
     width: 'fit-content',
@@ -69,6 +71,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     <OverlayTrigger
       key={placement}
       trigger={trigger}
+      show={show}
       placement={placement}
       rootClose={rootClose}
       overlay={
