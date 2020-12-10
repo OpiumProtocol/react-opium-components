@@ -64,7 +64,7 @@ export const colorSchemeDark: TColorScheme = {
     danger: { value: _.red0_50, hover: _.red0 },
     success: { value: _.darkblue2, hover: _.white0 },
     warning: { value: _.darkblue2, hover: _.white0 },
-    info: { value: _.white0, hover: _.white0 },
+    info: { value: _.gray2, hover: _.white0 },
     link: { value: _.white0, hover: _.white0 },
     error: { value: _.white0, hover: _.white0 },
   },
