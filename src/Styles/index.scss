@@ -80,20 +80,20 @@ code {
 .close-button {
 	position: absolute;
 	z-index: 2;
-	top: indent(1);
-	right: indent(1);
+	top: indent(2);
+	right: indent(2);
 	background: transparent;
 	border: 0;
 	border-radius: 50%;
-	width: indent(3);
-	height: indent(3);
+	width: indent(6);
+	height: indent(6);
+	outline: none;
 	&:hover {
-		background: color(gray6);
+		background: $blue1;
 		&:before,
 		&:after {
-			background: color(black3);
+			background: $white0;
 		}
-		
 	}
 	&:before,
 	&:after {
@@ -103,7 +103,7 @@ code {
 		left: 50%;
 		width: 14px;
 		height: 1px;
-		background: color(gray11);
+		background: $blue1;
 	}
 	&:before {
 		transform: translate(-50%, -50%) rotate(45deg);
