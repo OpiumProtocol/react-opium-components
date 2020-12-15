@@ -100,7 +100,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
       onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
       {...rest}
     >
-      {label}
+      {label.toUpperCase()}
     </Button>
   )
 }
