@@ -42,7 +42,7 @@ export const colorSchemeLight: TColorScheme = {
     danger: { value: _.red0_20, hover: _.red0_40 },
     success: { value: _.green1, hover: _.green1_40 },
     warning: { value: _.yellow3, hover: _.yellow3_70 },
-    info: { value: _.blue2, hover: _.blue2 },
+    info: { value: _.blue2_lighten, hover: _.blue2 },
     infoOnWhite: { value: _.blue2, hover: _.blue2 },
     link: { value: _.blue4, hover: _.blue4 },
     error: { value: _.red0, hover: _.red0 },
@@ -64,7 +64,7 @@ export const colorSchemeLight: TColorScheme = {
 export const colorSchemeDark: TColorScheme = {
   color: {
     primary: { value: _.blue1, hover: _.white0 },
-    secondary: { value: _.darkgray7, hover: _.darkgray6 },
+    secondary: { value: _.gray8, hover: _.darkgray6 },
     danger: { value: _.red0_50, hover: _.red0 },
     success: { value: _.darkblue2, hover: _.white0 },
     warning: { value: _.darkblue2, hover: _.white0 },
@@ -79,7 +79,7 @@ export const colorSchemeDark: TColorScheme = {
     danger: { value: _.red0_20, hover: _.red0_40 },
     success: { value: _.green1, hover: _.green1_40 },
     warning: { value: _.yellow3, hover: _.yellow3_70 },
-    info: { value: _.blue2, hover: _.blue2 },
+    info: { value: _.blue2_lighten, hover: _.blue2 },
     infoOnWhite: { value: _.blue2, hover: _.blue2 },
     link: { value: _.blue4, hover: _.blue4 },
     error: { value: _.red0, hover: _.red0 },

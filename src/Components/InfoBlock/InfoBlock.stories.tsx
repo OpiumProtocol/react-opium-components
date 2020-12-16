@@ -65,6 +65,17 @@ export const infoBlock = () => {
         content={content}
         variant={EVariant.warning}
       />
+      <InfoBlock
+        link={{
+          as: 'a',
+          href: '//www.google.com',
+          title: 'Google',
+          newTab: true,
+        }}
+        theme={theme}
+        content={content}
+        variant={EVariant.info}
+      />
     </div>
   )
 }
