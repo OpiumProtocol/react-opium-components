@@ -1,12 +1,13 @@
 @import '../../Styles/index.scss';
 
 .popover {
+  border: 0 !important;
   & .popover-body.color-scheme-LIGHT {
     @include tooltip-component($gray3, $white0, $gray3);
   }
 
   & .popover-body.color-scheme-DARK {
-    @include tooltip-component($gray5, $gray1, $gray5);
+    @include tooltip-component($blue4, $white0, $blue4);
   }
 
   &.color-scheme-LIGHT {
@@ -26,16 +27,16 @@
 
   &.color-scheme-DARK {
     &.bs-popover-bottom > .arrow::after {
-      border-bottom-color: $gray5;
+      border-bottom-color: $blue4;
     }
     &.bs-popover-right > .arrow::after {
-      border-right-color: $gray5;
+      border-right-color: $blue4;
     }
     &.bs-popover-left > .arrow::after {
-      border-left-color: $gray5;
+      border-left-color: $blue4;
     }
     &.bs-popover-top > .arrow::after {
-      border-top-color: $gray5;
+      border-top-color: $blue4;
     }
   }
 }
