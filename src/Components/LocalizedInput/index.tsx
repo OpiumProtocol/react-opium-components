@@ -49,9 +49,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const { type, theme, style, value, locale, onChange, className, disabled } = renderProps
 
-  const colorScheme = themes[theme as ETheme]
-
-  const { color, backgroundColor, borderColor } = colorScheme
+  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
   const styles = {
     backgroundColor: backgroundColor['secondary'].value,
