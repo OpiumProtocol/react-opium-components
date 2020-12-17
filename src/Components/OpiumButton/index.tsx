@@ -4,8 +4,7 @@ import { Button } from 'react-bootstrap'
 import { generateRenderProps } from '../../Utils/helpers'
 import {
   ETheme,
-  colorSchemeDark,
-  colorSchemeLight,
+  themes,
   getVariant,
 } from '../../Constants/Types/theme.types'
 
@@ -54,37 +53,35 @@ const OpiumButton: FC<Props> = (props: Props) => {
     label,
     theme,
     style,
+    disabled,
     variant,
     className,
     onMouseEnter,
     onMouseLeave,
     ...rest } = generateRenderProps(defaultProps, props)
 
-  const colorScheme = theme === ETheme.DARK
-    ? { ...colorSchemeDark }
-    : { ...colorSchemeLight }
+  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
-  const { color, backgroundColor, borderColor } = colorScheme
-
-  const styled = {
-    color: color[getVariant(variant)].value,
+  const styles = {
     backgroundColor: backgroundColor[getVariant(variant)].value,
     borderColor: borderColor[getVariant(variant)].value,
+    color: color[getVariant(variant)].value,
     borderStyle: 'solid',
-    borderRadius: '30px'
+    borderRadius: '30px',
+    ...style,
   }
 
-  const hovered = {
-    color: color[getVariant(variant)].hover,
-    backgroundColor: backgroundColor[getVariant(variant)].hover,
-    borderColor: borderColor[getVariant(variant)].hover,
-    borderStyle: 'solid',
-    borderRadius: '30px'
+  if (hover) {
+    styles.backgroundColor = backgroundColor[getVariant(variant)].hover
+    styles.borderColor = borderColor[getVariant(variant)].hover
+    styles.color = color[getVariant(variant)].hover
   }
 
-  const buttonStyle = hover
-    ? generateRenderProps(hovered, style)
-    : generateRenderProps(styled, style)
+  if (disabled) {
+    styles.backgroundColor = backgroundColor[getVariant(variant)].disabled
+    styles.borderColor = borderColor[getVariant(variant)].disabled
+    styles.color = color[getVariant(variant)].disabled
+  }
 
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
@@ -95,7 +92,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
       rel={rel}
       target={target}
       className={`${className}`}
-      style={buttonStyle}
+      style={styles}
       onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
       onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
       {...rest}

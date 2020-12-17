@@ -56,6 +56,15 @@ export const localizedInput = () => {
         onClick={() => { }}
         onChange={handleChange}
       />
+      <LocalizedInput
+        theme={theme}
+        disabled={true}
+        style={{ marginTop: '1rem' }}
+        type={type}
+        value={setValue()}
+        onClick={() => { }}
+        onChange={handleChange}
+      />
     </div>
   )
 }

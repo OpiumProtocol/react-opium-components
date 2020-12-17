@@ -35,7 +35,7 @@ export const button = () => {
           theme={theme}
           label={`${label} is on`}
           variant='secondary'
-          style={{ marginRight: '1rem' }}
+          style={{ margin: '1rem' }}
           onClick={handleClick}
         />
       </div>
@@ -43,34 +43,43 @@ export const button = () => {
         theme={theme}
         variant='primary'
         label={'Primary Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
         variant='secondary'
         label={'Secondary Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
         variant='danger'
         label={'Danger Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
         variant='success'
         label={'Success Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
         variant='warning'
         label={'Warning Button'}
+        style={{ margin: '1rem' }}
+        onClick={() => { }}
+      />
+      <Button
+        theme={theme}
+        variant='danger'
+        disabled={true}
+        label={'I am danger, but disabled'}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
     </div>
