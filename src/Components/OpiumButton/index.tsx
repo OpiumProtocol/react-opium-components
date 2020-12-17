@@ -91,6 +91,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
       href={href}
       rel={rel}
       target={target}
+      disabled={disabled}
       className={`${className}`}
       style={styles}
       onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
