@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap'
 import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme } from '../../Constants/Types/theme.types'
+import { ETheme, EVariant } from '../../Constants/Types/theme.types'
 
 import './Popup.scss'
 
@@ -107,7 +107,7 @@ const Popup: FC<Props> = (props: Props) => {
                 showActionButton &&
                 <Button
                   theme={theme}
-                  variant="primary"
+                  variant={'primary' as EVariant}
                   onClick={handleAction}
                   label={actionButtonTitle}
                 />
@@ -116,7 +116,7 @@ const Popup: FC<Props> = (props: Props) => {
                 showCancelButton &&
                 <Button
                   theme={theme}
-                  variant="secondary"
+                  variant={'secondary' as EVariant}
                   onClick={closePopup}
                   label={cancelButtonTitle}
                 />

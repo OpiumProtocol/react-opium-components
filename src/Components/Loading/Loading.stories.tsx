@@ -5,16 +5,14 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import Loading from './index'
 import Button from '../OpiumButton'
 
-import { ETheme } from '../../Constants/Types/theme.types'
-
-import colors from '../../Styles/exportColors.scss'
+import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const loading = () => {
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
   const message = text('Text', 'Loading')
 
-  const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
-  const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const color = sectionThemes[theme as ETheme].color.primary.value
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -23,14 +21,14 @@ export const loading = () => {
         <Button
           theme={theme}
           label="Light theme"
-          variant='secondary'
+          variant={'secondary' as EVariant}
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
-          variant='primary'
+          variant={'primary' as EVariant}
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
@@ -48,8 +46,8 @@ Loading.defaultProps = {
   type: 'bubbles' as LoadingType,
 }
 
-export default { 
-  title: 'Loading component', 
+export default {
+  title: 'Loading component',
   decorators: [withKnobs],
   component: Loading,
   parameters: {},

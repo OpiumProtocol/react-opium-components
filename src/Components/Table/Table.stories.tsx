@@ -5,9 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import Table from './index'
 import Button from '../OpiumButton'
 
-import { ETheme } from '../../Constants/Types/theme.types'
-
-import colors from '../../Styles/exportColors.scss'
+import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const table = () => {
   const message = text('Text', 'Table')
@@ -42,8 +40,8 @@ export const table = () => {
     ],
   ]
 
-  const backgroundColor = theme === ETheme.DARK ? colors.darkblue1 : colors.white0
-  const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const color = sectionThemes[theme as ETheme].color.primary.value
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -52,14 +50,14 @@ export const table = () => {
         <Button
           theme={theme}
           label="Light theme"
-          variant='secondary'
+          variant={'secondary' as EVariant}
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
-          variant='primary'
+          variant={'primary' as EVariant}
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>

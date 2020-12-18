@@ -2,7 +2,12 @@ import React, { FC, useState, BaseSyntheticEvent, ReactNode } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 
-import { ETheme } from '../../Constants/Types/theme.types'
+import {
+  ETheme,
+  widgetThemes,
+  EVariant,
+} from '../../Constants/Types/theme.types'
+
 import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropdownSelector.scss'
@@ -39,6 +44,9 @@ const defaultProps: Props = {
 }
 
 const DropdownSelector: FC<Props> = (props: Props) => {
+  const [hover, setHover] = useState<boolean>(false)
+  const [index, setIndex] = useState<number | null>(null)
+
   const renderProps = generateRenderProps(defaultProps, props)
   const {
     title,
@@ -56,22 +64,59 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     setSelectorTitle(event.target.innerText)
   }
 
+  const handleEnter = (i: number) => {
+    setIndex(i)
+    setHover(true)
+  }
+
+  const handleLeave = () => {
+    setIndex(null)
+    setHover(false)
+  }
+
+  const { color, backgroundColor, borderColor } = widgetThemes[theme as ETheme]
+
+  const togglerStyles = {
+    backgroundColor: backgroundColor['primary' as EVariant].value,
+    borderColor: borderColor['primary' as EVariant].value,
+    color: color['primary' as EVariant].value,
+    borderStyle: 'solid',
+    borderRadius: '8px',
+  }
+
+  const styledItem = {
+    backgroundColor: backgroundColor['primary' as EVariant].value,
+    // borderColor: borderColor['primary' as EVariant].value,
+    color: color['primary' as EVariant].value,
+    // borderStyle: 'solid',
+  }
+
+  const hoveredItem = {
+    backgroundColor: backgroundColor['primary' as EVariant].hover,
+    // borderColor: borderColor['primary' as EVariant].value,
+    color: color['primary' as EVariant].hover,
+  }
+
   return (
-    <Dropdown className={`color-scheme-${theme} ${className}`}>
-      <Dropdown.Toggle id="dropdown-selector-toggle" className={`color-scheme-${theme}`}>
+    // <Dropdown className={`color-scheme-${theme} ${className}`} style={styles}>
+    <Dropdown>
+      {/* <Dropdown.Toggle id="dropdown-selector-toggle" className={`color-scheme-${theme}`}> */}
+      <Dropdown.Toggle id="dropdown-selector-toggle" style={togglerStyles}>
         {title || selectorTitle}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         {
           items.length ? items.map((item: any, idx: number) => (
             <Dropdown.Item
+              style={idx === index ? hoveredItem : styledItem}
               key={uuidv4()}
               eventKey={`${idx}`}
               href={item.href}
               to={item.to}
               onClick={onClick}
               onSelect={uncontrolled ? handleSelect : onSelect}
-              className={`color-scheme-${theme}`}
+              onMouseEnter={() => handleEnter(idx)}
+              onMouseLeave={handleLeave}
               as={item.as}
             >
               {item.title}

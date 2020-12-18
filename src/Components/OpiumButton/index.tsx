@@ -5,7 +5,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 import {
   ETheme,
   themes,
-  getVariant,
+  EVariant,
 } from '../../Constants/Types/theme.types'
 
 import './Button.scss'
@@ -22,7 +22,7 @@ export type Props = {
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning'
+  variant?: EVariant
   /** Set class selectors */
   className?: string
   /** Set styles */
@@ -38,7 +38,7 @@ export type Props = {
 export const defaultProps: Props = {
   theme: ETheme.DARK,
   className: '',
-  variant: 'primary',
+  variant: 'primary' as EVariant,
   label: '',
   style: {},
   onClick: () => { },
@@ -63,24 +63,24 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
   const styles = {
-    backgroundColor: backgroundColor[getVariant(variant)].value,
-    borderColor: borderColor[getVariant(variant)].value,
-    color: color[getVariant(variant)].value,
+    backgroundColor: backgroundColor[variant as EVariant].value,
+    borderColor: borderColor[variant as EVariant].value,
+    color: color[variant as EVariant].value,
     borderStyle: 'solid',
     borderRadius: '30px',
     ...style,
   }
 
   if (hover) {
-    styles.backgroundColor = backgroundColor[getVariant(variant)].hover
-    styles.borderColor = borderColor[getVariant(variant)].hover
-    styles.color = color[getVariant(variant)].hover
+    styles.backgroundColor = backgroundColor[variant as EVariant].hover
+    styles.borderColor = borderColor[variant as EVariant].hover
+    styles.color = color[variant as EVariant].hover
   }
 
   if (disabled) {
-    styles.backgroundColor = backgroundColor[getVariant(variant)].disabled
-    styles.borderColor = borderColor[getVariant(variant)].disabled
-    styles.color = color[getVariant(variant)].disabled
+    styles.backgroundColor = backgroundColor[variant as EVariant].disabled
+    styles.borderColor = borderColor[variant as EVariant].disabled
+    styles.color = color[variant as EVariant].disabled
   }
 
   const target = newTab ? '_blank' : undefined

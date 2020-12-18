@@ -5,7 +5,7 @@ import { OverlayTriggerType } from 'react-bootstrap/esm/OverlayTrigger'
 import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme, themes } from '../../Constants/Types/theme.types'
+import { ETheme, EVariant, themes, TTooltipPlacement } from '../../Constants/Types/theme.types'
 
 import _ from '../../Styles/exportColors.scss'
 import './Tooltip.scss'
@@ -20,10 +20,10 @@ export type Props = {
   /** Trigger label */
   label: string
   /** Side placement */
-  placement?: 'right' | 'top' | 'bottom' | 'left' | 'top-start' | 'top-end' | 'right-start' | 'right-end' | 'bottom-end' | 'bottom-start' | 'left-end' | 'left-start' | 'auto-start' | 'auto' | 'auto-end'
+  placement?: TTooltipPlacement
   /** Disabled flag */
   disabled?: boolean
-  /** Set button variant */
+  /** Set trigger variant */
   trigger?: 'hover' | 'click' | 'focus' | OverlayTriggerType[]
   /** Set class selectors */
   className?: string
@@ -100,7 +100,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
         component
           ? component
           : <Button
-            variant="primary"
+            variant={'primary' as EVariant}
             label={label}
             onClick={() => { }}
             style={componentStyles}

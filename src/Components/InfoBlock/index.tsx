@@ -1,19 +1,12 @@
 import React, { CSSProperties, FC, ReactNode } from 'react'
-import { Alert, SafeAnchor } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
-import { ETheme, themes, colorSchemeDark, colorSchemeLight, getVariant } from '../../Constants/Types/theme.types'
+
+import { ETheme, themes, EVariant } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
 import './InfoBlock.scss'
-
-export enum EVariant {
-  info = 'info',
-  link = 'link',
-  error = 'error',
-  success = 'success',
-  warning = 'warning'
-}
 
 export type Props = {
   /** Define theme */
@@ -55,18 +48,16 @@ const InfoBlock: FC<Props> = (props: Props) => {
   const { content, heading, theme, variant, link, className, wide } = generateRenderProps(defaultProps, props)
   const { as, to, href, title: linkTitle, newTab, style } = link
 
-  const { color, backgroundColor, borderColor } = theme === ETheme.DARK
-    ? { ...colorSchemeDark }
-    : { ...colorSchemeLight }
+  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
   const styled = {
-    color: color[getVariant(variant)].value,
-    backgroundColor: backgroundColor[getVariant(variant)].value,
-    borderColor: borderColor[getVariant(variant)].value,
+    color: color[variant as EVariant].value,
+    backgroundColor: backgroundColor[variant as EVariant].value,
+    borderColor: borderColor[variant as EVariant].value,
     borderStyle: 'solid',
     borderRadius: wide ? 0 : '10px',
     width: wide ? '100%' : 'unset',
-    textAlign: 'center' as 'center'
+    textAlign: 'center' as 'center',
   }
 
   const target = newTab ? '_blank' : undefined

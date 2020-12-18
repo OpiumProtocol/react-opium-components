@@ -4,9 +4,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import GTMWrapper from './index'
 import Button from '../OpiumButton'
 
-import { ETheme } from '../../Constants/Types/theme.types'
-
-import colors from '../../Styles/exportColors.scss'
+import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const gtmWrapper = () => {
   const message = text('Text', 'GTM Wrapper')
@@ -25,8 +23,8 @@ export const gtmWrapper = () => {
     }
   }
 
-  const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
-  const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const color = sectionThemes[theme as ETheme].color.primary.value
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -35,14 +33,14 @@ export const gtmWrapper = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant='secondary'
+          variant={'secondary' as EVariant}
           style={{ marginRight: '1rem' }}
           onClick={handleClick}
         />
       </div>
       <Button
         theme={theme}
-        variant='primary'
+        variant={'primary' as EVariant}
         label="Without GTMWrapper"
         style={{ marginRight: '1rem' }}
         onClick={() => { }}
@@ -51,7 +49,7 @@ export const gtmWrapper = () => {
         <Button
           theme={theme}
           label="With GTMWrapper"
-          variant="primary"
+          variant={'primary' as EVariant}
           onClick={() => { }} />
       </GTMWrapper>
     </div>
