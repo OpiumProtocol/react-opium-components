@@ -219,7 +219,7 @@ export const WidgetSchemeDark: TColorScheme = {
     error: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
   },
   color: {
-    primary: { value: _.blue1, hover: _.blue1, disabled: _.blue1 },
+    primary: { value: _.gray8, hover: _.gray8, disabled: _.gray8 },
     secondary: { value: _.white0, hover: _.white0, disabled: _.white0 },
     danger: { value: _.white0, hover: _.white0, disabled: _.white0 },
     success: { value: _.white0, hover: _.white0, disabled: _.white0 },
@@ -256,8 +256,8 @@ export const WidgetSchemeLight: TColorScheme = {
     error: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
   },
   color: {
-    primary: { value: _.blue1, hover: _.blue1, disabled: _.blue1 },
-    secondary: { value: _.white0, hover: _.white0, disabled: _.white0 },
+    primary: { value: _.gray2, hover: _.gray2, disabled: _.gray2 },
+    secondary: { value: _.gray4, hover: _.gray4, disabled: _.gray4 },
     danger: { value: _.white0, hover: _.white0, disabled: _.white0 },
     success: { value: _.white0, hover: _.white0, disabled: _.white0 },
     warning: { value: _.white0, hover: _.white0, disabled: _.white0 },
