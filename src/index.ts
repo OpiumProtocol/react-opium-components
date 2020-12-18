@@ -15,6 +15,8 @@ import GTMWrapper from './Components/GTMWrapper'
 
 import {
   themes,
+  widgetThemes,
+  sectionThemes,
   ETheme,
   TThemes,
   TColorScheme,
@@ -39,6 +41,8 @@ export {
   DropdownSelector,
   GTMWrapper,
   themes,
+  widgetThemes,
+  sectionThemes,
   ETheme,
   EVariant,
   colors,
