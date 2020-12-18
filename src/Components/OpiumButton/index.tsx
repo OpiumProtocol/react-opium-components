@@ -5,7 +5,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 import {
   ETheme,
   themes,
-  EVariant,
+  TVariant,
 } from '../../Constants/Types/theme.types'
 
 import './Button.scss'
@@ -22,7 +22,7 @@ export type Props = {
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
-  variant?: EVariant
+  variant?: TVariant
   /** Set class selectors */
   className?: string
   /** Set styles */
@@ -38,7 +38,7 @@ export type Props = {
 export const defaultProps: Props = {
   theme: ETheme.DARK,
   className: '',
-  variant: 'primary' as EVariant,
+  variant: 'primary',
   label: '',
   style: {},
   onClick: () => { },
@@ -63,24 +63,24 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
   const styles = {
-    backgroundColor: backgroundColor[variant as EVariant].value,
-    borderColor: borderColor[variant as EVariant].value,
-    color: color[variant as EVariant].value,
+    backgroundColor: backgroundColor[variant as TVariant].value,
+    borderColor: borderColor[variant as TVariant].value,
+    color: color[variant as TVariant].value,
     borderStyle: 'solid',
     borderRadius: '30px',
     ...style,
   }
 
   if (hover) {
-    styles.backgroundColor = backgroundColor[variant as EVariant].hover
-    styles.borderColor = borderColor[variant as EVariant].hover
-    styles.color = color[variant as EVariant].hover
+    styles.backgroundColor = backgroundColor[variant as TVariant].hover
+    styles.borderColor = borderColor[variant as TVariant].hover
+    styles.color = color[variant as TVariant].hover
   }
 
   if (disabled) {
-    styles.backgroundColor = backgroundColor[variant as EVariant].disabled
-    styles.borderColor = borderColor[variant as EVariant].disabled
-    styles.color = color[variant as EVariant].disabled
+    styles.backgroundColor = backgroundColor[variant as TVariant].disabled
+    styles.borderColor = borderColor[variant as TVariant].disabled
+    styles.color = color[variant as TVariant].disabled
   }
 
   const target = newTab ? '_blank' : undefined

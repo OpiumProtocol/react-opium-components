@@ -20,7 +20,7 @@ import {
   ETheme,
   TThemes,
   TColorScheme,
-  EVariant,
+  TVariant,
 } from './Constants/Types/theme.types'
 
 import colors from './Styles/exportColors.scss'
@@ -44,11 +44,11 @@ export {
   widgetThemes,
   sectionThemes,
   ETheme,
-  EVariant,
   colors,
 }
 
 export type {
   TThemes,
+  TVariant,
   TColorScheme,
 }

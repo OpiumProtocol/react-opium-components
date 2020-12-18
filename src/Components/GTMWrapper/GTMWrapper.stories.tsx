@@ -4,7 +4,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import GTMWrapper from './index'
 import Button from '../OpiumButton'
 
-import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const gtmWrapper = () => {
   const message = text('Text', 'GTM Wrapper')
@@ -33,14 +33,14 @@ export const gtmWrapper = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant={'secondary' as EVariant}
+          variant={'secondary'}
           style={{ marginRight: '1rem' }}
           onClick={handleClick}
         />
       </div>
       <Button
         theme={theme}
-        variant={'primary' as EVariant}
+        variant={'primary'}
         label="Without GTMWrapper"
         style={{ marginRight: '1rem' }}
         onClick={() => { }}
@@ -49,7 +49,7 @@ export const gtmWrapper = () => {
         <Button
           theme={theme}
           label="With GTMWrapper"
-          variant={'primary' as EVariant}
+          variant={'primary'}
           onClick={() => { }} />
       </GTMWrapper>
     </div>

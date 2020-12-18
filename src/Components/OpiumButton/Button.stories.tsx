@@ -3,7 +3,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Button from './index'
 
-import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const button = () => {
   const message = text('Text', 'OpiumButton')
@@ -32,49 +32,49 @@ export const button = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant={'secondary' as EVariant}
+          variant={'secondary'}
           style={{ margin: '1rem' }}
           onClick={handleClick}
         />
       </div>
       <Button
         theme={theme}
-        variant={'primary' as EVariant}
+        variant={'primary'}
         label={'Primary Button'}
         style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant={'secondary' as EVariant}
+        variant={'secondary'}
         label={'Secondary Button'}
         style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant={'danger' as EVariant}
+        variant={'danger'}
         label={'Danger Button'}
         style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant={'success' as EVariant}
+        variant={'success'}
         label={'Success Button'}
         style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant={'warning' as EVariant}
+        variant={'warning'}
         label={'Warning Button'}
         style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant={'danger' as EVariant}
+        variant={'danger'}
         disabled={true}
         label={'I am danger, but disabled'}
         style={{ margin: '1rem' }}
@@ -87,7 +87,7 @@ export const button = () => {
 Button.defaultProps = {
   theme: ETheme.DARK,
   className: '',
-  variant: 'primary' as EVariant,
+  variant: 'primary',
   label: '',
   style: {},
   onClick: () => { },

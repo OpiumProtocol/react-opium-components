@@ -4,7 +4,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import Tooltip from './index'
 import Button from '../OpiumButton'
 
-import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const tooltip = () => {
   const message = text('Text', 'Tooltip')
@@ -33,7 +33,7 @@ export const tooltip = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant={'secondary' as EVariant}
+          variant={'secondary'}
           style={{ marginRight: '1rem' }}
           onClick={handleClick}
         />

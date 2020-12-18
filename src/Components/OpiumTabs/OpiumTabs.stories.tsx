@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import OpiumTabs from './index'
 import Button from '../OpiumButton'
 
-import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const opiumTabs = () => {
   const message = text('Text', 'OpiumTabs')
@@ -45,14 +45,14 @@ export const opiumTabs = () => {
         <Button
           theme={theme}
           label="Light theme"
-          variant={'secondary' as EVariant}
+          variant={'secondary'}
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
-          variant={'primary' as EVariant}
+          variant={'primary'}
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>

@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid'
 import {
   ETheme,
   widgetThemes,
-  EVariant,
 } from '../../Constants/Types/theme.types'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -77,24 +76,24 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const { color, backgroundColor, borderColor } = widgetThemes[theme as ETheme]
 
   const togglerStyles = {
-    backgroundColor: backgroundColor['primary' as EVariant].value,
-    borderColor: borderColor['primary' as EVariant].value,
-    color: color['primary' as EVariant].value,
+    backgroundColor: backgroundColor['primary'].value,
+    borderColor: borderColor['primary'].value,
+    color: color['primary'].value,
     borderStyle: 'solid',
     borderRadius: '8px',
   }
 
   const styledItem = {
-    backgroundColor: backgroundColor['primary' as EVariant].value,
-    // borderColor: borderColor['primary' as EVariant].value,
-    color: color['primary' as EVariant].value,
+    backgroundColor: backgroundColor['primary'].value,
+    // borderColor: borderColor['primary'].value,
+    color: color['primary'].value,
     // borderStyle: 'solid',
   }
 
   const hoveredItem = {
-    backgroundColor: backgroundColor['primary' as EVariant].hover,
-    // borderColor: borderColor['primary' as EVariant].value,
-    color: color['primary' as EVariant].hover,
+    backgroundColor: backgroundColor['primary'].hover,
+    // borderColor: borderColor['primary'].value,
+    color: color['primary'].hover,
   }
 
   return (

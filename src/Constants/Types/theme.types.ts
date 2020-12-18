@@ -5,19 +5,25 @@ export enum ETheme {
   DARK = 'DARK',
 }
 
-export enum EVariant {
-  primary = 'primary',
-  secondary = 'secondary',
-  danger = 'danger',
-  success = 'success',
-  warning = 'warning',
-  info = 'info',
-  infoOnWhite = 'infoOnWhite',
-  link = 'link',
-  error = 'error',
-}
+export type TVariant =
+  'primary' |
+  'secondary' |
+  'danger' |
+  'success' |
+  'warning' |
+  'info' |
+  'infoOnWhite' |
+  'link' |
+  'error'
 
-export type TTooltipPlacement = 'right' | 'top' | 'bottom' | 'left' | 'top-start' | 'top-end' | 'right-start' | 'right-end' | 'bottom-end' | 'bottom-start' | 'left-end' | 'left-start' | 'auto-start' | 'auto' | 'auto-end'
+
+export type TTooltipPlacement =
+  'right' | 'top' | 'bottom' | 'left' | 
+  'top-start' | 'top-end' | 
+  'right-start' | 'right-end' | 
+  'bottom-end' | 'bottom-start' | 
+  'left-end' | 'left-start' | 
+  'auto-start' | 'auto' | 'auto-end'
 
 type TColorSet = {
   primary: { value: string, hover: string, disabled: string },

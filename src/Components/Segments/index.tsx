@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme, themes, EVariant } from '../../Constants/Types/theme.types'
+import { ETheme, themes, TVariant } from '../../Constants/Types/theme.types'
 
 import './Segments.scss'
 
@@ -24,7 +24,7 @@ export type Props = {
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
-  variant?: EVariant
+  variant?: TVariant
 }
 
 const defaultProps: Props = {
@@ -48,17 +48,17 @@ const Segments: FC<Props> = (props: Props) => {
   const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
   const styled = {
-    color: color[variant as EVariant].value,
-    backgroundColor: backgroundColor[variant as EVariant].value,
-    borderColor: borderColor[variant as EVariant].value,
+    color: color[variant as TVariant].value,
+    backgroundColor: backgroundColor[variant as TVariant].value,
+    borderColor: borderColor[variant as TVariant].value,
     borderStyle: 'solid',
     borderRadius: 'unset',
   }
 
   const hovered = {
-    color: color[variant as EVariant].hover,
-    backgroundColor: backgroundColor[variant as EVariant].hover,
-    borderColor: borderColor[variant as EVariant].hover,
+    color: color[variant as TVariant].hover,
+    backgroundColor: backgroundColor[variant as TVariant].hover,
+    borderColor: borderColor[variant as TVariant].hover,
     borderStyle: 'solid',
     borderRadius: 'unset'
   }

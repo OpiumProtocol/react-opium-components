@@ -4,7 +4,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import NumberBlock from './index'
 import Button from '../OpiumButton'
 
-import { ETheme, EVariant, sectionThemes } from '../../Constants/Types/theme.types'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 import colors from '../../Styles/exportColors.scss'
 
@@ -44,7 +44,7 @@ export const numberBlock = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant={'secondary' as EVariant}
+          variant={'secondary'}
           style={{ marginRight: '1rem' }}
           onClick={handleClick}
         />
