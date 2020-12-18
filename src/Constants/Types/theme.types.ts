@@ -256,8 +256,8 @@ export const WidgetSchemeLight: TColorScheme = {
     error: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
   },
   color: {
-    primary: { value: _.gray2, hover: _.gray2, disabled: _.gray2 },
-    secondary: { value: _.gray4, hover: _.gray4, disabled: _.gray4 },
+    primary: { value: _.gray4, hover: _.gray4, disabled: _.gray4 },
+    secondary: { value: _.gray2, hover: _.gray2, disabled: _.gray2 },
     danger: { value: _.white0, hover: _.white0, disabled: _.white0 },
     success: { value: _.white0, hover: _.white0, disabled: _.white0 },
     warning: { value: _.white0, hover: _.white0, disabled: _.white0 },
