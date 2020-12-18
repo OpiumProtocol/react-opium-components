@@ -198,7 +198,7 @@ export const SectionSchemeLight: TColorScheme = {
 export const WidgetSchemeDark: TColorScheme = {
   backgroundColor: {
     primary: { value: _.darkblue2, hover: _.transparent1, disabled: _.darkblue2 },
-    secondary: { value: _.transparent0, hover: _.transparent1, disabled: _.transparent1 },
+    secondary: { value: _.darkblue3, hover: _.transparent1, disabled: _.darkblue3 },
     danger: { value: _.darkblue2, hover: _.transparent2, disabled: _.darkblue2 },
     success: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
     warning: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
@@ -209,7 +209,7 @@ export const WidgetSchemeDark: TColorScheme = {
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1, disabled: _.blue1 },
-    secondary: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
+    secondary: { value: _.darkblue2, hover: _.darkblue2, disabled: _.darkblue2 },
     danger: { value: _.blue5, hover: _.blue5, disabled: _.blue5 },
     success: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
     warning: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
