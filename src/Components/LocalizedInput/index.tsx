@@ -1,8 +1,9 @@
-import React, { FC, useState, BaseSyntheticEvent } from 'react'
+import React, { FC, useState, BaseSyntheticEvent, CSSProperties } from 'react'
 import { Form } from 'react-bootstrap'
 
-import { ETheme } from '../../Constants/Types/theme.types'
+import { ETheme, themes } from '../../Constants/Types/theme.types'
 import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
+import _ from '../../Styles/exportColors.scss'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -21,6 +22,8 @@ export type Props = {
   onChange?: Function
   /** Set class selectors */
   className?: string
+  /** Set styles */
+  style?: CSSProperties
   /** Disabled flag */
   disabled?: boolean
 }
@@ -44,7 +47,24 @@ const LocalizedInput: FC<Props> = (props: Props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false)
 
   const renderProps = generateRenderProps(defaultProps, props)
-  const { type, theme, value, locale, onChange, className, disabled } = renderProps
+  const { type, theme, style, value, locale, onChange, className, disabled } = renderProps
+
+  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
+
+  const styles = {
+    backgroundColor: backgroundColor['secondary'].value,
+    borderColor: _.darkblue4,
+    color: color['secondary'].value,
+    borderStyle: 'solid',
+    borderRadius: '4px',
+    ...style,
+  }
+
+  if (disabled) {
+    styles.backgroundColor = backgroundColor['secondary'].disabled
+    styles.borderColor = borderColor['secondary'].disabled
+    styles.color = color['secondary'].disabled
+  }
 
   return (
     <>
@@ -54,7 +74,8 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             case EFieldType.NUMBER:
               return isEditing
                 ? <Form.Control
-                  className={`color-scheme-${theme} ${className} ${disabled && 'disabled'}`}
+                  className={`${className} ${disabled && 'disabled'}`}
+                  style={styles}
                   type="number"
                   value={value === 0 ? '' : value}
                   onChange={(e) => onChange(+e.target.value)}
@@ -63,7 +84,8 @@ const LocalizedInput: FC<Props> = (props: Props) => {
                   disabled={disabled}
                 />
                 : <Form.Control
-                  className={`color-scheme-${theme} ${className} ${disabled && 'disabled'}`}
+                  className={`${className} ${disabled && 'disabled'}`}
+                  style={styles}
                   type="text"
                   value={localize(value, locale)}
                   onChange={(e) => onChange(+e.target.value)}
@@ -75,7 +97,8 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             default:
               return (
                 <Form.Control
-                  className={`color-scheme-${theme} ${disabled && 'disabled'}`}
+                  className={`${disabled && 'disabled'}`}
+                  style={styles}
                   type={type}
                   value={value === 0 ? '' : value}
                   onChange={(e) => onChange(e.target.value)}

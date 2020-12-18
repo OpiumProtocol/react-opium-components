@@ -4,11 +4,10 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import LocalizedInput from './index'
 import Button from '../OpiumButton'
 
-import { ETheme } from '../../Constants/Types/theme.types'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
 
 import './LocalizedInput.scss'
-import colors from '../../Styles/exportColors.scss'
 
 export const localizedInput = () => {
   const message = text('Text', 'LocalizedInput')
@@ -28,8 +27,8 @@ export const localizedInput = () => {
 
   const type: EFieldType = EFieldType.NUMBER
 
-  const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
-  const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const color = sectionThemes[theme as ETheme].color.primary.value
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -38,19 +37,28 @@ export const localizedInput = () => {
         <Button
           theme={theme}
           label="Light theme"
-          variant='secondary'
+          variant={'secondary'}
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
-          variant='primary'
+          variant={'primary'}
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
       <LocalizedInput
         theme={theme}
+        type={type}
+        value={setValue()}
+        onClick={() => { }}
+        onChange={handleChange}
+      />
+      <LocalizedInput
+        theme={theme}
+        disabled={true}
+        style={{ marginTop: '1rem' }}
         type={type}
         value={setValue()}
         onClick={() => { }}

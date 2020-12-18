@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import { withKnobs, text, color } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 
 import Button from './index'
 
-import { themes, ETheme } from '../../Constants/Types/theme.types'
-
-import colors from '../../Styles/exportColors.scss'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const button = () => {
   const message = text('Text', 'OpiumButton')
@@ -24,8 +22,8 @@ export const button = () => {
     }
   }
 
-  const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
-  const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const color = sectionThemes[theme as ETheme].color.primary.value
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -34,43 +32,52 @@ export const button = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant='secondary'
-          style={{ marginRight: '1rem' }}
+          variant={'secondary'}
+          style={{ margin: '1rem' }}
           onClick={handleClick}
         />
       </div>
       <Button
         theme={theme}
-        variant='primary'
+        variant={'primary'}
         label={'Primary Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant='secondary'
+        variant={'secondary'}
         label={'Secondary Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant='danger'
+        variant={'danger'}
         label={'Danger Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant='success'
+        variant={'success'}
         label={'Success Button'}
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
       <Button
         theme={theme}
-        variant='warning'
+        variant={'warning'}
         label={'Warning Button'}
+        style={{ margin: '1rem' }}
+        onClick={() => { }}
+      />
+      <Button
+        theme={theme}
+        variant={'danger'}
+        disabled={true}
+        label={'I am danger, but disabled'}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
     </div>

@@ -4,9 +4,8 @@ import { Button } from 'react-bootstrap'
 import { generateRenderProps } from '../../Utils/helpers'
 import {
   ETheme,
-  colorSchemeDark,
-  colorSchemeLight,
-  getVariant,
+  themes,
+  TVariant,
 } from '../../Constants/Types/theme.types'
 
 import './Button.scss'
@@ -23,7 +22,7 @@ export type Props = {
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning'
+  variant?: TVariant
   /** Set class selectors */
   className?: string
   /** Set styles */
@@ -54,37 +53,35 @@ const OpiumButton: FC<Props> = (props: Props) => {
     label,
     theme,
     style,
+    disabled,
     variant,
     className,
     onMouseEnter,
     onMouseLeave,
     ...rest } = generateRenderProps(defaultProps, props)
 
-  const colorScheme = theme === ETheme.DARK
-    ? { ...colorSchemeDark }
-    : { ...colorSchemeLight }
+  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
-  const { color, backgroundColor, borderColor } = colorScheme
-
-  const styled = {
-    color: color[getVariant(variant)].value,
-    backgroundColor: backgroundColor[getVariant(variant)].value,
-    borderColor: borderColor[getVariant(variant)].value,
+  const styles = {
+    backgroundColor: backgroundColor[variant as TVariant].value,
+    borderColor: borderColor[variant as TVariant].value,
+    color: color[variant as TVariant].value,
     borderStyle: 'solid',
-    borderRadius: '30px'
+    borderRadius: '30px',
+    ...style,
   }
 
-  const hovered = {
-    color: color[getVariant(variant)].hover,
-    backgroundColor: backgroundColor[getVariant(variant)].hover,
-    borderColor: borderColor[getVariant(variant)].hover,
-    borderStyle: 'solid',
-    borderRadius: '30px'
+  if (hover) {
+    styles.backgroundColor = backgroundColor[variant as TVariant].hover
+    styles.borderColor = borderColor[variant as TVariant].hover
+    styles.color = color[variant as TVariant].hover
   }
 
-  const buttonStyle = hover
-    ? generateRenderProps(hovered, style)
-    : generateRenderProps(styled, style)
+  if (disabled) {
+    styles.backgroundColor = backgroundColor[variant as TVariant].disabled
+    styles.borderColor = borderColor[variant as TVariant].disabled
+    styles.color = color[variant as TVariant].disabled
+  }
 
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
@@ -94,8 +91,9 @@ const OpiumButton: FC<Props> = (props: Props) => {
       href={href}
       rel={rel}
       target={target}
+      disabled={disabled}
       className={`${className}`}
-      style={buttonStyle}
+      style={styles}
       onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
       onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
       {...rest}

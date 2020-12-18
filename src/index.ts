@@ -9,15 +9,18 @@ import TextBlock from './Components/TextBlock'
 import Tooltip from './Components/OpiumTooltip'
 import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
-import InfoBlock, { EVariant } from './Components/InfoBlock'
+import InfoBlock from './Components/InfoBlock'
 import DropdownSelector from './Components/DropdownSelector'
 import GTMWrapper from './Components/GTMWrapper'
 
 import {
   themes,
+  widgetThemes,
+  sectionThemes,
   ETheme,
   TThemes,
   TColorScheme,
+  TVariant,
 } from './Constants/Types/theme.types'
 
 import colors from './Styles/exportColors.scss'
@@ -38,12 +41,14 @@ export {
   DropdownSelector,
   GTMWrapper,
   themes,
+  widgetThemes,
+  sectionThemes,
   ETheme,
-  EVariant,
   colors,
 }
 
 export type {
   TThemes,
+  TVariant,
   TColorScheme,
 }

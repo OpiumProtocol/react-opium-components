@@ -4,9 +4,7 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import Segments from './index'
 import Button from '../OpiumButton'
 
-import { ETheme } from '../../Constants/Types/theme.types'
-
-import colors from '../../Styles/exportColors.scss'
+import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const segments = () => {
   const message = text('Text', 'Segments')
@@ -15,14 +13,14 @@ export const segments = () => {
   const [currentValue, setCurrentValue] = useState('')
 
   const items = [
-    { label: 'Firstaasdasdasdsdas', value: '1' },
+    { label: 'First', value: '1' },
     { label: 'Second', value: '2' },
     { label: 'Third', value: '3' },
     { label: 'Fourth', value: '4' },
   ]
 
-  const backgroundColor = theme === ETheme.DARK ? colors.darkgray1 : colors.white0
-  const color = theme === ETheme.DARK ? colors.gray5 : colors.darkgray1
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const color = sectionThemes[theme as ETheme].color.primary.value
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -31,21 +29,21 @@ export const segments = () => {
         <Button
           theme={theme}
           label="Light theme"
-          variant='secondary'
+          variant={'secondary'}
           style={{ marginRight: '1rem' }}
           onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
-          variant='primary'
+          variant={'primary'}
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
       <Segments
         theme={theme}
         items={items}
-        variant='secondary'
+        variant={'secondary'}
         currentValue={currentValue}
         onClick={(val: string) => setCurrentValue(val)}
         uncontrolled={false}

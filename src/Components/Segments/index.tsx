@@ -1,11 +1,10 @@
 import React, { FC, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import _ from '../../Styles/exportColors.scss'
 
 import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme, colorSchemeDark, colorSchemeLight, getVariant } from '../../Constants/Types/theme.types'
+import { ETheme, themes, TVariant } from '../../Constants/Types/theme.types'
 
 import './Segments.scss'
 
@@ -25,7 +24,7 @@ export type Props = {
   /** Disabled flag */
   disabled?: boolean
   /** Set button variant */
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning'
+  variant?: TVariant
 }
 
 const defaultProps: Props = {
@@ -46,24 +45,20 @@ const Segments: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
   const [currentVal, setCurrentVal] = useState<string>('')
 
-  const colorScheme = theme === ETheme.DARK
-    ? { ...colorSchemeDark }
-    : { ...colorSchemeLight }
-
-  const { color, backgroundColor, borderColor } = colorScheme
+  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
   const styled = {
-    color: color[getVariant(variant)].value,
-    backgroundColor: backgroundColor[getVariant(variant)].value,
-    borderColor: borderColor[getVariant(variant)].value,
+    color: color[variant as TVariant].value,
+    backgroundColor: backgroundColor[variant as TVariant].value,
+    borderColor: borderColor[variant as TVariant].value,
     borderStyle: 'solid',
-    borderRadius: 'unset'
+    borderRadius: 'unset',
   }
 
   const hovered = {
-    color: color[getVariant(variant)].hover,
-    backgroundColor: backgroundColor[getVariant(variant)].hover,
-    borderColor: borderColor[getVariant(variant)].hover,
+    color: color[variant as TVariant].hover,
+    backgroundColor: backgroundColor[variant as TVariant].hover,
+    borderColor: borderColor[variant as TVariant].hover,
     borderStyle: 'solid',
     borderRadius: 'unset'
   }

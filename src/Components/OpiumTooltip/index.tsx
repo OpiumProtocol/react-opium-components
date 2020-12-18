@@ -1,11 +1,11 @@
-import React, { FC, CSSProperties } from 'react'
+import React, { FC, CSSProperties, useState } from 'react'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { OverlayTriggerType } from 'react-bootstrap/esm/OverlayTrigger'
 
 import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme } from '../../Constants/Types/theme.types'
+import { ETheme, themes, TTooltipPlacement } from '../../Constants/Types/theme.types'
 
 import _ from '../../Styles/exportColors.scss'
 import './Tooltip.scss'
@@ -20,10 +20,10 @@ export type Props = {
   /** Trigger label */
   label: string
   /** Side placement */
-  placement?: 'right' | 'top' | 'bottom' | 'left' | 'top-start' | 'top-end' | 'right-start' | 'right-end' | 'bottom-end' | 'bottom-start' | 'left-end' | 'left-start' | 'auto-start' | 'auto' | 'auto-end'
+  placement?: TTooltipPlacement
   /** Disabled flag */
   disabled?: boolean
-  /** Set button variant */
+  /** Set trigger variant */
   trigger?: 'hover' | 'click' | 'focus' | OverlayTriggerType[]
   /** Set class selectors */
   className?: string
@@ -44,6 +44,8 @@ export const defaultProps: Props = {
 }
 
 const OpiumTooltip: FC<Props> = (props: Props) => {
+  const [hover, setHover] = useState<boolean>(false)
+
   const {
     label,
     theme,
@@ -54,18 +56,25 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     className,
     placement,
     rootClose,
-    show } = generateRenderProps(defaultProps, props)
+    show,
+  } = generateRenderProps(defaultProps, props)
 
-  const componentStyle = {
+  const componentStyles = {
     width: 'fit-content',
     marginRight: '1rem',
     fontSize: '0.6rem',
     fontWeight: 900,
     borderRadius: '30px',
     padding: '0.15rem 0.5rem',
-    color: _.white0,
-    backgroundColor: _.blue2,
-    borderColor: _.transparent0,
+    ...style,
+  }
+
+  if (hover) {
+    const { color, backgroundColor, borderColor } = themes[theme as ETheme]
+
+    componentStyles.backgroundColor = backgroundColor.primary.value
+    componentStyles.borderColor = borderColor.primary.value
+    componentStyles.color = color.primary.value
   }
 
   return (
@@ -91,9 +100,12 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
         component
           ? component
           : <Button
+            variant={'primary'}
             label={label}
             onClick={() => { }}
-            style={{ ...componentStyle, ...style }}
+            style={componentStyles}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
           />
       }
     </OverlayTrigger>

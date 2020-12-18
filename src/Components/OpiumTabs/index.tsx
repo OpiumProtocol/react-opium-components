@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 import { Tab, Tabs } from 'react-bootstrap'
+import { v4 as uuidv4 } from 'uuid'
 
 import { ETheme } from '../../Constants/Types/theme.types'
 

@@ -107,7 +107,7 @@ const Popup: FC<Props> = (props: Props) => {
                 showActionButton &&
                 <Button
                   theme={theme}
-                  variant="primary"
+                  variant={'primary'}
                   onClick={handleAction}
                   label={actionButtonTitle}
                 />
@@ -116,7 +116,7 @@ const Popup: FC<Props> = (props: Props) => {
                 showCancelButton &&
                 <Button
                   theme={theme}
-                  variant="secondary"
+                  variant={'secondary'}
                   onClick={closePopup}
                   label={cancelButtonTitle}
                 />

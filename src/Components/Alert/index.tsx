@@ -132,14 +132,14 @@ const Alert: FC<Props> = (props: Props) => {
             showActionButton &&
             <Button
               theme={theme}
-              variant="primary"
+              variant={'primary'}
               onClick={handleAction}
               label={actionButtonTitle}
             />
           }
           <Button
             theme={theme}
-            variant="secondary"
+            variant={'secondary'}
             onClick={closePopup}
             label={cancelButtonTitle}
           />
