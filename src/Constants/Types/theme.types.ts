@@ -235,7 +235,7 @@ export const WidgetSchemeDark: TColorScheme = {
 export const WidgetSchemeLight: TColorScheme = {
   backgroundColor: {
     primary: { value: _.gray6, hover: _.transparent1, disabled: _.gray6 },
-    secondary: { value: _.transparent0, hover: _.transparent1, disabled: _.transparent1 },
+    secondary: { value: _.white0, hover: _.transparent1, disabled: _.transparent1 },
     danger: { value: _.darkblue2, hover: _.transparent2, disabled: _.darkblue2 },
     success: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
     warning: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
