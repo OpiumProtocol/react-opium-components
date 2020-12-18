@@ -275,10 +275,10 @@
   border-radius: 8px;
 
   &.color-scheme-LIGHT {
-    @include dropdown-component($gray6, $blue1, $transparent0);
+    @include dropdown-component($gray6, $blue1, $blue1);
   }
   &.color-scheme-DARK {
-     @include dropdown-component($darkblue2, $blue1, $transparent0);
+     @include dropdown-component($darkblue2, $blue1, $blue1);
   }
 }
 
