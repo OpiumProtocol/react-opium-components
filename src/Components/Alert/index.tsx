@@ -5,7 +5,7 @@ import Button from '../OpiumButton'
 import Loading from '../Loading'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme } from '../../Constants/Types/theme.types'
+import { ETheme, EVariant } from '../../Constants/Types/theme.types'
 
 import './Alert.scss'
 
@@ -132,14 +132,14 @@ const Alert: FC<Props> = (props: Props) => {
             showActionButton &&
             <Button
               theme={theme}
-              variant="primary"
+              variant={'primary' as EVariant}
               onClick={handleAction}
               label={actionButtonTitle}
             />
           }
           <Button
             theme={theme}
-            variant="secondary"
+            variant={'secondary' as EVariant}
             onClick={closePopup}
             label={cancelButtonTitle}
           />
