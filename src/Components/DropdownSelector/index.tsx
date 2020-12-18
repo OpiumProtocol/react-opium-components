@@ -78,7 +78,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const togglerStyles = {
     backgroundColor: backgroundColor['primary'].value,
     borderColor: borderColor['primary'].value,
-    color: color['primary'].value,
+    color: color['info'].value,
     borderStyle: 'solid',
     borderRadius: '8px',
   }
@@ -86,14 +86,14 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const styledItem = {
     backgroundColor: backgroundColor['primary'].value,
     // borderColor: borderColor['primary'].value,
-    color: color['primary'].value,
+    color: color['info'].value,
     // borderStyle: 'solid',
   }
 
   const hoveredItem = {
     backgroundColor: backgroundColor['primary'].hover,
-    // borderColor: borderColor['primary'].value,
-    color: color['primary'].hover,
+    // borderColor: borderColor['primary'].hover,
+    color: color['info'].hover,
   }
 
   return (
