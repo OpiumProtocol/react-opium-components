@@ -81,6 +81,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     color: color['info'].value,
     borderStyle: 'solid',
     borderRadius: '4px',
+    borderWidth: '1px'
   }
 
   const styledItem = {
