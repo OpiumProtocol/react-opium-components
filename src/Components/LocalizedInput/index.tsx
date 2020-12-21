@@ -1,7 +1,7 @@
 import React, { FC, useState, BaseSyntheticEvent, CSSProperties } from 'react'
 import { Form } from 'react-bootstrap'
 
-import { ETheme, themes } from '../../Constants/Types/theme.types'
+import { ETheme, themes, widgetThemes } from '../../Constants/Types/theme.types'
 import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
 import _ from '../../Styles/exportColors.scss'
 
@@ -54,7 +54,8 @@ const LocalizedInput: FC<Props> = (props: Props) => {
   const styles = {
     backgroundColor: backgroundColor['secondary'].value,
     borderColor: _.darkblue4,
-    color: color['secondary'].value,
+    color: widgetThemes[theme as ETheme].color.secondary.value,
+    // color: color['secondary'].value,
     borderStyle: 'solid',
     borderRadius: '4px',
     ...style,
