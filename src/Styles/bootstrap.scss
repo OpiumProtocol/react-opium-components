@@ -13,7 +13,10 @@
   width: 100%;
   box-shadow: none;
   line-height: 2.4;
-
+  outline: none;
+  &:focus {
+   outline: none;
+  }
   &.disabled {
     cursor: not-allowed;
   }
@@ -273,7 +276,7 @@
 
 .dropdown-menu {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 4px;
 
   &.color-scheme-LIGHT {
     @include dropdown-component($gray6, $blue1, $blue1);
@@ -288,7 +291,7 @@
   padding-top: indent(1);
   padding-bottom: indent(1);
   line-height: 1.5;
-  text-transform: none;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
