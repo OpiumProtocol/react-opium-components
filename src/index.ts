@@ -1,6 +1,6 @@
 import Alert from './Components/Alert'
 import Popup from './Components/Popup'
-import Table from './Components/Table'
+import Table, { TTableDimension, TTableHeight } from './Components/Table'
 import Tabs from './Components/OpiumTabs'
 import Loading from './Components/Loading'
 import Segments from './Components/Segments'
@@ -51,4 +51,6 @@ export type {
   TThemes,
   TVariant,
   TColorScheme,
+  TTableHeight,
+  TTableDimension,
 }

@@ -7,8 +7,8 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Table.scss'
 
-type TTableHeight = 'xs' | 's' | 'm' | 'l' | 'xl'
-type TTableDimension = 'px' | 'em' | 'rem' | 'vh' | 'vw'
+export type TTableHeight = 'xs' | 's' | 'm' | 'l' | 'xl'
+export type TTableDimension = 'px' | 'em' | 'rem' | 'vh' | 'vw'
 
 export type Props = {
   /** Define theme */
