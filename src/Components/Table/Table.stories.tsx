@@ -65,6 +65,8 @@ export const table = () => {
         theme={theme}
         thead={tableHead}
         tbody={tableBody}
+        rowHeight='xl'
+        headHeight='xs'
         className={''}
         bodyScrollHeight={260}
       />

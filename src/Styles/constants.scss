@@ -149,12 +149,12 @@ $font-sizes: (
 	border: 1px solid $border-color;
 }
 
-@mixin table-component($bg, $color, $border-color, $hover-color) {
+@mixin table-component($bg, $color, $hover-bg) {
 	background-color: $bg;
+	border: 0px solid;
 	color: $color;
-	border-bottom: 1px solid $border-color;
 	&:hover {
-		background-color: $hover-color;
+		background-color: $hover-bg;
 	}
 }
 
