@@ -15,6 +15,8 @@ export type Props = {
   className?: string
   /** Set styles */
   styles?: CSSProperties
+  /** Set styles */
+  innerStyle?: CSSProperties
 }
 
 const defaultProps: Props = {
@@ -22,6 +24,7 @@ const defaultProps: Props = {
   content: [],
   className: '',
   styles: {},
+  innerStyle: {},
 }
 
 function createMarkup(content: string) {
@@ -30,7 +33,7 @@ function createMarkup(content: string) {
 }
 
 const TextBlock: FC<Props> = (props: Props) => {
-  const { content, theme, styles, className } = generateRenderProps(defaultProps, props)
+  const { content, theme, styles, innerStyle, className } = generateRenderProps(defaultProps, props)
 
   return (
     <div className={`text-block color-scheme-${theme} ${className}`} style={styles}>
@@ -38,7 +41,7 @@ const TextBlock: FC<Props> = (props: Props) => {
         content.map((contentLine: string) => (
           <div
             key={uuidv4()}
-            style={{ width: '100%' }}
+            style={{ width: '100%', ...innerStyle }}
             dangerouslySetInnerHTML={createMarkup(contentLine)}
           />
         ))
