@@ -114,7 +114,7 @@ $cell10: 95px;
 
     &.color-scheme-DARK {
       // $bg, $border, $color, $hover-bg
-      @include table-component($gray4_10, $gray2, $gray4_25);
+      @include table-component($gray4_10, $white0, $gray4_25);
     }
 
     & .btn {
