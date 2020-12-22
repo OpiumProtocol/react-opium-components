@@ -14,7 +14,8 @@ export type TVariant =
   'info' |
   'infoOnWhite' |
   'link' |
-  'error'
+  'error' |
+  'rainbow'
 
 
 export type TTooltipPlacement =
@@ -35,6 +36,7 @@ type TColorSet = {
   infoOnWhite: { value: string, hover: string, disabled: string },
   link: { value: string, hover: string, disabled: string },
   error: { value: string, hover: string, disabled: string },
+  rainbow: { value: string, hover: string, disabled: string },
 }
 
 export type TColorScheme = {
@@ -56,6 +58,7 @@ export const colorSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.blue2, hover: _.blue2, disabled: _.transparent0 },
     link: { value: _.blue4, hover: _.blue4, disabled: _.transparent0 },
     error: { value: _.red0, hover: _.red0, disabled: _.transparent0 },
+    rainbow: { value: 'linear-gradient(269.1deg, rgba(223, 52, 139, 1) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, 1) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', hover: 'linear-gradient(269.1deg, rgba(223, 52, 139, .8) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, .8) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', disabled: _.transparent0 },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1, disabled: _.gray4 },
@@ -67,6 +70,7 @@ export const colorSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     link: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     error: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
+    rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
   },
   color: {
     primary: { value: _.white0, hover: _.blue1, disabled: _.gray4 },
@@ -78,6 +82,7 @@ export const colorSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.white0, hover: _.white0, disabled: _.gray4 },
     link: { value: _.white0, hover: _.white0, disabled: _.gray4 },
     error: { value: _.white0, hover: _.white0, disabled: _.gray4 },
+    rainbow: { value: _.rainbow, hover: _.rainbow, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
 }
@@ -93,6 +98,7 @@ export const colorSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.blue2, hover: _.blue2, disabled: _.transparent0 },
     link: { value: _.blue4, hover: _.blue4, disabled: _.transparent0 },
     error: { value: _.red0, hover: _.red0, disabled: _.transparent0 },
+    rainbow: { value: 'linear-gradient(269.1deg, rgba(223, 52, 139, 1) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, 1) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', hover: 'linear-gradient(269.1deg, rgba(223, 52, 139, .8) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, .8) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', disabled: _.transparent0 },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1, disabled: _.gray4 },
@@ -104,6 +110,7 @@ export const colorSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     link: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     error: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
+    rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
   },
   color: {
     primary: { value: _.white0, hover: _.blue1, disabled: _.gray4 },
@@ -115,6 +122,7 @@ export const colorSchemeLight: TColorScheme = {
     info: { value: _.white0, hover: _.white0, disabled: _.gray4 },
     link: { value: _.white0, hover: _.white0, disabled: _.gray4 },
     error: { value: _.white0, hover: _.white0, disabled: _.gray4 },
+    rainbow: { value: _.darkblue2, hover: _.darkblue2, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
 }
@@ -131,6 +139,7 @@ export const SectionSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.darkblue1, hover: _.darkblue1, disabled: _.darkblue1 },
     link: { value: _.darkblue1, hover: _.darkblue1, disabled: _.darkblue1 },
     error: { value: _.darkblue1, hover: _.darkblue1, disabled: _.darkblue1 },
+    rainbow: { value: _.white, hover: _.white, disabled: _.transparent0 },
   },
   borderColor: {
     primary: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
@@ -142,6 +151,7 @@ export const SectionSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
     link: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
     error: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
+    rainbow: { value: _.white, hover: _.white, disabled: _.transparent0 },
   },
   color: {
     primary: { value: _.white0, hover: _.white0, disabled: _.white0 },
@@ -153,6 +163,7 @@ export const SectionSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.white0, hover: _.white0, disabled: _.white0 },
     link: { value: _.white0, hover: _.white0, disabled: _.white0 },
     error: { value: _.white0, hover: _.white0, disabled: _.white0 },
+    rainbow: { value: _.white, hover: _.white, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
 }
@@ -168,6 +179,7 @@ export const SectionSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.darkblue1, hover: _.darkblue1, disabled: _.darkblue1 },
     link: { value: _.darkblue1, hover: _.darkblue1, disabled: _.darkblue1 },
     error: { value: _.darkblue1, hover: _.darkblue1, disabled: _.darkblue1 },
+    rainbow: { value: _.darkblue1, hover: _.darkblue1, disabled: _.transparent0 },
   },
   borderColor: {
     primary: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
@@ -179,6 +191,7 @@ export const SectionSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
     link: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
     error: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
+    rainbow: { value: _.darkblue1, hover: _.darkblue1, disabled: _.transparent0 },
   },
   color: {
     primary: { value: _.gray2, hover: _.gray2, disabled: _.gray2 },
@@ -190,6 +203,7 @@ export const SectionSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.white0, hover: _.white0, disabled: _.white0 },
     link: { value: _.white0, hover: _.white0, disabled: _.white0 },
     error: { value: _.white0, hover: _.white0, disabled: _.white0 },
+    rainbow: { value: _.white0, hover: _.white0, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
 }
@@ -206,6 +220,7 @@ export const WidgetSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
     link: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
     error: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
+    rainbow: { value: _.white0, hover: _.white0, disabled: _.transparent0 },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1, disabled: _.blue1 },
@@ -217,6 +232,7 @@ export const WidgetSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
     link: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
     error: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
+    rainbow: { value: _.white0, hover: _.white0, disabled: _.transparent0 },
   },
   color: {
     primary: { value: _.gray8, hover: _.gray8, disabled: _.gray8 },
@@ -228,6 +244,7 @@ export const WidgetSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.white0, hover: _.white0, disabled: _.white0 },
     link: { value: _.white0, hover: _.white0, disabled: _.white0 },
     error: { value: _.white0, hover: _.white0, disabled: _.white0 },
+    rainbow: { value: _.white0, hover: _.white0, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
 }
@@ -243,6 +260,7 @@ export const WidgetSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
     link: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
     error: { value: _.darkblue5, hover: _.transparent0, disabled: _.darkblue5 },
+    rainbow: { value: _.darkblue5, hover: _.darkblue5, disabled: _.transparent0 },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1, disabled: _.blue1 },
@@ -254,6 +272,7 @@ export const WidgetSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
     link: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
     error: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
+    rainbow: { value: _.darkblue5, hover: _.darkblue5, disabled: _.transparent0 },
   },
   color: {
     primary: { value: _.gray4, hover: _.gray4, disabled: _.gray4 },
@@ -265,6 +284,7 @@ export const WidgetSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.white0, hover: _.white0, disabled: _.white0 },
     link: { value: _.white0, hover: _.white0, disabled: _.white0 },
     error: { value: _.white0, hover: _.white0, disabled: _.white0 },
+    rainbow: { value: _.darkblue5, hover: _.darkblue5, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
 }
