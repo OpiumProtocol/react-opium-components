@@ -100,7 +100,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
       onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
       {...rest}
     >
-      {variant == 'rainbow' && <div className="btn__bg" style={{background: backgroundColor[variant as TVariant].value, opacity: hover ? '0.8' : '0.5'}}></div>}
+      {variant == 'rainbow' && <div className="btn__bg" style={{ background: backgroundColor[variant as TVariant].value, opacity: hover ? '0.8' : '0.5' }}></div>}
       <div className="btn__label">
         {label.toUpperCase()}
       </div>
