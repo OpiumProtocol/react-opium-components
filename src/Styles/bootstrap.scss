@@ -294,32 +294,3 @@
   text-transform: uppercase;
   text-decoration: none;
 }
-
-
-/** TABLE */
-.table-head {
-  &.color-scheme-LIGHT {
-    @include table-component(color(gray12), color(gray3), color(gray8), color(gray12));
-  }
-  &.color-scheme-DARK {
-     @include table-component(color(darkBlue1), color(darkgray7), color(darkBlue3), color(darkBlue1));
-  }
-}
-// ($bg, $color, $border-color, $hover-color)
-.table-row {
-  &.color-scheme-LIGHT {
-    @include table-component(color(gray12), color(gray3), transparent, color(white1));
-    border-top: 1px solid color(gray8);
-    &:last-child {
-     border-bottom: 1px solid color(gray8);
-  }
-  }
-  &.color-scheme-DARK {
-     @include table-component(color(darkBlue1), color(darkgray7), color(darkBlue3), color(darkBlue2));
-     border-top: 1px solid color(darkBlue3);
-     &:last-child {
-      border-bottom: 1px solid color(darkBlue3);
-   }
-  }
-
-}
