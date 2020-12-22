@@ -80,6 +80,14 @@ export const button = () => {
         style={{ margin: '1rem' }}
         onClick={() => { }}
       />
+      <Button
+        theme={theme}
+        variant={'rainbow'}
+        disabled={false}
+        label={'I am rainbow button'}
+        style={{ margin: '1rem' }}
+        onClick={() => { }}
+      />
     </div>
   )
 }

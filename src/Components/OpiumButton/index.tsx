@@ -63,18 +63,20 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const { color, backgroundColor, borderColor } = themes[theme as ETheme]
 
   const styles = {
-    backgroundColor: backgroundColor[variant as TVariant].value,
+    background: variant !== 'rainbow' ? backgroundColor[variant as TVariant].value : false,
     borderColor: borderColor[variant as TVariant].value,
     color: color[variant as TVariant].value,
     borderStyle: 'solid',
     borderRadius: '30px',
+    border: variant == 'rainbow' ? 0 : false,
     ...style,
   }
 
   if (hover) {
-    styles.backgroundColor = backgroundColor[variant as TVariant].hover
+    styles.background = variant !== 'rainbow' ? backgroundColor[variant as TVariant].hover : false
     styles.borderColor = borderColor[variant as TVariant].hover
     styles.color = color[variant as TVariant].hover
+    variant == 'rainbow' ? styles.border = 0 : ''
   }
 
   if (disabled) {
@@ -98,7 +100,10 @@ const OpiumButton: FC<Props> = (props: Props) => {
       onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
       {...rest}
     >
-      {label.toUpperCase()}
+      {variant == 'rainbow' && <div className="btn__bg" style={{background: backgroundColor[variant as TVariant].value, opacity: hover ? '0.8' : '0.5'}}></div>}
+      <div className="btn__label">
+        {label.toUpperCase()}
+      </div>
     </Button>
   )
 }
