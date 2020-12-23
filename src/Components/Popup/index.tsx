@@ -87,8 +87,8 @@ const Popup: FC<Props> = (props: Props) => {
       size={size}
       show={popupIsOpen}
       onHide={closePopup}
-      className={!borderless ? 'attention-popup' : ''}
-      dialogClassName={size === 'xs' ? `modal-fit-content ${className}` : `${className}`}
+      className={!borderless ? `attention-popup ${className}` : `${className}`}
+      dialogClassName={size === 'xs' ? 'modal-fit-content' : ''}
       contentClassName={!borderless
         ? `color-scheme-${theme}`
         : `color-scheme-${theme} modal-p-0 modal-transparent`}
