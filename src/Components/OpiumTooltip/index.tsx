@@ -31,7 +31,10 @@ export type Props = {
   style?: CSSProperties
   /** Close if click outside */
   rootClose?: boolean
+  /** Flag to show */
   show?: boolean
+  /** Flag if content is html */
+  html?: boolean
 }
 
 export const defaultProps: Props = {
@@ -57,6 +60,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     placement,
     rootClose,
     show,
+    html
   } = generateRenderProps(defaultProps, props)
 
   const componentStyles = {
@@ -91,9 +95,13 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
           className={`${className} color-scheme-${theme}`}
         >
           <Popover.Content className={`color-scheme-${theme}`} >
-            <div dangerouslySetInnerHTML={{
-              __html: content
-            }} />
+            {
+              html ?
+                <div dangerouslySetInnerHTML={{
+                  __html: content
+                }} />
+                : content
+            }
           </Popover.Content>
         </Popover>
       }
