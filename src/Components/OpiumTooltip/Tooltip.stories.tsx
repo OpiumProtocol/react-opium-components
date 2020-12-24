@@ -43,6 +43,7 @@ export const tooltip = () => {
         theme={theme}
         label={'!'}
         placement='top-start'
+        content='Line <br/> Next line'
       />
     </div>
   )

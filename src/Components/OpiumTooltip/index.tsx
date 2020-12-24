@@ -90,8 +90,10 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
           id={`popover-positioned-${placement}`}
           className={`${className} color-scheme-${theme}`}
         >
-          <Popover.Content className={`color-scheme-${theme}`}>
-            {content}
+          <Popover.Content className={`color-scheme-${theme}`} >
+            <div dangerouslySetInnerHTML={{
+              __html: content
+            }} />
           </Popover.Content>
         </Popover>
       }
