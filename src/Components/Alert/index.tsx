@@ -120,7 +120,9 @@ const Alert: FC<Props> = (props: Props) => {
       <Modal.Body>
         {title && <Modal.Title style={{ marginTop: '5rem' }}>{title}</ Modal.Title>}
         {attention && renderAttention()}
-        {description && <p className="modal-description">{description}</p>}
+        {description && <div className="modal-description" dangerouslySetInnerHTML={{
+          __html: description
+        }} />}
         {showCheckBox && <Form.Check type="checkbox" className='modal-checkbox' id='checkbox'>
           <Form.Check.Input checked={checkBoxChecked} onChange={() => handleCheckBoxChange()} type="checkbox" />
           <Form.Check.Label>{checkBoxLabel}</Form.Check.Label>
