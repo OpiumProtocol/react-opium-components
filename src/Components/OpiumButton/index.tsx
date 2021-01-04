@@ -11,6 +11,7 @@ import {
 import './Button.scss'
 
 export type Props = {
+  refs?: any
   /** Define theme */
   theme?: ETheme
   /** Set button title */
@@ -48,6 +49,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
 
   const {
+    refs,
     href,
     newTab,
     label,
@@ -93,6 +95,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
 
   return (
     <Button
+      ref={refs}
       href={href}
       rel={rel}
       target={target}
