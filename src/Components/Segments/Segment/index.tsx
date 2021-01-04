@@ -83,11 +83,11 @@ const Segment: React.FC<Props> = (props: Props) => {
           handleLeave()
         }
       }
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside)
       return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [ref]);
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }, [ref])
   }
   const FancyButton = React.forwardRef((props, ref) => (
     <Button
