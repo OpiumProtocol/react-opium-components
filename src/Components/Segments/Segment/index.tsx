@@ -104,6 +104,7 @@ const Segment: React.FC<Props> = (props: Props) => {
       onMouseLeave={() => handleLeave()}
     />
   ))
+  FancyButton.displayName = 'FancyButton'
   const segmentRef = React.createRef()
   clickOutsideElementListener(segmentRef)
 
