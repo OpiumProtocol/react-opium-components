@@ -39,9 +39,8 @@ export const alert = () => {
         theme={theme}
         title='Alert title'
         size='lg'
-        description='Description. Lorem lorem'
+        description='Please bear in mind that by providing liquidity on Opium, you are agreeing to certain risks. The base of Opium Staking was audited by Pessimistic and MixBytes, however there are some additional features that are being audited at the moment. As soon as audit is over, we will release it for public. Please remember that audit does not give you 100% guarantee that there would be no exploits. Currently Opium Staking is in beta and you are using it ar your own risk.'
         attention={true}
-        loading={true}
         closePopup={() => setPopupIsOpen(false)}
         popupIsOpen={popupIsOpen}
         showActionButton={true}
