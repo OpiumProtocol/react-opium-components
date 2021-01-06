@@ -7,6 +7,9 @@ import Loading from '../Loading'
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
+// @ts-ignore
+import AttentionLogo from '../../Images/attention.svg'
+
 import './Alert.scss'
 
 export type Props = {
@@ -100,7 +103,7 @@ const Alert: FC<Props> = (props: Props) => {
           loading ?
             <Loading theme={theme} type='spinningBubbles' height='6rem' />
             :
-            <img src={require('../../Images/attention.svg')} className="attention-icon" />
+            <img src={AttentionLogo} className="attention-icon" />
         }
       </div>
     )
