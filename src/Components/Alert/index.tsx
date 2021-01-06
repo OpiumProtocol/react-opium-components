@@ -57,7 +57,7 @@ const defaultProps: Props = {
   loading: false,
   closePopup: () => { },
   popupIsOpen: false,
-  showActionButton: true,
+  showActionButton: false,
   handleAction: () => { },
   actionButtonTitle: '',
   cancelButtonTitle: '',
@@ -116,7 +116,7 @@ const Alert: FC<Props> = (props: Props) => {
     >
       {!hideCross && <button className="close-button" onClick={closePopup} />}
       <Modal.Body>
-        {title && <Modal.Title style={{ marginTop: '5rem' }}>{title}</ Modal.Title>}
+        {title && <Modal.Title style={{ marginTop: '5rem', textTransform: 'uppercase' }}>{title}</ Modal.Title>}
         {attention && renderAttention()}
         {description && <div className="modal-description" dangerouslySetInnerHTML={{
           __html: description

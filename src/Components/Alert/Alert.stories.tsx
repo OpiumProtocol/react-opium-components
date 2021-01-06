@@ -43,9 +43,6 @@ export const alert = () => {
         attention={true}
         closePopup={() => setPopupIsOpen(false)}
         popupIsOpen={popupIsOpen}
-        showActionButton={true}
-        handleAction={() => { }}
-        actionButtonTitle='Action'
         cancelButtonTitle='Cancel'
         showCheckBox={true}
         handleCheckBoxChange={() => setCheckBoxChecked(!checkBoxChecked)}
