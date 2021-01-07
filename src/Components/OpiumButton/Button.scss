@@ -4,6 +4,9 @@
     position: relative;
     overflow: hidden;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, background 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    font-size: 12px;
+    padding: 4px 8px;
+    font-weight: 700;
     &:focus {
         box-shadow: none !important;
     }
