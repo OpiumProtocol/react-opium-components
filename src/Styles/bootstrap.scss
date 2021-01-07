@@ -33,10 +33,11 @@
 
 /** BUTTON */
 .btn {
-  padding: indent(1.5) indent(3);
   border: 2px solid currentColor;
   background-color: transparent;
-  font-size: fz(s);
+  font-size: 12px;
+  padding: 4px 20px;
+  font-weight: 700;
   border-radius: size(defaultRadiusPx);
   cursor: pointer;
   outline: none !important;
@@ -181,8 +182,8 @@
    }
    .modal-title {
       text-align: center;
-      font-weight: 300;
-      font-size: fz(xxl);
+      font-weight: 600;
+      font-size: fz(l);
       line-height: 1.2;
       &:not(:last-child) {
          margin-bottom: .8em;
@@ -202,17 +203,24 @@
          display: flex;
          flex-direction: column;
          align-items: center;
-         justify-content: center;
+         justify-content: flex-start;
       }
       .attention-icon-wrap {
          width: 120px;
          height: 120px;
          background: transparent;
-         display: flex;
+         display: inline-flex;
          align-items: center;
          justify-content: center;
          border-radius: 50%;
          position: relative;
+         margin-bottom: 10px;
+         .loading {
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+         }
       }
       .attention-icon {
          width: 100%;
