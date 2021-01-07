@@ -7,6 +7,9 @@ import Loading from '../Loading'
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
+// @ts-ignore
+import AttentionLogo from '../../Images/attention.svg'
+
 import './Alert.scss'
 
 export type Props = {
@@ -57,7 +60,7 @@ const defaultProps: Props = {
   loading: false,
   closePopup: () => { },
   popupIsOpen: false,
-  showActionButton: true,
+  showActionButton: false,
   handleAction: () => { },
   actionButtonTitle: '',
   cancelButtonTitle: '',
@@ -100,9 +103,7 @@ const Alert: FC<Props> = (props: Props) => {
           loading ?
             <Loading theme={theme} type='spinningBubbles' height='6rem' />
             :
-            <svg className="attention-icon">
-              <use xlinkHref="./sprite.svg#attention"></use>
-            </svg>
+            <img src={AttentionLogo} className="attention-icon" />
         }
       </div>
     )
@@ -118,7 +119,7 @@ const Alert: FC<Props> = (props: Props) => {
     >
       {!hideCross && <button className="close-button" onClick={closePopup} />}
       <Modal.Body>
-        {title && <Modal.Title style={{ marginTop: '5rem' }}>{title}</ Modal.Title>}
+        {title && <Modal.Title style={{ marginTop: '5rem', textTransform: 'uppercase' }}>{title}</ Modal.Title>}
         {attention && renderAttention()}
         {description && <div className="modal-description" dangerouslySetInnerHTML={{
           __html: description
