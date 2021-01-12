@@ -92,7 +92,7 @@ $cell10: 95px;
     line-height: 1.2;
     min-height: 3.6em;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
   }
 
@@ -127,7 +127,7 @@ $cell10: 95px;
     line-height: 1.5;
     @include text-one-row;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     &:last-child {

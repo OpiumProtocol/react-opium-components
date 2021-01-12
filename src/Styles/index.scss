@@ -51,13 +51,6 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.page-container {
-	width: 100%;
-	margin: 0 auto;
-	max-width: breakpoint('laptop');
-	padding: 0 50px;
-}
-
 .buttons-wrap {
 	text-align: center;
 	margin: 0;
@@ -110,35 +103,5 @@ code {
 	}
 	&:after {
 		transform: translate(-50%, -50%) rotate(-45deg);
-	}
-}
-
-.anchor {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: calc(100% + 80px);
-	pointer-events: none;
-	z-index: 9999;
-}
-
-@media screen and (max-width: 480px) {
-	.page-container {
-		padding: 0;
-	}
-	.main {
-		.page-container {
-			padding: 0 10px;
-		}
-	}
-	// #root {
-	// 	padding-top: 80px;
-		// .main {
-		// 	padding-top: 80px;
-		// }
-	// }
-	.anchor {
-		top: -80px;
 	}
 }
