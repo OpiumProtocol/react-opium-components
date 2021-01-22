@@ -12,6 +12,8 @@ import './Button.scss'
 
 export type Props = {
   refs?: any
+  /** ID */
+  id?: string
   /** Define theme */
   theme?: ETheme
   /** Set button title */
@@ -49,6 +51,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
 
   const {
+    id,
     refs,
     href,
     newTab,
@@ -73,7 +76,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
     ...style,
   }
 
-  if ( variant === 'rainbow') {
+  if (variant === 'rainbow') {
     styles.border = 0
   }
 
@@ -106,10 +109,10 @@ const OpiumButton: FC<Props> = (props: Props) => {
       onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
       {...rest}
     >
-      {variant == 'rainbow' && <div className="btn__bg" style={{ background: backgroundColor[variant as TVariant].value, opacity: hover ? theme === ETheme.DARK ? '0.8' : '0.3' : '0.5' }}></div>}
-      <div className="btn__label">
+      {variant == 'rainbow' && <span id={id} className="btn__bg" style={{ background: backgroundColor[variant as TVariant].value, opacity: hover ? theme === ETheme.DARK ? '0.8' : '0.3' : '0.5' }}></span>}
+      <span className="btn__label" id={id}>
         {label.toUpperCase()}
-      </div>
+      </span>
     </Button>
   )
 }

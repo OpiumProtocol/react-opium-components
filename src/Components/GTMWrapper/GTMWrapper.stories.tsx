@@ -45,7 +45,7 @@ export const gtmWrapper = () => {
         style={{ marginRight: '1rem' }}
         onClick={() => { }}
       />
-      <GTMWrapper id="ceo-wrapped-component" isProduction={false}>
+      <GTMWrapper id="seo-wrapped-component" isProduction={true}>
         <Button
           theme={theme}
           label="With GTMWrapper"
