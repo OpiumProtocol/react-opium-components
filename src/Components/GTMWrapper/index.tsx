@@ -14,7 +14,7 @@ export type TProps = {
 }
 
 export const defaultProps: TProps = {
-  id: 'ceo-wrapped-component',
+  id: 'seo-wrapped-component',
   children: <></>,
   isProduction: false,
 }

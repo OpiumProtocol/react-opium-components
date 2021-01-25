@@ -12,8 +12,6 @@ import './Button.scss'
 
 export type Props = {
   refs?: any
-  /** ID */
-  id?: string
   /** Define theme */
   theme?: ETheme
   /** Set button title */
@@ -51,7 +49,6 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
 
   const {
-    id,
     refs,
     href,
     newTab,
@@ -97,23 +94,46 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const rel = newTab ? 'noreferrer' : undefined
 
   return (
-    <Button
-      ref={refs}
-      href={href}
-      rel={rel}
-      target={target}
-      disabled={disabled}
-      className={`${className}`}
-      style={styles}
-      onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
-      onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
-      {...rest}
-    >
-      {variant == 'rainbow' && <span id={id} className="btn__bg" style={{ background: backgroundColor[variant as TVariant].value, opacity: hover ? theme === ETheme.DARK ? '0.8' : '0.3' : '0.5' }}></span>}
-      <span className="btn__label" id={id}>
-        {label.toUpperCase()}
-      </span>
-    </Button>
+    <>
+      {
+        variant === 'rainbow'
+          ? <Button
+            ref={refs}
+            href={href}
+            rel={rel}
+            target={target}
+            disabled={disabled}
+            className={`${className}`}
+            style={styles}
+            onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
+            onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
+            {...rest}
+          >
+            <span className="btn__bg"
+              style={{
+                background: backgroundColor[variant as TVariant].value,
+                opacity: hover ? theme === ETheme.DARK ? '0.8' : '0.3' : '0.5'
+              }} />
+            <span className="btn__label">
+              {label.toUpperCase()}
+            </span>
+          </Button>
+          : <Button
+            ref={refs}
+            href={href}
+            rel={rel}
+            target={target}
+            disabled={disabled}
+            className={`${className}`}
+            style={styles}
+            onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
+            onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
+            {...rest}
+          >
+            {label.toUpperCase()}
+          </Button>
+      }
+    </>
   )
 }
 
