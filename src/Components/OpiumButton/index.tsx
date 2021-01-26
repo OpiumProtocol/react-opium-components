@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, useState } from 'react'
+import React, { FC, CSSProperties, useState, BaseSyntheticEvent } from 'react'
 import { Button } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -49,6 +49,8 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
 
   const {
+    id,
+    onClick,
     refs,
     href,
     newTab,
@@ -93,11 +95,18 @@ const OpiumButton: FC<Props> = (props: Props) => {
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
 
+  const handleRainbowClick = (e: BaseSyntheticEvent) => {
+    e.stopPropagation()
+    if (id) e.target.setAttribute('id', id)
+    onClick(e)
+  }
+
   return (
     <>
       {
         variant === 'rainbow'
           ? <Button
+            onClickCapture={handleRainbowClick}
             ref={refs}
             href={href}
             rel={rel}
@@ -109,16 +118,16 @@ const OpiumButton: FC<Props> = (props: Props) => {
             onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
             {...rest}
           >
-            <span className="btn__bg"
+            <span
+              className="btn__bg"
               style={{
                 background: backgroundColor[variant as TVariant].value,
                 opacity: hover ? theme === ETheme.DARK ? '0.8' : '0.3' : '0.5'
               }} />
-            <span className="btn__label">
-              {label.toUpperCase()}
-            </span>
+            <span className="btn__label">{label.toUpperCase()}</span>
           </Button>
           : <Button
+            onClick={onClick}
             ref={refs}
             href={href}
             rel={rel}
