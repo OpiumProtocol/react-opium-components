@@ -1,4 +1,4 @@
-import React, { FC, CSSProperties, useState } from 'react'
+import React, { FC, CSSProperties, useRef, useState, BaseSyntheticEvent } from 'react'
 import { Button } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -48,7 +48,12 @@ export const defaultProps: Props = {
 const OpiumButton: FC<Props> = (props: Props) => {
   const [hover, setHover] = useState<boolean>(false)
 
+  const rainbowCoverRef = useRef<HTMLSpanElement>(null)
+  const rainbowLabelRef = useRef<HTMLSpanElement>(null)
+
   const {
+    id,
+    onClick,
     refs,
     href,
     newTab,
@@ -62,55 +67,116 @@ const OpiumButton: FC<Props> = (props: Props) => {
     onMouseLeave,
     ...rest } = generateRenderProps(defaultProps, props)
 
-  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
+  const { color, backgroundColor, borderColor, ...restStyles } = themes[theme as ETheme]
 
-  const styles = {
-    background: variant !== 'rainbow' ? backgroundColor[variant as TVariant].value : false,
+  const coreStyles = { ...restStyles, ...style }
+
+  const monoStyles = {
+    backgroundColor: backgroundColor[variant as TVariant].value,
     borderColor: borderColor[variant as TVariant].value,
     color: color[variant as TVariant].value,
-    borderStyle: 'solid',
-    borderRadius: '30px',
-    ...style,
+    ...coreStyles,
   }
 
-  if ( variant === 'rainbow') {
-    styles.border = 0
+  const rainbowStyles = {
+    backgroundColor: 'transparent',
+    paddingTop: '6px',
+    paddingBottom: '6px',
+    borderWidth: 0,
+    ...coreStyles,
+  }
+
+  const rainbowCover = {
+    opacity: '0.5',
+    background: backgroundColor['rainbow'].value,
+  }
+
+  const rainbowLabel = {
+    color: color['rainbow'].value,
   }
 
   if (hover) {
-    styles.background = variant !== 'rainbow' ? backgroundColor[variant as TVariant].hover : false
-    styles.borderColor = borderColor[variant as TVariant].hover
-    styles.color = color[variant as TVariant].hover
-    variant == 'rainbow' ? styles.border = 0 : ''
+    monoStyles.backgroundColor = backgroundColor[variant as TVariant].hover
+    monoStyles.borderColor = borderColor[variant as TVariant].hover
+    monoStyles.color = color[variant as TVariant].hover
+    rainbowCover.opacity = '0.8'
+    rainbowCover.background = backgroundColor['rainbow'].hover
+    rainbowLabel.color = color['rainbow'].hover
   }
 
   if (disabled) {
-    styles.backgroundColor = backgroundColor[variant as TVariant].disabled
-    styles.borderColor = borderColor[variant as TVariant].disabled
-    styles.color = color[variant as TVariant].disabled
+    monoStyles.backgroundColor = backgroundColor[variant as TVariant].disabled
+    monoStyles.borderColor = borderColor[variant as TVariant].disabled
+    monoStyles.color = color[variant as TVariant].disabled
+    rainbowLabel.color = color['rainbow'].disabled
   }
 
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
 
+  const handleRainbowClick = (e: BaseSyntheticEvent) => {
+    e.stopPropagation()
+    if (id) {
+      if (rainbowCoverRef.current) {
+        rainbowCoverRef.current.removeAttribute('id')
+      }
+
+      if (rainbowLabelRef.current) {
+        rainbowLabelRef.current.removeAttribute('id')
+      }
+
+      e.target.setAttribute('id', id)
+    }
+    onClick(e)
+  }
+
   return (
-    <Button
-      ref={refs}
-      href={href}
-      rel={rel}
-      target={target}
-      disabled={disabled}
-      className={`${className}`}
-      style={styles}
-      onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
-      onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
-      {...rest}
-    >
-      {variant == 'rainbow' && <div className="btn__bg" style={{ background: backgroundColor[variant as TVariant].value, opacity: hover ? theme === ETheme.DARK ? '0.8' : '0.3' : '0.5' }}></div>}
-      <div className="btn__label">
-        {label.toUpperCase()}
-      </div>
-    </Button>
+    <>
+      {
+        variant === 'rainbow'
+          ? <Button
+            onClickCapture={handleRainbowClick}
+            ref={refs}
+            href={href}
+            rel={rel}
+            target={target}
+            disabled={disabled}
+            className={`${className}`}
+            style={rainbowStyles}
+            onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
+            onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
+            {...rest}
+          >
+            <span
+              ref={rainbowCoverRef}
+              className="btn__bg"
+              style={rainbowCover} />
+
+            <span
+              ref={rainbowLabelRef}
+              className="btn__label"
+              style={rainbowLabel}
+            >
+              {label.toUpperCase()}
+            </span>
+          </Button>
+          : <Button
+            onClick={onClick}
+            ref={refs}
+            href={href}
+            rel={rel}
+            target={target}
+            disabled={disabled}
+            className={`${className}`}
+            style={monoStyles}
+            onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
+            onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
+            {...rest}
+          >
+            {label.toUpperCase()}
+          </Button>
+      }
+    </>
   )
 }
 

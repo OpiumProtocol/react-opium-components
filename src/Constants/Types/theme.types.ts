@@ -19,11 +19,11 @@ export type TVariant =
 
 
 export type TTooltipPlacement =
-  'right' | 'top' | 'bottom' | 'left' | 
-  'top-start' | 'top-end' | 
-  'right-start' | 'right-end' | 
-  'bottom-end' | 'bottom-start' | 
-  'left-end' | 'left-start' | 
+  'right' | 'top' | 'bottom' | 'left' |
+  'top-start' | 'top-end' |
+  'right-start' | 'right-end' |
+  'bottom-end' | 'bottom-start' |
+  'left-end' | 'left-start' |
   'auto-start' | 'auto' | 'auto-end'
 
 type TColorSet = {
@@ -44,6 +44,7 @@ export type TColorScheme = {
   borderColor: TColorSet
   color: TColorSet
   borderStyle: string
+  borderRadius: string
 }
 
 // Components
@@ -58,7 +59,11 @@ export const colorSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.blue2, hover: _.blue2, disabled: _.transparent0 },
     link: { value: _.blue4, hover: _.blue4, disabled: _.transparent0 },
     error: { value: _.red0, hover: _.red0, disabled: _.transparent0 },
-    rainbow: { value: 'linear-gradient(269.1deg, rgba(223, 52, 139, 1) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, 1) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', hover: 'linear-gradient(269.1deg, rgba(223, 52, 139, .8) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, .8) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', disabled: _.transparent0 },
+    rainbow: {
+      value: 'linear-gradient(269.1deg, rgba(223, 52, 139, 1) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, 1) 0%, rgba(250, 234, 38, 0) 100%), #197CD8',
+      hover: 'linear-gradient(269.1deg, rgba(223, 52, 139, .8) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, .8) 0%, rgba(250, 234, 38, 0) 100%), #197CD8',
+      disabled: _.transparent0,
+    },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1, disabled: _.gray4 },
@@ -70,7 +75,7 @@ export const colorSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     link: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     error: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
-    rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
+    rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
   },
   color: {
     primary: { value: _.white0, hover: _.blue1, disabled: _.gray4 },
@@ -82,9 +87,10 @@ export const colorSchemeDark: TColorScheme = {
     infoOnWhite: { value: _.white0, hover: _.white0, disabled: _.gray4 },
     link: { value: _.white0, hover: _.white0, disabled: _.gray4 },
     error: { value: _.white0, hover: _.white0, disabled: _.gray4 },
-    rainbow: { value: _.rainbow, hover: _.rainbow, disabled: _.transparent0 },
+    rainbow: { value: _.rainbow, hover: _.rainbow, disabled: _.gray4 },
   },
   borderStyle: 'solid',
+  borderRadius: '30px',
 }
 
 export const colorSchemeLight: TColorScheme = {
@@ -98,7 +104,11 @@ export const colorSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.blue2, hover: _.blue2, disabled: _.transparent0 },
     link: { value: _.blue4, hover: _.blue4, disabled: _.transparent0 },
     error: { value: _.red0, hover: _.red0, disabled: _.transparent0 },
-    rainbow: { value: 'linear-gradient(269.1deg, rgba(223, 52, 139, 1) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, 1) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', hover: 'linear-gradient(269.1deg, rgba(223, 52, 139, .8) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, .8) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', disabled: _.transparent0 },
+    rainbow: { 
+      value: 'linear-gradient(269.1deg, rgba(223, 52, 139, 1) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, 1) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', 
+      hover: 'linear-gradient(269.1deg, rgba(223, 52, 139, .8) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, .8) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', 
+      disabled: _.transparent0,
+    },
   },
   borderColor: {
     primary: { value: _.blue1, hover: _.blue1, disabled: _.gray2 },
@@ -110,7 +120,7 @@ export const colorSchemeLight: TColorScheme = {
     infoOnWhite: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
     link: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
     error: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
-    rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 },
+    rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
   },
   color: {
     primary: { value: _.white0, hover: _.blue1, disabled: _.gray2 },
@@ -122,9 +132,10 @@ export const colorSchemeLight: TColorScheme = {
     info: { value: _.white0, hover: _.white0, disabled: _.gray2 },
     link: { value: _.white0, hover: _.white0, disabled: _.gray2 },
     error: { value: _.white0, hover: _.white0, disabled: _.gray2 },
-    rainbow: { value: _.darkblue2, hover: _.darkblue2, disabled: _.transparent0 },
+    rainbow: { value: _.darkblue2, hover: _.darkblue2, disabled: _.gray2 },
   },
   borderStyle: 'solid',
+  borderRadius: '30px',
 }
 
 // Sections
@@ -166,6 +177,7 @@ export const SectionSchemeDark: TColorScheme = {
     rainbow: { value: _.white, hover: _.white, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
+  borderRadius: '30px',
 }
 
 export const SectionSchemeLight: TColorScheme = {
@@ -206,6 +218,7 @@ export const SectionSchemeLight: TColorScheme = {
     rainbow: { value: _.white0, hover: _.white0, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
+  borderRadius: '30px',
 }
 
 // Widgets
@@ -247,6 +260,7 @@ export const WidgetSchemeDark: TColorScheme = {
     rainbow: { value: _.white0, hover: _.white0, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
+  borderRadius: '30px',
 }
 
 export const WidgetSchemeLight: TColorScheme = {
@@ -287,6 +301,7 @@ export const WidgetSchemeLight: TColorScheme = {
     rainbow: { value: _.darkblue5, hover: _.darkblue5, disabled: _.transparent0 },
   },
   borderStyle: 'solid',
+  borderRadius: '30px',
 }
 
 export type TThemes = {

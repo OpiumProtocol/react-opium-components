@@ -34,7 +34,7 @@ export const gtmWrapper = () => {
           theme={theme}
           label={`${label} is on`}
           variant={'secondary'}
-          style={{ marginRight: '1rem' }}
+          style={{ margin: '1rem' }}
           onClick={handleClick}
         />
       </div>
@@ -42,14 +42,23 @@ export const gtmWrapper = () => {
         theme={theme}
         variant={'primary'}
         label="Without GTMWrapper"
-        style={{ marginRight: '1rem' }}
+        style={{ margin: '1rem' }}
         onClick={() => { }}
       />
-      <GTMWrapper id="ceo-wrapped-component" isProduction={false}>
+      <GTMWrapper id="seo-wrapped-component" isProduction={true}>
         <Button
           theme={theme}
-          label="With GTMWrapper"
           variant={'primary'}
+          label="With GTMWrapper"
+          style={{ margin: '1rem' }}
+          onClick={() => { }} />
+      </GTMWrapper>
+      <GTMWrapper id="seo-wrapped-rainbow" isProduction={true}>
+        <Button
+          theme={theme}
+          variant={'rainbow'}
+          label="Rainbow With GTMWrapper"
+          style={{ margin: '1rem' }}
           onClick={() => { }} />
       </GTMWrapper>
     </div>
@@ -57,7 +66,7 @@ export const gtmWrapper = () => {
 }
 
 GTMWrapper.defaultProps = {
-  id: 'ceo-wrapped-component',
+  id: 'seo-wrapped-component',
   children: <></>,
   isProduction: false,
 }
