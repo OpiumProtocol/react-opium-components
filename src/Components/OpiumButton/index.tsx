@@ -135,6 +135,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
       {
         variant === 'rainbow'
           ? <Button
+            id={id}
             onClickCapture={handleRainbowClick}
             ref={refs}
             href={href}
@@ -161,6 +162,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
             </span>
           </Button>
           : <Button
+            id={id}
             onClick={onClick}
             ref={refs}
             href={href}
