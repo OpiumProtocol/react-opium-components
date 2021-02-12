@@ -47,7 +47,7 @@ export const tooltip = () => {
       />
       <Tooltip
         trigger="hover"
-        disabled={true}
+        disabledBtn={true}
         theme={theme}
         label={'!'}
         placement='top-start'
