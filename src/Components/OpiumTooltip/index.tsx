@@ -111,16 +111,16 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
         disabled ? (
           <div className="popover__disabled-button">{component}</div>
         ) :
-        component
-          ? component
-          : <Button
-            variant={'primary'}
-            label={label}
-            onClick={() => { }}
-            style={componentStyles}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          />
+          component
+            ? component
+            : <Button
+              variant={'primary'}
+              label={label}
+              onClick={() => { }}
+              style={componentStyles}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            />
       }
     </OverlayTrigger>
   )
