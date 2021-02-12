@@ -45,6 +45,15 @@ export const tooltip = () => {
         placement='top-start'
         content='Line <br/> Next line'
       />
+      <Tooltip
+        trigger="hover"
+        disabled={true}
+        theme={theme}
+        label={'!'}
+        placement='top-start'
+        content='Line <br/> Next line'
+        component={<Button disabled={true} label="test" onClick={() => {}} />}
+      />
     </div>
   )
 }

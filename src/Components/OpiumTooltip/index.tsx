@@ -60,6 +60,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     placement,
     rootClose,
     show,
+    disabled,
     html
   } = generateRenderProps(defaultProps, props)
 
@@ -107,6 +108,9 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
       }
     >
       {
+        disabled ? (
+          <div className="popover__disabled-button">{component}</div>
+        ) :
         component
           ? component
           : <Button
