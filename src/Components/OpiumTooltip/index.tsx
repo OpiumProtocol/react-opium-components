@@ -21,8 +21,8 @@ export type Props = {
   label: string
   /** Side placement */
   placement?: TTooltipPlacement
-  /** Disabled flag */
-  disabled?: boolean
+  /** Disabled flag for buttons* (*important) */
+  disabledBtn?: boolean
   /** Set trigger variant */
   trigger?: 'hover' | 'click' | 'focus' | OverlayTriggerType[]
   /** Set class selectors */
@@ -60,6 +60,7 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
     placement,
     rootClose,
     show,
+    disabledBtn,
     html
   } = generateRenderProps(defaultProps, props)
 
@@ -107,16 +108,19 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
       }
     >
       {
-        component
-          ? component
-          : <Button
-            variant={'primary'}
-            label={label}
-            onClick={() => { }}
-            style={componentStyles}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          />
+        disabledBtn ? (
+          <div className="popover__disabled-button">{component}</div>
+        ) :
+          component
+            ? component
+            : <Button
+              variant={'primary'}
+              label={label}
+              onClick={() => { }}
+              style={componentStyles}
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            />
       }
     </OverlayTrigger>
   )

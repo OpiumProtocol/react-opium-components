@@ -39,4 +39,12 @@
       border-top-color: $blue4;
     }
   }
+
+  &__disabled-button {
+    display: inline-block;
+    cursor: not-allowed;
+    button {
+      pointer-events: none;
+    }
+  }
 }
