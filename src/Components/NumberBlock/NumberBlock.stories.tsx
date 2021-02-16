@@ -56,6 +56,15 @@ export const numberBlock = () => {
         locale={'ru'}
       // styles={styles}
       />
+      <br/>
+      <NumberBlock
+        theme={theme}
+        content={content}
+        toFixed={2}
+        locale={'ru'}
+        dimensionLabel={'%'}
+      // styles={styles}
+      />
     </div>
   )
 }

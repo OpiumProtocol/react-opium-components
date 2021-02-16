@@ -18,6 +18,8 @@ export type Props = {
   styles?: CSSProperties
   /** Set locale */
   locale?: string
+  /** Dimension of number */
+  dimensionLabel?: string
 }
 
 const defaultProps: Props = {
@@ -28,13 +30,14 @@ const defaultProps: Props = {
 }
 
 const NumberBlock: FC<Props> = (props: Props) => {
-  const { content, theme, toFixed, styles, locale } = generateRenderProps(defaultProps, props)
+  const { content, theme, toFixed, styles, locale, dimensionLabel } = generateRenderProps(defaultProps, props)
 
   const color = theme === ETheme.DARK ? _.white0 : _.gray2
 
   return (
     <span style={{ color, ...styles }}>
       {toFixed ? Number(content.toFixed(toFixed)).toLocaleString(locale) : content.toLocaleString(locale)}
+      {dimensionLabel && dimensionLabel}
     </span>
   )
 }
