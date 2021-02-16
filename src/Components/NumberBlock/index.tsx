@@ -34,7 +34,7 @@ const NumberBlock: FC<Props> = (props: Props) => {
 
   return (
     <span style={{ color, ...styles }}>
-      {toFixed ? Number(content.toFixed(toFixed)).toLocaleString(locale) : content.toLocaleString(locale)}
+      {toFixed !== undefined ? Number(content.toFixed(toFixed)).toLocaleString(locale) : content.toLocaleString(locale)}
     </span>
   )
 }
