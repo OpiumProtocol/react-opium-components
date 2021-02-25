@@ -1,6 +1,6 @@
 {
   "name": "@opiumteam/react-opium-components",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "description": "Opium ReactJS components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
