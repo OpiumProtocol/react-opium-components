@@ -1,0 +1,64 @@
+@import '../../Styles/constants.scss';
+@import '../../Styles/index.scss';
+
+.NewNumberInput {
+    position: relative;
+    display: block;
+    width: 100%;
+    input {
+        width: 100%;
+        background: rgba(20, 20, 41, 0.4);
+        color: #fff;
+        border-radius: 5px;
+        padding: 33px 17px 14px 17px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 20px;
+
+        outline: none;
+        box-shadow: none;
+        border: 1px solid #404069;
+    }
+
+    .NewNumberInput {
+        &__label {
+            position: absolute;
+            top: 4px;
+            left: 17px;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 20px;
+            color: #fff;
+    
+            z-index: 1;
+        }
+    
+        &__max {
+            position: absolute;
+            right: 20px;
+            bottom: 14px;
+    
+            display: inline-flex;
+            align-items: center;
+            text-align: center;
+    
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 10px;
+    
+            background: rgba(25, 124, 216, 0.42699);
+            border-radius: 4px;
+            color: #197CD8;
+    
+            padding: 5px 8px;
+    
+            transition: background-color .35s ease, color .35s ease;
+    
+            &:hover {
+                cursor: pointer;
+                background: rgba(25, 124, 216, 0.8);
+                color: rgba(#3da0fd, 1);
+            }
+        }
+    }
+}
