@@ -157,7 +157,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         setToggled(isOpen)
         !isOpen && setInputSearch('')
         if (searchRef && searchRef.current) {
-            searchRef.current.select()
+          searchRef.current.select()
         }
         setLocalItems([...items])
       }}>
@@ -165,7 +165,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
           {titleLogo !== '' ? <img src={titleLogo} alt=""/> : null}
           <span>{title || selectorTitle}</span>
           <svg className="dropdown-arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14.1143 8.55713L7.5573 2.00017L1.00033 8.55713" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14.1143 8.55713L7.5573 2.00017L1.00033 8.55713" stroke="white" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </Dropdown.Toggle>
         <Dropdown.Menu className={`color-scheme-${theme}`}>
