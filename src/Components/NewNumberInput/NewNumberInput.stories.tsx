@@ -8,7 +8,6 @@ import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const dropdownSelector = () => {
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
-  const [eventKey, setEventKey] = useState<any>('1')
   const message = text('Text', 'NewNumberInput')
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
@@ -35,23 +34,15 @@ export const dropdownSelector = () => {
       <NewNumberInput
         theme={theme}
         label={'Amount'}
-        eventKey={eventKey}
-        onClick={() => { }}
-        onSelect={(key: any, event: BaseSyntheticEvent) => {
-          setEventKey(key)
-        }}
         uncontrolled={false}
+        onChange={() => {}}
       />
       <NewNumberInput
         theme={theme}
         label={'Amount'}
-        eventKey={eventKey}
-        onClick={() => { }}
-        onSelect={(key: any, event: BaseSyntheticEvent) => {
-          setEventKey(key)
-        }}
         value={0.01}
         uncontrolled={false}
+        onChange={() => {}}
       />
     </div>
   )
@@ -59,8 +50,6 @@ export const dropdownSelector = () => {
 
 NewNumberInput.defaultProps = {
   theme: ETheme.DARK,
-  onClick: () => { },
-  onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
 
 export default {
