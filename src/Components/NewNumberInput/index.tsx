@@ -53,7 +53,7 @@ const NewNumberInput: FC<Props> = (props: Props) => {
 
   return (
     <div className="NewNumberInput">
-      <input type="text" value={localValue} onChange={(e) => setLocalValue(e.target.value)} />
+      <input type="number" value={localValue} onChange={(e) => setLocalValue(e.target.value)} />
       <div className="NewNumberInput__label">{label}</div>
       <div className="NewNumberInput__max">MAX</div>
     </div>
