@@ -5,20 +5,20 @@ import DropdownSearchSelector from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
+import { TTargetToken } from './index'
 
 // @ts-ignore
 // import { ReactComponent as YourSvg } from '../../Images/droplist-logo-test.svg'
 import iconPng from '../../Images/droplist-logo-test.png'
 
 export const dropdownSelector = () => {
-  const items = [
+  const items: TTargetToken[] = [
     {
       symbol: '',
       name: 'First',
       address: '',
       decimals: 0,
       logoURI: iconPng,
-      value: '1'
     },
     {
       symbol: '',
@@ -26,7 +26,6 @@ export const dropdownSelector = () => {
       address: '',
       decimals: 0,
       logoURI: iconPng,
-      value: '2'
     },
     {
       symbol: '',
@@ -34,7 +33,6 @@ export const dropdownSelector = () => {
       address: '',
       decimals: 0,
       logoURI: iconPng,
-      value: '3'
     },
     {
       symbol: '',
@@ -42,7 +40,6 @@ export const dropdownSelector = () => {
       address: '',
       decimals: 0,
       logoURI: iconPng,
-      value: '4'
     },
     {
       symbol: '',
@@ -50,7 +47,6 @@ export const dropdownSelector = () => {
       address: '',
       decimals: 0,
       logoURI: iconPng,
-      value: '5'
     },
     {
       symbol: '',
@@ -58,7 +54,6 @@ export const dropdownSelector = () => {
       address: '',
       decimals: 0,
       logoURI: iconPng,
-      value: '6'
     },
   ]
 
