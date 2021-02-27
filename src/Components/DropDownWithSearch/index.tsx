@@ -15,7 +15,7 @@ export type TTargetToken = {
   symbol: string,
   name: string,
   address: string,
-  decimals: 0,
+  decimals: number,
   logoURI: string
 }
 
