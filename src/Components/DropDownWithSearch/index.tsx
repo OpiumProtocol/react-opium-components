@@ -11,6 +11,14 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropDownWithSearch.scss'
 
+export type TTargetToken = {
+  symbol: string,
+  name: string,
+  address: string,
+  decimals: 0,
+  logoURI: string
+}
+
 export type Props = {
   /** Define theme */
   theme?: ETheme
@@ -19,14 +27,7 @@ export type Props = {
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
-  items?: { 
-    symbol: string
-    name: string
-    address: string
-    decimals: number
-    logoURI: string
-    value: string
-  }[]
+  items?: TTargetToken[]
   /** Function, that became active by clicking on an option */
   onClick?: Function
   /** Function, that became active after an option has become selected */
@@ -40,6 +41,8 @@ export type Props = {
   disabled?: boolean
 }
 
+
+
 const defaultProps: Props = {
   theme: ETheme.DARK,
   items: [
@@ -49,7 +52,6 @@ const defaultProps: Props = {
       address: '',
       decimals: 0,
       logoURI: '',
-      value: '1'
     },
     {
       symbol: '',
@@ -57,7 +59,6 @@ const defaultProps: Props = {
       address: '',
       decimals: 0,
       logoURI: '',
-      value: '2'
     },
   ],
   className: '',
@@ -86,20 +87,12 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const [titleLogo, setTitleLogo] = useState<string>('')
   const [toggled, setToggled] = useState<boolean>(false)
   const [inputSearch, setInputSearch] = useState<string>('')
-  const [localItems, setLocalItems] = useState<{
-    symbol: string
-    name: string
-    address: string
-    decimals: number
-    logoURI: string
-    value: string
-  }[]>([{
+  const [localItems, setLocalItems] = useState<TTargetToken[]>([{
     symbol: '',
     name: '',
     address: '',
     decimals: 0,
     logoURI: '',
-    value: ''
   }])
   const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].title : '')
 
@@ -191,14 +184,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         </Dropdown.Menu>
       </Dropdown>
       <input type="text" ref={searchRef} value={inputSearch} onChange={(e) => {
-        const newArr = items.filter((el: {
-          symbol: string
-          name: string
-          address: string
-          decimals: number
-          logoURI: string
-          value: string
-        }) => el.name.toLocaleLowerCase().includes(e.target.value.toLowerCase()))
+        const newArr = items.filter((el: TTargetToken) => el.name.toLocaleLowerCase().includes(e.target.value.toLowerCase()))
         setLocalItems([...newArr])
         setInputSearch(e.target.value)
       }} />
