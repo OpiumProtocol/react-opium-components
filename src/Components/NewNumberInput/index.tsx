@@ -36,7 +36,7 @@ const NewNumberInput: FC<Props> = (props: Props) => {
 
   return (
     <div className="NewNumberInput">
-      <input type="number" value={value} onChange={onChange} />
+      <input type="number" value={value} onChange={(e) => onChange(+e.target.value)} />
       <div className="NewNumberInput__label">{label}</div>
       <div className="NewNumberInput__max">MAX</div>
     </div>
