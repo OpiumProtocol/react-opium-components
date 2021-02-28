@@ -11,7 +11,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropDownWithSearch.scss'
 
-export type TTargetToken = {
+export type TOneInchToken = {
   symbol: string,
   name: string,
   address: string,
@@ -27,11 +27,11 @@ export type Props = {
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
-  items?: TTargetToken[]
+  items?: TOneInchToken[]
   /** Function, that became active by clicking on an option */
   onClick?: Function
   /** Function, that became active after an option has become selected */
-  onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any
+  onSelect?: Function
   /** Set class selectors */
   className?: string
   /** Set component uncontrolled */
@@ -64,7 +64,7 @@ const defaultProps: Props = {
   className: '',
   title: '',
   onClick: () => { },
-  onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
+  onSelect: () => {},
 }
 
 const DropdownSelector: FC<Props> = (props: Props) => {
@@ -87,7 +87,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const [titleLogo, setTitleLogo] = useState<string>('')
   const [toggled, setToggled] = useState<boolean>(false)
   const [inputSearch, setInputSearch] = useState<string>('')
-  const [localItems, setLocalItems] = useState<TTargetToken[]>([{
+  const [localItems, setLocalItems] = useState<TOneInchToken[]>([{
     symbol: '',
     name: '',
     address: '',
@@ -163,18 +163,17 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         </Dropdown.Toggle>
         <Dropdown.Menu className={`color-scheme-${theme}`}>
           {
-            (localItems.length && !disabled) ? localItems.map((item: any, idx: number) => (
+            (localItems.length && !disabled) ? localItems.map((item: TOneInchToken, idx: number) => (
               <Dropdown.Item
                 style={idx === index ? hoveredItem : styledItem}
                 key={uuidv4()}
                 eventKey={`${idx}`}
-                href={item.href}
-                to={item.to}
                 onClick={onClick}
-                onSelect={uncontrolled ? handleSelect : onSelect}
+                onSelect={uncontrolled ? handleSelect : () => {
+                  onSelect(item)
+                }}
                 onMouseEnter={() => handleEnter(idx)}
                 onMouseLeave={handleLeave}
-                as={item.as}
               >
                 <img src={item.logoURI} alt=""/>
                 {item.name}
@@ -184,7 +183,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         </Dropdown.Menu>
       </Dropdown>
       <input type="text" ref={searchRef} value={inputSearch} onChange={(e) => {
-        const newArr = items.filter((el: TTargetToken) => el.name.toLocaleLowerCase().includes(e.target.value.toLowerCase()))
+        const newArr = items.filter((el: TOneInchToken) => el.name.toLocaleLowerCase().includes(e.target.value.toLowerCase()))
         setLocalItems([...newArr])
         setInputSearch(e.target.value)
       }} />

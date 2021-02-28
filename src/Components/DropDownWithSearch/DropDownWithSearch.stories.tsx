@@ -5,14 +5,14 @@ import DropdownSearchSelector from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
-import { TTargetToken } from './index'
+import { TOneInchToken } from './index'
 
 // @ts-ignore
 // import { ReactComponent as YourSvg } from '../../Images/droplist-logo-test.svg'
 import iconPng from '../../Images/droplist-logo-test.png'
 
 export const dropdownSelector = () => {
-  const items: TTargetToken[] = [
+  const items: TOneInchToken[] = [
     {
       symbol: '',
       name: 'First',
