@@ -23,8 +23,6 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Title, if controlled */
-  title?: string | ReactNode
-  /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
   items?: TOneInchToken[]
