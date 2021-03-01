@@ -95,7 +95,6 @@ export const dropdownSelector = () => {
           setEventKey(key)
           setTitle(event.target.innerText)
         }}
-        uncontrolled={false}
       />
       <DropdownSearchSelector
         theme={theme}
@@ -108,7 +107,6 @@ export const dropdownSelector = () => {
           setEventKey(key)
           setTitle(key.name)
         }}
-        uncontrolled={false}
       />
     </div>
   )
