@@ -59,7 +59,6 @@ export const dropdownSelector = () => {
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
   const [eventKey, setEventKey] = useState<any>('1')
-  const [title, setTitle] = useState<any>(items[0].name)
   const message = text('Text', 'DropdownSearchSelector')
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
@@ -85,7 +84,6 @@ export const dropdownSelector = () => {
       </div>
       <DropdownSearchSelector
         theme={theme}
-        title={title}
         items={items}
         label={'From'}
         disabled
@@ -93,19 +91,16 @@ export const dropdownSelector = () => {
         onClick={() => { }}
         onSelect={(key: any, event: BaseSyntheticEvent) => {
           setEventKey(key)
-          setTitle(event.target.innerText)
         }}
       />
       <DropdownSearchSelector
         theme={theme}
-        title={title}
         items={items}
         label={'To'}
         eventKey={eventKey}
         onClick={() => { }}
         onSelect={(key: any, event: BaseSyntheticEvent) => {
           setEventKey(key)
-          setTitle(key.name)
         }}
       />
     </div>
@@ -115,7 +110,6 @@ export const dropdownSelector = () => {
 DropdownSearchSelector.defaultProps = {
   theme: ETheme.DARK,
   items: [],
-  title: '',
   onClick: () => { },
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
 }
