@@ -83,7 +83,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     disabled
   } = renderProps
 
-  const [titleLogo, setTitleLogo] = useState<string>('')
+  const [titleLogo, setTitleLogo] = useState<string>(items.length ? items[0].logoURI : '')
   const [toggled, setToggled] = useState<boolean>(false)
   const [inputSearch, setInputSearch] = useState<string>('')
   const [localItems, setLocalItems] = useState<{
@@ -101,10 +101,14 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     logoURI: '',
     value: ''
   }])
-  const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].title : '')
+  const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].name : '')
 
   const handleSelect = (key: any, event: BaseSyntheticEvent) => {
     setSelectorTitle(event.target.innerText)
+    
+    // set icon for title
+    const selected = items.find((el: any) => el.name.toLowerCase() === title.toLowerCase())
+    selected && setTitleLogo(selected.logoURI)
   }
 
   const handleEnter = (i: number) => {
@@ -146,9 +150,6 @@ const DropdownSelector: FC<Props> = (props: Props) => {
 
   React.useEffect(() => {
     setLocalItems([...items])
-
-    const selected = items.find((el: any) => el.name.toLowerCase() === title.toLowerCase())
-    selected && setTitleLogo(selected.logoURI)
   }, [])
 
   return (
