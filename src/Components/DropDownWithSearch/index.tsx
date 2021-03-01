@@ -34,10 +34,9 @@ export type Props = {
   onSelect?: Function
   /** Set class selectors */
   className?: string
-  /** Set component uncontrolled */
-  uncontrolled?: boolean
-
+  /** Label of the fielf */
   label?: string
+  /** Disable dropdown to use */
   disabled?: boolean
 }
 
@@ -62,7 +61,6 @@ const defaultProps: Props = {
     },
   ],
   className: '',
-  // title: '',
   onClick: () => { },
   onSelect: () => {},
 }
@@ -73,14 +71,12 @@ const DropdownSelector: FC<Props> = (props: Props) => {
 
   const renderProps = generateRenderProps(defaultProps, props)
   const {
-    // title,
     items,
     label,
     theme,
     onClick,
     onSelect,
     className,
-    uncontrolled,
     disabled
   } = renderProps
 
@@ -95,10 +91,9 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     decimals: 0,
     logoURI: '',
   }])
-  // const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].name : '')
 
-  const handleSelect = (key: any, event: BaseSyntheticEvent) => {
-    setTitle(event.target.innerText)
+  const handleSelect = (item: TOneInchToken) => {
+    setTitle(item.name)
     
     // set icon for title
     const selected = items.find((el: any) => el.name.toLowerCase() === title.toLowerCase())
@@ -171,8 +166,9 @@ const DropdownSelector: FC<Props> = (props: Props) => {
                 key={uuidv4()}
                 eventKey={`${idx}`}
                 onClick={onClick}
-                onSelect={uncontrolled ? handleSelect : () => {
+                onSelect={() => {
                   onSelect(item)
+                  handleSelect(item)
                 }}
                 onMouseEnter={() => handleEnter(idx)}
                 onMouseLeave={handleLeave}
