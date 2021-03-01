@@ -106,7 +106,7 @@ export const dropdownSelector = () => {
         onClick={() => { }}
         onSelect={(key: any, event: BaseSyntheticEvent) => {
           setEventKey(key)
-          setTitle(event.target.innerText)
+          setTitle(key.name)
         }}
         uncontrolled={false}
       />
