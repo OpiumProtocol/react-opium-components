@@ -62,7 +62,7 @@ const defaultProps: Props = {
     },
   ],
   className: '',
-  title: '',
+  // title: '',
   onClick: () => { },
   onSelect: () => {},
 }
@@ -73,7 +73,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
 
   const renderProps = generateRenderProps(defaultProps, props)
   const {
-    title,
+    // title,
     items,
     label,
     theme,
@@ -84,6 +84,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     disabled
   } = renderProps
 
+  const [title, setTitle] = React.useState<string>(items.length ? items[0].name : '')
   const [titleLogo, setTitleLogo] = useState<string>(items.length ? items[0].logoURI : '')
   const [toggled, setToggled] = useState<boolean>(false)
   const [inputSearch, setInputSearch] = useState<string>('')
@@ -94,10 +95,10 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     decimals: 0,
     logoURI: '',
   }])
-  const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].name : '')
+  // const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].name : '')
 
   const handleSelect = (key: any, event: BaseSyntheticEvent) => {
-    setSelectorTitle(event.target.innerText)
+    setTitle(event.target.innerText)
     
     // set icon for title
     const selected = items.find((el: any) => el.name.toLowerCase() === title.toLowerCase())
@@ -157,7 +158,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
       }}>
         <Dropdown.Toggle id="dropdown-selector-toggle" style={togglerStyles}>
           {titleLogo !== '' ? <img src={titleLogo} alt=""/> : null}
-          <span>{title || selectorTitle}</span>
+          <span>{title}</span>
           <svg className="dropdown-arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.1143 8.55713L7.5573 2.00017L1.00033 8.55713" stroke="white" strokeWidth="2" strokeLinecap="round"/>
           </svg>
