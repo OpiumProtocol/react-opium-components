@@ -11,6 +11,14 @@ import { generateRenderProps } from '../../Utils/helpers'
 
 import './DropDownWithSearch.scss'
 
+export type TOneInchToken = {
+  symbol: string,
+  name: string,
+  address: string,
+  decimals: number,
+  logoURI: string
+}
+
 export type Props = {
   /** Define theme */
   theme?: ETheme
@@ -19,18 +27,11 @@ export type Props = {
   /** Value passed to the onSelect handler, useful for identifying the selected menu item */
   eventKey?: any
   /** Set dropping down options */
-  items?: { 
-    symbol: string
-    name: string
-    address: string
-    decimals: number
-    logoURI: string
-    value: string
-  }[]
+  items?: TOneInchToken[]
   /** Function, that became active by clicking on an option */
   onClick?: Function
   /** Function, that became active after an option has become selected */
-  onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any
+  onSelect?: Function
   /** Set class selectors */
   className?: string
   /** Set component uncontrolled */
@@ -39,6 +40,8 @@ export type Props = {
   label?: string
   disabled?: boolean
 }
+
+
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
@@ -49,7 +52,6 @@ const defaultProps: Props = {
       address: '',
       decimals: 0,
       logoURI: '',
-      value: '1'
     },
     {
       symbol: '',
@@ -57,13 +59,12 @@ const defaultProps: Props = {
       address: '',
       decimals: 0,
       logoURI: '',
-      value: '2'
     },
   ],
   className: '',
   title: '',
   onClick: () => { },
-  onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
+  onSelect: () => {},
 }
 
 const DropdownSelector: FC<Props> = (props: Props) => {
@@ -86,20 +87,12 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const [titleLogo, setTitleLogo] = useState<string>(items.length ? items[0].logoURI : '')
   const [toggled, setToggled] = useState<boolean>(false)
   const [inputSearch, setInputSearch] = useState<string>('')
-  const [localItems, setLocalItems] = useState<{
-    symbol: string
-    name: string
-    address: string
-    decimals: number
-    logoURI: string
-    value: string
-  }[]>([{
+  const [localItems, setLocalItems] = useState<TOneInchToken[]>([{
     symbol: '',
     name: '',
     address: '',
     decimals: 0,
     logoURI: '',
-    value: ''
   }])
   const [selectorTitle, setSelectorTitle] = useState<any>(items.length ? items[0].name : '')
 
@@ -171,18 +164,17 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         </Dropdown.Toggle>
         <Dropdown.Menu className={`color-scheme-${theme}`}>
           {
-            (localItems.length && !disabled) ? localItems.map((item: any, idx: number) => (
+            (localItems.length && !disabled) ? localItems.map((item: TOneInchToken, idx: number) => (
               <Dropdown.Item
                 style={idx === index ? hoveredItem : styledItem}
                 key={uuidv4()}
                 eventKey={`${idx}`}
-                href={item.href}
-                to={item.to}
                 onClick={onClick}
-                onSelect={uncontrolled ? handleSelect : onSelect}
+                onSelect={uncontrolled ? handleSelect : () => {
+                  onSelect(item)
+                }}
                 onMouseEnter={() => handleEnter(idx)}
                 onMouseLeave={handleLeave}
-                as={item.as}
               >
                 <img src={item.logoURI} alt=""/>
                 {item.name}
@@ -192,14 +184,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         </Dropdown.Menu>
       </Dropdown>
       <input type="text" ref={searchRef} value={inputSearch} onChange={(e) => {
-        const newArr = items.filter((el: {
-          symbol: string
-          name: string
-          address: string
-          decimals: number
-          logoURI: string
-          value: string
-        }) => el.name.toLocaleLowerCase().includes(e.target.value.toLowerCase()))
+        const newArr = items.filter((el: TOneInchToken) => el.name.toLocaleLowerCase().includes(e.target.value.toLowerCase()))
         setLocalItems([...newArr])
         setInputSearch(e.target.value)
       }} />

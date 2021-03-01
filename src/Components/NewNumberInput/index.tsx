@@ -11,17 +11,11 @@ import './NewNumberInput.scss'
 export type Props = {
   /** Define theme */
   theme?: ETheme
-  /** Value passed to the onSelect handler, useful for identifying the selected menu item */
-  eventKey?: any
-  /** Function, that became active by clicking on an option */
-  onClick?: Function
-  /** Function, that became active after an option has become selected */
-  onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any
   /** Set class selectors */
   className?: string
   /** Set component uncontrolled */
   uncontrolled?: boolean
-
+  onChange: Function
   label?: string
   value?: string | number
 }
@@ -29,8 +23,7 @@ export type Props = {
 const defaultProps: Props = {
   theme: ETheme.DARK,
   className: '',
-  onClick: () => { },
-  onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
+  onChange: () => {}
 }
 
 const NewNumberInput: FC<Props> = (props: Props) => {
@@ -38,22 +31,12 @@ const NewNumberInput: FC<Props> = (props: Props) => {
   const {
     label,
     value,
-    theme,
-    onClick,
-    onSelect,
-    className,
-    uncontrolled,
+    onChange
   } = renderProps
-
-  const [localValue, setLocalValue] = useState<string>('0.0')
-
-  React.useEffect(() => {
-    value && setLocalValue(value)
-  }, [])
 
   return (
     <div className="NewNumberInput">
-      <input type="number" value={localValue} onChange={(e) => setLocalValue(e.target.value)} />
+      <input type="number" value={value} onChange={(e) => onChange(+e.target.value)} />
       <div className="NewNumberInput__label">{label}</div>
       <div className="NewNumberInput__max">MAX</div>
     </div>
