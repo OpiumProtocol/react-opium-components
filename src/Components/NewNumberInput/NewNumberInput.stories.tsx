@@ -40,7 +40,14 @@ export const dropdownSelector = () => {
       />
       <NewNumberInput
         theme={theme}
-        label={'Amount'}
+        label={'Remove'}
+        value={0}
+        uncontrolled={false}
+        onChange={() => {}}
+      />
+      <NewNumberInput
+        theme={theme}
+        label={'AutoSelect'}
         value={0.01}
         uncontrolled={false}
         onChange={() => {}}
