@@ -102,6 +102,7 @@ export const dropdownSelector = () => {
         onSelect={(key: any, event: BaseSyntheticEvent) => {
           setEventKey(key)
         }}
+        defaultFirstElemnt
       />
     </div>
   )
