@@ -45,6 +45,14 @@ export const dropdownSelector = () => {
         uncontrolled={false}
         onChange={() => {}}
       />
+      <NewNumberInput
+        theme={theme}
+        label={'Amount'}
+        value={0}
+        uncontrolled={false}
+        onChange={() => {}}
+        disabled
+      />
     </div>
   )
 }

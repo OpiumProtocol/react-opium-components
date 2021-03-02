@@ -19,6 +19,7 @@ export type Props = {
   label?: string
   value?: string | number
   onMaxClick?: Function
+  disabled?: boolean
 }
 
 const defaultProps: Props = {
@@ -33,12 +34,13 @@ const NewNumberInput: FC<Props> = (props: Props) => {
     label,
     value,
     onChange,
-    onMaxClick
+    onMaxClick,
+    disabled
   } = renderProps
 
   return (
     <div className="NewNumberInput">
-      <input type="number" value={value} onChange={(e) => onChange(+e.target.value)} />
+      <input disabled={disabled} type="number" value={value} onChange={(e) => onChange(+e.target.value)} />
       <div className="NewNumberInput__label">{label}</div>
       {onMaxClick && <button className="NewNumberInput__max" onClick={onMaxClick}>MAX</button>}
     </div>
