@@ -18,6 +18,7 @@ export type Props = {
   onChange: Function
   label?: string
   value?: string | number
+  onMaxClick?: Function
 }
 
 const defaultProps: Props = {
@@ -31,14 +32,15 @@ const NewNumberInput: FC<Props> = (props: Props) => {
   const {
     label,
     value,
-    onChange
+    onChange,
+    onMaxClick
   } = renderProps
 
   return (
     <div className="NewNumberInput">
       <input type="number" value={value} onChange={(e) => onChange(+e.target.value)} />
       <div className="NewNumberInput__label">{label}</div>
-      <div className="NewNumberInput__max">MAX</div>
+      {onMaxClick && <button className="NewNumberInput__max" onClick={onMaxClick}>MAX</button>}
     </div>
   )
 }

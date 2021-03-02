@@ -36,6 +36,7 @@ export const dropdownSelector = () => {
         label={'Amount'}
         uncontrolled={false}
         onChange={() => {}}
+        onMaxClick={() => {}}
       />
       <NewNumberInput
         theme={theme}
