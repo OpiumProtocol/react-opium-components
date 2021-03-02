@@ -55,6 +55,7 @@ const NewNumberInput: FC<Props> = (props: Props) => {
           setLocalValue(e.target.value)
           onChange(+e.target.value)
         }}
+        onBlur={() => localValue === '' ? setLocalValue('0') : ''}
       />
       <div className="NewNumberInput__label">{label}</div>
       {onMaxClick && <button className="NewNumberInput__max" onClick={onMaxClick}>MAX</button>}
