@@ -37,7 +37,7 @@ export type Props = {
   /** Disable dropdown to use */
   disabled?: boolean
 
-  defaultFirstElemnt?: boolean
+  defaultFirstElement?: boolean
 }
 
 
@@ -77,12 +77,12 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     onClick,
     onSelect,
     className,
-    defaultFirstElemnt,
+    defaultFirstElement,
     disabled
   } = renderProps
 
-  const [title, setTitle] = React.useState<string>(items.length ? items[0].name : '')
-  const [titleLogo, setTitleLogo] = useState<string>(items.length && defaultFirstElemnt ? items[0].logoURI : '')
+  const [title, setTitle] = React.useState<string>(items.length && defaultFirstElement ? items[0].name : '')
+  const [titleLogo, setTitleLogo] = useState<string>(items.length && defaultFirstElement ? items[0].logoURI : '')
   const [toggled, setToggled] = useState<boolean>(false)
   const [inputSearch, setInputSearch] = useState<string>('')
   const [localItems, setLocalItems] = useState<TOneInchToken[]>([{
@@ -97,7 +97,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
     setTitle(item.name)
     
     // set icon for title
-    const selected = items.find((el: any) => el.name.toLowerCase() === title.toLowerCase())
+    const selected = items.find((el: any) => el.name.toLowerCase() === item.name.toLowerCase())
     selected && setTitleLogo(selected.logoURI)
   }
 
@@ -154,7 +154,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
       }}>
         <Dropdown.Toggle id="dropdown-selector-toggle" style={togglerStyles}>
           {titleLogo !== '' ? <img src={titleLogo} alt=""/> : null}
-          <span>{defaultFirstElemnt && title}</span>
+          <span>{title}</span>
           <svg className="dropdown-arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.1143 8.55713L7.5573 2.00017L1.00033 8.55713" stroke="white" strokeWidth="2" strokeLinecap="round"/>
           </svg>
