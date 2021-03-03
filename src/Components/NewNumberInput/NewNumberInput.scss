@@ -7,7 +7,6 @@
     width: 100%;
     input {
         width: 100%;
-        color: #fff;
         border-radius: 5px;
         padding: 33px 17px 14px 17px;
         font-weight: 600;
@@ -39,7 +38,6 @@
             font-weight: bold;
             font-size: 12px;
             line-height: 20px;
-            color: #fff;
     
             z-index: 1;
         }
@@ -76,12 +74,24 @@
     &.color-scheme {
         &-DARK {
             input {
+                color: color(white);
                 background: rgba(20, 20, 41, 0.4);
+            }
+            .NewNumberInput {
+                &__label {
+                    color: color(white);
+                }
             }
         }
         &-LIGHT {
             input {
+                color: color(gray2);
                 background: transparent;
+            }
+            .NewNumberInput {
+                &__label {
+                    color: color(gray2);
+                }
             }
         }
     }
