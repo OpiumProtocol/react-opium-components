@@ -11,6 +11,8 @@ import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
 import DropdownSelector from './Components/DropdownSelector'
+import DropDownWithSearch from './Components/DropDownWithSearch'
+import NewNumberInput from './Components/NewNumberInput'
 import GTMWrapper from './Components/GTMWrapper'
 
 import {
@@ -39,6 +41,8 @@ export {
   NumberBlock,
   LocalizedInput,
   DropdownSelector,
+  DropDownWithSearch,
+  NewNumberInput,
   GTMWrapper,
   themes,
   widgetThemes,

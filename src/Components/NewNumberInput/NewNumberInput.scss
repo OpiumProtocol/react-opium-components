@@ -1,0 +1,98 @@
+@import '../../Styles/constants.scss';
+@import '../../Styles/index.scss';
+
+.NewNumberInput {
+    position: relative;
+    display: block;
+    width: 100%;
+    input {
+        width: 100%;
+        border-radius: 5px;
+        padding: 33px 17px 14px 17px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 20px;
+
+        outline: none;
+        box-shadow: none;
+        border: 1px solid #404069;
+
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    .NewNumberInput {
+        &__label {
+            position: absolute;
+            top: 4px;
+            left: 17px;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 20px;
+    
+            z-index: 1;
+        }
+    
+        &__max {
+            position: absolute;
+            right: 20px;
+            bottom: 14px;
+    
+            display: inline-flex;
+            align-items: center;
+            text-align: center;
+    
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 10px;
+    
+            background: rgba(25, 124, 216, 0.42699);
+            border-radius: 4px;
+            color: #197CD8;
+            border: none;
+            padding: 5px 8px;
+    
+            transition: background-color .35s ease, color .35s ease;
+    
+            &:hover {
+                cursor: pointer;
+                background: rgba(25, 124, 216, 0.8);
+                color: rgba(#3da0fd, 1);
+            }
+        }
+    }
+
+    &.color-scheme {
+        &-DARK {
+            input {
+                color: color(white);
+                background: rgba(20, 20, 41, 0.4);
+            }
+            .NewNumberInput {
+                &__label {
+                    color: color(white);
+                }
+            }
+        }
+        &-LIGHT {
+            input {
+                color: color(gray2);
+                background: transparent;
+            }
+            .NewNumberInput {
+                &__label {
+                    color: color(gray2);
+                }
+            }
+        }
+    }
+}
