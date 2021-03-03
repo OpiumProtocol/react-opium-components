@@ -7,7 +7,6 @@
     width: 100%;
     input {
         width: 100%;
-        background: rgba(20, 20, 41, 0.4);
         color: #fff;
         border-radius: 5px;
         padding: 33px 17px 14px 17px;
@@ -70,6 +69,19 @@
                 cursor: pointer;
                 background: rgba(25, 124, 216, 0.8);
                 color: rgba(#3da0fd, 1);
+            }
+        }
+    }
+
+    &.color-scheme {
+        &-DARK {
+            input {
+                background: rgba(20, 20, 41, 0.4);
+            }
+        }
+        &-LIGHT {
+            input {
+                background: transparent;
             }
         }
     }

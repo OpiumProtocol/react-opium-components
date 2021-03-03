@@ -114,7 +114,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const { color, backgroundColor, borderColor } = widgetThemes[theme as ETheme]
 
   const togglerStyles = {
-    backgroundColor: backgroundColor['primary'].value,
+    // backgroundColor: backgroundColor['primary'].value,
     // borderColor: borderColor['primary'].value,
 
 

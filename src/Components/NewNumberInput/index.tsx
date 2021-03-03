@@ -31,6 +31,7 @@ const defaultProps: Props = {
 const NewNumberInput: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const {
+    theme,
     label,
     value,
     onChange,
@@ -45,7 +46,7 @@ const NewNumberInput: FC<Props> = (props: Props) => {
   }, [])
 
   return (
-    <div className="NewNumberInput">
+    <div className={`NewNumberInput color-scheme-${theme}`}>
       <input
         disabled={disabled}
         type="number"
