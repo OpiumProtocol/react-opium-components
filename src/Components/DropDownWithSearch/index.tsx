@@ -4,8 +4,9 @@ import { v4 as uuidv4 } from 'uuid'
 
 import {
   ETheme,
-  widgetThemes,
+  widgetThemes
 } from '../../Constants/Types/theme.types'
+import _ from '../../Styles/exportColors.scss'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -133,15 +134,15 @@ const DropdownSelector: FC<Props> = (props: Props) => {
 
   const styledItem = {
     backgroundColor: backgroundColor['primary'].value,
-    // borderColor: borderColor['primary'].value,
-    color: color['info'].value,
-    // borderStyle: 'solid',
+    color: theme === ETheme.DARK ? _.white0 : _.black3,
+    // color: _.white0,
   }
 
   const hoveredItem = {
     backgroundColor: backgroundColor['primary'].hover,
     // borderColor: borderColor['primary'].hover,
-    color: color['info'].hover,
+    // color: color['info'].hover,
+    color: theme === ETheme.DARK ? _.white0 : _.black3,
   }
 
   const searchRef = React.useRef<HTMLInputElement>(null)
