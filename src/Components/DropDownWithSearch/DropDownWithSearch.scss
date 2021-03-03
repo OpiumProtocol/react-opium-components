@@ -129,7 +129,7 @@
         &-DARK {
             .dropdown {
                 button {
-                    background: transparent;
+                    background: rgba(20, 20, 41, 0.4);
                     color: color(white);
                 }
             }
@@ -137,7 +137,7 @@
         &-LIGHT {
             .dropdown {
                 button {
-                    background: rgba(20, 20, 41, 0.4);
+                    background: transparent;
                     color: color(white);
                 }
             }
