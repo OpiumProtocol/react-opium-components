@@ -194,7 +194,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         setLocalItems([...newArr])
         setInputSearch(e.target.value)
       }} />
-      <div className="DropDownSearch__label" style={{color: togglerStyles.color}}>{label}</div>
+      <div className="DropDownSearch__label" style={{ color: togglerStyles.color }}>{label}</div>
     </div>
   )
 }
