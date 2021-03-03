@@ -151,7 +151,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   }, [])
 
   return (
-    <div className={`DropDownSearch ${toggled ? 'search' : ''} ${disabled ? 'disabled' : ''}`}>
+    <div className={`DropDownSearch ${toggled ? 'search' : ''} ${disabled ? 'disabled' : ''} color-scheme-${theme}`}>
       <Dropdown onToggle={(isOpen, event) => {
         setToggled(isOpen)
         !isOpen && setInputSearch('')
