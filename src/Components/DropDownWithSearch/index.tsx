@@ -116,8 +116,16 @@ const DropdownSelector: FC<Props> = (props: Props) => {
   const togglerStyles = {
     backgroundColor: backgroundColor['primary'].value,
     // borderColor: borderColor['primary'].value,
-    borderColor: '#404069',
-    // color: color['info'].value,
+
+
+    // borderColor: '#404069', // purple1
+    // borderColor: 'rgb(79, 79, 79)', // gray2
+    borderColor: borderColor['input'].value,
+
+
+    color: color['secondary'].value,
+
+
     borderStyle: 'solid',
     borderRadius: '4px',
     borderWidth: '1px'
@@ -186,7 +194,7 @@ const DropdownSelector: FC<Props> = (props: Props) => {
         setLocalItems([...newArr])
         setInputSearch(e.target.value)
       }} />
-      <div className="DropDownSearch__label">{label}</div>
+      <div className="DropDownSearch__label" style={{color: togglerStyles.color}}>{label}</div>
     </div>
   )
 }
