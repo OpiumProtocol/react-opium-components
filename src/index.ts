@@ -12,6 +12,7 @@ import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
 import DropdownSelector from './Components/DropdownSelector'
 import GTMWrapper from './Components/GTMWrapper'
+import BlockWithList from './Components/BlockWithList'
 
 import {
   themes,
@@ -40,6 +41,7 @@ export {
   LocalizedInput,
   DropdownSelector,
   GTMWrapper,
+  BlockWithList,
   themes,
   widgetThemes,
   sectionThemes,
