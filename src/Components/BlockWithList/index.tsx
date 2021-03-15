@@ -12,22 +12,24 @@ import './BlockWithList.scss'
 export type Props = {
   /** Define theme */
   theme?: ETheme
+  accentColor: string
   frontSide: ReactNode
-  backSide: ReactNode
+  backSide?: ReactNode
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  frontSide: <div>frontside</div>,
-  backSide: <div>backSide</div>,
+  accentColor: '#fff',
+  frontSide: <div>frontside</div>
 }
 
 const BlockWithList: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const {
     theme,
+    accentColor,
     frontSide,
-    backSide
+    backSide,
   } = renderProps
 
   const [isShown, setIsShown] = React.useState<boolean>(false)
@@ -37,15 +39,16 @@ const BlockWithList: React.FC<Props> = (props: Props) => {
   return (
     <div
       className={`BlockWithList color-scheme-${theme} ${isShown ? 'hovered' : ''}`}
-      onMouseEnter={() => setIsShown(true)}
-      onMouseLeave={() => setIsShown(false)}
+      style={{borderColor: isShown ? accentColor : ''}}
+      onMouseEnter={() => backSide && setIsShown(true)}
+      onMouseLeave={() => backSide && setIsShown(false)}
     >
       <div className="BlockWithList__front">
         {frontSide}
       </div>
-      <div className="BlockWithList__back">
+      {backSide && (<div className="BlockWithList__back">
         {backSide}
-      </div>
+      </div>)}
     </div>
   )
 }

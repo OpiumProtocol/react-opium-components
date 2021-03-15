@@ -43,26 +43,40 @@ export const dropdownSelector = () => {
           theme={theme}
           frontSide={(<div>frontside</div>)}
           backSide={(<div>backSide</div>)}
+          accentColor="#F6029C"
         />
         <BlockWithList
           theme={theme}
           frontSide={(<div>frontside</div>)}
           backSide={(<div>backSide</div>)}
+          accentColor="#2ECD94"
         />
         <BlockWithList
           theme={theme}
           frontSide={(<div>frontside</div>)}
           backSide={(<div>backSide</div>)}
+          accentColor="#fff"
+        />
+        <BlockWithList
+          theme={theme}
+          frontSide={(<div>Without backside</div>)}
+          accentColor="#fff"
+        />
+        <BlockWithList
+          theme={theme}
+          frontSide={(<div>frontside</div>)}
+          backSide={(<div>backSide</div>)}
+          accentColor="#fff"
+        />
+        <BlockWithList
+          theme={theme}
+          frontSide={(<div>frontside</div>)}
+          backSide={(<div>backSide</div>)}
+          accentColor="#fff"
         />
       </div>
     </div>
   )
-}
-
-BlockWithList.defaultProps = {
-  theme: ETheme.DARK,
-  frontSide: <div>frontside</div>,
-  backSide: <div>backSide</div>,
 }
 
 export default {
