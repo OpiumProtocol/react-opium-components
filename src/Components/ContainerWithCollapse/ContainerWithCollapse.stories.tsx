@@ -28,12 +28,12 @@ export const containerWithCollapse = () => {
       content: 'hidden content 345'
     },
   ]
-  const [togglerArr, setTogglerArr] = React.useState<{id: number, toggle: boolean}[]>([{id: 0, toggle: false}])
+  const [togglerArr, setTogglerArr] = React.useState<{id: number, toggle: boolean}[]>([{ id: 0, toggle: false }])
 
   React.useEffect(() => {
     const newArr: {id: number, toggle: boolean}[] = []
-    for(const item of componentsArr) {
-      const obj: {id: number, toggle: boolean} = {id: item.id, toggle: false}
+    for (const item of componentsArr) {
+      const obj: {id: number, toggle: boolean} = { id: item.id, toggle: false }
 
       newArr.push(obj)
     }
@@ -44,7 +44,7 @@ export const containerWithCollapse = () => {
     e.preventDefault()
 
     // @ts-ignore
-    for(const [i, item] of togglerArr.entries()) {
+    for (const [i, item] of togglerArr.entries()) {
       if (item.id === id) {
         const newArr = [...togglerArr]
         newArr[i].toggle = !newArr[i].toggle
