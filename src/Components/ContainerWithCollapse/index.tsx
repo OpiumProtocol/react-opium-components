@@ -38,7 +38,7 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={`ContainerWithCollapse ${className} color-scheme-${theme}`}>
-      <Accordion defaultActiveKey="1" style={{borderColor: accentColor}}>
+      <Accordion defaultActiveKey="1" style={{ borderColor: accentColor }}>
         <Card>
           <Card.Header>
             {header}
