@@ -39,7 +39,7 @@ const BlockWithList: React.FC<Props> = (props: Props) => {
   return (
     <div
       className={`BlockWithList color-scheme-${theme} ${isShown ? 'hovered' : ''}`}
-      style={{borderColor: isShown ? accentColor : ''}}
+      style={{ borderColor: isShown ? accentColor : '' }}
       onMouseEnter={() => backSide && setIsShown(true)}
       onMouseLeave={() => backSide && setIsShown(false)}
     >
