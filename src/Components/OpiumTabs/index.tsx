@@ -65,6 +65,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
               key={uuidv4()}
               title={title}
               eventKey={eventKey}
+              tabClassName={`color-scheme-${theme}`}
               className={`color-scheme-${theme} ${className}`}
             >
               {content}
