@@ -1,0 +1,12 @@
+@import '../../Styles/index.scss';
+
+.ContainerWithCollapse {
+    .item {
+        .hidden-content {
+            display: none;
+            &.show {
+                display: block;
+            }
+        }
+    }
+}
