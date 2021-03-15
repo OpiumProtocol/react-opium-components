@@ -11,6 +11,7 @@ import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
 import DropdownSelector from './Components/DropdownSelector'
+import RadioButton from './Components/RadioButton'
 import GTMWrapper from './Components/GTMWrapper'
 
 import {
@@ -39,6 +40,7 @@ export {
   NumberBlock,
   LocalizedInput,
   DropdownSelector,
+  RadioButton,
   GTMWrapper,
   themes,
   widgetThemes,
