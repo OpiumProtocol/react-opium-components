@@ -1,12 +1,36 @@
 @import '../../Styles/index.scss';
 
 .ContainerWithCollapse {
-    .item {
-        .hidden-content {
-            display: none;
-            &.show {
-                display: block;
+    .accordion {
+        border: 1px solid #F6029C;
+        border-radius: 10px;
+    }
+    .card {
+        background-color: transparent;
+        border-color: transparent;
+        &-header {
+            padding: 0;
+            background-color: transparent;
+            border-color: transparent;
+            button {
+                background-color: transparent;
+                border: 0;
+                outline: none;
+                padding: 0;
+                color: inherit;
             }
+        }
+        &-body {
+            padding: 0;
+        }
+    }
+    
+    &.color-scheme {
+        &-DARK {
+            color: #fff;
+        }
+        &-LIGHT {
+            color: #000;
         }
     }
 }

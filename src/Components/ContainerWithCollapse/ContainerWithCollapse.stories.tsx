@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
+import {
+  useAccordionToggle
+} from 'react-bootstrap'
+
 import ContainerWithCollapse from './index'
 import Button from '../OpiumButton'
 
@@ -17,42 +21,23 @@ export const containerWithCollapse = () => {
   const componentsArr = [
     {
       id: 0,
-      content: 'hidden content 123'
+      content: 'hidden content 123',
+      headerText: 'Header hello!',
+      accentColor: '#F6029C'
     },
     {
       id: 1,
-      content: 'hidden content 234'
+      content: 'hidden content 234',
+      headerText: 'Header hello!',
+      accentColor: '#2ECD94'
     },
     {
       id: 2,
-      content: 'hidden content 345'
+      content: 'hidden content 345',
+      headerText: 'Header hello!',
+      accentColor: '#fff'
     },
   ]
-  const [togglerArr, setTogglerArr] = React.useState<{id: number, toggle: boolean}[]>([{ id: 0, toggle: false }])
-
-  React.useEffect(() => {
-    const newArr: {id: number, toggle: boolean}[] = []
-    for (const item of componentsArr) {
-      const obj: {id: number, toggle: boolean} = { id: item.id, toggle: false }
-
-      newArr.push(obj)
-    }
-    setTogglerArr([...newArr])
-  }, [])
-
-  const toggler = (e: React.MouseEvent, id: number) => {
-    e.preventDefault()
-
-    // @ts-ignore
-    for (const [i, item] of togglerArr.entries()) {
-      if (item.id === id) {
-        const newArr = [...togglerArr]
-        newArr[i].toggle = !newArr[i].toggle
-        setTogglerArr([...newArr])
-        break
-      }
-    }
-  }
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -75,16 +60,30 @@ export const containerWithCollapse = () => {
       <div className="ContainerWithCollapse">
         {
           componentsArr.map((el, i) => {
+
+            const ToggleButton = () => (
+              <button
+                type="button"
+                onClick={useAccordionToggle('0')}
+              >
+                Click meee
+              </button>
+            )
+
+            const headerContent = (
+              <div>
+                <p>{el.headerText}</p>
+                <ToggleButton />
+              </div>
+            )
+
             return (
               <ContainerWithCollapse
                 key={el.id.toString()}
                 theme={theme}
-                header={(
-                  <a href="#" onClick={(e) => toggler(e, el.id)}>Click</a>
-                )}
-                body={(
-                  <div className={`hidden-content ${togglerArr[i] ? togglerArr[i].toggle ? 'show' : '' : ''}`}>{el.content}</div>
-                )}
+                accentColor={el.accentColor}
+                header={headerContent}
+                body={el.content}
               />
             )
           })

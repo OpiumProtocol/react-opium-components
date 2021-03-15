@@ -1,13 +1,18 @@
 import React from 'react'
 
+import {
+  Accordion,
+  Card
+} from 'react-bootstrap'
+
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
 import './ContainerWithCollapse.scss'
 
 export type Props = {
-  key?: string
   className?: string
+  accentColor?: string
   /** Define theme */
   theme?: ETheme
   header: any
@@ -24,21 +29,27 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
-    key,
     className,
     theme,
+    accentColor,
     header,
     body
   } = renderProps
 
   return (
-    <div className={`item ${className} color-scheme-${theme}`} key={key}>
-      <div className="item__header">
-        {header}
-      </div>
-      <div className="item__body">
-        {body}
-      </div>
+    <div className={`ContainerWithCollapse ${className} color-scheme-${theme}`}>
+      <Accordion defaultActiveKey="1" style={{borderColor: accentColor}}>
+        <Card>
+          <Card.Header>
+            {header}
+          </Card.Header>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>
+              {body}
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
     </div>
   )
 }
