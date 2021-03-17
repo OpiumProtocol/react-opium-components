@@ -20,14 +20,14 @@ const defaultProps: Props = {
 }
 
 // @ts-ignore
-const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+const CustomToggle = React.forwardRef(({ children, onClick }: {children: any, onClick: (e: any) => void}, ref) => (
   // @ts-ignore
   <button
     // @ts-ignore
     ref={ref}
     onClick={(e) => {
-      e.preventDefault();
-      onClick(e);
+      e.preventDefault()
+      onClick(e)
     }}
   >
     <div className="DropDown__label">
@@ -38,6 +38,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     </svg>
   </button>
 ))
+
+CustomToggle.displayName = 'CustomToggle'
 
 const DropDown: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
