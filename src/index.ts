@@ -10,6 +10,7 @@ import Tooltip from './Components/OpiumTooltip'
 import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
+import Chart from './Components/Chart'
 import DropdownSelector from './Components/DropdownSelector'
 import GTMWrapper from './Components/GTMWrapper'
 
@@ -40,6 +41,7 @@ export {
   LocalizedInput,
   DropdownSelector,
   GTMWrapper,
+  Chart,
   themes,
   widgetThemes,
   sectionThemes,
