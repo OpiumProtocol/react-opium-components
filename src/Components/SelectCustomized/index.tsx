@@ -46,6 +46,7 @@ const SelectCustomized: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const {
     theme,
+    className,
     label,
     content
   } = renderProps
