@@ -48,7 +48,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
   const {
     theme,
     label,
-    content
+    content,
+    className
   } = renderProps
 
   return (
