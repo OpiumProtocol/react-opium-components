@@ -13,6 +13,7 @@ import InfoBlock from './Components/InfoBlock'
 import DropdownSelector from './Components/DropdownSelector'
 import DropDown from './Components/DropDown'
 import SelectCustomized from './Components/SelectCustomized'
+import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 
 import {
@@ -44,6 +45,7 @@ export {
   DropdownSelector,
   SelectCustomized,
   GTMWrapper,
+  Checkbox,
   themes,
   widgetThemes,
   sectionThemes,
