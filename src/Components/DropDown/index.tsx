@@ -9,6 +9,7 @@ import './DropDown.scss'
 export type Props = {
   /** Define theme */
   theme?: ETheme
+  className?: string
   label: string
   content: any
 }
@@ -51,7 +52,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
   } = renderProps
 
   return (
-    <Dropdown className={`DropDown color-scheme-${theme}`}>
+    <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
         {label}
       </Dropdown.Toggle>
