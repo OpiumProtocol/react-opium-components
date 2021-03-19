@@ -36,9 +36,9 @@ export const selectCustomized = () => {
         theme={theme}
         label="test 1"
         content={[
-          {"label": 'test 2'},
-          {"label": 'test 3'},
-          {"label": 'test 4'},
+          { 'label': 'test 2' },
+          { 'label': 'test 3' },
+          { 'label': 'test 4' },
         ]}
       />
     </div>

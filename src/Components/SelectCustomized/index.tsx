@@ -53,7 +53,7 @@ const SelectCustomized: React.FC<Props> = (props: Props) => {
   const [show, setShow] = React.useState(false)
 
   // @ts-ignore
-  const handleToggle = (isOpen, event, metadata)=> {
+  const handleToggle = (isOpen, event, metadata) => {
     if (isOpen || metadata.source !== 'select') {
       setShow(isOpen)
     }
