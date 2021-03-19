@@ -9,6 +9,7 @@ import './SelectCustomized.scss'
 export type Props = {
   /** Define theme */
   theme?: ETheme
+  className?: string
   label: string
   content: any
 }
@@ -61,7 +62,7 @@ const SelectCustomized: React.FC<Props> = (props: Props) => {
 
   return (
     <Dropdown
-      className={`SelectCustomized color-scheme-${theme}`}
+      className={`SelectCustomized ${className} color-scheme-${theme}`}
       show={show}
       onToggle={handleToggle}
     >
