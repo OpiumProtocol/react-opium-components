@@ -34,10 +34,12 @@ export const checkbox = () => {
       </div>
       <Checkbox
         theme={theme}
+        onChange={(e) => console.log(e)}
       />
       <Checkbox
         theme={theme}
         label="Checkbox 2"
+        onChange={(e) => console.log(e)}
       />
     </div>
   )
