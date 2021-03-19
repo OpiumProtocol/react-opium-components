@@ -1,95 +1,95 @@
 import React from 'react'
   
 import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    Brush,
-    AreaChart,
-    Area,
-    ComposedChart,
-    ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  Brush,
+  AreaChart,
+  Area,
+  ComposedChart,
+  ResponsiveContainer,
 } from 'recharts'
 
 const data = [
-    {
-        "data1":0,
-        "data2":100,
-    },
-    {
-        "data1":5,
-        "data2":95,
-    },
-    {
-        "data1":10,
-        "data2":80,
-    },
-    {
-        "data1":15,
-        "data2":75,
-    },
-    {
-        "data1":20,
-        "data2":70,
-    },
-    {
-        "data1":30,
-        "data2":65,
-    },
+  {
+    'data1': 0,
+    'data2': 100,
+  },
+  {
+    'data1': 5,
+    'data2': 95,
+  },
+  {
+    'data1': 10,
+    'data2': 80,
+  },
+  {
+    'data1': 15,
+    'data2': 75,
+  },
+  {
+    'data1': 20,
+    'data2': 70,
+  },
+  {
+    'data1': 30,
+    'data2': 65,
+  },
 
-    {
-        "data1":35,
-        "data2":60,
-    },
-    {
-        "data1":40,
-        "data2":55,
-    },
-    {
-        "data1":45,
-        "data2":50,
-    },
-    {
-        "data1":50,
-        "data2":45,
-    },
+  {
+    'data1': 35,
+    'data2': 60,
+  },
+  {
+    'data1': 40,
+    'data2': 55,
+  },
+  {
+    'data1': 45,
+    'data2': 50,
+  },
+  {
+    'data1': 50,
+    'data2': 45,
+  },
 
-    {
-        "data1":55,
-        "data2":40,
-    },
-    {
-        "data1":60,
-        "data2":35,
-    },
-    {
-        "data1":65,
-        "data2":30,
-    },
-    {
-        "data1":70,
-        "data2":25,
-    },
-    {
-        "data1":75,
-        "data2":20,
-    },
-    {
-        "data1":80,
-        "data2":15,
-    },
-    {
-        "data1":85,
-        "data2":10,
-    },
-    {
-        "data1":100,
-        "data2":5,
-     },
+  {
+    'data1': 55,
+    'data2': 40,
+  },
+  {
+    'data1': 60,
+    'data2': 35,
+  },
+  {
+    'data1': 65,
+    'data2': 30,
+  },
+  {
+    'data1': 70,
+    'data2': 25,
+  },
+  {
+    'data1': 75,
+    'data2': 20,
+  },
+  {
+    'data1': 80,
+    'data2': 15,
+  },
+  {
+    'data1': 85,
+    'data2': 10,
+  },
+  {
+    'data1': 100,
+    'data2': 5,
+  },
 ]
 
 //   const convertDate = timestamp => moment(new Date(timestamp * 1000)).format('MMM YY\'')
@@ -106,12 +106,14 @@ theme?: ETheme
 }
 
 const defaultProps: Props = {
-theme: ETheme.DARK,
+  theme: ETheme.DARK,
 }
 
 const CustomizedDot = React.forwardRef(({ cx, cy }: { cx: number, cy: number}, ref) => (
-    <circle cx={cx - 10} cy={cy - 10} r={25} stroke="black" strokeWidth={3} fill="red" />
+  <circle cx={cx - 10} cy={cy - 10} r={25} stroke="black" strokeWidth={3} fill="red" />
 ))
+
+CustomizedDot.displayName = 'CustomizedDot'
 
 // class CustomizedDot extends React.Component {
 //     render () {
@@ -141,66 +143,65 @@ const CustomizedDot = React.forwardRef(({ cx, cy }: { cx: number, cy: number}, r
 //   }
 
 const Chart: React.FC<Props> = (props: Props) => {
-    const renderProps = generateRenderProps(defaultProps, props)
-  
-    const {
-      theme,
-    } = renderProps
-  
-    return (
-      <div>
-        <ComposedChart width={460} height={230} data={data} margin={{top: 25, right: 30, left: 20, bottom: 5}}>
-            <defs>
-                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="20%" stopColor="#F6029C" stopOpacity={0.1}/>
-                    <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
-                </linearGradient>
-                <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="20%" stopColor="#197CD8" stopOpacity={0.1}/>
-                    <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
-                </linearGradient>
-            </defs>
-            <CartesianGrid stroke="rgba(255, 255, 255, 0.1)" />
-            <XAxis
-                // tickCount={10}
-                interval={4}
-            />
-            <YAxis axisLine />
-            <Tooltip/>
-            {/* <CartesianGrid vertical={false} stroke="#DDD" /> */}
-            
-            {/* <Line type="monotone" unit="M" strokeLinecap="round" strokeWidth={2}
-                style={{ strokeDasharray: `40% 60%` }}
-                dataKey="close"
-                stroke="#F6029C"
-                dot={false}
-                legendType="none"
-            /> */}
-            <Area
-                type="monotone"
-                dataKey="data1"
-                strokeWidth={2}
-                fillOpacity={1}
-                fill="url(#colorUv)"
+  const renderProps = generateRenderProps(defaultProps, props)
 
-                stroke={'#F6029C'}
-            />
-            <Area
-                type="monotone"
-                dataKey="data2"
-                strokeWidth={2}
-                fillOpacity={1}
-                fill="url(#colorPv)"
+  const {
+    theme,
+  } = renderProps
 
-                stroke={'#197CD8'}
+  return (
+    <div>
+      <ComposedChart width={460} height={230} data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="20%" stopColor="#F6029C" stopOpacity={0.1}/>
+            <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
+          </linearGradient>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="20%" stopColor="#197CD8" stopOpacity={0.1}/>
+            <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
+          </linearGradient>
+        </defs>
+        <CartesianGrid stroke="rgba(255, 255, 255, 0.1)" />
+        <XAxis
+          // tickCount={10}
+          interval={4}
+        />
+        <YAxis axisLine />
+        <Tooltip/>
+        {/* <CartesianGrid vertical={false} stroke="#DDD" /> */}
+        
+        {/* <Line type="monotone" unit="M" strokeLinecap="round" strokeWidth={2}
+            style={{ strokeDasharray: `40% 60%` }}
+            dataKey="close"
+            stroke="#F6029C"
+            dot={false}
+            legendType="none"
+        /> */}
+        <Area
+          type="monotone"
+          dataKey="data1"
+          strokeWidth={2}
+          fillOpacity={1}
+          fill="url(#colorUv)"
 
-                // dot={CustomizedDot}
-            />
-            {/* <CustomizedDot /> */}
-        </ComposedChart>    
-      </div>
-    )
-  }
-  
-  export default Chart
-  
+          stroke={'#F6029C'}
+        />
+        <Area
+          type="monotone"
+          dataKey="data2"
+          strokeWidth={2}
+          fillOpacity={1}
+          fill="url(#colorPv)"
+
+          stroke={'#197CD8'}
+
+          // dot={CustomizedDot}
+        />
+        {/* <CustomizedDot /> */}
+      </ComposedChart>    
+    </div>
+  )
+}
+
+export default Chart
