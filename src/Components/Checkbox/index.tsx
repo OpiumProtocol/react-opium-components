@@ -32,7 +32,13 @@ const Checkbox: React.FC<Props> = (props: Props) => {
       {
         label !== '' && <div className="CheckBox__label">{label}</div>
       }
-      <input type="checkbox" onChange={onChange} />
+      <input
+        type="checkbox"
+        onChange={(e) => {
+          e.persist()
+          onChange(e.target.checked)
+        }}
+      />
       <span className="checkmark">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 1L5.10415 10.331C4.90792 10.6416 4.45499 10.6416 4.25877 10.331L1 5.17356" strokeWidth="1.5" strokeLinecap="round"/>
