@@ -11,6 +11,7 @@ import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
 import DropdownSelector from './Components/DropdownSelector'
+import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
 
@@ -42,6 +43,7 @@ export {
   DropdownSelector,
   GTMWrapper,
   BlockWithList,
+  Checkbox,
   themes,
   widgetThemes,
   sectionThemes,

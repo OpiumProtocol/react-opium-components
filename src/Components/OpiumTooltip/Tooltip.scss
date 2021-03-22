@@ -7,7 +7,7 @@
   }
 
   & .popover-body.color-scheme-DARK {
-    @include tooltip-component($blue4, $white0, $blue4);
+    @include tooltip-component($darkblue1, $white0, $darkblue1);
   }
 
   &.color-scheme-LIGHT {
@@ -27,16 +27,16 @@
 
   &.color-scheme-DARK {
     &.bs-popover-bottom > .arrow::after {
-      border-bottom-color: $blue4;
+      border-bottom-color: $darkblue1;
     }
     &.bs-popover-right > .arrow::after {
-      border-right-color: $blue4;
+      border-right-color: $darkblue1;
     }
     &.bs-popover-left > .arrow::after {
-      border-left-color: $blue4;
+      border-left-color: $darkblue1;
     }
     &.bs-popover-top > .arrow::after {
-      border-top-color: $blue4;
+      border-top-color: $darkblue1;
     }
   }
 
