@@ -12,6 +12,7 @@ import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
 import DropdownSelector from './Components/DropdownSelector'
 import ContainerWithCollapse from './Components/ContainerWithCollapse'
+import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 
 import {
@@ -42,6 +43,7 @@ export {
   DropdownSelector,
   ContainerWithCollapse,
   GTMWrapper,
+  Checkbox,
   themes,
   widgetThemes,
   sectionThemes,
