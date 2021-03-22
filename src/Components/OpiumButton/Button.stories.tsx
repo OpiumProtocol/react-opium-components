@@ -32,7 +32,7 @@ export const button = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant={'secondary'}
+          variant={'primary'}
           style={{ margin: '1rem' }}
           onClick={handleClick}
         />
