@@ -12,6 +12,7 @@ import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
 import Chart from './Components/Chart'
 import DropdownSelector from './Components/DropdownSelector'
+import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 
 import {
@@ -42,6 +43,7 @@ export {
   DropdownSelector,
   GTMWrapper,
   Chart,
+  Checkbox,
   themes,
   widgetThemes,
   sectionThemes,

@@ -7,7 +7,7 @@ html {
 }
 
 body {
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	background: color(bodyColor);
 
 	-moz-font-smoothing: antialiased;
@@ -70,6 +70,7 @@ code {
 	height: 1px;
 	margin: -1px;
 }
+
 .close-button {
 	position: absolute;
 	z-index: 2;
@@ -82,7 +83,6 @@ code {
 	height: indent(3);
 	outline: none;
 	&:hover {
-		background: $blue1;
 		&:before,
 		&:after {
 			background: $white0;
@@ -96,12 +96,47 @@ code {
 		left: 50%;
 		width: 14px;
 		height: 1px;
-		background: $blue1;
+		background: $white0;
 	}
 	&:before {
 		transform: translate(-50%, -50%) rotate(45deg);
 	}
 	&:after {
 		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+}
+
+.color-scheme {
+	&-DARK {
+		.close-button {
+			&:hover {
+				&:before,
+				&:after {
+					background: $white0;
+				}
+			}
+
+			&:before,
+			&:after {
+				background: $white0;
+			}
+		}
+	}
+
+	&-LIGHT {
+		.close-button {
+			&:hover {
+				&:before,
+				&:after {
+					background: $darkblue1;
+				}
+			}
+
+
+			&:before,
+			&:after {
+				background: $darkblue1;
+			}
+		}
 	}
 }
