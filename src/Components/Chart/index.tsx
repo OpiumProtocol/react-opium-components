@@ -121,21 +121,21 @@ const CustomTooltip = ({ active, payload }: {active: boolean, payload: any}) => 
     return (
       <div className="custom-tooltip">
         <div
-            className="custom-tooltip__container"
-            style={{backgroundColor: payload[0].color}}
-          >
+          className="custom-tooltip__container"
+          style={{ backgroundColor: payload[0].color }}
+        >
           <p
             className="label"
           >
-          Buyer:
-          <strong> {payload[0].value} </strong>
-          tokens
-        </p>
+            Buyer:
+            <strong> {payload[0].value} </strong>
+            tokens
+          </p>
         </div>
         <div
-            className="custom-tooltip__container"
-            style={{backgroundColor: payload[1].color}}
-          >
+          className="custom-tooltip__container"
+          style={{ backgroundColor: payload[1].color }}
+        >
           <p
             className="label"
           >
@@ -148,7 +148,7 @@ const CustomTooltip = ({ active, payload }: {active: boolean, payload: any}) => 
     )
   }
 
-  return (<div style={{backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px'}}>Loading...</div>)
+  return (<div style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
 const Chart: React.FC<Props> = (props: Props) => {
