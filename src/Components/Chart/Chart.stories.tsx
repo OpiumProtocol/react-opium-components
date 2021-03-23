@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import Chart from './index'
-import Chart2 from './index2'
+import Chart from '.'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
@@ -33,10 +32,7 @@ export const chart = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      {/* <Chart
-        theme={theme}
-      /> */}
-      <Chart2
+      <Chart
         theme={theme}
       />
     </div>

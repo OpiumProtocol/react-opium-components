@@ -1,47 +1,114 @@
 @import '../../Styles/index.scss';
 
-.recharts-layer .recharts-cartesian-axis-tick {
-    line {
-        stroke: transparent !important;
-    }
-    text {
-        fill: #fff !important;
-        tspan {
-            font-family: Montserrat;
+.CustomChart {
+
+    .custom-tooltip {
+        &__container {
+            border-radius: 10px;
+        }
+        .label {
+            font-family: "Montserrat";
+            margin: 4px 0;
+            padding: 5px 8px;
+
             font-weight: normal;
             font-size: 10px;
             line-height: 12px;
+            strong {
+                font-family: "Montserrat";
+                font-weight: 500;
+                font-size: 10px;
+                line-height: 12px;
+            }
         }
     }
-}
 
-// line on the left and on the bottom of the graph
-.recharts-cartesian-axis-line {
-    stroke: transparent !important;
-}
+    .recharts-layer .recharts-cartesian-axis-tick {
+        line {
+            stroke: transparent !important;
+        }
+        text {
+            tspan {
+                font-family: Montserrat;
+                font-weight: normal;
+                font-size: 10px;
+                line-height: 12px;
+            }
+        }
+    }
 
-// .recharts-cartesian-grid-horizontal {
-//     line {
-//         stroke: rgba(255, 255, 255, 0.1) !important;
-//     }
-// }
+    // line on the left and on the bottom of the graph
+    .recharts-cartesian-axis-line {
+        stroke: transparent !important;
+    }
 
-.recharts-default-tooltip {
-    // background-color: #197CD8 !important;
-    border: 0 !important;
-    border-radius: 10px;
-    padding: 4px 8px !important;
-
-    // .recharts-tooltip-label {
-    //     color: #fff;
+    // .recharts-cartesian-grid-horizontal {
+    //     line {
+    //         stroke: rgba(255, 255, 255, 0.1) !important;
+    //     }
     // }
-}
 
-.recharts-active-dot {
-    stroke: white;
-    stroke-width: 1;
-    .recharts-dot {
-        // fill: red !important;
-        stroke: black !important;
+    .recharts-default-tooltip {
+        border: 0 !important;
+        border-radius: 10px;
+        padding: 4px 8px !important;
+    }
+
+    .recharts-active-dot {
+        svg {
+            overflow: visible;
+        }
+    }
+
+    &.color-scheme {
+        &-DARK {
+
+            .recharts-active-dot {
+                .dot-bg {
+                    fill: #000;
+                }
+            }
+            .recharts-tooltip-cursor {
+                stroke: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            .custom-tooltip {
+                .label {
+                    color: #0A0A1E;
+                }
+            }
+           
+            .recharts-layer .recharts-cartesian-axis-tick {
+                text {
+                    // text on the sides
+                    fill: #fff !important;
+                }
+            }
+        }
+        &-LIGHT {
+
+            .recharts-active-dot {
+                .dot-bg {
+                    fill: #fff;
+                }
+            }
+
+            .recharts-tooltip-cursor {
+                stroke: rgba(255, 255, 255, 0.5) !important;
+            }
+
+            .custom-tooltip {
+                .label {
+                    color: #fff;
+                }
+            }
+           
+            .recharts-layer .recharts-cartesian-axis-tick {
+                text {
+                    fill: #0A0A1E !important;
+                }
+            }
+
+        }
     }
 }

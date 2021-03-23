@@ -1,61 +1,88 @@
 import React from 'react'
-
+  
 import {
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
-  Brush,
-  AreaChart,
   Area,
-  ResponsiveContainer,
+  ComposedChart,
 } from 'recharts'
 
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    'data1': 0,
+    'data2': 100,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    'data1': 5,
+    'data2': 95,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    'data1': 10,
+    'data2': 80,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    'data1': 15,
+    'data2': 75,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    'data1': 20,
+    'data2': 70,
   },
   {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    'data1': 30,
+    'data2': 65,
+  },
+
+  {
+    'data1': 35,
+    'data2': 60,
   },
   {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    'data1': 40,
+    'data2': 55,
+  },
+  {
+    'data1': 45,
+    'data2': 50,
+  },
+  {
+    'data1': 50,
+    'data2': 45,
+  },
+
+  {
+    'data1': 55,
+    'data2': 40,
+  },
+  {
+    'data1': 60,
+    'data2': 35,
+  },
+  {
+    'data1': 65,
+    'data2': 30,
+  },
+  {
+    'data1': 70,
+    'data2': 25,
+  },
+  {
+    'data1': 75,
+    'data2': 20,
+  },
+  {
+    'data1': 80,
+    'data2': 15,
+  },
+  {
+    'data1': 85,
+    'data2': 10,
+  },
+  {
+    'data1': 100,
+    'data2': 5,
   },
 ]
 
@@ -65,12 +92,63 @@ import { ETheme } from '../../Constants/Types/theme.types'
 import './Chart.scss'
 
 export type Props = {
-  /** Define theme */
-  theme?: ETheme
+/** Define theme */
+theme?: ETheme
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
+}
+
+const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
+  const {
+    cx, cy,
+    fill
+  } = props
+
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle className="dot-bg" cx={cx} cy={cy} r="6" stroke={fill} />
+      <circle cx={cx} cy={cy} r="2" fill={fill} />
+    </svg>
+  )
+})
+
+CustomizedActiveDot.displayName = 'CustomizedActiveDot'
+
+const CustomTooltip = ({ active, payload }: {active: boolean, payload: any}) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <div
+            className="custom-tooltip__container"
+            style={{backgroundColor: payload[0].color}}
+          >
+          <p
+            className="label"
+          >
+          Buyer:
+          <strong> {payload[0].value} </strong>
+          tokens
+        </p>
+        </div>
+        <div
+            className="custom-tooltip__container"
+            style={{backgroundColor: payload[1].color}}
+          >
+          <p
+            className="label"
+          >
+            Seller:
+            <strong> {payload[1].value} </strong>
+            tokens
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  return (<div style={{backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px'}}>Loading...</div>)
 }
 
 const Chart: React.FC<Props> = (props: Props) => {
@@ -81,74 +159,52 @@ const Chart: React.FC<Props> = (props: Props) => {
   } = renderProps
 
   return (
-    <div>
-      <div style={{ width: '100%' }}>
-        <h4>A demo of synchronized AreaCharts</h4>
+    <div className={`CustomChart color-scheme-${theme}`}>
+      <ComposedChart width={460} height={230} data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="20%" stopColor="#F6029C" stopOpacity={0.1}/>
+            <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
+          </linearGradient>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="20%" stopColor="#197CD8" stopOpacity={0.1}/>
+            <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
+          </linearGradient>
+        </defs>
+        <CartesianGrid stroke={theme === 'DARK' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
+        <XAxis
+          interval={4}
+        />
+        <YAxis axisLine />
+        {
+          // @ts-ignore
+          <Tooltip content={<CustomTooltip />} />
+        }
+        <Area
+          type="monotone"
+          dataKey="data1"
+          strokeWidth={2}
+          fillOpacity={1}
+          fill="url(#colorUv)"
 
-        <ResponsiveContainer width="100%" height={200}>
-          <LineChart
-            width={500}
-            height={200}
-            data={data}
-            syncId="anyId"
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
-          </LineChart>
-        </ResponsiveContainer>
-        <p>Maybe some other content</p>
+          stroke={'#F6029C'}
 
-        <ResponsiveContainer width="100%" height={200}>
-          <LineChart
-            width={500}
-            height={200}
-            data={data}
-            syncId="anyId"
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            {/* <Tooltip /> */}
-            <Line type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
-          </LineChart>
-        </ResponsiveContainer>
+          // @ts-ignore
+          activeDot={<CustomizedActiveDot />}
+        />
+        <Area
+          type="monotone"
+          dataKey="data2"
+          strokeWidth={2}
+          fillOpacity={1}
+          fill="url(#colorPv)"
 
-        <ResponsiveContainer width="100%" height={200}>
-          <AreaChart
-            width={500}
-            height={200}
-            data={data}
-            syncId="anyId"
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
+          stroke={'#197CD8'}
+
+          // @ts-ignore
+          activeDot={<CustomizedActiveDot />}
+        />
+      </ComposedChart>    
     </div>
   )
 }
