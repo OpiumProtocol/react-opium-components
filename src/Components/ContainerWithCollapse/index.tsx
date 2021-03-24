@@ -36,9 +36,16 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
     body
   } = renderProps
 
+  const [hovered, setHovered] = React.useState(false)
+
   return (
-    <div className={`ContainerWithCollapse ${className} color-scheme-${theme}`}>
-      <Accordion defaultActiveKey="1" style={{ borderColor: accentColor }}>
+    <div className={`ContainerWithCollapse ${className ? className : ''} color-scheme-${theme}`}>
+      <Accordion
+        defaultActiveKey="1"
+        style={{ borderColor: hovered ? accentColor : 'transparent' }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         <Card>
           <Card.Header>
             {header}
