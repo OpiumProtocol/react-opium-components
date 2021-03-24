@@ -2,8 +2,11 @@
 
 .ContainerWithCollapse {
     .accordion {
-        border: 1px solid #F6029C;
+        border: 1px solid transparent;
+        background-color: transparent;
         border-radius: 10px;
+
+        transition: border-color .5s ease, background-color .3s ease;
     }
     .card {
         background-color: transparent;
@@ -21,9 +24,19 @@
     &.color-scheme {
         &-DARK {
             color: #fff;
+            &:hover {
+                .accordion {
+                    background-color: #0A0A1E;
+                }
+            }
         }
         &-LIGHT {
             color: #000;
+            &:hover {
+                .accordion {
+                    background-color: white;
+                }
+            }
         }
     }
 }
