@@ -107,8 +107,8 @@ const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, f
   } = props
 
   return (
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle className="dot-bg" cx={cx} cy={cy} r="6" stroke={fill} />
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle className="dot-bg" cx={cx} cy={cy} r="5" stroke={fill} />
       <circle cx={cx} cy={cy} r="2" fill={fill} />
     </svg>
   )
@@ -148,7 +148,7 @@ const CustomTooltip = ({ active, payload }: {active: boolean, payload: any}) => 
     )
   }
 
-  return (<div style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
+  return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
 const Chart: React.FC<Props> = (props: Props) => {
@@ -160,14 +160,14 @@ const Chart: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={`CustomChart color-scheme-${theme}`}>
-      <ComposedChart width={460} height={230} data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+      <ComposedChart width={565} height={265} data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="20%" stopColor="#F6029C" stopOpacity={0.1}/>
+            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.15}/>
             <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
           </linearGradient>
           <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="20%" stopColor="#197CD8" stopOpacity={0.1}/>
+            <stop offset="0%" stopColor="#197CD8" stopOpacity={0.15}/>
             <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
           </linearGradient>
         </defs>

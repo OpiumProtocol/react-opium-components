@@ -9,7 +9,7 @@
         .label {
             font-family: "Montserrat";
             margin: 4px 0;
-            padding: 5px 8px;
+            padding: 3px 8px;
 
             font-weight: normal;
             font-size: 10px;
@@ -65,22 +65,27 @@
 
             .recharts-active-dot {
                 .dot-bg {
+                    transition: fill .5s ease;
                     fill: #000;
                 }
             }
             .recharts-tooltip-cursor {
+                transition: stroke .5s ease;
                 stroke: rgba(255, 255, 255, 0.5) !important;
             }
 
             .custom-tooltip {
                 .label {
+                    transition: color .5s ease;
                     color: #0A0A1E;
+                    // color: #fff;
                 }
             }
            
             .recharts-layer .recharts-cartesian-axis-tick {
                 text {
                     // text on the sides
+                    transition: fill .5s ease;
                     fill: #fff !important;
                 }
             }
@@ -89,22 +94,27 @@
 
             .recharts-active-dot {
                 .dot-bg {
+                    transition: fill .5s ease;
                     fill: #fff;
                 }
             }
 
             .recharts-tooltip-cursor {
+                transition: stroke .5s ease;
                 stroke: rgba(255, 255, 255, 0.5) !important;
             }
 
             .custom-tooltip {
                 .label {
                     color: #fff;
+                    transition: color .5s ease;
+                    // color: #0A0A1E;
                 }
             }
            
             .recharts-layer .recharts-cartesian-axis-tick {
                 text {
+                    transition: fill .5s ease;
                     fill: #0A0A1E !important;
                 }
             }

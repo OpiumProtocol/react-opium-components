@@ -11,11 +11,12 @@ export const chart = () => {
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
-  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  // const background = sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const background = theme === 'DARK' ? 'radial-gradient(72.74% 182.65% at 85.89% 66.02%, #111132 2.27%, #0A0A1E 98.05%)' : 'radial-gradient(100% 249.28% at 100% 100%, #DEDEFE 2.27%, #FFFFFF 70.22%)'
   const color = sectionThemes[theme as ETheme].color.primary.value
 
   return (
-    <div style={{ padding: '3rem', backgroundColor }}>
+    <div style={{ padding: '3rem', background }}>
       <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
         <Button
