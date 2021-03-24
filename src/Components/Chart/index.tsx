@@ -158,6 +158,11 @@ const Chart: React.FC<Props> = (props: Props) => {
     theme,
   } = renderProps
 
+  const tickChanger = (tickItem: any) => {
+    const divided = tickItem / data.length
+    return divided === 0 ? '0' : divided.toFixed(2).toString()
+  }
+
   return (
     <div className={`CustomChart color-scheme-${theme}`}>
       <ComposedChart width={565} height={265} data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
@@ -174,6 +179,7 @@ const Chart: React.FC<Props> = (props: Props) => {
         <CartesianGrid stroke={theme === 'DARK' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
         <XAxis
           interval={4}
+          tickFormatter={tickChanger}
         />
         <YAxis axisLine />
         {

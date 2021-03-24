@@ -78,7 +78,6 @@
                 .label {
                     transition: color .5s ease;
                     color: #0A0A1E;
-                    // color: #fff;
                 }
             }
            
@@ -101,14 +100,13 @@
 
             .recharts-tooltip-cursor {
                 transition: stroke .5s ease;
-                stroke: rgba(255, 255, 255, 0.5) !important;
+                stroke: rgba(10, 10, 30, 0.5) !important;
             }
 
             .custom-tooltip {
                 .label {
                     color: #fff;
                     transition: color .5s ease;
-                    // color: #0A0A1E;
                 }
             }
            
