@@ -50,8 +50,8 @@ export type TColorScheme = {
 // Components
 export const colorSchemeDark: TColorScheme = {
   backgroundColor: {
-    primary: { value: _.blue1, hover: _.transparent0, disabled: _.transparent0 },
-    secondary: { value: _.transparent0, hover: _.blue1, disabled: _.transparent0 },
+    primary: { value: _.white0, hover: _.transparent0, disabled: _.transparent0 },
+    secondary: { value: _.transparent0, hover: _.white0, disabled: _.transparent0 },
     danger: { value: _.red0_20, hover: _.red0_40, disabled: _.transparent0 },
     success: { value: _.green1, hover: _.green1_40, disabled: _.transparent0 },
     warning: { value: _.yellow3, hover: _.yellow3_70, disabled: _.transparent0 },
@@ -66,8 +66,8 @@ export const colorSchemeDark: TColorScheme = {
     },
   },
   borderColor: {
-    primary: { value: _.blue1, hover: _.blue1, disabled: _.gray4 },
-    secondary: { value: _.blue1, hover: _.blue1, disabled: _.gray4 },
+    primary: { value: _.white0, hover: _.white0, disabled: _.gray4 },
+    secondary: { value: _.white0, hover: _.white0, disabled: _.gray4 },
     danger: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     success: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
     warning: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
@@ -78,8 +78,8 @@ export const colorSchemeDark: TColorScheme = {
     rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.gray4 },
   },
   color: {
-    primary: { value: _.white0, hover: _.blue1, disabled: _.gray4 },
-    secondary: { value: _.blue1, hover: _.white0, disabled: _.gray4 },
+    primary: { value: _.darkblue1, hover: _.white0, disabled: _.gray4 },
+    secondary: { value: _.white0, hover: _.darkblue1, disabled: _.gray4 },
     danger: { value: _.red0_50, hover: _.red0, disabled: _.gray4 },
     success: { value: _.darkblue2, hover: _.white0, disabled: _.gray4 },
     warning: { value: _.darkblue2, hover: _.white0, disabled: _.gray4 },
@@ -95,8 +95,8 @@ export const colorSchemeDark: TColorScheme = {
 
 export const colorSchemeLight: TColorScheme = {
   backgroundColor: {
-    primary: { value: _.blue1, hover: _.transparent0, disabled: _.transparent0 },
-    secondary: { value: _.transparent0, hover: _.blue1, disabled: _.transparent0 },
+    primary: { value: _.darkblue1, hover: _.transparent0, disabled: _.transparent0 },
+    secondary: { value: _.transparent0, hover: _.darkblue1, disabled: _.transparent0 },
     danger: { value: _.red0_20, hover: _.red0_40, disabled: _.transparent0 },
     success: { value: _.green1, hover: _.green1_40, disabled: _.transparent0 },
     warning: { value: _.yellow3, hover: _.yellow3_70, disabled: _.transparent0 },
@@ -111,8 +111,8 @@ export const colorSchemeLight: TColorScheme = {
     },
   },
   borderColor: {
-    primary: { value: _.blue1, hover: _.blue1, disabled: _.gray2 },
-    secondary: { value: _.blue1, hover: _.blue1, disabled: _.gray2 },
+    primary: { value: _.darkblue1, hover: _.darkblue1, disabled: _.gray2 },
+    secondary: { value: _.darkblue1, hover: _.darkblue1, disabled: _.gray2 },
     danger: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
     success: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
     warning: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
@@ -123,8 +123,8 @@ export const colorSchemeLight: TColorScheme = {
     rainbow: { value: _.transparent0, hover: _.transparent0, disabled: _.gray2 },
   },
   color: {
-    primary: { value: _.white0, hover: _.blue1, disabled: _.gray2 },
-    secondary: { value: _.blue1, hover: _.white0, disabled: _.gray2 },
+    primary: { value: _.white0, hover: _.darkblue1, disabled: _.gray2 },
+    secondary: { value: _.darkblue1, hover: _.white0, disabled: _.gray2 },
     danger: { value: _.red0, hover: _.red2, disabled: _.gray2 },
     success: { value: _.darkblue2, hover: _.white0, disabled: _.gray2 },
     warning: { value: _.darkblue2, hover: _.white0, disabled: _.gray2 },
@@ -236,7 +236,7 @@ export const WidgetSchemeDark: TColorScheme = {
     rainbow: { value: _.white0, hover: _.white0, disabled: _.transparent0 },
   },
   borderColor: {
-    primary: { value: _.blue1, hover: _.blue1, disabled: _.blue1 },
+    primary: { value: _.white0, hover: _.white0, disabled: _.white0 },
     secondary: { value: _.darkblue2, hover: _.darkblue2, disabled: _.darkblue2 },
     danger: { value: _.blue5, hover: _.blue5, disabled: _.blue5 },
     success: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
@@ -277,7 +277,7 @@ export const WidgetSchemeLight: TColorScheme = {
     rainbow: { value: _.darkblue5, hover: _.darkblue5, disabled: _.transparent0 },
   },
   borderColor: {
-    primary: { value: _.blue1, hover: _.blue1, disabled: _.blue1 },
+    primary: { value: _.darkblue1, hover: _.darkblue1, disabled: _.darkblue1 },
     secondary: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
     danger: { value: _.blue5, hover: _.blue5, disabled: _.blue5 },
     success: { value: _.darkblue6, hover: _.darkblue6, disabled: _.darkblue6 },
