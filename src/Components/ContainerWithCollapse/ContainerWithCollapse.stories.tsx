@@ -64,7 +64,7 @@ export const containerWithCollapse = () => {
             const ToggleButton = () => (
               <button
                 type="button"
-                onClick={useAccordionToggle('0')}
+                onClick={useAccordionToggle(i.toString())}
               >
                 Click meee
               </button>
@@ -79,6 +79,7 @@ export const containerWithCollapse = () => {
 
             return (
               <ContainerWithCollapse
+                eventKey={i.toString()}
                 key={el.id.toString()}
                 theme={theme}
                 accentColor={el.accentColor}

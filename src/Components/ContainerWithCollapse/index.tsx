@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   Accordion,
-  Card
+  Card,
 } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -16,11 +16,13 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   header: any
-  body: any
+  body: any,
+  eventKey: string,
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
+  eventKey: '0',
   header: <div></div>,
   body: <div></div>
 }
@@ -33,7 +35,8 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
     theme,
     accentColor,
     header,
-    body
+    body,
+    eventKey
   } = renderProps
 
   const [hovered, setHovered] = React.useState(false)
@@ -41,7 +44,6 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
   return (
     <div className={`ContainerWithCollapse ${className ? className : ''} color-scheme-${theme}`}>
       <Accordion
-        defaultActiveKey="1"
         style={{ borderColor: hovered ? accentColor : 'transparent' }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -50,7 +52,7 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
           <Card.Header>
             {header}
           </Card.Header>
-          <Accordion.Collapse eventKey="0">
+          <Accordion.Collapse eventKey={eventKey}>
             <Card.Body>
               {body}
             </Card.Body>
