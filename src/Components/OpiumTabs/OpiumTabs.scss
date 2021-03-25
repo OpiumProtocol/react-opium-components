@@ -5,6 +5,7 @@
   padding: 0 indent(2);
   border: 0 !important;
   position: relative;
+  margin: 0 !important;
   top: -1px;
 
   &.color-scheme-#{map_get($theme, lightTheme)} {
@@ -41,7 +42,6 @@
     display: inline-block;
     position: relative;
     text-decoration: none;
-    padding: 0 .2em .4em .2em;
     &:not(:last-child) {
       margin-right: 2em;
     }
