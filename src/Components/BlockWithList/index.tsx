@@ -15,6 +15,7 @@ export type Props = {
   accentColor: string
   frontSide: ReactNode
   backSide?: ReactNode
+  className?: string
 }
 
 const defaultProps: Props = {
@@ -27,6 +28,7 @@ const BlockWithList: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const {
     theme,
+    className,
     accentColor,
     frontSide,
     backSide,
@@ -38,7 +40,7 @@ const BlockWithList: React.FC<Props> = (props: Props) => {
 
   return (
     <div
-      className={`BlockWithList color-scheme-${theme} ${isShown ? 'hovered' : ''}`}
+      className={`BlockWithList ${className ? className : ''} color-scheme-${theme} ${isShown ? 'hovered' : ''}`}
       style={{ borderColor: isShown ? accentColor : '' }}
       onMouseEnter={() => backSide && setIsShown(true)}
       onMouseLeave={() => backSide && setIsShown(false)}
