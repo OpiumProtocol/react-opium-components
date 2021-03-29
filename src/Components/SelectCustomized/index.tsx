@@ -63,7 +63,7 @@ const SelectCustomized: React.FC<Props> = (props: Props) => {
 
   return (
     <Dropdown
-      className={`SelectCustomized ${className} color-scheme-${theme}`}
+      className={`SelectCustomized ${className ? className : ''} color-scheme-${theme}`}
       show={show}
       onToggle={handleToggle}
     >

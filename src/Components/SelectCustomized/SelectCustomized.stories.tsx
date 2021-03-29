@@ -41,6 +41,15 @@ export const selectCustomized = () => {
           { 'label': 'test 4' },
         ]}
       />
+      <SelectCustomized
+        theme={theme}
+        label="test 2"
+        content={[
+          { 'label': 'test 2' },
+          { 'label': 'test 3' },
+          { 'label': 'test 4' },
+        ]}
+      />
     </div>
   )
 }
