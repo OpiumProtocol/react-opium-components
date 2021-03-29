@@ -31,9 +31,6 @@
     .dropdown-menu {
         display: block;
         padding: 12px 20px;
-        background-color: #0A0A1E;
-        border: 1px solid #fff;
-        color: #fff;
         border-radius: 10px;
 
         transform: translateY(25px) !important;
@@ -83,6 +80,12 @@
     &.color-scheme {
         &-DARK {
             color: #fff;
+
+            .dropdown-menu {
+                background-color: #0A0A1E;
+                border: 1px solid #fff;
+                color: #fff;
+            }
             button {
                 color: #fff;
             }
@@ -95,9 +98,25 @@
                     }
                 }
             }
+            .SelectCustomized__arrow {
+                path {
+                    fill: #fff;
+                }
+            }
         }
         &-LIGHT {
             color: #000;
+
+            .dropdown-menu {
+                background-color: #fff;
+                border: 1px solid #000;
+                color: #000;
+            }
+            .SelectCustomized__arrow {
+                path {
+                    fill: #000;
+                }
+            }
         }
     }
 }
