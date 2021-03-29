@@ -10,13 +10,12 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  label: string
+  label?: string
   content: any
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  label: '',
   content: ''
 }
 
