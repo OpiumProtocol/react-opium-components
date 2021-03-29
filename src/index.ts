@@ -10,9 +10,11 @@ import Tooltip from './Components/OpiumTooltip'
 import NumberBlock from './Components/NumberBlock'
 import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
+import Chart from './Components/Chart'
 import DropdownSelector from './Components/DropdownSelector'
 import DropDown from './Components/DropDown'
 import SelectCustomized from './Components/SelectCustomized'
+import ContainerWithCollapse from './Components/ContainerWithCollapse'
 import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 
@@ -44,7 +46,9 @@ export {
   DropDown,
   DropdownSelector,
   SelectCustomized,
+  ContainerWithCollapse,
   GTMWrapper,
+  Chart,
   Checkbox,
   themes,
   widgetThemes,
