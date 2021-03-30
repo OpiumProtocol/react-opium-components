@@ -17,6 +17,7 @@ import SelectCustomized from './Components/SelectCustomized'
 import ContainerWithCollapse from './Components/ContainerWithCollapse'
 import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
+import BlockWithList from './Components/BlockWithList'
 
 import {
   themes,
@@ -48,6 +49,7 @@ export {
   SelectCustomized,
   ContainerWithCollapse,
   GTMWrapper,
+  BlockWithList,
   Chart,
   Checkbox,
   themes,
