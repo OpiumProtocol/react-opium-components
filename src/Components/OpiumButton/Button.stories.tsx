@@ -87,6 +87,13 @@ export const button = () => {
         style={{ margin: '1rem' }}
         onClick={() => { }}
       />
+      <Button
+        theme={theme}
+        variant={'minimal'}
+        label={'Minimal button'}
+        style={{ margin: '1rem' }}
+        onClick={() => { }}
+      />
     </div>
   )
 }

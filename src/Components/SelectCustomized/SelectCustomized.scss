@@ -1,6 +1,8 @@
 @import '../../Styles/index.scss';
 
 .SelectCustomized {
+    display: inline-block;
+    margin: 0 5px;
 
     ul {
         margin: 0;
@@ -52,6 +54,12 @@
             transform: rotate(0deg);
             transition: .4s ease;
         }
+        &__label {
+            margin-right: 7px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+        }
     }
 
     &.show {
@@ -68,12 +76,6 @@
             &__arrow {
                 transform: rotate(180deg);
             }
-        }
-    }
-
-    .SelectCustomized {
-        &__label {
-            margin-right: 7px;
         }
     }
 
