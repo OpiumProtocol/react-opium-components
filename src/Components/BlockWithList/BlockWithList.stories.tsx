@@ -7,13 +7,6 @@ import Button from '../OpiumButton'
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const dropdownSelector = () => {
-  const items = [
-    { title: 'First', value: '1' },
-    { title: 'Second', value: '2' },
-    { title: 'Third', value: '3' },
-    { title: 'Fourth', value: '4' },
-  ]
-
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
   const message = text('Text', 'DropdownSelector')
 
