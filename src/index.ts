@@ -19,6 +19,7 @@ import RadioButton from './Components/RadioButton'
 import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
+import Switcher from './Components/Switcher'
 
 import {
   themes,
@@ -52,6 +53,7 @@ export {
   RadioButton,
   GTMWrapper,
   BlockWithList,
+  Switcher,
   Chart,
   Checkbox,
   themes,
