@@ -15,6 +15,7 @@ import DropdownSelector from './Components/DropdownSelector'
 import DropDown from './Components/DropDown'
 import SelectCustomized from './Components/SelectCustomized'
 import ContainerWithCollapse from './Components/ContainerWithCollapse'
+import RadioButton from './Components/RadioButton'
 import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
@@ -48,6 +49,7 @@ export {
   DropdownSelector,
   SelectCustomized,
   ContainerWithCollapse,
+  RadioButton,
   GTMWrapper,
   BlockWithList,
   Chart,
