@@ -34,8 +34,18 @@ export const switcher = () => {
       </div>
       <Switcher
         theme={theme}
+        id="toggle"
+        uncontrolled
         label={theme === ETheme.DARK ? 'Dark mode' : 'Light mode'}
-        onChange={(value: boolean) => setTheme(value ? ETheme.LIGHT : ETheme.DARK)}
+        checked={theme === ETheme.DARK}
+        onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
+      />
+      <Switcher
+        theme={theme}
+        id="toggle2"
+        uncontrolled={false}
+        label={theme === ETheme.DARK ? 'Dark mode' : 'Light mode'}
+        onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
       />
     </div>
   )
