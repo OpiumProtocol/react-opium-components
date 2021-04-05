@@ -158,7 +158,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
               className="btn__label"
               style={rainbowLabel}
             >
-              {label.toUpperCase()}
+              {label}
             </span>
           </Button>
           : <Button
@@ -175,7 +175,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
             onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
             {...rest}
           >
-            {label.toUpperCase()}
+            {label}
           </Button>
       }
     </>

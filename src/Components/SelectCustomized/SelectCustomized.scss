@@ -1,0 +1,124 @@
+@import '../../Styles/index.scss';
+
+.SelectCustomized {
+    display: inline-block;
+    margin: 0 5px;
+
+    ul {
+        margin: 0;
+        li {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    button {
+        display: inline-flex;
+        align-items: center;
+
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+        outline: none;
+
+        &:hover {
+            background-color: transparent;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .dropdown-menu {
+        display: block;
+        padding: 12px 20px;
+        border-radius: 10px;
+
+        transform: translateY(25px) !important;
+
+        opacity: 0;
+        pointer-events: none;
+
+        transition: opacity .4s ease, transform .4s ease;
+
+        &.show {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(32px) !important;
+        }
+    }
+
+    .SelectCustomized {
+        &__arrow {
+            transform: rotate(0deg);
+            transition: .4s ease;
+        }
+        &__label {
+            margin-right: 7px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+
+    &.show {
+        & > .btn {
+            &-primary {
+                &.dropdown-toggle {
+                    background-color: transparent;
+                    border: 0;
+                }
+            }
+        }
+
+        .SelectCustomized {
+            &__arrow {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &.color-scheme {
+        &-DARK {
+            color: #fff;
+
+            .dropdown-menu {
+                background-color: #0A0A1E;
+                border: 1px solid #fff;
+                color: #fff;
+            }
+            button {
+                color: #fff;
+            }
+            &.show {
+                & > .btn {
+                    &-primary {
+                        &.dropdown-toggle {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .SelectCustomized__arrow {
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+        &-LIGHT {
+            color: #000;
+
+            .dropdown-menu {
+                background-color: #fff;
+                border: 1px solid #000;
+                color: #000;
+            }
+            .SelectCustomized__arrow {
+                path {
+                    fill: #000;
+                }
+            }
+        }
+    }
+}
