@@ -45,7 +45,7 @@
         &.show {
             opacity: 1;
             pointer-events: all;
-            transform: translateY(32px) !important;
+            inset: 13px ​auto auto 0px !important;
         }
     }
 
