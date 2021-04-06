@@ -12,11 +12,13 @@ export type Props = {
   className?: string
   label?: string
   content: any
+  onChange: (value: string) => void
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  content: ''
+  content: '',
+  onChange: (value) => {}
 }
 
 // @ts-ignore
@@ -47,7 +49,8 @@ const SelectCustomized: React.FC<Props> = (props: Props) => {
     theme,
     className,
     label,
-    content
+    content,
+    onChange
   } = renderProps
 
   const [selectedLabel, setSelectedLabel] = React.useState(label ? label : content[0].label)
@@ -78,6 +81,7 @@ const SelectCustomized: React.FC<Props> = (props: Props) => {
                 onClick={() => {
                   setShow(false)
                   setSelectedLabel(el.label)
+                  onChange(el.label)
                 }}
               >
                 {el.label}

@@ -40,6 +40,7 @@ export const selectCustomized = () => {
           { 'label': 'test 3' },
           { 'label': 'test 4' },
         ]}
+        onChange={(value) => alert(value)}
       />
       <SelectCustomized
         theme={theme}
@@ -49,6 +50,7 @@ export const selectCustomized = () => {
           { 'label': 'test 3' },
           { 'label': 'test 4' },
         ]}
+        onChange={(value) => alert(value)}
       />
     </div>
   )
