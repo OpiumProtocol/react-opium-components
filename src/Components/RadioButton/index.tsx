@@ -35,6 +35,10 @@ const RadioButton: FC<Props> = (props: Props) => {
     id
   } = renderProps
 
+  React.useEffect(() => {
+    console.log('active', activeKey, active)
+  }, [])
+
   return (
     <label className={`RadioButton color-scheme-${theme}`}>
       {label}
