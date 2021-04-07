@@ -40,6 +40,7 @@ export const radioButton = () => {
         />
       </div>
       <RadioButton
+        id="test1"
         theme={theme}
         active={active === '1'}
         activeKey="1"
@@ -47,6 +48,7 @@ export const radioButton = () => {
         label="1"
       />
       <RadioButton
+        id="test1"
         theme={theme}
         active={active === '2'}
         activeKey="2"

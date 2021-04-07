@@ -16,9 +16,11 @@ import RadioButton from './Components/RadioButton'
 import DropDown from './Components/DropDown'
 import SelectCustomized from './Components/SelectCustomized'
 import ContainerWithCollapse from './Components/ContainerWithCollapse'
+import RadioButton from './Components/RadioButton'
 import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
+import Switcher from './Components/Switcher'
 
 import {
   themes,
@@ -50,8 +52,10 @@ export {
   RadioButton,
   SelectCustomized,
   ContainerWithCollapse,
+  RadioButton,
   GTMWrapper,
   BlockWithList,
+  Switcher,
   Chart,
   Checkbox,
   themes,

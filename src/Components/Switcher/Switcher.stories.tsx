@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import Checkbox from './index'
+import Switcher from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
-export const checkbox = () => {
-  const message = text('Text', 'Checkbox')
+export const switcher = () => {
+  const message = text('Text', 'Switcher')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
@@ -32,22 +32,28 @@ export const checkbox = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <Checkbox
+      <Switcher
         theme={theme}
-        onChange={(e) => console.log(e)}
+        id="toggle"
+        uncontrolled
+        label={theme === ETheme.DARK ? 'Dark mode' : 'Light mode'}
+        checked={theme === ETheme.DARK}
+        onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
       />
-      <Checkbox
+      <Switcher
         theme={theme}
-        label="Checkbox 2"
-        onChange={(e) => console.log(e)}
+        id="toggle2"
+        uncontrolled={false}
+        label={theme === ETheme.DARK ? 'Dark mode' : 'Light mode'}
+        onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
       />
     </div>
   )
 }
 
 export default {
-  title: 'Checkbox component',
+  title: 'Switcher component',
   decorators: [withKnobs],
-  component: Checkbox,
+  component: Switcher,
   parameters: {},
 }
