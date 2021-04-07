@@ -12,6 +12,7 @@ import LocalizedInput from './Components/LocalizedInput'
 import InfoBlock from './Components/InfoBlock'
 import Chart from './Components/Chart'
 import DropdownSelector from './Components/DropdownSelector'
+import RadioButton from './Components/RadioButton'
 import DropDown from './Components/DropDown'
 import SelectCustomized from './Components/SelectCustomized'
 import ContainerWithCollapse from './Components/ContainerWithCollapse'
@@ -47,6 +48,7 @@ export {
   LocalizedInput,
   DropDown,
   DropdownSelector,
+  RadioButton,
   SelectCustomized,
   ContainerWithCollapse,
   RadioButton,
