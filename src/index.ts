@@ -19,6 +19,7 @@ import RadioButton from './Components/RadioButton'
 import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
+import AuthorizationPopUp from './Components/AuthorizationPopUp'
 import Switcher from './Components/Switcher'
 
 import {
@@ -46,6 +47,7 @@ export {
   TextBlock,
   NumberBlock,
   LocalizedInput,
+  AuthorizationPopUp,
   DropDown,
   DropdownSelector,
   SelectCustomized,

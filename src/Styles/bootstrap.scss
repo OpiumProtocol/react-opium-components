@@ -113,10 +113,10 @@
       max-height: calc(100vh - 50px);
 
       &.color-scheme-LIGHT {
-         @include popup-alert-component(color(gray5), color(black3), transparent);
+         @include popup-alert-component(color(gray5), color(black3), transparent, 10px);
       }
       &.color-scheme-DARK {
-         @include popup-alert-component(color(darkBlue2), color(white), color(darkBlue3));
+         @include popup-alert-component(color(darkBlue1), color(white), color(white1), 10px);
       }
    }
    .modal-header {
