@@ -77,18 +77,6 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
                 </button>)
             })
           }
-          {/* <button className="AuthorizationPopUp__wallet">
-            <div className="AuthorizationPopUp__icon" style={{backgroundImage: ''}}></div>
-            <span>MetaMask</span>
-          </button>
-          <button className="AuthorizationPopUp__wallet">
-            <div className="AuthorizationPopUp__icon" style={{backgroundImage: ''}}></div>
-            <span>Other</span>
-          </button>
-          <button className="AuthorizationPopUp__wallet">
-            <div className="AuthorizationPopUp__icon" style={{backgroundImage: ''}}></div>
-            <span>Other Other</span>
-          </button> */}
         </div>
         {
           !isMore &&
@@ -101,25 +89,6 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
           </button>)
         }
       </Modal.Body>
-      {/* <Modal.Footer>
-        <div className="buttons-wrap">
-          {
-            showActionButton &&
-            <Button
-              theme={theme}
-              variant={'primary'}
-              onClick={handleAction}
-              label={actionButtonTitle}
-            />
-          }
-          <Button
-            theme={theme}
-            variant={'secondary'}
-            onClick={closePopup}
-            label={cancelButtonTitle}
-          />
-        </div>
-      </Modal.Footer> */}
     </Modal>
   )
 }
