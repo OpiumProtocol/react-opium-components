@@ -21,7 +21,7 @@ const defaultProps: Props = {
   theme: ETheme.DARK,
   popupIsOpen: false,
   closePopup: () => {},
-  list: [{name: 'Test1', image: ''}]
+  list: [{ name: 'Test1', image: '' }]
 }
 
 const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
@@ -50,8 +50,8 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
         <Modal.Title>connect wallet</Modal.Title>
         <button className="close-button" onClick={closePopup}>
           <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="2.00162" y1="2.05615" x2="15.5312" y2="15.5858" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <line x1="2.02563" y1="15.5296" x2="15.5553" y2="2.00001" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <line x1="2.00162" y1="2.05615" x2="15.5312" y2="15.5858" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="2.02563" y1="15.5296" x2="15.5553" y2="2.00001" stroke="white" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </button>
       </Modal.Header>
@@ -68,10 +68,13 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
               if (i > 2 && !isMore) return null
 
               return (
-              <button className="AuthorizationPopUp__wallet">
-                <div className="AuthorizationPopUp__icon" style={{backgroundImage: el.image}}></div>
-                <span>{el.name}</span>
-              </button>)
+                <button
+                  key={el.name + i}
+                  className="AuthorizationPopUp__wallet"
+                >
+                  <div className="AuthorizationPopUp__icon" style={{ backgroundImage: el.image }}></div>
+                  <span>{el.name}</span>
+                </button>)
             })
           }
           {/* <button className="AuthorizationPopUp__wallet">
