@@ -71,6 +71,7 @@ export const authorizationPopUp = () => {
           </>
         )}
         seeMoreBtnLabel="See more"
+        choosenWallet={(value) => alert(value)}
       />
     </div>
   )

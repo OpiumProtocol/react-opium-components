@@ -18,6 +18,7 @@ export type Props = {
   list: {name: string, image: string}[]
   checkboxLabel?: string | React.ReactNode
   seeMoreBtnLabel: string
+  choosenWallet: (value: string) => void
 }
 
 const defaultProps: Props = {
@@ -26,7 +27,8 @@ const defaultProps: Props = {
   closePopup: () => {},
   title: 'connect wallet',
   list: [{ name: 'Test1', image: '' }],
-  seeMoreBtnLabel: ''
+  seeMoreBtnLabel: '',
+  choosenWallet: () => {}
 }
 
 const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
@@ -41,7 +43,8 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
     popupIsOpen,
     closePopup,
     checkboxLabel,
-    seeMoreBtnLabel
+    seeMoreBtnLabel,
+    choosenWallet
   } = renderProps
 
   return (
@@ -82,6 +85,8 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
                   className="AuthorizationPopUp__wallet"
                   onClick={() => {
                     if (!isChecked) return
+
+                    choosenWallet(el.name)
                   }}
                 >
                   <div className="AuthorizationPopUp__icon" style={{ background: `url('${el.image}') rgba(255, 255, 255, 0.15)` }}></div>
