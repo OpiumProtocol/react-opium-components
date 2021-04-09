@@ -18,7 +18,7 @@ export type Props = {
 const defaultProps: Props = {
   theme: ETheme.DARK,
   content: '',
-  onChange: (value) => {}
+  onChange: () => {}
 }
 
 // @ts-ignore

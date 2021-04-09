@@ -114,7 +114,7 @@ export const colorSchemeLight: TColorScheme = {
       hover: 'linear-gradient(269.1deg, rgba(223, 52, 139, .8) 15.1%, rgba(223, 52, 139, 0) 59.75%), linear-gradient(180deg, rgba(250, 234, 38, .8) 0%, rgba(250, 234, 38, 0) 100%), #197CD8', 
       disabled: _.transparent0,
     },
-    minimal: { value: _.white0, hover: _.transparent0, disabled: _.transparent0 }
+    minimal: { value: _.transparent0, hover: _.transparent0, disabled: _.transparent0 }
   },
   borderColor: {
     primary: { value: _.darkblue1, hover: _.darkblue1, disabled: _.gray2 },
@@ -140,7 +140,7 @@ export const colorSchemeLight: TColorScheme = {
     link: { value: _.white0, hover: _.white0, disabled: _.gray2 },
     error: { value: _.white0, hover: _.white0, disabled: _.gray2 },
     rainbow: { value: _.darkblue2, hover: _.darkblue2, disabled: _.gray2 },
-    minimal: { value: _.white0, hover: _.white0, disabled: _.transparent0 }
+    minimal: { value: _.darkblue1, hover: _.darkblue1, disabled: _.gray2 }
   },
   borderStyle: 'solid',
   borderRadius: '30px',
