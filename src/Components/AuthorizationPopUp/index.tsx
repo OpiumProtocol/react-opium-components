@@ -27,6 +27,7 @@ const defaultProps: Props = {
 const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const [isMore, setIsMore] = React.useState(false)
+  const [isChecked, setIsChecked] = React.useState(false)
 
   const {
     theme,
@@ -41,6 +42,7 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
       show={popupIsOpen}
       onHide={() => {
         setIsMore(false)
+        setIsChecked(false)
         closePopup()
       }}
       className="AuthorizationPopUp"
@@ -59,10 +61,15 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
       <Modal.Body>
         <Checkbox
           theme={theme}
-          label="By proceeding to the platform You accept our Terms of service, Privat policy and Disclamer."
-          onChange={() => {}}
+          // label="By proceeding to the platform You accept our Terms of service, Privat policy and Disclamer."
+          label={(
+            <>
+              By proceeding to the platform You accept our <a href="#">Terms of service</a>, <a href="#">Privat policy</a> and <a href="#">Disclamer</a>.
+            </>
+          )}
+          onChange={(value) => setIsChecked(value)}
         />
-        <div className="AuthorizationPopUp__wallets">
+        <div className={`AuthorizationPopUp__wallets ${!isChecked ? 'blocked' : ''}`}>
           {
             list.map((el: {name: string, image: string}, i: number) => {
               if (i > 2 && !isMore) return null
@@ -71,6 +78,9 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
                 <button
                   key={el.name + i}
                   className="AuthorizationPopUp__wallet"
+                  onClick={() => {
+                    if (!isChecked) return
+                  }}
                 >
                   <div className="AuthorizationPopUp__icon" style={{ backgroundImage: el.image }}></div>
                   <span>{el.name}</span>

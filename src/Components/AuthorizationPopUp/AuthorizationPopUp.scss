@@ -30,6 +30,17 @@
       .CheckBox {
         max-width: 279px;
         margin-bottom: 40px;
+
+        a {
+          color: #fff;
+          text-decoration: underline;
+
+          transition: color .25s ease;
+
+          &:hover {
+            color: rgba(#fff, .7);
+          }
+        }
       }
     }
     .modal-title {
@@ -70,7 +81,7 @@
 
           margin-bottom: 5px;
 
-          transition: border-color .25s ease;
+          transition: border-color .25s ease, opacity .25s ease;
 
           &:hover {
             cursor: pointer;
@@ -85,6 +96,15 @@
           margin-right: 33px;
         }
       }
+
+      &.blocked {
+        .AuthorizationPopUp {
+          &__wallet {
+            opacity: .5;
+            pointer-events: none;
+          }
+        }
+      }
     }
     &__more {
       display: block;
@@ -96,6 +116,12 @@
 
       text-decoration-line: underline;
       color: #FFFFFF;
+      
+      transition: color .25s ease;
+
+      &:hover {
+        color: rgba(#fff, .7);
+      }
     }
   }
 }
