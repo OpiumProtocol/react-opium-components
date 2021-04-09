@@ -1,18 +1,25 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import Checkbox from './index'
+import RadioButton from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
-export const checkbox = () => {
-  const message = text('Text', 'Checkbox')
-
+export const radioButton = () => {
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
+
+  const message = text('Text', 'Popup')
+
+  const [active, setActive] = React.useState<string>('')
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
+
+  const changed = (e: any) => {
+    console.log(e)
+    setActive(e)
+  }
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -32,22 +39,32 @@ export const checkbox = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <Checkbox
+      <RadioButton
+        id="test1"
         theme={theme}
-        onChange={(e) => console.log(e)}
+        active={active === '1'}
+        activeKey="1"
+        changed={(e: any) => changed(e)}
+        label="1"
       />
-      <Checkbox
+      <RadioButton
+        id="test1"
         theme={theme}
-        label="Checkbox 2"
-        onChange={(e) => console.log(e)}
+        active={active === '2'}
+        activeKey="2"
+        changed={(e: any) => changed(e)}
       />
     </div>
   )
 }
 
+RadioButton.defaultProps = {
+  theme: ETheme.DARK
+}
+
 export default {
-  title: 'Checkbox component',
+  title: 'RadioButton component',
   decorators: [withKnobs],
-  component: Checkbox,
+  component: RadioButton,
   parameters: {},
 }

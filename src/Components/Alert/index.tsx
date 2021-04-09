@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { Form, Modal } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 
 import Button from '../OpiumButton'
 import Loading from '../Loading'
@@ -136,6 +136,7 @@ const Alert: FC<Props> = (props: Props) => {
           showCheckBox && <Checkbox
             theme={theme}
             label={checkBoxLabel}
+            onChange={() => {}}
           />
         }
       </Modal.Body>

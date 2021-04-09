@@ -35,8 +35,6 @@
         padding: 12px 20px;
         border-radius: 10px;
 
-        transform: translateY(25px) !important;
-
         opacity: 0;
         pointer-events: none;
 
@@ -45,7 +43,7 @@
         &.show {
             opacity: 1;
             pointer-events: all;
-            transform: translateY(32px) !important;
+            top: 13px !important;
         }
     }
 
