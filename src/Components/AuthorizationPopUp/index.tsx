@@ -38,7 +38,6 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
 
   return (
     <Modal
-      // size={size}
       show={popupIsOpen}
       onHide={() => {
         setIsMore(false)
@@ -61,7 +60,6 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
       <Modal.Body>
         <Checkbox
           theme={theme}
-          // label="By proceeding to the platform You accept our Terms of service, Privat policy and Disclamer."
           label={(
             <>
               By proceeding to the platform You accept our <a href="#">Terms of service</a>, <a href="#">Privat policy</a> and <a href="#">Disclamer</a>.
