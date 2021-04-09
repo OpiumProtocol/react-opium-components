@@ -36,6 +36,7 @@ export const authorizationPopUp = () => {
       <Button theme={theme} label="Show / hide alert" onClick={() => setPopupIsOpen(!popupIsOpen)} />
       <AuthorizationPopUp
         theme={theme}
+        title="connect wallet"
         list={[
           {
             name: 'Metamask',
@@ -64,6 +65,12 @@ export const authorizationPopUp = () => {
         ]}
         popupIsOpen={popupIsOpen}
         closePopup={() => setPopupIsOpen(false)}
+        checkboxLabel={(
+          <>
+            By proceeding to the platform You accept our <a href="#">Terms of service</a>, <a href="#">Privat policy</a> and <a href="#">Disclamer</a>.
+          </>
+        )}
+        seeMoreBtnLabel="See more"
       />
     </div>
   )

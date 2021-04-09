@@ -14,14 +14,19 @@ export type Props = {
 
   popupIsOpen: boolean
   closePopup: () => void
+  title: string
   list: {name: string, image: string}[]
+  checkboxLabel?: string | React.ReactNode
+  seeMoreBtnLabel: string
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   popupIsOpen: false,
   closePopup: () => {},
-  list: [{ name: 'Test1', image: '' }]
+  title: 'connect wallet',
+  list: [{ name: 'Test1', image: '' }],
+  seeMoreBtnLabel: ''
 }
 
 const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
@@ -31,9 +36,12 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
 
   const {
     theme,
+    title,
     list,
     popupIsOpen,
-    closePopup
+    closePopup,
+    checkboxLabel,
+    seeMoreBtnLabel
   } = renderProps
 
   return (
@@ -48,7 +56,7 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
       contentClassName={`color-scheme-${theme}`}
     >
       <Modal.Header>
-        <Modal.Title>connect wallet</Modal.Title>
+        <Modal.Title>{title}</Modal.Title>
         <button className="close-button" onClick={closePopup}>
           <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="2.00162" y1="2.05615" x2="15.5312" y2="15.5858" stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -60,11 +68,7 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
       <Modal.Body>
         <Checkbox
           theme={theme}
-          label={(
-            <>
-              By proceeding to the platform You accept our <a href="#">Terms of service</a>, <a href="#">Privat policy</a> and <a href="#">Disclamer</a>.
-            </>
-          )}
+          label={checkboxLabel}
           onChange={(value) => setIsChecked(value)}
         />
         <div className={`AuthorizationPopUp__wallets ${!isChecked ? 'blocked' : ''}`}>
@@ -80,7 +84,7 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
                     if (!isChecked) return
                   }}
                 >
-                  <div className="AuthorizationPopUp__icon" style={{ backgroundImage: el.image }}></div>
+                  <div className="AuthorizationPopUp__icon" style={{ background: `url('${el.image}') rgba(255, 255, 255, 0.15)` }}></div>
                   <span>{el.name}</span>
                 </button>)
             })
@@ -93,7 +97,7 @@ const AuthorizationPopUp: React.FC<Props> = (props: Props) => {
               setIsMore(true)
             }}
             className="AuthorizationPopUp__more">
-            See more
+            {seeMoreBtnLabel}
           </button>)
         }
       </Modal.Body>
