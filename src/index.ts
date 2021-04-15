@@ -21,6 +21,7 @@ import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
 import AuthorizationPopUp from './Components/AuthorizationPopUp'
 import Switcher from './Components/Switcher'
+import WrapPopUp from './Components/WrapPopUp'
 
 import {
   themes,
@@ -56,6 +57,7 @@ export {
   GTMWrapper,
   BlockWithList,
   Switcher,
+  WrapPopUp,
   Chart,
   Checkbox,
   themes,

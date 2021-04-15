@@ -1,0 +1,58 @@
+@import '../../Styles/index.scss';
+
+.WrapPopUp {
+  &.modal {
+    .modal-header {
+      position: relative;
+      display: block;
+      // justify-content: space-between !important;
+      padding: 0 !important;
+      margin-bottom: 36px;
+      .close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        // position: relative;
+        // top: auto;
+        // right: auto;
+        // display: inline-block;
+
+        padding: 0;
+
+        outline: none;
+
+        &::before {
+          display: none;
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .modal-title {
+      text-transform: none;
+    }
+    .modal-dialog {
+      width: auto;
+      max-width: none;
+    }
+    .modal-content {
+      padding: 36px 32px;
+    }
+    .modal-body {
+      padding: 0;
+    }
+    .modal-footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      margin-bottom: 4px;
+      & * {
+        margin: inherit;
+      }
+    }
+  }
+  &__subtitle {
+    display: block;
+  }
+}
