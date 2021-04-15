@@ -37,7 +37,7 @@ export const button = () => {
           onClick={handleClick}
         />
       </div>
-      <div style={{margin: '15px 0 10px 0'}}>
+      <div style={{ margin: '15px 0 10px 0' }}>
         <Button
           theme={theme}
           variant={'secondary'}
@@ -66,7 +66,7 @@ export const button = () => {
           size="lg"
         />
       </div>
-      <div style={{margin: '15px 0 30px 0'}}>
+      <div style={{ margin: '15px 0 30px 0' }}>
         <Button
           theme={theme}
           variant={'secondary'}
@@ -98,7 +98,7 @@ export const button = () => {
           size="lg"
         />
       </div>
-      <div style={{margin: '15px 0 30px 0'}}>
+      <div style={{ margin: '15px 0 30px 0' }}>
         <Button
           theme={theme}
           variant={'primary'}
@@ -121,7 +121,7 @@ export const button = () => {
           onClick={() => { }}
         />
       </div>
-      <div style={{margin: '15px 0 30px 0'}}>
+      <div style={{ margin: '15px 0 30px 0' }}>
         <Button
           theme={theme}
           variant={'primary'}
@@ -147,7 +147,7 @@ export const button = () => {
           disabled
         />
       </div>
-      <div style={{margin: '15px 0 30px 0'}}>
+      <div style={{ margin: '15px 0 30px 0' }}>
         <Button
           theme={theme}
           variant={'success'}
@@ -171,7 +171,7 @@ export const button = () => {
           onClick={() => { }}
         />
       </div>
-      <div style={{margin: '15px 0 30px 0'}}>
+      <div style={{ margin: '15px 0 30px 0' }}>
         <Button
           theme={theme}
           variant={'success'}
@@ -198,7 +198,7 @@ export const button = () => {
           disabled
         />
       </div>
-      <div style={{margin: '15px 0 30px 0'}}>
+      <div style={{ margin: '15px 0 30px 0' }}>
         <Button
           theme={theme}
           variant={'minimal'}
@@ -208,7 +208,7 @@ export const button = () => {
           onClick={() => { }}
         />
       </div>
-      <div style={{margin: '15px 0 30px 0'}}>
+      <div style={{ margin: '15px 0 30px 0' }}>
         <Button
           theme={theme}
           variant={'minimal'}

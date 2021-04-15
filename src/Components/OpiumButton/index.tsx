@@ -190,7 +190,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
             rel={rel}
             target={target}
             disabled={disabled}
-            className={`opiumBtn color-scheme-${theme}${size ? ' '+size : ''}${className ? ' '+className : ''}`}
+            className={`opiumBtn color-scheme-${theme}${size ? ' ' + size : ''}${className ? ' ' + className : ''}`}
             variant={variant}
             style={monoStyles}
             // onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
