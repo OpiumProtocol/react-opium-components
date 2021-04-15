@@ -53,6 +53,7 @@ const WrapPopUp: React.FC<Props> = (props: Props) => {
 
   const {
     theme,
+    className,
     title,
     subtitle,
     component,
@@ -64,7 +65,7 @@ const WrapPopUp: React.FC<Props> = (props: Props) => {
     <Modal
       show={popupIsOpen}
       onHide={closePopup}
-      className="WrapPopUp"
+      className={`WrapPopUp${className ? ' ' + className : ''}`}
       contentClassName={`color-scheme-${theme}`}
     >
       {
