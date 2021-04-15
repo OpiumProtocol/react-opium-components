@@ -19,9 +19,8 @@ import RadioButton from './Components/RadioButton'
 import Checkbox from './Components/Checkbox'
 import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
-import AuthorizationPopUp from './Components/AuthorizationPopUp'
 import Switcher from './Components/Switcher'
-import WrapPopUp from './Components/WrapPopUp'
+import NewPopUp from './Components/NewPopUp'
 import ProgressBar from './Components/ProgressBar'
 
 import {
@@ -49,7 +48,6 @@ export {
   TextBlock,
   NumberBlock,
   LocalizedInput,
-  AuthorizationPopUp,
   DropDown,
   DropdownSelector,
   SelectCustomized,
@@ -58,7 +56,7 @@ export {
   GTMWrapper,
   BlockWithList,
   Switcher,
-  WrapPopUp,
+  NewPopUp,
   Chart,
   Checkbox,
   ProgressBar,

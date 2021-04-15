@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import WrapPopUp from './index'
+import NewPopUp from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
-export const wrapPopUp = () => {
-  const message = text('Text', 'WrapPopUp')
+export const newPopUp = () => {
+  const message = text('Text', 'NewPopUp')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
   const [popupIsOpen, setPopupIsOpen] = useState(false)
@@ -33,23 +33,23 @@ export const wrapPopUp = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <Button theme={theme} label="Show / hide alert" onClick={() => setPopupIsOpen(!popupIsOpen)} />
-      <WrapPopUp
+      <Button theme={theme} label="Show New PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} />
+      <NewPopUp
         theme={theme}
-        title="unwrap"
-        subtitle="wOPIUM to OPIUM"
+        title="Title"
+        subtitle="subtitle"
         popupIsOpen={popupIsOpen}
         closePopup={() => setPopupIsOpen(false)}
         component={(
-          <p>Test</p>
+          <p>My content</p>
         )}
       />
     </div>
   )
 }
 export default {
-  title: 'WrapPopUp component',
+  title: 'NewPopUp component',
   decorators: [withKnobs],
-  component: WrapPopUp,
+  component: NewPopUp,
   parameters: {},
 }
