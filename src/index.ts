@@ -22,6 +22,7 @@ import BlockWithList from './Components/BlockWithList'
 import AuthorizationPopUp from './Components/AuthorizationPopUp'
 import Switcher from './Components/Switcher'
 import WrapPopUp from './Components/WrapPopUp'
+import ProgressBar from './Components/ProgressBar'
 
 import {
   themes,
@@ -60,6 +61,7 @@ export {
   WrapPopUp,
   Chart,
   Checkbox,
+  ProgressBar,
   themes,
   widgetThemes,
   sectionThemes,
