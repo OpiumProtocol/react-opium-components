@@ -8,7 +8,7 @@ import './Checkbox.scss'
 export type Props = {
   /** Define theme */
   theme?: ETheme
-  label?: string
+  label?: string | React.ReactNode
   onChange: (e: any) => void
 }
 
