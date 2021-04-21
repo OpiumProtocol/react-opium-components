@@ -12,6 +12,7 @@ export const newPopUp = () => {
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
   const [popupIsOpen, setPopupIsOpen] = useState(false)
+  const [warningPopupIsOpen, setWarningPopupIsOpen] = useState(false)
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
@@ -34,7 +35,8 @@ export const newPopUp = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <Button theme={theme} label="Show New PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} />
+      <Button theme={theme} label="Show New PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} style={{marginRight: '15px'}} />
+      <Button theme={theme} label="Show New Warning PopUp" onClick={() => setWarningPopupIsOpen(!warningPopupIsOpen)} />
       <NewPopUp
         theme={theme}
         title="Title"
@@ -48,13 +50,13 @@ export const newPopUp = () => {
       <NewPopUp
         theme={theme}
         warningTitle="Warning"
-        popupIsOpen={true}
-        closePopup={() => setPopupIsOpen(false)}
+        popupIsOpen={warningPopupIsOpen}
+        closePopup={() => setWarningPopupIsOpen(false)}
         component={(
           <div>
             <p>The sllipage is hign on the secondary market. By proceeding with the transaction, you may lose some money.
             You can redeem your position during rebalancing phase without slippage if you are willing to wait.</p>
-            <div style={{marginBottom: '36px'}}>
+            <div style={{ marginBottom: '36px' }}>
               <Checkbox
                 onChange={() => {}}
                 label="Do not show this massage again"
@@ -67,15 +69,15 @@ export const newPopUp = () => {
               size="sm"
               label="proceed"
               onClick={() => {}}
-              style={{width: 'calc(50% - 16px)', marginRight: '32px'}}
+              style={{ width: 'calc(50% - 16px)', marginRight: '32px' }}
             />
             <Button
               theme={theme}
               variant="secondary"
               size="sm"
               label="cancel"
-              onClick={() => {}}
-              style={{width: 'calc(50% - 16px)'}}
+              onClick={() => setWarningPopupIsOpen(false)}
+              style={{ width: 'calc(50% - 16px)' }}
             />
           </div>
         )}
