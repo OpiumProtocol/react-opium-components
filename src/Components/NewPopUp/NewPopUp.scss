@@ -6,7 +6,7 @@
     display: flex !important;
     justify-content: center;
     align-items: center;
-    background: rgba(#0A0A1E, .4);
+    background: rgba($darkblue1, .4);
     .modal-header {
       position: relative;
       display: block;
@@ -48,9 +48,9 @@
 
       &.color-scheme {
         &-DARK {
-          background: #0A0A1E;
+          background: $darkblue1;
           border: 1px solid color(white);
-          color: #fff;
+          color: color(white);
           .modal-header {
             .close-button {
               svg {
@@ -62,14 +62,14 @@
           }
         }
         &-LIGHT {
-          background: #FFFFFF;
-          border: 1px solid #0A0A1E;
-          color: #0A0A1E;
+          background: color(white);
+          border: 1px solid $darkblue1;
+          color: $darkblue1;
           .modal-header {
             .close-button {
               svg {
                 line {
-                  stroke: #0A0A1E;
+                  stroke: $darkblue1;
                 }
               }
             }
@@ -117,7 +117,7 @@
     font-size: 14px;
     line-height: 17px;
 
-    color: #F6029C;
+    color: $pink;
 
     img {
       margin-right: 10px;

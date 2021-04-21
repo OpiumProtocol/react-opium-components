@@ -1,6 +1,5 @@
 @import '../../Styles/index.scss';
-
-
+@import '../../Styles/colors.scss';
 
 .btn {
     position: relative;
@@ -18,9 +17,9 @@
         box-shadow: none !important;
     }
     &.primary {
-        background: white;
+        background: $white0;
         color: black;
-        border-color: white;
+        border-color: $white0;
     }
     &__bg {
         position: absolute;
@@ -54,43 +53,43 @@
         &.btn-primary {
             &.color-scheme {
                 &-DARK {
-                    background-color: white;
+                    background-color: $white0;
                     color: black;
-                    border-color: white;
+                    border-color: $white0;
                     &:hover {
                         background-color: transparent;
-                        color: white;
-                        border-color: white;
+                        color: $white0;
+                        border-color: $white0;
                     }
                     &:not(:disabled):not(.disabled):active {
                         background-color: transparent;
-                        color: white;
-                        border-color: white;
+                        color: $white0;
+                        border-color: $white0;
                     }
                     &:disabled {
                         background-color: transparent;
-                        color: rgba(white, .5);
-                        border-color: rgba(white, .5);
+                        color: rgba($white0, .5);
+                        border-color: rgba($white0, .5);
                     }
                 }
                 &-LIGHT {
-                    background-color: #0a0a1e;
-                    color: white;
-                    border-color: #0a0a1e;
+                    background-color: $darkblue1;
+                    color: $white0;
+                    border-color: $darkblue1;
                     &:hover {
                         background-color: transparent;
-                        color: #0a0a1e;
-                        border-color: #0a0a1e;
+                        color: $darkblue1;
+                        border-color: $darkblue1;
                     }
                     &:not(:disabled):not(.disabled):active {
                         background-color: transparent;
-                        color: #0a0a1e;
-                        border-color: #0a0a1e;
+                        color: $darkblue1;
+                        border-color: $darkblue1;
                     }
                     &:disabled {
                         background-color: transparent;
-                        color: rgba(white, .5);
-                        border-color: rgba(white, .5);
+                        color: rgba($white0, .5);
+                        border-color: rgba($white0, .5);
                     }
 
                 }
@@ -101,47 +100,47 @@
 
             &.color-scheme {
                 &-DARK {
-                    color: white;
-                    border-color: white;
+                    color: $white0;
+                    border-color: $white0;
                     &:hover {
-                        background-color: white;
+                        background-color: $white0;
                         color: black;
-                        border-color: white;
+                        border-color: $white0;
                     }
                     &:not(:disabled):not(.disabled):active {
-                        background-color: rgba(white, .5);
+                        background-color: rgba($white0, .5);
                         color: black;
                         border-color: transparent;
                     }
                     &:disabled {
                         background-color: transparent;
-                        color: rgba(white, .5);
-                        border-color: rgba(white, .5);
+                        color: rgba($white0, .5);
+                        border-color: rgba($white0, .5);
                     }
                 }
                 &-LIGHT {
-                    background-color: white;
+                    background-color: $white0;
                     color: black;
                     border-color: black;
                     &:hover {
-                        color: white;
-                        background-color: #0A0A1E;
-                        border-color: #0A0A1E;
+                        color: $white0;
+                        background-color: $darkblue1;
+                        border-color: $darkblue1;
                     }
                     &:not(:disabled):not(.disabled):active {
                         background-color: rgba(10, 10, 30, 0.5);
-                        color: white;
+                        color: $white0;
                         border-color: transparent;
                     }
                     &:disabled {
-                        background-color: rgba(#0A0A1E,.5);
-                        color: rgba(#0A0A1E,.5);
+                        background-color: rgba($darkblue1,.5);
+                        color: rgba($darkblue1,.5);
                         border-color: transparent;
                     }
                     &:disabled {
                         background-color: transparent;
-                        color: rgba(#0A0A1E, .5);
-                        border-color: rgba(#0A0A1E, .5);
+                        color: rgba($darkblue1, .5);
+                        border-color: rgba($darkblue1, .5);
                     }
                 }
             }
@@ -149,39 +148,39 @@
             &.red {
                 &.color-scheme {
                     &-DARK {
-                        border-color: #F6029C;
-                        color: #F6029C;
+                        border-color: $pink;
+                        color: $pink;
                         &:hover {
-                            background-color: #F6029C;
-                            color: #0A0A1E;
+                            background-color: $pink;
+                            color: $darkblue1;
                         }
                         &:not(:disabled):not(.disabled):active {
-                            color: #0A0A1E;
-                            background-color: rgba(#F6029C, .5);
-                            border-color: rgba(#F6029C, 0);
+                            color: $darkblue1;
+                            background-color: rgba($pink, .5);
+                            border-color: rgba($pink, 0);
                         }
                         &:disabled {
                             background-color: transparent;
-                            color: rgba(white, .5);
-                            border-color: rgba(white, .5);
+                            color: rgba($white0, .5);
+                            border-color: rgba($white0, .5);
                         }
                     }
                     &-LIGHT {
-                        border-color: #F6029C;
-                        color: #F6029C;
+                        border-color: $pink;
+                        color: $pink;
                         &:hover {
-                            background-color: #F6029C;
-                            color: white;
+                            background-color: $pink;
+                            color: $white0;
                         }
                         &:not(:disabled):not(.disabled):active {
-                            color: white;
-                            background-color: rgba(#F6029C, .5);
-                            border-color: rgba(#F6029C, 0);
+                            color: $white0;
+                            background-color: rgba($pink, .5);
+                            border-color: rgba($pink, 0);
                         }
                         &:disabled {
                             background-color: transparent;
-                            color: rgba(#0A0A1E, .5);
-                            border-color: rgba(#0A0A1E, .5);
+                            color: rgba($darkblue1, .5);
+                            border-color: rgba($darkblue1, .5);
                         }
                     }
                 }
@@ -189,39 +188,39 @@
             &.green {
                 &.color-scheme {
                     &-DARK {
-                        border-color: #2ECD94;
-                        color: #2ECD94;
+                        border-color: $lightgreen;
+                        color: $lightgreen;
                         &:hover {
-                            background-color: #2ECD94;
-                            color: #0A0A1E;
+                            background-color: $lightgreen;
+                            color: $darkblue1;
                         }
                         &:not(:disabled):not(.disabled):active {
-                            color: #0A0A1E;
-                            background-color: rgba(#2ECD94, .5);
-                            border-color: rgba(#2ECD94, 0);
+                            color: $darkblue1;
+                            background-color: rgba($lightgreen, .5);
+                            border-color: rgba($lightgreen, 0);
                         }
                         &:disabled {
                             background-color: transparent;
-                            color: rgba(white, .5);
-                            border-color: rgba(white, .5);
+                            color: rgba($white0, .5);
+                            border-color: rgba($white0, .5);
                         }
                     }
                     &-LIGHT {
-                        border-color: #2ECD94;
-                        color: #2ECD94;
+                        border-color: $lightgreen;
+                        color: $lightgreen;
                         &:hover {
-                            background-color: #2ECD94;
-                            color: white;
+                            background-color: $lightgreen;
+                            color: $white0;
                         }
                         &:not(:disabled):not(.disabled):active {
-                            color: white;
-                            background-color: rgba(#2ECD94, .5);
-                            border-color: rgba(#2ECD94, 0);
+                            color: $white0;
+                            background-color: rgba($lightgreen, .5);
+                            border-color: rgba($lightgreen, 0);
                         }
                         &:disabled {
                             background-color: transparent;
-                            color: rgba(#0A0A1E, .5);
-                            border-color: rgba(#0A0A1E, .5);
+                            color: rgba($darkblue1, .5);
+                            border-color: rgba($darkblue1, .5);
                         }
                     }
                 }
@@ -229,39 +228,39 @@
             &.blue {
                 &.color-scheme {
                     &-DARK {
-                        border-color: #197CD8;
-                        color: #197CD8;
+                        border-color: $blue1;
+                        color: $blue1;
                         &:hover {
-                            background-color: #197CD8;
-                            color: #0A0A1E;
+                            background-color: $blue1;
+                            color: $darkblue1;
                         }
                         &:not(:disabled):not(.disabled):active {
-                            color: #0A0A1E;
-                            background-color: rgba(#197CD8, .5);
-                            border-color: rgba(#197CD8, 0);
+                            color: $darkblue1;
+                            background-color: rgba($blue1, .5);
+                            border-color: rgba($blue1, 0);
                         }
                         &:disabled {
                             background-color: transparent;
-                            color: rgba(white, .5);
-                            border-color: rgba(white, .5);
+                            color: rgba($white0, .5);
+                            border-color: rgba($white0, .5);
                         }
                     }
                     &-LIGHT {
-                        border-color: #197CD8;
-                        color: #197CD8;
+                        border-color: $blue1;
+                        color: $blue1;
                         &:hover {
-                            background-color: #197CD8;
-                            color: white;
+                            background-color: $blue1;
+                            color: $white0;
                         }
                         &:not(:disabled):not(.disabled):active {
-                            color: white;
-                            background-color: rgba(#197CD8, .5);
-                            border-color: rgba(#197CD8, 0);
+                            color: $white0;
+                            background-color: rgba($blue1, .5);
+                            border-color: rgba($blue1, 0);
                         }
                         &:disabled {
                             background-color: transparent;
-                            color: rgba(#0A0A1E, .5);
-                            border-color: rgba(#0A0A1E, .5);
+                            color: rgba($darkblue1, .5);
+                            border-color: rgba($darkblue1, .5);
                         }
                     }
                 }
@@ -273,79 +272,79 @@
             border-color: transparent;
             &:hover {
                 background-color: hsla(0, 84%, 65%, 0.4);
-                color: #FF5A5A;
+                color: $red0;
                 border-color: transparent;
             }
             &:not(:disabled):not(.disabled):active {
                 background-color: hsla(0, 84%, 65%, 0.4);
-                color: #FF5A5A;
+                color: $red0;
                 border-color: transparent;
             }
             &:disabled {
                 background-color: transparent;
-                color: rgba(white, .5);
-                border-color: rgba(white, .5);
+                color: rgba($white0, .5);
+                border-color: rgba($white0, .5);
             }
         }
         &.btn-success {
-            background-color: #36D69C;
-            color: #141429;
+            background-color: $green1;
+            color: $darkblue2;
             border-color: transparent;
             &:hover {
                 background-color: hsla(158, 87%, 39%, 0.4);
-                color: white;
+                color: $white0;
                 border-color: transparent;
             }
             &:not(:disabled):not(.disabled):active {
                 background-color: hsla(158, 87%, 39%, 0.4);
-                color: white;
+                color: $white0;
                 border-color: transparent;
             }
             &:disabled {
                 background-color: transparent;
-                color: rgba(white, .5);
-                border-color: rgba(white, .5);
+                color: rgba($white0, .5);
+                border-color: rgba($white0, .5);
             }
         }
         &.btn-warning {
-            background-color: #ffe070;
-            color: #141429;
+            background-color: $yellow3;
+            color: $darkblue2;
             border-color: transparent;
             &:hover {
                 background-color: hsla(47, 100%, 72%, 0.7);
-                color: white;
+                color: $white0;
                 border-color: transparent;
             }
             &:not(:disabled):not(.disabled):active {
                 background-color: hsla(47, 100%, 72%, 0.7);
-                color: white;
+                color: $white0;
                 border-color: transparent;
             }
             &:disabled {
                 background-color: transparent;
-                color: rgba(white, .5);
-                border-color: rgba(white, .5);
+                color: rgba($white0, .5);
+                border-color: rgba($white0, .5);
             }
         }
         &.rainbow {
             border-radius: 100px;
             .btn__label {
-                color: white;
+                color: $white0;
             }
         }
         &.minimal {
             border: 0;
             &.color-scheme {
                 &-DARK {
-                    color: white;
+                    color: $white0;
                     &:hover {
-                        color: rgba(white, .5);
+                        color: rgba($white0, .5);
                     }
                 }
                 &-LIGHT {
-                    color: #0A0A1E;
+                    color: $darkblue1;
                     &:hover {
-                        color: rgba(#0A0A1E, .5);
+                        color: rgba($darkblue1, .5);
                     }
                 }
             }
