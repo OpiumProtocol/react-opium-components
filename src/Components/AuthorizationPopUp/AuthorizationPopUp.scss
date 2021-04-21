@@ -1,0 +1,126 @@
+@import '../../Styles/index.scss';
+
+.AuthorizationPopUp {
+  &.modal {
+    .modal-header {
+      position: relative;
+      display: flex;
+      justify-content: space-between !important;
+      padding: 0 !important;
+      margin-bottom: 36px;
+      .close-button {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-block;
+
+        padding: 0;
+
+        outline: none;
+
+        &::before {
+          display: none;
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .modal-body {
+      .CheckBox {
+        max-width: 279px;
+        margin-bottom: 40px;
+
+        a {
+          color: #fff;
+          text-decoration: underline;
+
+          transition: color .25s ease;
+
+          &:hover {
+            color: rgba(#fff, .7);
+          }
+        }
+      }
+    }
+    .modal-title {
+      text-transform: none;
+      // margin-right: 36px;
+    }
+    .modal-dialog {
+      width: auto;
+      max-width: none;
+    }
+    .modal-content {
+      padding: 36px 32px;
+    }
+    .modal-body {
+      padding: 0;
+    }
+  }
+  
+  .AuthorizationPopUp {
+    &__wallets {
+      max-height: calc(189px + 23px);
+      margin-bottom: 12px;
+      overflow-y: auto;
+      .AuthorizationPopUp {
+        &__wallet {
+          outline: none;
+          border: none;
+          background: transparent;
+          color: inherit;
+
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          padding: 12px 30px;
+          border-radius: 5px;
+          border: 1px solid transparent;
+
+          margin-bottom: 5px;
+
+          transition: border-color .25s ease, opacity .25s ease;
+
+          &:hover {
+            cursor: pointer;
+            border-color: #fff;
+          }
+        }
+        &__icon {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          margin-right: 33px;
+        }
+      }
+
+      &.blocked {
+        .AuthorizationPopUp {
+          &__wallet {
+            opacity: .5;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+    &__more {
+      display: block;
+      width: auto;
+      outline: none;
+      border: none;
+      background: transparent;
+      margin: 0 auto;
+
+      text-decoration-line: underline;
+      color: #FFFFFF;
+
+      transition: color .25s ease;
+
+      &:hover {
+        color: rgba(#fff, .7);
+      }
+    }
+  }
+}
