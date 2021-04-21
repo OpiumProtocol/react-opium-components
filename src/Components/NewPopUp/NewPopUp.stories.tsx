@@ -35,7 +35,7 @@ export const newPopUp = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <Button theme={theme} label="Show New PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} style={{marginRight: '15px'}} />
+      <Button theme={theme} label="Show New PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} style={{ marginRight: '15px' }} />
       <Button theme={theme} label="Show New Warning PopUp" onClick={() => setWarningPopupIsOpen(!warningPopupIsOpen)} />
       <NewPopUp
         theme={theme}
@@ -58,6 +58,7 @@ export const newPopUp = () => {
             You can redeem your position during rebalancing phase without slippage if you are willing to wait.</p>
             <div style={{ marginBottom: '36px' }}>
               <Checkbox
+                theme={theme}
                 onChange={() => {}}
                 label="Do not show this massage again"
               />

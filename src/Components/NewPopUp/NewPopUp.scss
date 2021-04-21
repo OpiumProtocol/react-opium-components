@@ -1,22 +1,22 @@
 @import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
 
 .NewPopUp {
   &.modal {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: rgba(#0A0A1E, .4);
     .modal-header {
       position: relative;
       display: block;
-      // justify-content: space-between !important;
       padding: 0 !important;
       margin-bottom: 36px;
+      border: 0;
       .close-button {
         position: absolute;
         top: 0;
         right: 0;
-        // position: relative;
-        // top: auto;
-        // right: auto;
-        // display: inline-block;
-
         padding: 0;
 
         outline: none;
@@ -30,6 +30,10 @@
       }
     }
     .modal-title {
+      font-family: Montserrat;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 27px;
       text-transform: none;
     }
     .modal-dialog {
@@ -37,7 +41,41 @@
       max-width: none;
     }
     .modal-content {
+      border-radius: 10px;
+      color: color(white);
+
       padding: 36px 32px;
+
+      &.color-scheme {
+        &-DARK {
+          background: #0A0A1E;
+          border: 1px solid color(white);
+          color: #fff;
+          .modal-header {
+            .close-button {
+              svg {
+                line {
+                  stroke: color(white);
+                }
+              }
+            }
+          }
+        }
+        &-LIGHT {
+          background: #FFFFFF;
+          border: 1px solid #0A0A1E;
+          color: #0A0A1E;
+          .modal-header {
+            .close-button {
+              svg {
+                line {
+                  stroke: #0A0A1E;
+                }
+              }
+            }
+          }
+        }
+      }
     }
     .modal-body {
       padding: 0;
@@ -87,5 +125,9 @@
   }
   &__subtitle {
     display: block;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
   }
 }
