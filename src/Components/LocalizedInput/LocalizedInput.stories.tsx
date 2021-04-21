@@ -54,6 +54,8 @@ export const localizedInput = () => {
         value={setValue()}
         onClick={() => { }}
         onChange={handleChange}
+        maxButton="max"
+        maxValue="36"
       />
       <LocalizedInput
         theme={theme}
