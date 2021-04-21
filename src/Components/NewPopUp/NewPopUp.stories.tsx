@@ -5,6 +5,7 @@ import NewPopUp from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
+import Checkbox from '../Checkbox'
 
 export const newPopUp = () => {
   const message = text('Text', 'NewPopUp')
@@ -42,6 +43,41 @@ export const newPopUp = () => {
         closePopup={() => setPopupIsOpen(false)}
         component={(
           <p>My content</p>
+        )}
+      />
+      <NewPopUp
+        theme={theme}
+        warningTitle="Warning"
+        popupIsOpen={true}
+        closePopup={() => setPopupIsOpen(false)}
+        component={(
+          <div>
+            <p>The sllipage is hign on the secondary market. By proceeding with the transaction, you may lose some money.
+            You can redeem your position during rebalancing phase without slippage if you are willing to wait.</p>
+            <div style={{marginBottom: '36px'}}>
+              <Checkbox
+                onChange={() => {}}
+                label="Do not show this massage again"
+              />
+            </div>
+            <Button
+              theme={theme}
+              variant="secondary"
+              className="green"
+              size="sm"
+              label="proceed"
+              onClick={() => {}}
+              style={{width: 'calc(50% - 16px)', marginRight: '32px'}}
+            />
+            <Button
+              theme={theme}
+              variant="secondary"
+              size="sm"
+              label="cancel"
+              onClick={() => {}}
+              style={{width: 'calc(50% - 16px)'}}
+            />
+          </div>
         )}
       />
     </div>

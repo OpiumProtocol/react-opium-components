@@ -52,6 +52,39 @@
       }
     }
   }
+  &.warning {
+    &.modal {
+      .modal-body {
+        p {
+          font-family: Montserrat;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 16px;
+          
+          max-width: 274px;
+        }
+      }
+      .modal-header {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  &__warning-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #F6029C;
+
+    img {
+      margin-right: 10px;
+    }
+  }
   &__subtitle {
     display: block;
   }
