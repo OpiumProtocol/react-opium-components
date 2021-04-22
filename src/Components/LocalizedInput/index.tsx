@@ -77,7 +77,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
               return isEditing
                 ?
                 <NumericInput className={`form-control color-scheme-${theme} ${className} ${disabled && 'disabled'}`}
-                  style={styles}
+                  style={false}
                   value={value}
                   onChange={(value) => onChange(value)}
                   // onBlur={() => setIsEditing(false)}
