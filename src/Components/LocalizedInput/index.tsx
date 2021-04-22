@@ -40,7 +40,7 @@ const defaultProps: Props = {
 }
 
 const localize = (number: number | string, locale: string) => {
-  const formatter = new Intl.NumberFormat(locale, { style: 'decimal' })
+  const formatter = new Intl.NumberFormat(locale, { style: 'decimal', maximumFractionDigits: 20 })
   return formatter.format(+number)
 }
 
@@ -80,7 +80,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
                   style={false}
                   value={value}
                   onChange={(value) => onChange(value)}
-                  // onBlur={() => setIsEditing(false)}
+                  onBlur={() => setIsEditing(false)}
                   // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
                   pattern="^-?\d+\.?\d*"
                   disabled={disabled}

@@ -169,6 +169,7 @@ $font-sizes: (
 	background-color: $bg !important;
 	color: $color !important;
 	border: 1px solid $border-color !important;
+	border-radius: 4px;
 	&:focus {
 		background-color: $bg !important;
 		color: $color !important;
