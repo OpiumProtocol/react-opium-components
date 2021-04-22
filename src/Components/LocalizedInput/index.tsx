@@ -81,11 +81,13 @@ const LocalizedInput: FC<Props> = (props: Props) => {
   }
 
   const renderInput = () => {
+    const classNames = `OpiumInput ${className !== undefined ? className : ''} ${errorMessage !== undefined ? 'error' : ''} ${disabled ? 'disabled' : ''}`
+    
     switch (type) {
       case EFieldType.NUMBER:
         return isEditing
           ? <Form.Control
-            className={`OpiumInput${className !== undefined ? ' ' + className : ''}${disabled && ' disabled'}`}
+            className={classNames}
             style={styles}
             type="number"
             value={value === 0 ? '' : value}
@@ -95,7 +97,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             disabled={disabled}
           />
           : <Form.Control
-            className={`OpiumInput${className !== undefined ? ' ' + className : ''}${disabled && ' disabled'}`}
+            className={classNames}
             style={styles}
             type="text"
             value={localize(value, locale)}
@@ -108,7 +110,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
       default:
         return (
           <Form.Control
-            className={`OpiumInput${className !== undefined ? ' ' + className : ''}${disabled && ' disabled'}`}
+            className={classNames}
             style={styles}
             type={type}
             value={value === 0 ? '' : value}

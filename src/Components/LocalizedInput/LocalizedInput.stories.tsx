@@ -51,7 +51,17 @@ export const localizedInput = () => {
         type={type}
         value={setValue()}
         label="Label"
-        errorMessage="Error message"
+        onClick={() => { }}
+        onChange={handleChange}
+        maxButton="max"
+        maxValue="36"
+      />
+      <LocalizedInput
+        theme={theme}
+        type={type}
+        value={setValue()}
+        label="Label"
+        errorMessage={setValue() > 36 ? 'No enough doubloons' : undefined}
         onClick={() => { }}
         onChange={handleChange}
         maxButton="max"
