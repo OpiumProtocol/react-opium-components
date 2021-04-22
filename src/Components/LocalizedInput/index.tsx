@@ -9,6 +9,8 @@ import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
+import './LocalizedInput.scss'
+
 export type Props = {
   /** Define theme */
   theme?: ETheme

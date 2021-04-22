@@ -7,8 +7,6 @@ import Button from '../OpiumButton'
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
 
-import './LocalizedInput.scss'
-
 export const localizedInput = () => {
   const message = text('Text', 'LocalizedInput')
 
@@ -52,6 +50,8 @@ export const localizedInput = () => {
         theme={theme}
         type={type}
         value={setValue()}
+        label="Label"
+        errorMessage="Error message"
         onClick={() => { }}
         onChange={handleChange}
         maxButton="max"

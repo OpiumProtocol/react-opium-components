@@ -10,6 +10,8 @@
         font-size: 10px;
         line-height: 12px;
 
+        min-height: 12px;
+
         color: #fff;
 
         span {
@@ -58,7 +60,7 @@
     .OpiumFieldset {
         &__maxBtn {
             position: absolute;
-            top: 4px;
+            bottom: 6px;
             right: 0;
 
             font-family: Montserrat;
