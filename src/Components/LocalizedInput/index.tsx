@@ -1,5 +1,6 @@
 import React, { FC, useState, BaseSyntheticEvent, CSSProperties } from 'react'
 import { Form } from 'react-bootstrap'
+import NumericInput from 'react-numeric-input'
 
 import { ETheme, themes, widgetThemes } from '../../Constants/Types/theme.types'
 import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
@@ -74,14 +75,14 @@ const LocalizedInput: FC<Props> = (props: Props) => {
           switch (type) {
             case EFieldType.NUMBER:
               return isEditing
-                ? <Form.Control
-                  className={`${className} ${disabled && 'disabled'}`}
+                ?
+                <NumericInput className={`form-control color-scheme-${theme} ${className} ${disabled && 'disabled'}`}
                   style={styles}
-                  type="number"
-                  value={value === 0 ? '' : value}
-                  onChange={(e) => onChange(+e.target.value)}
-                  onBlur={() => setIsEditing(false)}
-                  onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+                  value={value}
+                  onChange={(value) => onChange(value)}
+                  // onBlur={() => setIsEditing(false)}
+                  // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+                  pattern="^-?\d+\.?\d*"
                   disabled={disabled}
                 />
                 : <Form.Control
