@@ -78,7 +78,10 @@ const NewPopUp: React.FC<Props> = (props: Props) => {
             {title && <Modal.Title>{title}</Modal.Title>}
             <div className="NewPopUp__subtitle">{subtitle}</div>
             {warningTitle && (
-              <div className="NewPopUp__warning-title">
+              <div
+                className="NewPopUp__warning-title"
+                style={{marginTop: (title && warningTitle) ? '30px' : undefined}}
+              >
                 <img src={AttentionLogo} className="attention-icon" />
                 <span className={'attention-text'}>{warningTitle}</span>
               </div>
