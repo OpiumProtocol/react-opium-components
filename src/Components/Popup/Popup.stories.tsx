@@ -7,7 +7,7 @@ import Button from '../OpiumButton'
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import Checkbox from '../Checkbox'
 
-export const newPopUp = () => {
+export const popUp = () => {
   const message = text('Text', 'PopUp')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
@@ -35,8 +35,8 @@ export const newPopUp = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <Button theme={theme} label="Show New PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} style={{ marginRight: '15px' }} />
-      <Button theme={theme} label="Show New Warning PopUp" onClick={() => setWarningPopupIsOpen(!warningPopupIsOpen)} />
+      <Button theme={theme} label="Show PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} style={{ marginRight: '15px' }} />
+      <Button theme={theme} label="Show Warning PopUp" onClick={() => setWarningPopupIsOpen(!warningPopupIsOpen)} />
       <PopUp
         theme={theme}
         title="Title"
