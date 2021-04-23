@@ -7,7 +7,7 @@ import { ETheme } from '../../Constants/Types/theme.types'
 // @ts-ignore
 import AttentionLogo from '../../Images/attention.svg'
 
-import './PopUp.scss'
+import './Popup.scss'
 
 export type Props = {
   /** Define theme */
@@ -51,7 +51,7 @@ const defaultProps: Props = {
   closePopup: () => {}
 }
 
-const PopUp: React.FC<Props> = (props: Props) => {
+const Popup: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
@@ -102,4 +102,4 @@ const PopUp: React.FC<Props> = (props: Props) => {
   )
 }
 
-export default PopUp
+export default Popup

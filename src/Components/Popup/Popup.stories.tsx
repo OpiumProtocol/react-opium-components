@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import PopUp from './index'
+import Popup from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import Checkbox from '../Checkbox'
 
-export const popUp = () => {
+export const popup = () => {
   const message = text('Text', 'PopUp')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
@@ -37,7 +37,7 @@ export const popUp = () => {
       </div>
       <Button theme={theme} label="Show PopUp" onClick={() => setPopupIsOpen(!popupIsOpen)} style={{ marginRight: '15px' }} />
       <Button theme={theme} label="Show Warning PopUp" onClick={() => setWarningPopupIsOpen(!warningPopupIsOpen)} />
-      <PopUp
+      <Popup
         theme={theme}
         title="Title"
         subtitle="subtitle"
@@ -47,7 +47,7 @@ export const popUp = () => {
           <p>My content</p>
         )}
       />
-      <PopUp
+      <Popup
         theme={theme}
         warningTitle="Warning"
         popupIsOpen={warningPopupIsOpen}
@@ -87,8 +87,8 @@ export const popUp = () => {
   )
 }
 export default {
-  title: 'PopUp component',
+  title: 'Popup component',
   decorators: [withKnobs],
-  component: PopUp,
+  component: Popup,
   parameters: {},
 }
