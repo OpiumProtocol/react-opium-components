@@ -1,5 +1,5 @@
 import Alert from './Components/Alert'
-import PopUp from './Components/PopUp'
+// import PopUp from './Components/PopUp'
 import Table, { TTableDimension, TTableHeight } from './Components/Table'
 import Tabs from './Components/OpiumTabs'
 import Loading from './Components/Loading'
@@ -38,7 +38,7 @@ import colors from './Styles/exportColors.scss'
 export {
   Tabs,
   Alert,
-  PopUp,
+  // PopUp,
   Table,
   Button,
   Loading,
