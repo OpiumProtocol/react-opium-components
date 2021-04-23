@@ -9,6 +9,7 @@
         li {
             &:hover {
                 cursor: pointer;
+                transition: color .25s ease;
             }
         }
     }
@@ -103,18 +104,36 @@
                     fill: #fff;
                 }
             }
+
+            ul {
+                li {
+                    color: #fff;
+                    &:hover {
+                        color: rgba(#fff, .7);
+                    }
+                }
+            }
         }
         &-LIGHT {
-            color: #000;
+            color: #0a0a1e;
 
             .dropdown-menu {
                 background-color: #fff;
-                border: 1px solid #000;
-                color: #000;
+                border: 1px solid #0a0a1e;
+                color: #0a0a1e;
             }
             .SelectCustomized__arrow {
                 path {
-                    fill: #000;
+                    fill: #0a0a1e;
+                }
+            }
+
+            ul {
+                li {
+                    color: #0a0a1e;
+                    &:hover {
+                        color: rgba(#0a0a1e, .7);
+                    }
                 }
             }
         }
