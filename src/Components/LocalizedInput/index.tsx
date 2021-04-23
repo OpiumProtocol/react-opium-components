@@ -82,7 +82,6 @@ const LocalizedInput: FC<Props> = (props: Props) => {
                   onChange={(value) => onChange(value)}
                   onBlur={() => setIsEditing(false)}
                   // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
-                  pattern="^-?\d+\.?\d*"
                   disabled={disabled}
                 />
                 : <Form.Control
