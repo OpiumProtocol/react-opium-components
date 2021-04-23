@@ -1,5 +1,5 @@
 import Alert from './Components/Alert'
-import Popup from './Components/Popup'
+import Popup from './Components/PopUp'
 import Table, { TTableDimension, TTableHeight } from './Components/Table'
 import Tabs from './Components/OpiumTabs'
 import Loading from './Components/Loading'
@@ -21,7 +21,6 @@ import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
 import AuthorizationPopUp from './Components/AuthorizationPopUp'
 import Switcher from './Components/Switcher'
-import NewPopUp from './Components/NewPopUp'
 import ProgressBar from './Components/ProgressBar'
 
 import {
@@ -58,7 +57,6 @@ export {
   GTMWrapper,
   BlockWithList,
   Switcher,
-  NewPopUp,
   Chart,
   Checkbox,
   ProgressBar,
