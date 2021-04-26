@@ -21,21 +21,35 @@ export const containerWithCollapse = () => {
   const componentsArr = [
     {
       id: 0,
-      content: 'hidden content 123',
+      content: 'hidden content 23',
       headerText: 'Header hello!',
-      accentColor: '#F6029C'
+      accentColor: '#F6029C',
+      disabled: false,
+      disabledMessage: ''
     },
     {
       id: 1,
-      content: 'hidden content 234',
+      content: 'hidden content 134',
       headerText: 'Header hello!',
-      accentColor: '#2ECD94'
+      accentColor: '#2ECD94',
+      disabled: false,
+      disabledMessage: ''
     },
     {
       id: 2,
-      content: 'hidden content 345',
+      content: 'hidden content 245',
       headerText: 'Header hello!',
-      accentColor: '#fff'
+      accentColor: '#fff',
+      disabled: false,
+      disabledMessage: ''
+    },
+    {
+      id: 3,
+      content: 'hidden content 355',
+      headerText: 'Header hello!',
+      accentColor: '#fff',
+      disabled: true,
+      disabledMessage: 'I am disabled'
     },
   ]
 
@@ -85,6 +99,8 @@ export const containerWithCollapse = () => {
                 accentColor={el.accentColor}
                 header={headerContent}
                 body={el.content}
+                disabled={el.disabled}
+                disabledMessage={el.disabledMessage}
               />
             )
           })
