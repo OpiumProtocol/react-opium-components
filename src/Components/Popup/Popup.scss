@@ -1,21 +1,133 @@
 @import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
 
-.modal {
-    & .modal-fit-content {
-        width: fit-content;
-    }
-
-    & .modal-content.modal-p-0 {
+.Popup {
+  &.modal {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: rgba($darkblue1, .4);
+    .modal-header {
+      position: relative;
+      display: block;
+      padding: 0 !important;
+      margin-bottom: 36px;
+      border: 0;
+      .close-button {
+        position: absolute;
+        top: 0;
+        right: 0;
         padding: 0;
-    }
 
-    & .modal-content.color-scheme-LIGHT.modal-transparent {
-        background-color: transparent;
-        border: 1px solid transparent;
-    }
+        outline: none;
 
-    & .modal-content.color-scheme-DARK.modal-transparent {
-        background-color: transparent;
-        border: 1px solid transparent;
+        &::before {
+          display: none;
+        }
+        &::after {
+          display: none;
+        }
+      }
     }
+    .modal-title {
+      font-family: Montserrat;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 27px;
+      text-transform: none;
+    }
+    .modal-dialog {
+      width: auto;
+      max-width: none;
+    }
+    .modal-content {
+      border-radius: 10px;
+      color: color(white);
+
+      padding: 36px 32px;
+
+      &.color-scheme {
+        &-DARK {
+          background: $darkblue1;
+          border: 1px solid color(white);
+          color: color(white);
+          .modal-header {
+            .close-button {
+              svg {
+                line {
+                  stroke: color(white);
+                }
+              }
+            }
+          }
+        }
+        &-LIGHT {
+          background: color(white);
+          border: 1px solid $darkblue1;
+          color: $darkblue1;
+          .modal-header {
+            .close-button {
+              svg {
+                line {
+                  stroke: $darkblue1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .modal-body {
+      padding: 0;
+    }
+    .modal-footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      margin-bottom: 4px;
+      & * {
+        margin: inherit;
+      }
+    }
+  }
+  &.warning {
+    &.modal {
+      .modal-body {
+        p {
+          font-family: Montserrat;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 16px;
+          
+          max-width: 274px;
+        }
+      }
+      .modal-header {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  &__warning-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: $pink;
+
+    img {
+      margin-right: 10px;
+    }
+  }
+  &__subtitle {
+    display: block;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

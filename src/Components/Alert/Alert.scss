@@ -1,62 +1,62 @@
-@import '../../Styles/index.scss';
+// @import '../../Styles/index.scss';
 
 
-.modal {
-  .modal-header {
-    padding: 0 32px !important;
-    justify-content: left !important;
-  }
+// .modal {
+//   .modal-header {
+//     padding: 0 32px !important;
+//     justify-content: left !important;
+//   }
 
-  .modal-title {
-    &:not(:last-child) {
-      margin-bottom: 0 !important;
-      text-transform: uppercase;
-      text-align: left;
-    }
+//   .modal-title {
+//     &:not(:last-child) {
+//       margin-bottom: 0 !important;
+//       text-transform: uppercase;
+//       text-align: left;
+//     }
 
-  }
+//   }
 
-  .modal-description {
-    font-size: fz(m);
-    text-align: left;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-    &:not(:last-child) {
-      margin-bottom: 16px;
-    }
-  }
+//   .modal-description {
+//     font-size: fz(m);
+//     text-align: left;
+//     margin: 0;
+//     font-family: 'Montserrat', sans-serif;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 12px;
+//     line-height: 16px;
+//     &:not(:last-child) {
+//       margin-bottom: 16px;
+//     }
+//   }
 
-  .attention-icon-wrap {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: left;
-    border-radius: 50%;
-    position: relative;
-    margin-bottom: 10px;
-    .loading {
-      position: relative;
-      top: auto;
-      left: auto;
-      transform: none;
-    }
+//   .attention-icon-wrap {
+//     width: 100%;
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: left;
+//     border-radius: 50%;
+//     position: relative;
+//     margin-bottom: 10px;
+//     .loading {
+//       position: relative;
+//       top: auto;
+//       left: auto;
+//       transform: none;
+//     }
 
-    .attention-icon {
-      width: 20px;
-      margin-right: 10px;
-    }
+//     .attention-icon {
+//       width: 20px;
+//       margin-right: 10px;
+//     }
 
-    .attention-text {
-      font-family: 'Montserrat', sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 17px;
-      color: #F60268;
-    }
-  }
-}
+//     .attention-text {
+//       font-family: 'Montserrat', sans-serif;
+//       font-style: normal;
+//       font-weight: 500;
+//       font-size: 14px;
+//       line-height: 17px;
+//       color: #F60268;
+//     }
+//   }
+// }

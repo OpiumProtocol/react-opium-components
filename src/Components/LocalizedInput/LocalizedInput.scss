@@ -1,1 +1,80 @@
 @import '../../Styles/index.scss';
+
+.OpiumFieldset {
+    position: relative;
+    margin-bottom: 12px;
+    &__label {
+        position: relative;
+        font-family: Montserrat;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 12px;
+
+        min-height: 12px;
+
+        color: #fff;
+
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #F6029C;
+        }
+    }
+    .OpiumInput {
+        height: 24px;
+        background: transparent;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(white, .3);
+        color: white;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 24px;
+        padding: 0;
+
+        transition: border-color .25s ease;
+
+        &:focus {
+            background-color: transparent;
+            color: #fff;
+            border-color: white;
+        }
+
+        &:disabled,
+        .form-control[readonly] {
+            background: transparent;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        &.error {
+            border-color: #F6029C;
+        }
+    }
+    .OpiumFieldset {
+        &__maxBtn {
+            position: absolute;
+            bottom: 6px;
+            right: 0;
+
+            font-family: Montserrat;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 12px;
+
+            padding: 0 6px;
+        }
+    }
+}

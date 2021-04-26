@@ -24,6 +24,8 @@ export type Props = {
   disabled?: boolean
   /** Set button variant */
   variant?: TVariant
+  /** Button size */
+  size?: 'sm' | 'md' | 'lg'
   /** Set class selectors */
   className?: string
   /** Set styles */
@@ -46,7 +48,6 @@ export const defaultProps: Props = {
 }
 
 const OpiumButton: FC<Props> = (props: Props) => {
-  const [hover, setHover] = useState<boolean>(false)
 
   const rainbowCoverRef = useRef<HTMLSpanElement>(null)
   const rainbowLabelRef = useRef<HTMLSpanElement>(null)
@@ -62,6 +63,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
     style,
     disabled,
     variant,
+    size,
     className,
     onMouseEnter,
     onMouseLeave,
@@ -69,12 +71,9 @@ const OpiumButton: FC<Props> = (props: Props) => {
 
   const { color, backgroundColor, borderColor, ...restStyles } = themes[theme as ETheme]
 
-  const coreStyles = { ...restStyles, ...style }
+  const coreStyles = { ...style }
 
   const monoStyles = {
-    backgroundColor: backgroundColor[variant as TVariant].value,
-    borderColor: borderColor[variant as TVariant].value,
-    color: color[variant as TVariant].value,
     ...coreStyles,
   }
 
@@ -93,22 +92,6 @@ const OpiumButton: FC<Props> = (props: Props) => {
 
   const rainbowLabel = {
     color: color['rainbow'].value,
-  }
-
-  if (hover) {
-    monoStyles.backgroundColor = backgroundColor[variant as TVariant].hover
-    monoStyles.borderColor = borderColor[variant as TVariant].hover
-    monoStyles.color = color[variant as TVariant].hover
-    rainbowCover.opacity = '0.8'
-    rainbowCover.background = backgroundColor['rainbow'].hover
-    rainbowLabel.color = color['rainbow'].hover
-  }
-
-  if (disabled) {
-    monoStyles.backgroundColor = backgroundColor[variant as TVariant].disabled
-    monoStyles.borderColor = borderColor[variant as TVariant].disabled
-    monoStyles.color = color[variant as TVariant].disabled
-    rainbowLabel.color = color['rainbow'].disabled
   }
 
   const target = newTab ? '_blank' : undefined
@@ -142,10 +125,8 @@ const OpiumButton: FC<Props> = (props: Props) => {
             rel={rel}
             target={target}
             disabled={disabled}
-            className={`${className}`}
+            className={`opiumBtn color-scheme-${theme} ${className}`}
             style={rainbowStyles}
-            onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
-            onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
             {...rest}
           >
             <span
@@ -169,10 +150,9 @@ const OpiumButton: FC<Props> = (props: Props) => {
             rel={rel}
             target={target}
             disabled={disabled}
-            className={`${className}`}
+            className={`opiumBtn color-scheme-${theme}${size ? ' ' + size : ''}${className ? ' ' + className : ''}`}
+            variant={variant}
             style={monoStyles}
-            onMouseEnter={onMouseEnter ? () => onMouseEnter() : () => setHover(true)}
-            onMouseLeave={onMouseLeave ? () => onMouseLeave() : () => setHover(false)}
             {...rest}
           >
             {label}
