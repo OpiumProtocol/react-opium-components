@@ -12,68 +12,118 @@
     margin: 0;
   }
 
-  .toggle-switch {
-    appearance: none;
-    outline: none;
+  span {
     position: relative;
     cursor: pointer;
-    width: 22px;
-    height: 12px;
-    border-radius: 100px;
-    background: transparent;
+    margin-left: 30px;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 4px;
+      width: 22px;
+      height: 12px;
+      border-radius: 100px;
+      background: transparent;
+    }
 
     &::after {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
-      bottom: 3px;
+      top: 7px;
+      left: -27px;
       width: 6px;
+      height: 6px;
       border-radius: 50%;
       transition: transform .25s ease;
     }
-  
-    &:checked::after {
-      transform: translateX(calc(22px - 13px + 1px));
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    &:checked + span {
+      &::after {
+        transform: translateX(calc(22px - 13px + 1px));
+      }
     }
-      
-    &+label {
-      cursor: pointer;
-    }
-      
   }
 
   &.color-scheme {
     &-DARK {
-      .toggle-switch {
-        box-shadow: inset 0 0 0 1px #fff;
+      span {
+        color: #fff;
+
+        &:before {
+          box-shadow: inset 0 0 0 1px #fff;
+        }
 
         &::after {
           background-color: #fff;
         }
+      }
 
+      input {
         &:checked::after {
           background-color: #fff;
         }
       }
-      label {
-        color: #fff;
+
+      &.theme {
+        span {
+          &:before {
+            background: #fff;
+          }
+  
+          &::after {
+            background-color: #000;
+          }
+        }
+  
+        input {
+          &:checked::after {
+            background-color: #000;
+          }
+        }
       }
     }
     &-LIGHT {
-      .toggle-switch {
-        box-shadow: inset 0 0 0 1px #0A0A1E;
+      span {
+        color: #0A0A1E;
+
+        &:before {
+          box-shadow: inset 0 0 0 1px #0A0A1E;
+        }
 
         &::after {
           background-color: #0A0A1E;
         }
+      }
 
+      input {
         &:checked::after {
           background-color: #0A0A1E;
         }
       }
-      label {
-        color: #0A0A1E;
+
+      &.theme {
+        span {
+          &:before {
+            background: #0A0A1E;
+          }
+  
+          &::after {
+            background-color: #fff;
+          }
+        }
+  
+        input {
+          &:checked::after {
+            background-color: #fff;
+          }
+        }
       }
     }
   }

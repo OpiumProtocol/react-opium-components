@@ -8,6 +8,8 @@ import './Switcher.scss'
 export type Props = {
   /** Define theme */
   theme?: ETheme
+  /** Custom class */
+  className?: string
   /** To set the target */
   id: string
   /** Label of current switcher */
@@ -29,6 +31,7 @@ const Switcher: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const {
     theme,
+    className,
     id,
     label,
     onChange,
@@ -37,7 +40,7 @@ const Switcher: React.FC<Props> = (props: Props) => {
   } = renderProps
 
   return (
-    <div className={`Switcher color-scheme-${theme}`}>
+    <label className={`Switcher ${className ? className : ''} color-scheme-${theme}`}>
       <input
         type="checkbox"
         className="toggle-switch"
@@ -54,9 +57,9 @@ const Switcher: React.FC<Props> = (props: Props) => {
         }}
       />
       {
-        label && <label htmlFor={id}>{label}</label>
+        label && <span>{label}</span>
       }
-    </div>
+    </label>
   )
 }
 
