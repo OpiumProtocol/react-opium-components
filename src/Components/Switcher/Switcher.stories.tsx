@@ -32,30 +32,44 @@ export const switcher = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <Switcher
-        theme={theme}
-        id="toggle"
-        uncontrolled
-        label={theme === ETheme.DARK ? 'Switcher. Dark mode' : 'Switcher. Light mode'}
-        checked={theme === ETheme.DARK}
-        onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
-      />
-      <Switcher
-        theme={theme}
-        id="toggle"
-        className="theme"
-        uncontrolled
-        label={theme === ETheme.DARK ? 'Theme. Dark mode' : 'Theme. Light mode'}
-        checked={theme === ETheme.DARK}
-        onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
-      />
-      <Switcher
-        theme={theme}
-        id="toggle2"
-        uncontrolled={false}
-        label={theme === ETheme.DARK ? 'Switcher. Dark mode' : 'Switcher. Light mode'}
-        onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
-      />
+      <div>
+        <Switcher
+          theme={theme}
+          // id="toggle"
+          uncontrolled
+          label={theme === ETheme.DARK ? 'Switcher. Dark mode' : 'Switcher. Light mode'}
+          checked={theme === ETheme.DARK}
+          onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
+        />
+      </div>
+      <div>
+        <Switcher
+          theme={theme}
+          // id="toggle"
+          className="theme"
+          uncontrolled
+          label={theme === ETheme.DARK ? 'Theme. Dark mode' : 'Theme. Light mode'}
+          checked={theme === ETheme.DARK}
+          onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
+        />
+      </div>
+      <div>
+        <Switcher
+          theme={theme}
+          // id="toggle2"
+          uncontrolled={false}
+          label={theme === ETheme.DARK ? 'Switcher. Dark mode' : 'Switcher. Light mode'}
+          onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
+        />
+      </div>
+      <div>
+        <Switcher
+          theme={theme}
+          // id="toggle2"
+          uncontrolled={false}
+          onChange={(value: boolean) => setTheme(!value ? ETheme.LIGHT : ETheme.DARK)}
+        />
+      </div>
     </div>
   )
 }
