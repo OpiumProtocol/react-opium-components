@@ -25,7 +25,8 @@ export const containerWithCollapse = () => {
       headerText: 'Header hello!',
       accentColor: '#F6029C',
       disabled: false,
-      disabledMessage: ''
+      disabledMessage: '',
+      hoverControlled: false
     },
     {
       id: 1,
@@ -33,7 +34,8 @@ export const containerWithCollapse = () => {
       headerText: 'Header hello!',
       accentColor: '#2ECD94',
       disabled: false,
-      disabledMessage: ''
+      disabledMessage: '',
+      hoverControlled: false
     },
     {
       id: 2,
@@ -41,7 +43,8 @@ export const containerWithCollapse = () => {
       headerText: 'Header hello!',
       accentColor: '#fff',
       disabled: false,
-      disabledMessage: ''
+      disabledMessage: '',
+      hoverControlled: false
     },
     {
       id: 3,
@@ -49,7 +52,17 @@ export const containerWithCollapse = () => {
       headerText: 'Header hello!',
       accentColor: '#fff',
       disabled: true,
-      disabledMessage: 'I am disabled'
+      disabledMessage: 'I am disabled',
+      hoverControlled: false
+    },
+    {
+      id: 4,
+      content: 'hidden content 455',
+      headerText: 'Header hello!',
+      accentColor: '#fff',
+      disabled: false,
+      disabledMessage: 'I am disabled',
+      hoverControlled: true
     },
   ]
 
@@ -101,6 +114,7 @@ export const containerWithCollapse = () => {
                 body={el.content}
                 disabled={el.disabled}
                 disabledMessage={el.disabledMessage}
+                hoverControlled={el.hoverControlled}
               />
             )
           })

@@ -20,6 +20,7 @@ export type Props = {
   eventKey: string,
   disabled?: boolean
   disabledMessage?: string
+  hoverControlled?: boolean
 }
 
 const defaultProps: Props = {
@@ -40,6 +41,7 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
     body,
     eventKey,
     disabled,
+    hoverControlled,
     disabledMessage
   } = renderProps
 
@@ -48,9 +50,9 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
   return (
     <div className={`ContainerWithCollapse ${className ? className : ''} color-scheme-${theme} ${disabled ? 'ContainerWithCollapse_disabled' : ''}`}>
       <Accordion
-        style={{ borderColor: (hovered && !disabled) ? accentColor : 'transparent' }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        style={{ borderColor: ((hovered && !disabled) || hoverControlled) ? accentColor : 'transparent' }}
+        onMouseEnter={() => !hoverControlled && setHovered(true)}
+        onMouseLeave={() => !hoverControlled && setHovered(false)}
       >
         <Card>
           <Card.Header>
