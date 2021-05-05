@@ -1,4 +1,5 @@
 @import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
 
 .Switcher {
   display: inline-block;
@@ -53,74 +54,74 @@
   &.color-scheme {
     &-DARK {
       span {
-        color: #fff;
+        color: $white0;
 
         &:before {
-          box-shadow: inset 0 0 0 1px #fff;
+          box-shadow: inset 0 0 0 1px $white0;
         }
 
         &::after {
-          background-color: #fff;
+          background-color: $white0;
         }
       }
 
       input {
         &:checked::after {
-          background-color: #fff;
+          background-color: $white0;
         }
       }
 
       &.theme {
         span {
           &:before {
-            background: #fff;
+            background: $white0;
           }
   
           &::after {
-            background-color: #000;
+            background-color: $darkblue1;
           }
         }
   
         input {
           &:checked::after {
-            background-color: #000;
+            background-color: $darkblue1;
           }
         }
       }
     }
     &-LIGHT {
       span {
-        color: #0A0A1E;
+        color: $darkblue1;
 
         &:before {
-          box-shadow: inset 0 0 0 1px #0A0A1E;
+          box-shadow: inset 0 0 0 1px $darkblue1;
         }
 
         &::after {
-          background-color: #0A0A1E;
+          background-color: $darkblue1;
         }
       }
 
       input {
         &:checked::after {
-          background-color: #0A0A1E;
+          background-color: $darkblue1;
         }
       }
 
       &.theme {
         span {
           &:before {
-            background: #0A0A1E;
+            background: $darkblue1;
           }
   
           &::after {
-            background-color: #fff;
+            background-color: $white0;
           }
         }
   
         input {
           &:checked::after {
-            background-color: #fff;
+            background-color: $white0;
           }
         }
       }
