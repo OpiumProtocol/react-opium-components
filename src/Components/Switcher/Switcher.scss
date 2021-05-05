@@ -1,8 +1,8 @@
 @import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
 
 .Switcher {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   gap: 7px;
 
   label {
@@ -12,68 +12,118 @@
     margin: 0;
   }
 
-  .toggle-switch {
-    appearance: none;
-    outline: none;
+  span {
     position: relative;
     cursor: pointer;
-    width: 22px;
-    height: 12px;
-    border-radius: 100px;
-    background: transparent;
+    margin-left: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 4px;
+      width: 22px;
+      height: 12px;
+      border-radius: 100px;
+      background: transparent;
+    }
 
     &::after {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
-      bottom: 3px;
+      top: 7px;
+      left: -27px;
       width: 6px;
+      height: 6px;
       border-radius: 50%;
       transition: transform .25s ease;
     }
-  
-    &:checked::after {
-      transform: translateX(calc(22px - 13px + 1px));
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    &:checked + span {
+      &::after {
+        transform: translateX(calc(22px - 13px + 1px));
+      }
     }
-      
-    &+label {
-      cursor: pointer;
-    }
-      
   }
 
   &.color-scheme {
     &-DARK {
-      .toggle-switch {
-        box-shadow: inset 0 0 0 1px #fff;
+      span {
+        color: $white0;
+
+        &:before {
+          box-shadow: inset 0 0 0 1px $white0;
+        }
 
         &::after {
-          background-color: #fff;
-        }
-
-        &:checked::after {
-          background-color: #fff;
+          background-color: $white0;
         }
       }
-      label {
-        color: #fff;
+
+      input {
+        &:checked::after {
+          background-color: $white0;
+        }
+      }
+
+      &.theme {
+        span {
+          &:before {
+            background: $white0;
+          }
+  
+          &::after {
+            background-color: $darkblue1;
+          }
+        }
+  
+        input {
+          &:checked::after {
+            background-color: $darkblue1;
+          }
+        }
       }
     }
     &-LIGHT {
-      .toggle-switch {
-        box-shadow: inset 0 0 0 1px #0A0A1E;
+      span {
+        color: $darkblue1;
+
+        &:before {
+          box-shadow: inset 0 0 0 1px $darkblue1;
+        }
 
         &::after {
-          background-color: #0A0A1E;
-        }
-
-        &:checked::after {
-          background-color: #0A0A1E;
+          background-color: $darkblue1;
         }
       }
-      label {
-        color: #0A0A1E;
+
+      input {
+        &:checked::after {
+          background-color: $darkblue1;
+        }
+      }
+
+      &.theme {
+        span {
+          &:before {
+            background: $darkblue1;
+          }
+  
+          &::after {
+            background-color: $white0;
+          }
+        }
+  
+        input {
+          &:checked::after {
+            background-color: $white0;
+          }
+        }
       }
     }
   }
