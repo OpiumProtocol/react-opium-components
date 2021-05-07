@@ -5,6 +5,8 @@ import {
   Card,
 } from 'react-bootstrap'
 
+import _ from '../../Styles/exportColors.scss'
+
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
@@ -36,7 +38,7 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
   const {
     className,
     theme,
-    accentColor,
+    accentColor: accentColorProp,
     header,
     body,
     eventKey,
@@ -44,6 +46,8 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
     hoverControlled,
     disabledMessage
   } = renderProps
+
+  let accentColor = (theme === ETheme.LIGHT && accentColorProp === _.white0) ? _.darkblue1 : accentColorProp
 
   const [hovered, setHovered] = React.useState(false)
 

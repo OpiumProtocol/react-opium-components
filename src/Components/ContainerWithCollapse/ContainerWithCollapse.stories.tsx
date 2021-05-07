@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
+import _ from '../../Styles/exportColors.scss'
+
 import {
   useAccordionToggle
 } from 'react-bootstrap'
@@ -41,7 +43,7 @@ export const containerWithCollapse = () => {
       id: 2,
       content: 'hidden content 245',
       headerText: 'Header hello!',
-      accentColor: '#fff',
+      accentColor: _.white0,
       disabled: false,
       disabledMessage: '',
       hoverControlled: false
@@ -50,7 +52,7 @@ export const containerWithCollapse = () => {
       id: 3,
       content: 'hidden content 355',
       headerText: 'Header hello!',
-      accentColor: '#fff',
+      accentColor: _.white0,
       disabled: true,
       disabledMessage: 'I am disabled',
       hoverControlled: false
@@ -59,7 +61,7 @@ export const containerWithCollapse = () => {
       id: 4,
       content: 'hidden content 455',
       headerText: 'Header hello!',
-      accentColor: '#fff',
+      accentColor: _.white0,
       disabled: false,
       disabledMessage: 'I am disabled',
       hoverControlled: true
