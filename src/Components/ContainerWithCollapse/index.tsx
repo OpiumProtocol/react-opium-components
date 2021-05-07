@@ -49,6 +49,8 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
 
   let accentColor = (theme === ETheme.LIGHT && accentColorProp === _.white0) ? _.darkblue1 : accentColorProp
 
+  console.log('accentColorProp, _.white0', accentColorProp, _.white0)
+
   const [hovered, setHovered] = React.useState(false)
 
   return (
