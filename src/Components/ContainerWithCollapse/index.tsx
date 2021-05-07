@@ -15,6 +15,7 @@ import './ContainerWithCollapse.scss'
 export type Props = {
   className?: string
   accentColor?: string
+  accentColorLight?: string
   /** Define theme */
   theme?: ETheme
   header: any
@@ -39,6 +40,7 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
     className,
     theme,
     accentColor: accentColorProp,
+    accentColorLight: accentColorLightProp,
     header,
     body,
     eventKey,
@@ -47,9 +49,7 @@ const ContainerWithCollapse: React.FC<Props> = (props: Props) => {
     disabledMessage
   } = renderProps
 
-  let accentColor = (theme === ETheme.LIGHT && accentColorProp === _.white0) ? _.darkblue1 : accentColorProp
-
-  console.log('accentColorProp, _.white0', accentColorProp, _.white0)
+  let accentColor = (theme === ETheme.LIGHT && accentColorLightProp) ? accentColorLightProp : accentColorProp
 
   const [hovered, setHovered] = React.useState(false)
 

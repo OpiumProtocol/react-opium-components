@@ -44,6 +44,7 @@ export const containerWithCollapse = () => {
       content: 'hidden content 245',
       headerText: 'Header hello!',
       accentColor: _.white0,
+      accentColorLight: _.darkblue1,
       disabled: false,
       disabledMessage: '',
       hoverControlled: false
@@ -53,6 +54,7 @@ export const containerWithCollapse = () => {
       content: 'hidden content 355',
       headerText: 'Header hello!',
       accentColor: _.white0,
+      accentColorLight: _.darkblue1,
       disabled: true,
       disabledMessage: 'I am disabled',
       hoverControlled: false
@@ -62,6 +64,7 @@ export const containerWithCollapse = () => {
       content: 'hidden content 455',
       headerText: 'Header hello!',
       accentColor: _.white0,
+      accentColorLight: _.darkblue1,
       disabled: false,
       disabledMessage: 'I am disabled',
       hoverControlled: true
@@ -112,6 +115,7 @@ export const containerWithCollapse = () => {
                 key={el.id.toString()}
                 theme={theme}
                 accentColor={el.accentColor}
+                accentColorLight={el.accentColorLight}
                 header={headerContent}
                 body={el.content}
                 disabled={el.disabled}
