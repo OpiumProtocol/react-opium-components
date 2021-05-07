@@ -8,6 +8,7 @@
     font-size: 12px;
     padding: 4px 8px;
     font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 
     text-transform: uppercase;
     &:focus {
@@ -36,6 +37,7 @@
 
 .opiumBtn {
     &.btn {
+        font-family: 'Montserrat', sans-serif;
         padding: 6px 20px;
         border-width: 1px;
         border-radius: 100px;

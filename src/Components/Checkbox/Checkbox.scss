@@ -54,6 +54,11 @@
             font-weight: normal;
             font-size: 10px;
             line-height: 16px;
+
+            a {
+                text-decoration: underline;
+                transition: color .25s ease;
+            }
         }
     }
   
@@ -63,7 +68,17 @@
 
     &.color-scheme {
         &-DARK {
-            color: #fff;
+            color: $white0;
+
+            .CheckBox {
+                &__label {
+                    a {
+                        color: $white0;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
             .checkmark {
                 border-color: #fff;
 
@@ -74,6 +89,16 @@
         }
         &-LIGHT {
             color: #000;
+
+            .CheckBox {
+                &__label {
+                    a {
+                        color: $darkblue1;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
             .checkmark {
                 border-color: #000;
                 
