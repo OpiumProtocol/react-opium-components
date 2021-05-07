@@ -24,6 +24,8 @@ export type Props = {
   disabled?: boolean
   /** Set button variant */
   variant?: TVariant
+  /** Set disabled button */
+  disableButton?: number
 }
 
 const defaultProps: Props = {
@@ -39,7 +41,7 @@ const defaultProps: Props = {
 
 const Segments: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
-  const { currentValue, items, theme, variant, onClick, className, uncontrolled, disabled } = renderProps
+  const { currentValue, items, theme, variant, onClick, className, uncontrolled, disabled, disableButton } = renderProps
 
   return (
     <div className={`segments ${className}`}>
@@ -54,7 +56,7 @@ const Segments: React.FC<Props> = (props: Props) => {
             onClick={onClick}
             currentValue={currentValue}
             uncontrolled={uncontrolled}
-            disabled={disabled}
+            disabled={disableButton === idx + 1 || disabled}
           />
         ))
       }

@@ -48,6 +48,7 @@ export const segments = () => {
         onClick={(val: string) => setCurrentValue(val)}
         uncontrolled={false}
         className=''
+        disableButton={1}
       />
     </div>
   )
