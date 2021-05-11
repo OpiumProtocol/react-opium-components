@@ -38,7 +38,7 @@ export const checkbox = () => {
       />
       <Checkbox
         theme={theme}
-        label="Checkbox 2"
+        label={<>Checkbox 2 with <a href="#">Link</a></>}
         onChange={(e) => console.log(e)}
       />
     </div>
