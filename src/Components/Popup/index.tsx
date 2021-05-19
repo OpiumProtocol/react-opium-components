@@ -17,6 +17,8 @@ export type Props = {
 
   warningTitle?: string
 
+  showWarningIcon?: boolean
+
   subtitle?: string
 
   /** Set size */
@@ -48,6 +50,7 @@ export type Props = {
 const defaultProps: Props = {
   theme: ETheme.DARK,
   popupIsOpen: false,
+  showWarningIcon: true,
   closePopup: () => {}
 }
 
@@ -59,6 +62,7 @@ const Popup: React.FC<Props> = (props: Props) => {
     className,
     title,
     warningTitle,
+    showWarningIcon,
     subtitle,
     component,
     popupIsOpen,
@@ -82,7 +86,7 @@ const Popup: React.FC<Props> = (props: Props) => {
                 className="PopUp__warning-title"
                 style={{ marginTop: (title && warningTitle) ? '30px' : undefined }}
               >
-                <img src={AttentionLogo} className="attention-icon" />
+                {showWarningIcon && <img src={AttentionLogo} className="attention-icon" />}
                 <span className={'attention-text'}>{warningTitle}</span>
               </div>
             )}
