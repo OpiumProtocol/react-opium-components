@@ -50,6 +50,7 @@ export const popup = () => {
       <Popup
         theme={theme}
         warningTitle="Warning"
+        showWarningIcon={false}
         popupIsOpen={warningPopupIsOpen}
         closePopup={() => setWarningPopupIsOpen(false)}
         component={(
