@@ -8,6 +8,7 @@ import { ETheme } from '../../Constants/Types/theme.types'
 import AttentionLogo from '../../Images/attention.svg'
 
 import './Popup.scss'
+import Loading from '../Loading'
 
 export type Props = {
   /** Define theme */
@@ -20,6 +21,10 @@ export type Props = {
   showWarningIcon?: boolean
 
   subtitle?: string
+  /** Show loader in attention block */
+  loading?: boolean
+  /** Show attention */
+  attention?: boolean
 
   /** Set size */
   size?: 'xs' | 'sm' | 'lg' | 'xl'
@@ -67,6 +72,8 @@ const Popup: React.FC<Props> = (props: Props) => {
     component,
     popupIsOpen,
     closePopup,
+    loading,
+    attention
   } = renderProps
 
   return (
@@ -81,7 +88,8 @@ const Popup: React.FC<Props> = (props: Props) => {
           <Modal.Header>
             {title && <Modal.Title>{title}</Modal.Title>}
             <div className="PopUp__subtitle">{subtitle}</div>
-            {warningTitle && (
+
+            {attention && warningTitle && (
               <div
                 className="PopUp__warning-title"
                 style={{ marginTop: (title && warningTitle) ? '30px' : undefined }}
@@ -100,6 +108,7 @@ const Popup: React.FC<Props> = (props: Props) => {
       }
 
       <Modal.Body>
+        {loading && <Loading theme={theme} type='spinningBubbles' height='6rem' />}
         {component}
       </Modal.Body>
     </Modal>
