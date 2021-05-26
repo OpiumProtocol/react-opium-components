@@ -137,6 +137,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
       {
         maxButton && (
           <Button
+            theme={theme}
             className="OpiumFieldset__maxBtn"
             label="max"
             variant="secondary"
