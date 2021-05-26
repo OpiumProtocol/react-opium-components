@@ -158,12 +158,6 @@ $font-sizes-px: (
 	border-style: solid;
 }
 
-@mixin text-block-component($bg, $color, $border-color) {
-	background-color: $bg;
-	color: $color;
-	border: 1px solid $border-color;
-}
-
 @mixin table-component($bg, $color, $hover-bg) {
 	background-color: $bg;
 	border: 0px solid;
