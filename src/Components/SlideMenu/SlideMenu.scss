@@ -1,0 +1,65 @@
+@import '../../Styles/colors.scss';
+
+$minHeaderHeight: 55px;
+
+@keyframes slide-in {
+  0% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+  100% { transform: translateY(0%); }
+}
+
+@-webkit-keyframes slide-in {
+  0% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+  100% { -webkit-transform: translateY(0%); }
+}
+
+@keyframes slide-out {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+}
+
+@-webkit-keyframes slide-out {
+  0% { -webkit-transform: translateY(0%); }
+  100% { -webkit-transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+}
+
+.slide-menu {
+  position: fixed;
+  top: calc(100vh - #{$minHeaderHeight});
+  width: 343px;
+  height: 100px;
+  border: 1px solid #000000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+
+  &.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+  }
+
+  &.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+  }
+
+  &.color-scheme {
+    &-DARK {
+      background: $darkblue7;
+      color: $white0;
+    }
+
+    &-LIGHT {
+      background: $white0;
+      color: $darkblue7;
+    }
+  }
+  .header-block {
+    display: flex;
+    align-items: center;
+    min-height: $minHeaderHeight;
+  }
+
+  .body-block {
+
+  }
+}

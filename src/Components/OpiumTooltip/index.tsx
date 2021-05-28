@@ -7,7 +7,6 @@ import Button from '../OpiumButton'
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme, themes, TTooltipPlacement } from '../../Constants/Types/theme.types'
 
-import _ from '../../Styles/exportColors.scss'
 import './Tooltip.scss'
 
 export type Props = {
@@ -91,7 +90,6 @@ const OpiumTooltip: FC<Props> = (props: Props) => {
       rootClose={rootClose}
       overlay={
         <Popover
-          style={{ borderColor: 'transparent' }}
           id={`popover-positioned-${placement}`}
           className={`${className} color-scheme-${theme}`}
         >

@@ -1,0 +1,122 @@
+@import '../../Styles/index.scss';
+
+.CustomChart {
+
+  .custom-tooltip {
+    &__container {
+      border-radius: 10px;
+    }
+    .label {
+      font-family: "Montserrat";
+      margin: 4px 0;
+      padding: 3px 8px;
+
+      font-weight: normal;
+      font-size: 10px;
+      line-height: 12px;
+      strong {
+        font-family: "Montserrat";
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+      }
+    }
+  }
+
+  .recharts-layer .recharts-cartesian-axis-tick {
+    line {
+      stroke: transparent !important;
+    }
+    text {
+      tspan {
+        font-family: Montserrat;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 12px;
+      }
+    }
+  }
+
+  // line on the left and on the bottom of the graph
+  .recharts-cartesian-axis-line {
+    stroke: transparent !important;
+  }
+
+  // .recharts-cartesian-grid-horizontal {
+  //     line {
+  //         stroke: rgba(255, 255, 255, 0.1) !important;
+  //     }
+  // }
+
+  .recharts-default-tooltip {
+    border: 0 !important;
+    border-radius: 10px;
+    padding: 4px 8px !important;
+  }
+
+  .recharts-active-dot {
+    svg {
+      overflow: visible;
+    }
+  }
+
+  &.color-scheme {
+    &-DARK {
+
+      .recharts-active-dot {
+        .dot-bg {
+          transition: fill .5s ease;
+          fill: #000;
+        }
+      }
+      .recharts-tooltip-cursor {
+        transition: stroke .5s ease;
+        stroke: rgba(255, 255, 255, 0.5) !important;
+      }
+
+      .custom-tooltip {
+        .label {
+          transition: color .5s ease;
+          color: #0A0A1E;
+        }
+      }
+
+      .recharts-layer .recharts-cartesian-axis-tick {
+        text {
+          // text on the sides
+          transition: fill .5s ease;
+          fill: #fff !important;
+        }
+      }
+    }
+    &-LIGHT {
+
+      .recharts-active-dot {
+        .dot-bg {
+          transition: fill .5s ease;
+          fill: #fff;
+        }
+      }
+
+      .recharts-tooltip-cursor {
+        transition: stroke .5s ease;
+        stroke: rgba(10, 10, 30, 0.5) !important;
+      }
+
+      .custom-tooltip {
+        .label {
+          color: #fff;
+          transition: color .5s ease;
+        }
+      }
+
+      .recharts-layer .recharts-cartesian-axis-tick {
+        text {
+          transition: fill .5s ease;
+          fill: #0A0A1E !important;
+        }
+      }
+
+    }
+  }
+}

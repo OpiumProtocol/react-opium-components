@@ -1,2 +1,49 @@
 @import '../../Styles/index.scss';
 @import '../../Styles/constants.scss';
+//
+.nav-tabs {
+  padding: 0 indent(2);
+  border: 0 !important;
+  position: relative;
+  margin: 0 !important;
+  top: -1px;
+
+  &.color-scheme-#{map_get($theme, lightTheme)} {
+    .nav-item {
+      @include tabs-component(color(transparent), $darkblue1, transparent);
+      &.active {
+        color: $darkblue1;
+        cursor: default;
+        background: transparent;
+        border-bottom: 1px solid $darkblue1;
+      }
+    }
+  }
+
+  &.color-scheme-#{map_get($theme, darkTheme)} {
+    .nav-item {
+      @include tabs-component(color(transparent), $white0, color(transparent));
+      &.active {
+        color: $white0;
+        cursor: default;
+        background: transparent;
+        border-bottom: 1px solid $white0;
+      }
+    }
+
+  }
+
+  .nav-item {
+    outline: none;
+    font-weight: 400;
+    border: 0;
+    background: transparent;
+    line-height: 1.5;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    &:not(:last-child) {
+      margin-right: 2em;
+    }
+  }
+}

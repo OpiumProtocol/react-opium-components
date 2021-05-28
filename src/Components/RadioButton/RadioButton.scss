@@ -1,0 +1,90 @@
+@import '../../Styles/index.scss';
+
+.RadioButton {
+    display: inline-block;
+    width: auto;
+    position: relative;
+    padding: 0;
+    padding-left: 13px;
+    margin-bottom: 0px;
+    margin-right: 21px;
+    cursor: pointer;
+    
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    min-height: 12px;
+    
+    /* Hide the browser's default radio button */
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        
+        /* When the radio button is checked, add a blue background */
+        &:checked ~ .checkmark {
+            /* Show the indicator (dot/circle) when checked */
+            &:after {
+                display: block;
+            }
+        }
+    }
+    
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        top: 3px;
+        left: 0;
+        height: 10px;
+        width: 10px;
+        background-color: transparent;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            
+            top: 2px;
+            left: 2px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+        }
+    }
+    
+
+    /* On mouse-over, add a grey background color */
+    &:hover input ~ .checkmark {
+        
+    }
+
+    &.color-scheme {
+        &-DARK {
+            color: #fff;
+            .checkmark {
+                border-color: #fff;
+                &:after {
+                    background: #fff;
+                }
+            }
+        }
+        &-LIGHT {
+            color: #000;
+            .checkmark {
+                border-color: #000;
+                &:after {
+                    background: #000;
+                }
+            }
+        }
+    }
+}

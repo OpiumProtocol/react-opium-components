@@ -1,18 +1,31 @@
-import React, { FC, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { Modal } from 'react-bootstrap'
-
-import Button from '../OpiumButton'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
+// @ts-ignore
+import AttentionLogo from '../../Images/attention.svg'
+
 import './Popup.scss'
+import Loading from '../Loading'
 
 export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Set title */
   title?: string
+
+  warningTitle?: string
+
+  showWarningIcon?: boolean
+
+  subtitle?: string
+  /** Show loader in attention block */
+  loading?: boolean
+  /** Show attention */
+  attention?: boolean
+
   /** Set size */
   size?: 'xs' | 'sm' | 'lg' | 'xl'
   /** Insert content */
@@ -34,97 +47,70 @@ export type Props = {
   /** Set title for action button */
   actionButtonTitle?: string
   /** Set title for cancel button */
-  cancelButtonTitle: string
+  cancelButtonTitle?: string
   /** Set class selectors */
   className?: string
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  size: 'sm',
-  title: '',
-  component: '',
-  hideCross: false,
-  borderless: false,
-  closePopup: () => { },
   popupIsOpen: false,
-  handleAction: () => { },
-  showActionButton: true,
-  showCancelButton: true,
-  actionButtonTitle: '',
-  cancelButtonTitle: '',
-  /** Set class selectors */
-  className: ''
+  showWarningIcon: true,
+  closePopup: () => {}
 }
 
-const Popup: FC<Props> = (props: Props) => {
+const Popup: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
     theme,
-    size,
-    title,
-    component,
-    hideCross,
-    borderless,
-    closePopup,
-    popupIsOpen,
-    handleAction,
-    showActionButton,
-    showCancelButton,
-    actionButtonTitle,
-    cancelButtonTitle,
     className,
+    title,
+    warningTitle,
+    showWarningIcon,
+    subtitle,
+    component,
+    popupIsOpen,
+    closePopup,
+    loading,
+    attention
   } = renderProps
-
-  const borderlessStyle = {
-    padding: '0',
-    margin: '0',
-  }
 
   return (
     <Modal
-      size={size}
       show={popupIsOpen}
       onHide={closePopup}
-      className={!borderless ? `attention-popup ${className}` : `${className}`}
-      dialogClassName={size === 'xs' ? 'modal-fit-content' : ''}
-      contentClassName={!borderless
-        ? `color-scheme-${theme}`
-        : `color-scheme-${theme} modal-p-0 modal-transparent`}
-      style={!borderless ? {} : borderlessStyle}
+      className={`Popup${className ? ' ' + className : ''}${warningTitle ? ' warning' : ''}`}
+      contentClassName={`color-scheme-${theme}`}
     >
-      {!hideCross && <button className="close-button" onClick={closePopup} />}
-      <Modal.Body style={!borderless ? {} : borderlessStyle}>
-        {title && <Modal.Title>{title}</ Modal.Title>}
-        <div className="modal-description">{component}</div>
-      </Modal.Body>
       {
-        !borderless
-          ? <Modal.Footer>
-            <div className="buttons-wrap">
-              {
-                showActionButton &&
-                <Button
-                  theme={theme}
-                  variant={'primary'}
-                  onClick={handleAction}
-                  label={actionButtonTitle}
-                />
-              }
-              {
-                showCancelButton &&
-                <Button
-                  theme={theme}
-                  variant={'secondary'}
-                  onClick={closePopup}
-                  label={cancelButtonTitle}
-                />
-              }
-            </div>
-          </Modal.Footer>
-          : null
+        (title || warningTitle) &&
+          <Modal.Header>
+            {title && <Modal.Title>{title}</Modal.Title>}
+            <div className="PopUp__subtitle">{subtitle}</div>
+
+            {attention && warningTitle && (
+              <div
+                className="PopUp__warning-title"
+                style={{ marginTop: (title && warningTitle) ? '30px' : undefined }}
+              >
+                {showWarningIcon && <img src={AttentionLogo} className="attention-icon" />}
+                <span className={'attention-text'}>{warningTitle}</span>
+              </div>
+            )}
+            {!warningTitle && <button className="close-button" onClick={closePopup}>
+              <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="2.00162" y1="2.05615" x2="15.5312" y2="15.5858" strokeWidth="2" strokeLinecap="round"/>
+                <line x1="2.02563" y1="15.5296" x2="15.5553" y2="2.00001" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </button>}
+          </Modal.Header>
       }
+
+      <Modal.Body>
+        {loading && <Loading theme={theme} type='spinningBubbles' height='6rem' />}
+        {component}
+      </Modal.Body>
     </Modal>
   )
 }

@@ -1,15 +1,12 @@
 @import '../../Styles/constants.scss';
+@import '../../Styles/colors.scss';
 
 .text-block {
-  padding: indent(1);
-  width: fit-content;
-  border-radius: size(radius4Px);
-  white-space: normal;
-
+  
   &.color-scheme-LIGHT {
-    @include text-block-component(color(gray6), color(gray3), color(gray4));
+    color: $darkblue1;
   }
   &.color-scheme-DARK {
-     @include text-block-component(color(darkBlue2), color(darkgray7), color(gray4));
+    color: $white0;
   }
 }
