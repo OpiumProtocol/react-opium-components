@@ -90,59 +90,51 @@ const LocalizedInput: FC<Props> = (props: Props) => {
   }
 
   const renderInput = () => {
+    const classNames = `OpiumInput ${className !== undefined ? className : ''} ${errorMessage !== undefined ? 'error' : ''} ${disabled ? 'disabled' : ''}`
+
     if (disabled) {
       styles.backgroundColor = backgroundColor['secondary'].disabled
       styles.borderColor = borderColor['secondary'].disabled
       styles.color = color['secondary'].disabled
     }
 
-    return (
-      <>
-        {
-          (() => {
-            switch (type) {
-              case EFieldType.NUMBER:
-                return isEditing
-                  ?
-                  <NumericInput
-                    className={`form-control color-scheme-${theme} ${className} ${disabled && 'disabled'}`}
-                    style={false}
-                    value={value}
-                    onChange={(value: number | null) => onChange(value)}
-                    onBlur={() => setIsEditing(false)}
-                    pattern="^-?\d+\.?\d*"
-                    // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
-                    disabled={disabled}
-                  />
-                  : <Form.Control
-                    className={`${className} ${disabled && 'disabled'}`}
-                    style={styles}
-                    type="text"
-                    value={localize(value, locale)}
-                    onChange={(e) => onChange(+e.target.value)}
-                    onFocus={() => setIsEditing(true)}
-                    onSelect={(e: BaseSyntheticEvent) => e.target.select()}
-                    disabled={disabled}
-                  />
+    switch (type) {
+      case EFieldType.NUMBER:
+        return isEditing
+          ?
+          <NumericInput
+            className={`form-control color-scheme-${theme} ${className} ${disabled ? 'disabled' : ''}`}
+            style={false}
+            value={value}
+            onChange={(value: number | null) => onChange(value)}
+            onBlur={() => setIsEditing(false)}
+            pattern="^-?\d+\.?\d*"
+            // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+            disabled={disabled}
+          />
+          : <Form.Control
+            className={`${className} ${disabled ? 'disabled' : ''}`}
+            style={styles}
+            type="text"
+            value={localize(value, locale)}
+            onChange={(e) => onChange(+e.target.value)}
+            onFocus={() => setIsEditing(true)}
+            onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+            disabled={disabled}
+          />
 
-              default:
-                return (
-                  <Form.Control
-                    className={`${className} ${disabled && 'disabled'}`}
-                    style={styles}
-                    type={type}
-                    value={value === 0 ? '' : value}
-                    onChange={(e) => onChange(e.target.value)}
-                    disabled={disabled}
-                  />
-                )
-            }
-          })
-        }
-      </>
-    )
-
-
+      default:
+        return (
+          <Form.Control
+            className={classNames}
+            style={styles}
+            type={type}
+            value={value === 0 ? '' : value}
+            onChange={(e) => onChange(e.target.value)}
+            disabled={disabled}
+          />
+        )
+    }
   }
 
   if (disabled) {
