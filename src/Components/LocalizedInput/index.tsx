@@ -84,8 +84,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
     borderColor: _.darkblue4,
     color: widgetThemes[theme as ETheme].color.secondary.value,
     // color: color['secondary'].value,
-    borderStyle: 'solid',
-    borderRadius: '4px',
+
     ...style,
   }
 
@@ -103,17 +102,16 @@ const LocalizedInput: FC<Props> = (props: Props) => {
         return isEditing
           ?
           <NumericInput
-            className={`form-control color-scheme-${theme} ${className} ${disabled ? 'disabled' : ''}`}
-            style={false}
+            className={classNames}
+            style={styles}
             value={value}
             onChange={(value: number | null) => onChange(value)}
             onBlur={() => setIsEditing(false)}
-            pattern="^-?\d+\.?\d*"
             // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
             disabled={disabled}
           />
           : <Form.Control
-            className={`${className} ${disabled ? 'disabled' : ''}`}
+            className={classNames}
             style={styles}
             type="text"
             value={localize(value, locale)}

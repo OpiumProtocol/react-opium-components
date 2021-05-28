@@ -22,11 +22,44 @@
             color: #F6029C;
         }
     }
+
+    .react-numeric-input {
+        width: 100%;
+        input {
+            height: 24px;
+            background: transparent;
+            border-radius: 0;
+            font-family: "Montserrat", sans-serif !important;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px !important;
+            line-height: 24px;
+            padding: 0 !important;
+            border: 0 !important;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+            outline: none;
+
+            transition: border-color .25s ease;
+
+            &:focus {
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+            }
+        }
+
+        b {
+            display: none;
+        }
+
+    }
+
     .OpiumInput {
         height: 24px;
         background: transparent;
         border-radius: 0;
-        font-family: Montserrat;
+        font-family: "Montserrat", sans-serif !important;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -52,9 +85,9 @@
         }
 
         /* Firefox */
-        &[type=number] {
-            -moz-appearance: textfield;
-        }
+        //&[type=number] {
+        //    -moz-appearance: textfield;
+        //}
 
         &.error {
             border-color: #F6029C;
