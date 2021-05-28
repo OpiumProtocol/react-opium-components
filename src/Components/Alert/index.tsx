@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { Form, Modal } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 
 import Button from '../OpiumButton'
 import Loading from '../Loading'
@@ -11,6 +11,7 @@ import { ETheme } from '../../Constants/Types/theme.types'
 import AttentionLogo from '../../Images/attention.svg'
 
 import './Alert.scss'
+import Checkbox from '../Checkbox'
 
 export type Props = {
   /** Define theme */
@@ -103,7 +104,10 @@ const Alert: FC<Props> = (props: Props) => {
           loading ?
             <Loading theme={theme} type='spinningBubbles' height='6rem' />
             :
-            <img src={AttentionLogo} className="attention-icon" />
+            <div>
+              <img src={AttentionLogo} className="attention-icon" />
+              <span className={'attention-text'}>Warning</span>
+            </div>
         }
       </div>
     )
@@ -117,17 +121,24 @@ const Alert: FC<Props> = (props: Props) => {
       className="attention-popup"
       contentClassName={`color-scheme-${theme}`}
     >
-      {!hideCross && <button className="close-button" onClick={closePopup} />}
+      <Modal.Header>
+        {title && <Modal.Title>{title}</Modal.Title>}
+        {!hideCross && <button className="close-button" onClick={closePopup} />}
+      </Modal.Header>
+
       <Modal.Body>
-        {title && <Modal.Title style={{ marginTop: '2rem', textTransform: 'uppercase' }}>{title}</ Modal.Title>}
         {attention && renderAttention()}
         {description && <div className="modal-description" dangerouslySetInnerHTML={{
           __html: description
         }} />}
-        {showCheckBox && <Form.Check type="checkbox" className='modal-checkbox' id='checkbox'>
-          <Form.Check.Input checked={checkBoxChecked} onChange={() => handleCheckBoxChange()} type="checkbox" />
-          <Form.Check.Label>{checkBoxLabel}</Form.Check.Label>
-        </Form.Check>}
+
+        {
+          showCheckBox && <Checkbox
+            theme={theme}
+            label={checkBoxLabel}
+            onChange={() => {}}
+          />
+        }
       </Modal.Body>
       <Modal.Footer>
         <div className="buttons-wrap">

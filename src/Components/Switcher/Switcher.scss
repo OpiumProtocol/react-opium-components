@@ -1,0 +1,130 @@
+@import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
+
+.Switcher {
+  display: inline-block;
+  gap: 7px;
+
+  label {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0;
+  }
+
+  span {
+    position: relative;
+    cursor: pointer;
+    margin-left: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 4px;
+      width: 22px;
+      height: 12px;
+      border-radius: 100px;
+      background: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: -27px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      transition: transform .25s ease;
+    }
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    &:checked + span {
+      &::after {
+        transform: translateX(calc(22px - 13px + 1px));
+      }
+    }
+  }
+
+  &.color-scheme {
+    &-DARK {
+      span {
+        color: $white0;
+
+        &:before {
+          box-shadow: inset 0 0 0 1px $white0;
+        }
+
+        &::after {
+          background-color: $white0;
+        }
+      }
+
+      input {
+        &:checked::after {
+          background-color: $white0;
+        }
+      }
+
+      &.theme {
+        span {
+          &:before {
+            background: $white0;
+          }
+  
+          &::after {
+            background-color: $darkblue1;
+          }
+        }
+  
+        input {
+          &:checked::after {
+            background-color: $darkblue1;
+          }
+        }
+      }
+    }
+    &-LIGHT {
+      span {
+        color: $darkblue1;
+
+        &:before {
+          box-shadow: inset 0 0 0 1px $darkblue1;
+        }
+
+        &::after {
+          background-color: $darkblue1;
+        }
+      }
+
+      input {
+        &:checked::after {
+          background-color: $darkblue1;
+        }
+      }
+
+      &.theme {
+        span {
+          &:before {
+            background: $darkblue1;
+          }
+  
+          &::after {
+            background-color: $white0;
+          }
+        }
+  
+        input {
+          &:checked::after {
+            background-color: $white0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -53,7 +53,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
   return (
     <Tabs
       id={id}
-      activeKey={activeTabKey}
+      activeKey={activeTabKey || 'activeKey'}
       className={`color-scheme-${theme}`}
       onSelect={(key: string | null) => setActiveTabKey(key)}
     >
@@ -65,6 +65,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
               key={uuidv4()}
               title={title}
               eventKey={eventKey}
+              tabClassName={`color-scheme-${theme}`}
               className={`color-scheme-${theme} ${className}`}
             >
               {content}

@@ -32,61 +32,193 @@ export const button = () => {
         <Button
           theme={theme}
           label={`${label} is on`}
-          variant={'secondary'}
+          variant={'primary'}
           style={{ margin: '1rem' }}
           onClick={handleClick}
         />
       </div>
-      <Button
-        theme={theme}
-        variant={'primary'}
-        label={'Primary Button'}
-        style={{ margin: '1rem' }}
-        onClick={() => { }}
-      />
-      <Button
-        theme={theme}
-        variant={'secondary'}
-        label={'Secondary Button'}
-        style={{ margin: '1rem' }}
-        onClick={() => { }}
-      />
-      <Button
-        theme={theme}
-        variant={'danger'}
-        label={'Danger Button'}
-        style={{ margin: '1rem' }}
-        onClick={() => { }}
-      />
-      <Button
-        theme={theme}
-        variant={'success'}
-        label={'Success Button'}
-        style={{ margin: '1rem' }}
-        onClick={() => { }}
-      />
-      <Button
-        theme={theme}
-        variant={'warning'}
-        label={'Warning Button'}
-        style={{ margin: '1rem' }}
-        onClick={() => { }}
-      />
-      <Button
-        theme={theme}
-        variant={'danger'}
-        disabled={true}
-        label={'I am danger, but disabled'}
-        style={{ margin: '1rem' }}
-        onClick={() => { }}
-      />
-      <Button
-        theme={theme}
-        variant={'rainbow'}
-        label={'Rainbow button'}
-        style={{ margin: '1rem' }}
-        onClick={() => { }}
-      />
+      <div style={{ margin: '15px 0 10px 0' }}>
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'secondary red'}
+          className="red"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          size="sm"
+        />
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'secondary green'}
+          className="green"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          size="md"
+        />
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'secondary blue'}
+          className="blue"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          size="lg"
+        />
+      </div>
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'secondary red'}
+          className="red"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+          size="sm"
+        />
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'secondary green'}
+          className="green"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+          size="md"
+        />
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'secondary blue'}
+          className="blue"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+          size="lg"
+        />
+      </div>
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <Button
+          theme={theme}
+          variant={'primary'}
+          label={'Primary Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+        />
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'Secondary Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+        />
+        <Button
+          theme={theme}
+          variant={'danger'}
+          label={'Danger Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+        />
+      </div>
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <Button
+          theme={theme}
+          variant={'primary'}
+          label={'Primary Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+        />
+        <Button
+          theme={theme}
+          variant={'secondary'}
+          label={'Secondary Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+        />
+        <Button
+          theme={theme}
+          variant={'danger'}
+          label={'Danger Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+        />
+      </div>
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <Button
+          theme={theme}
+          variant={'success'}
+          label={'Success Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+        />
+        <Button
+          theme={theme}
+          variant={'warning'}
+          label={'Warning Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+        />
+        <Button
+          theme={theme}
+          variant={'rainbow'}
+          label={'Rainbow button'}
+          className="rainbow"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+        />
+      </div>
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <Button
+          theme={theme}
+          variant={'success'}
+          label={'Success Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+        />
+        <Button
+          theme={theme}
+          variant={'warning'}
+          label={'Warning Button'}
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+        />
+        <Button
+          theme={theme}
+          variant={'rainbow'}
+          label={'Rainbow button'}
+          className="rainbow"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+        />
+      </div>
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <Button
+          theme={theme}
+          variant={'minimal'}
+          label={'Minimal button'}
+          className="minimal"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+        />
+      </div>
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <Button
+          theme={theme}
+          variant={'minimal'}
+          label={'Minimal button'}
+          className="minimal"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          disabled
+        />
+      </div>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 @import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
 
 .btn {
     position: relative;
@@ -7,11 +8,19 @@
     font-size: 12px;
     padding: 4px 8px;
     font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+
+    text-transform: uppercase;
     &:focus {
         box-shadow: none !important;
     }
     &.focus {
         box-shadow: none !important;
+    }
+    &.primary {
+        background: $white0;
+        color: black;
+        border-color: $white0;
     }
     &__bg {
         position: absolute;
@@ -23,5 +32,324 @@
     }
     &__label {
         position: relative;
+    }
+}
+
+.opiumBtn {
+    &.btn {
+        font-family: 'Montserrat', sans-serif;
+        padding: 6px 20px;
+        border-width: 1px;
+        border-radius: 100px;
+
+        text-transform: initial;
+        &.sm {
+            padding: 3px 10px;
+        }
+        &.md {
+            padding: 7px 15px;
+        }
+        &.lg {
+            padding: 10px 20px;
+        }
+        &.btn-primary {
+            &.color-scheme {
+                &-DARK {
+                    background-color: $white0;
+                    color: black;
+                    border-color: $white0;
+                    &:hover {
+                        background-color: transparent;
+                        color: $white0;
+                        border-color: $white0;
+                    }
+                    &:not(:disabled):not(.disabled):active {
+                        background-color: transparent;
+                        color: $white0;
+                        border-color: $white0;
+                    }
+                    &:disabled {
+                        background-color: transparent;
+                        color: rgba($white0, .5);
+                        border-color: rgba($white0, .5);
+                    }
+                }
+                &-LIGHT {
+                    background-color: $darkblue1;
+                    color: $white0;
+                    border-color: $darkblue1;
+                    &:hover {
+                        background-color: transparent;
+                        color: $darkblue1;
+                        border-color: $darkblue1;
+                    }
+                    &:not(:disabled):not(.disabled):active {
+                        background-color: transparent;
+                        color: $darkblue1;
+                        border-color: $darkblue1;
+                    }
+                    &:disabled {
+                        background-color: transparent;
+                        color: rgba($white0, .5);
+                        border-color: rgba($white0, .5);
+                    }
+
+                }
+            }
+        }
+        &.btn-secondary {
+            background-color: transparent;
+
+            &.color-scheme {
+                &-DARK {
+                    color: $white0;
+                    border-color: $white0;
+                    &:hover {
+                        background-color: $white0;
+                        color: black;
+                        border-color: $white0;
+                    }
+                    &:not(:disabled):not(.disabled):active {
+                        background-color: rgba($white0, .5);
+                        color: black;
+                        border-color: transparent;
+                    }
+                    &:disabled {
+                        background-color: transparent;
+                        color: rgba($white0, .5);
+                        border-color: rgba($white0, .5);
+                    }
+                }
+                &-LIGHT {
+                    background-color: $white0;
+                    color: black;
+                    border-color: black;
+                    &:hover {
+                        color: $white0;
+                        background-color: $darkblue1;
+                        border-color: $darkblue1;
+                    }
+                    &:not(:disabled):not(.disabled):active {
+                        background-color: rgba(10, 10, 30, 0.5);
+                        color: $white0;
+                        border-color: transparent;
+                    }
+                    &:disabled {
+                        background-color: rgba($darkblue1,.5);
+                        color: rgba($darkblue1,.5);
+                        border-color: transparent;
+                    }
+                    &:disabled {
+                        background-color: transparent;
+                        color: rgba($darkblue1, .5);
+                        border-color: rgba($darkblue1, .5);
+                    }
+                }
+            }
+
+            &.red {
+                &.color-scheme {
+                    &-DARK {
+                        border-color: $pink;
+                        color: $pink;
+                        &:hover {
+                            background-color: $pink;
+                            color: $darkblue1;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            color: $darkblue1;
+                            background-color: rgba($pink, .5);
+                            border-color: rgba($pink, 0);
+                        }
+                        &:disabled {
+                            background-color: transparent;
+                            color: rgba($white0, .5);
+                            border-color: rgba($white0, .5);
+                        }
+                    }
+                    &-LIGHT {
+                        border-color: $pink;
+                        color: $pink;
+                        &:hover {
+                            background-color: $pink;
+                            color: $white0;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            color: $white0;
+                            background-color: rgba($pink, .5);
+                            border-color: rgba($pink, 0);
+                        }
+                        &:disabled {
+                            background-color: transparent;
+                            color: rgba($darkblue1, .5);
+                            border-color: rgba($darkblue1, .5);
+                        }
+                    }
+                }
+            }
+            &.green {
+                &.color-scheme {
+                    &-DARK {
+                        border-color: $lightgreen;
+                        color: $lightgreen;
+                        &:hover {
+                            background-color: $lightgreen;
+                            color: $darkblue1;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            color: $darkblue1;
+                            background-color: rgba($lightgreen, .5);
+                            border-color: rgba($lightgreen, 0);
+                        }
+                        &:disabled {
+                            background-color: transparent;
+                            color: rgba($white0, .5);
+                            border-color: rgba($white0, .5);
+                        }
+                    }
+                    &-LIGHT {
+                        border-color: $lightgreen;
+                        color: $lightgreen;
+                        &:hover {
+                            background-color: $lightgreen;
+                            color: $white0;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            color: $white0;
+                            background-color: rgba($lightgreen, .5);
+                            border-color: rgba($lightgreen, 0);
+                        }
+                        &:disabled {
+                            background-color: transparent;
+                            color: rgba($darkblue1, .5);
+                            border-color: rgba($darkblue1, .5);
+                        }
+                    }
+                }
+            }
+            &.blue {
+                &.color-scheme {
+                    &-DARK {
+                        border-color: $blue1;
+                        color: $blue1;
+                        &:hover {
+                            background-color: $blue1;
+                            color: $darkblue1;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            color: $darkblue1;
+                            background-color: rgba($blue1, .5);
+                            border-color: rgba($blue1, 0);
+                        }
+                        &:disabled {
+                            background-color: transparent;
+                            color: rgba($white0, .5);
+                            border-color: rgba($white0, .5);
+                        }
+                    }
+                    &-LIGHT {
+                        border-color: $blue1;
+                        color: $blue1;
+                        &:hover {
+                            background-color: $blue1;
+                            color: $white0;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            color: $white0;
+                            background-color: rgba($blue1, .5);
+                            border-color: rgba($blue1, 0);
+                        }
+                        &:disabled {
+                            background-color: transparent;
+                            color: rgba($darkblue1, .5);
+                            border-color: rgba($darkblue1, .5);
+                        }
+                    }
+                }
+            }
+        }
+        &.btn-danger {
+            background-color: hsla(0, 84%, 65%, 0.2);
+            color: hsla(0, 84%, 65%, 0.5);
+            border-color: transparent;
+            &:hover {
+                background-color: hsla(0, 84%, 65%, 0.4);
+                color: $red0;
+                border-color: transparent;
+            }
+            &:not(:disabled):not(.disabled):active {
+                background-color: hsla(0, 84%, 65%, 0.4);
+                color: $red0;
+                border-color: transparent;
+            }
+            &:disabled {
+                background-color: transparent;
+                color: rgba($white0, .5);
+                border-color: rgba($white0, .5);
+            }
+        }
+        &.btn-success {
+            background-color: $green1;
+            color: $darkblue2;
+            border-color: transparent;
+            &:hover {
+                background-color: hsla(158, 87%, 39%, 0.4);
+                color: $white0;
+                border-color: transparent;
+            }
+            &:not(:disabled):not(.disabled):active {
+                background-color: hsla(158, 87%, 39%, 0.4);
+                color: $white0;
+                border-color: transparent;
+            }
+            &:disabled {
+                background-color: transparent;
+                color: rgba($white0, .5);
+                border-color: rgba($white0, .5);
+            }
+        }
+        &.btn-warning {
+            background-color: $yellow3;
+            color: $darkblue2;
+            border-color: transparent;
+            &:hover {
+                background-color: hsla(47, 100%, 72%, 0.7);
+                color: $white0;
+                border-color: transparent;
+            }
+            &:not(:disabled):not(.disabled):active {
+                background-color: hsla(47, 100%, 72%, 0.7);
+                color: $white0;
+                border-color: transparent;
+            }
+            &:disabled {
+                background-color: transparent;
+                color: rgba($white0, .5);
+                border-color: rgba($white0, .5);
+            }
+        }
+        &.rainbow {
+            border-radius: 100px;
+            .btn__label {
+                color: $white0;
+            }
+        }
+        &.minimal {
+            border: 0;
+            &.color-scheme {
+                &-DARK {
+                    color: $white0;
+                    &:hover {
+                        color: rgba($white0, .5);
+                    }
+                }
+                &-LIGHT {
+                    color: $darkblue1;
+                    &:hover {
+                        color: rgba($darkblue1, .5);
+                    }
+                }
+            }
+        }
     }
 }

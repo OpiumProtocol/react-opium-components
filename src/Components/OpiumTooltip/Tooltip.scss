@@ -1,42 +1,158 @@
 @import '../../Styles/index.scss';
 
+//.color-scheme-LIGHT {
+//  &.popover {
+//    border: 1px solid $darkblue1;
+//    .arrow {
+//      & ::after {
+//        border-top-color: inherit !important;
+//      }
+//
+//      & ::before {
+//        border-top-color: $darkblue1 !important;
+//      }
+//
+//    }
+//  }
+//}
+//
+//.color-scheme-DARK {
+//  &.popover {
+//    border: 1px solid $white0;
+//    .arrow {
+//      & ::after {
+//        border-top-color: $darkblue1 !important;
+//      }
+//
+//      & ::before {
+//        border-top-color: $white0 !important;
+//      }
+//
+//    }
+//  }
+//}
+
 .popover {
-  border: 0 !important;
+
+
+  .arrow {
+    & ::after {
+      border-top-color: $darkblue1 !important;
+    }
+
+    & ::before {
+      border-top-color: $white0 !important;
+    }
+
+  }
   & .popover-body.color-scheme-LIGHT {
-    @include tooltip-component($gray3, $white0, $gray3);
+    @include tooltip-component(inherit, $darkblue1, $darkblue1);
   }
 
   & .popover-body.color-scheme-DARK {
-    @include tooltip-component($blue4, $white0, $blue4);
+    @include tooltip-component($darkblue1, $white0, $white0);
   }
 
   &.color-scheme-LIGHT {
-    &.bs-popover-bottom > .arrow::after {
-      border-bottom-color: $gray3;
+    border: 1px solid $darkblue1;
+
+
+    &.bs-popover-bottom  {
+      & > .arrow {
+        &::after {
+          border-bottom-color: $white0;
+        }
+
+        &::before {
+          border-bottom-color: $darkblue1;
+        }
+      }
     }
-    &.bs-popover-right > .arrow::after {
-      border-right-color: $gray3;
+
+    &.bs-popover-right  {
+      & > .arrow {
+        &::after {
+          border-right-color: $white0;
+        }
+
+        &::before {
+          border-right-color: $darkblue1;
+        }
+      }
     }
-    &.bs-popover-left > .arrow::after {
-      border-left-color: $gray3;
+
+    &.bs-popover-left  {
+      & > .arrow {
+        &::after {
+          border-left-color: $white0;
+        }
+
+        &::before {
+          border-left-color: $darkblue1;
+        }
+      }
     }
-    &.bs-popover-top > .arrow::after {
-      border-top-color: $gray3;
+
+    &.bs-popover-top  {
+      & > .arrow {
+        &::after {
+          border-top-color: $white0;
+        }
+
+        &::before {
+          border-top-color: $darkblue1;
+        }
+      }
     }
   }
 
   &.color-scheme-DARK {
-    &.bs-popover-bottom > .arrow::after {
-      border-bottom-color: $blue4;
+    border: 1px solid $white0;
+
+    &.bs-popover-bottom {
+      & > .arrow {
+        &::after {
+          border-bottom-color: $darkblue1;
+        }
+
+        &::before {
+          border-bottom-color: $white0;
+        }
+      }
     }
-    &.bs-popover-right > .arrow::after {
-      border-right-color: $blue4;
+    &.bs-popover-right {
+      & > .arrow {
+        &::after {
+          border-right-color: $darkblue1;
+        }
+
+        &::before {
+          border-right-color: $white0;
+        }
+      }
     }
-    &.bs-popover-left > .arrow::after {
-      border-left-color: $blue4;
+    &.bs-popover-left {
+      & > .arrow {
+        &::after {
+          border-left-color: $darkblue1;
+        }
+
+        &::before {
+          border-left-color: $white0;
+        }
+      }
     }
-    &.bs-popover-top > .arrow::after {
-      border-top-color: $blue4;
+
+    &.bs-popover-top {
+      & > .arrow {
+        &::after {
+          border-top-color: $darkblue1;
+        }
+
+        &::before {
+          border-top-color: $white0;
+        }
+      }
     }
   }
 
