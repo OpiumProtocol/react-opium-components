@@ -23,12 +23,24 @@
     cursor: not-allowed;
   }
 
-  // &.color-scheme-LIGHT {
-  //   @include localized-input-component($white0, $black3, $blue1);
-  // }
-  // &.color-scheme-DARK {
-  //    @include localized-input-component($darkblue2, $white0, transparent);
-  // }
+   &.color-scheme-LIGHT {
+     @include localized-input-component($white0, $black3, $blue1);
+   }
+   &.color-scheme-DARK {
+      @include localized-input-component($darkblue2, $white0, $darkblue4);
+   }
+}
+
+.react-numeric-input {
+  b {
+    background: white !important;
+    margin-bottom: 1px;
+  }
+
+  b:last-child {
+    margin-bottom: 0;
+    margin-top: 1px;
+  }
 }
 
 

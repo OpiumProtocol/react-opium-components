@@ -1,5 +1,6 @@
 import React, { FC, useState, BaseSyntheticEvent, CSSProperties } from 'react'
 import { Form } from 'react-bootstrap'
+import NumericInput from 'react-numeric-input'
 
 import { ETheme, themes, widgetThemes } from '../../Constants/Types/theme.types'
 import { EFieldType } from '../../Constants/Types/LocalizedInput.types'
@@ -52,7 +53,7 @@ const defaultProps: Props = {
 }
 
 const localize = (number: number | string, locale: string) => {
-  const formatter = new Intl.NumberFormat(locale, { style: 'decimal' })
+  const formatter = new Intl.NumberFormat(locale, { style: 'decimal', maximumFractionDigits: 20 })
   return formatter.format(+number)
 }
 
@@ -75,25 +76,40 @@ const LocalizedInput: FC<Props> = (props: Props) => {
     disabled,
   } = renderProps
 
+  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
+
 
   const styles = {
+    backgroundColor: backgroundColor['secondary'].value,
+    borderColor: _.darkblue4,
+    color: widgetThemes[theme as ETheme].color.secondary.value,
+    // color: color['secondary'].value,
+
     ...style,
   }
 
   const renderInput = () => {
     const classNames = `OpiumInput ${className !== undefined ? className : ''} ${errorMessage !== undefined ? 'error' : ''} ${disabled ? 'disabled' : ''}`
-    
+
+    if (disabled) {
+      styles.backgroundColor = backgroundColor['secondary'].disabled
+      styles.borderColor = borderColor['secondary'].disabled
+      styles.color = color['secondary'].disabled
+    }
+
     switch (type) {
       case EFieldType.NUMBER:
         return isEditing
-          ? <Form.Control
+          ?
+          <NumericInput
             className={classNames}
             style={styles}
-            type="number"
-            value={value === 0 ? '' : value}
-            onChange={(e) => onChange(+e.target.value)}
+            value={value}
+            type={'number'}
+            onChange={(value: number | null) => onChange(value)}
             onBlur={() => setIsEditing(false)}
-            onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+            pattern="^-?\d+\.?\d*"
+            // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
             disabled={disabled}
           />
           : <Form.Control
@@ -106,7 +122,6 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             onSelect={(e: BaseSyntheticEvent) => e.target.select()}
             disabled={disabled}
           />
-
       default:
         return (
           <Form.Control
@@ -119,6 +134,12 @@ const LocalizedInput: FC<Props> = (props: Props) => {
           />
         )
     }
+  }
+
+  if (disabled) {
+    styles.backgroundColor = backgroundColor['secondary'].disabled
+    styles.borderColor = borderColor['secondary'].disabled
+    styles.color = color['secondary'].disabled
   }
 
   return (
