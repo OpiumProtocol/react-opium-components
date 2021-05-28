@@ -101,27 +101,27 @@ const LocalizedInput: FC<Props> = (props: Props) => {
       case EFieldType.NUMBER:
         return isEditing
           ?
-        <NumericInput
-          className={classNames}
-          style={styles}
-          value={value}
-          type={"number"}
-          onChange={(value: number | null) => onChange(value)}
-          onBlur={() => setIsEditing(false)}
-          pattern="^-?\d+\.?\d*"
-          // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
-          disabled={disabled}
-        />
-        : <Form.Control
-          className={classNames}
-          style={styles}
-          type="text"
-          value={localize(value, locale)}
-          onChange={(e) => onChange(+e.target.value)}
-          onFocus={() => setIsEditing(true)}
-          onSelect={(e: BaseSyntheticEvent) => e.target.select()}
-          disabled={disabled}
-        />
+          <NumericInput
+            className={classNames}
+            style={styles}
+            value={value}
+            type={'number'}
+            onChange={(value: number | null) => onChange(value)}
+            onBlur={() => setIsEditing(false)}
+            pattern="^-?\d+\.?\d*"
+            // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+            disabled={disabled}
+          />
+          : <Form.Control
+            className={classNames}
+            style={styles}
+            type="text"
+            value={localize(value, locale)}
+            onChange={(e) => onChange(+e.target.value)}
+            onFocus={() => setIsEditing(true)}
+            onSelect={(e: BaseSyntheticEvent) => e.target.select()}
+            disabled={disabled}
+          />
       default:
         return (
           <Form.Control
