@@ -37,7 +37,7 @@
             padding: 0 !important;
             border: 0 !important;
             width: 100%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-bottom: 1px solid !important;
             outline: none;
 
             transition: border-color .25s ease;
@@ -45,7 +45,7 @@
             &:focus {
                 background-color: transparent;
                 border: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+                border-bottom: 1px solid !important;
             }
         }
 
