@@ -75,10 +75,10 @@
       display: block !important;
 
       &.color-scheme-LIGHT {
-        @include tabs-component(transparent, color(black3), transparent);
+        @include tabs-component(color(black3), transparent);
       }
       &.color-scheme-DARK {
-        @include tabs-component(transparent, color(white), color(darkBlue3));
+        @include tabs-component(color(white), color(darkBlue3));
       }
     }
 
