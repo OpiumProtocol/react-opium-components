@@ -47,6 +47,12 @@
                 border: 0;
                 border-bottom: 1px solid !important;
             }
+
+            &:disabled {
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid !important;
+            }
         }
 
         b {
@@ -72,7 +78,11 @@
             background-color: transparent;
         }
 
-        &:disabled,
+        &:disabled {
+            background-color: transparent !important;
+            border: 0;
+        }
+
         .form-control[readonly] {
             background: transparent;
         }
@@ -117,7 +127,7 @@
             }
             .OpiumInput {
                 color: $white0;
-                border-bottom: 1px solid rgba($white0, .3);
+                border-bottom: 1px solid rgba($white0, .3) !important;
                 &:focus {
                     color: $white0;
                     border-color: $white0;
@@ -132,7 +142,7 @@
             }
             .OpiumInput {
                 color: $darkblue1;
-                border-bottom: 1px solid rgba($darkblue1, .3);
+                border-bottom: 1px solid rgba($darkblue1, .3) !important;
                 &:focus {
                     color: $darkblue1;
                     border-color: $darkblue1;
