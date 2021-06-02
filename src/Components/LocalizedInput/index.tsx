@@ -83,19 +83,12 @@ const LocalizedInput: FC<Props> = (props: Props) => {
     backgroundColor: backgroundColor['secondary'].value,
     borderColor: _.darkblue4,
     color: widgetThemes[theme as ETheme].color.secondary.value,
-    // color: color['secondary'].value,
-
     ...style,
   }
 
   const renderInput = () => {
     const classNames = `OpiumInput ${className !== undefined ? className : ''} ${errorMessage !== undefined ? 'error' : ''} ${disabled ? 'disabled' : ''}`
 
-    if (disabled) {
-      styles.backgroundColor = backgroundColor['secondary'].disabled
-      styles.borderColor = borderColor['secondary'].disabled
-      styles.color = color['secondary'].disabled
-    }
 
     switch (type) {
       case EFieldType.NUMBER:
