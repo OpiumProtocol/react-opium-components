@@ -26,7 +26,7 @@ export type Props = {
 
   /** Max button (testing) */
   maxButton?: string
-  maxValue?: string
+  maxButtonClick?: Function
 
   /** Set initial value */
   value?: string | number
@@ -74,6 +74,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
     onChange,
     className,
     disabled,
+    maxButtonClick
   } = renderProps
 
   const { color, backgroundColor, borderColor } = themes[theme as ETheme]
@@ -149,13 +150,13 @@ const LocalizedInput: FC<Props> = (props: Props) => {
       </div>
       {renderInput()}
       {
-        maxButton && (
+        (maxButton && maxButtonClick) && (
           <Button
             theme={theme}
             className="OpiumFieldset__maxBtn"
             label="max"
             variant="secondary"
-            onClick={() => (+maxValue > value) && onChange(+maxValue)}
+            onClick={maxButtonClick}
           />
         )
       }
