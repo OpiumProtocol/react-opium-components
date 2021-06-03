@@ -37,6 +37,7 @@ export const dropdownSelector = () => {
           frontSide={(<div>frontside</div>)}
           backSide={(<div>backSide</div>)}
           accentColor="#F6029C"
+          showBorder
         />
         <BlockWithList
           theme={theme}
