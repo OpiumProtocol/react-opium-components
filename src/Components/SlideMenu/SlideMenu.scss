@@ -24,6 +24,8 @@ $minHeaderHeight: 55px;
 
 .slide-menu {
   position: fixed;
+  left: 50%;
+  margin-left: -172px;
   top: calc(100vh - #{$minHeaderHeight});
   width: 343px;
   height: 350px;
