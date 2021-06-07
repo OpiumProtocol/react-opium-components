@@ -26,7 +26,7 @@ $minHeaderHeight: 55px;
   position: fixed;
   top: calc(100vh - #{$minHeaderHeight});
   width: 343px;
-  height: 100px;
+  height: 350px;
   border: 1px solid #000000;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -42,24 +42,69 @@ $minHeaderHeight: 55px;
     -webkit-animation: slide-out 0.5s forwards;
   }
 
+  .header-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: $minHeaderHeight;
+    padding: 0 16px;
+
+    .header-content {
+      display: flex;
+    }
+
+    .close-button {
+      position: relative;
+      top: 0;
+      right: 0;
+      padding: 0;
+
+      outline: none;
+
+      &::before {
+        display: none;
+      }
+      &::after {
+        display: none;
+      }
+    }
+  }
+
   &.color-scheme {
     &-DARK {
       background: $darkblue7;
       color: $white0;
+
+      .header-block {
+        .close-button {
+          svg {
+            line {
+              stroke: $white0;
+            }
+          }
+        }
+      }
+
     }
 
     &-LIGHT {
       background: $white0;
       color: $darkblue7;
+
+      .header-block {
+        .close-button {
+          svg {
+            line {
+              stroke: $darkblue1;
+            }
+          }
+        }
+      }
     }
   }
-  .header-block {
-    display: flex;
-    align-items: center;
-    min-height: $minHeaderHeight;
-  }
+
 
   .body-block {
-
+    padding: 16px;
   }
 }
