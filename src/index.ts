@@ -21,6 +21,7 @@ import GTMWrapper from './Components/GTMWrapper'
 import BlockWithList from './Components/BlockWithList'
 import Switcher from './Components/Switcher'
 import ProgressBar from './Components/ProgressBar'
+import SlideMenu from './Components/SlideMenu'
 
 import {
   themes,
@@ -58,6 +59,7 @@ export {
   Chart,
   Checkbox,
   ProgressBar,
+  SlideMenu,
   themes,
   widgetThemes,
   sectionThemes,

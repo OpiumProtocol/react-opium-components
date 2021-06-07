@@ -8,6 +8,7 @@ export const slideMenu = () => {
   const message = text('Text', 'Slide menu')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
+  const [status, setStatus] = useState<boolean>(false)
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
@@ -30,7 +31,12 @@ export const slideMenu = () => {
       />
     </div>
     <SlideMenu id={'test'} theme={theme}
-      header={<div style={{ width: '100%', textAlign: 'center' }}>Header</div>}
+      closeButton
+      open={status}
+      onClick={() => setStatus(false)}
+      header={<div style={{ width: '100%', textAlign: 'center' }}>
+        <button onClick={() => setStatus(true)}>Open slider</button>
+      </div>}
       content={<div style={{ width: '100%', textAlign: 'center' }}>Body</div>}
     />
   </div>)
