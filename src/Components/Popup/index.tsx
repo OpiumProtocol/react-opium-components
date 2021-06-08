@@ -50,6 +50,8 @@ export type Props = {
   cancelButtonTitle?: string
   /** Set class selectors */
   className?: string
+  /** Manually add cross to close the popup */
+  showCross?: boolean
 }
 
 const defaultProps: Props = {
@@ -73,7 +75,8 @@ const Popup: React.FC<Props> = (props: Props) => {
     popupIsOpen,
     closePopup,
     loading,
-    attention
+    attention,
+    showCross
   } = renderProps
 
   return (
@@ -98,7 +101,7 @@ const Popup: React.FC<Props> = (props: Props) => {
                 <span className={'attention-text'}>{warningTitle}</span>
               </div>
             )}
-            {!warningTitle && <button className="close-button" onClick={closePopup}>
+            {(!warningTitle || showCross) && <button className="close-button" onClick={closePopup}>
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="2.00162" y1="2.05615" x2="15.5312" y2="15.5858" strokeWidth="2" strokeLinecap="round"/>
                 <line x1="2.02563" y1="15.5296" x2="15.5553" y2="2.00001" strokeWidth="2" strokeLinecap="round"/>
