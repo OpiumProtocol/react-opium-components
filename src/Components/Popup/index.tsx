@@ -92,7 +92,7 @@ const Popup: React.FC<Props> = (props: Props) => {
             {attention && warningTitle && (
               <div
                 className="PopUp__warning-title"
-                style={{ marginTop: (title && warningTitle) ? '30px' : undefined }}
+                style={{ marginTop: (title && warningTitle) ? '30px' : 'none' }}
               >
                 {showWarningIcon && <img src={AttentionLogo} className="attention-icon" />}
                 <span className={'attention-text'}>{warningTitle}</span>
@@ -109,7 +109,11 @@ const Popup: React.FC<Props> = (props: Props) => {
 
       <Modal.Body>
         {loading && <Loading theme={theme} type='spinningBubbles' height='6rem' />}
-        {component}
+        {
+          typeof component === 'string' ? (
+            <div dangerouslySetInnerHTML={{ __html: component }}></div>
+          ) : component
+        }
       </Modal.Body>
     </Modal>
   )
