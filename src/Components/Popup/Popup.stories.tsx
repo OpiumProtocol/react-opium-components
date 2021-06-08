@@ -51,6 +51,7 @@ export const popup = () => {
         theme={theme}
         warningTitle="Warning"
         showWarningIcon={false}
+        showCross
         popupIsOpen={warningPopupIsOpen}
         closePopup={() => setWarningPopupIsOpen(false)}
         component={(
