@@ -1,1 +1,70 @@
 @import '../../Styles/index.scss';
+
+
+$preloader-width: 1em;
+$dot-width: ( $preloader-width / 7 );
+$dot-margin: ( $dot-width );
+
+@keyframes newton-gooey-extra-dot-animation {
+  50% { transform: translateX( #{ $dot-width * 2 + $dot-margin * 4 } ); }
+}
+@keyframes newton-gooey-main-dot-animation {
+  50% { transform: translateX( #{ -1 * ( $dot-width + $dot-margin ) } ); }
+}
+
+// This style is only relevant if you must put the SVG filter in your HTML
+.gooey-filter { position: absolute; left: -9000px; top: -9000px; }
+
+// Remove this parent
+.tmp-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150px;
+
+  &.color-theme {
+    &-DARK {
+      color: $white0;
+    }
+
+    &-LIGHT {
+      color: $darkblue1;
+    }
+  }
+}
+
+.preloader-newton-gooey {
+  width: 1em;
+  width: $preloader-width;
+
+  .preloader-inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    filter: url( '#goo' );
+  }
+
+  .dot {
+    background-color: currentColor;
+
+    display: block;
+    width: $dot-width;
+
+    border-radius: 100%;
+
+    animation: none 2.8s infinite;
+    transform: translateX(0);
+
+    &:not(:first-of-type) { margin-left: $dot-margin; }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 100%;
+    }
+  }
+
+  .extra-dot { animation-name: newton-gooey-extra-dot-animation; }
+  .main-dot { animation-name: newton-gooey-main-dot-animation; }
+}
