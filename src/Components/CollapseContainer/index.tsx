@@ -85,11 +85,13 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
               {body}
             </div>
           </Collapse>
-          <button className={`CollapseContainer__collapse-btn ${isOpened ? 'opened':''}`} onClick={() => {
-            setIsOpened(!isOpened)
-          }}>
-            {collapseButton}
-          </button>
+          <div className={`CollapseContainer__collapse-btn ${isOpened ? 'opened' : ''}`}>
+            <button onClick={() => {
+              setIsOpened(!isOpened)
+            }}>
+              {collapseButton}
+            </button>
+          </div>
         </div>
       </div>
       {disabled && <div className="CollapseContainer__disabled">
