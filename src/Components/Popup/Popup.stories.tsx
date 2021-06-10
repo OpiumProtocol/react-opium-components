@@ -43,13 +43,15 @@ export const popup = () => {
         subtitle="subtitle"
         popupIsOpen={popupIsOpen}
         closePopup={() => setPopupIsOpen(false)}
-        component={(
-          <p>My content</p>
-        )}
+        component={`
+          <p>My content<br />23</p>
+        `}
       />
       <Popup
         theme={theme}
         warningTitle="Warning"
+        showWarningIcon={false}
+        showCross
         popupIsOpen={warningPopupIsOpen}
         closePopup={() => setWarningPopupIsOpen(false)}
         component={(

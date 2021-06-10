@@ -16,6 +16,7 @@ export type Props = {
   frontSide: ReactNode
   backSide?: ReactNode
   className?: string
+  showBorder?: boolean
 }
 
 const defaultProps: Props = {
@@ -32,16 +33,15 @@ const BlockWithList: React.FC<Props> = (props: Props) => {
     accentColor,
     frontSide,
     backSide,
+    showBorder
   } = renderProps
 
   const [isShown, setIsShown] = React.useState<boolean>(false)
 
-  const { color, backgroundColor, borderColor } = widgetThemes[theme as ETheme]
-
   return (
     <div
       className={`BlockWithList ${className ? className : ''} color-scheme-${theme} ${isShown ? 'hovered' : ''}`}
-      style={{ borderColor: isShown ? accentColor : '' }}
+      style={{ borderColor: (isShown || showBorder) ? accentColor : '' }}
       onMouseEnter={() => backSide && setIsShown(true)}
       onMouseLeave={() => backSide && setIsShown(false)}
     >

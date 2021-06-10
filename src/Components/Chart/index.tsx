@@ -10,83 +10,6 @@ import {
   ResponsiveContainer
 } from 'recharts'
 
-const data = [
-  {
-    'data1': 0,
-    'data2': 100,
-  },
-  {
-    'data1': 5,
-    'data2': 95,
-  },
-  {
-    'data1': 10,
-    'data2': 80,
-  },
-  {
-    'data1': 15,
-    'data2': 75,
-  },
-  {
-    'data1': 20,
-    'data2': 70,
-  },
-  {
-    'data1': 30,
-    'data2': 65,
-  },
-
-  {
-    'data1': 35,
-    'data2': 60,
-  },
-  {
-    'data1': 40,
-    'data2': 55,
-  },
-  {
-    'data1': 45,
-    'data2': 50,
-  },
-  {
-    'data1': 50,
-    'data2': 45,
-  },
-
-  {
-    'data1': 55,
-    'data2': 40,
-  },
-  {
-    'data1': 60,
-    'data2': 35,
-  },
-  {
-    'data1': 65,
-    'data2': 30,
-  },
-  {
-    'data1': 70,
-    'data2': 25,
-  },
-  {
-    'data1': 75,
-    'data2': 20,
-  },
-  {
-    'data1': 80,
-    'data2': 15,
-  },
-  {
-    'data1': 85,
-    'data2': 10,
-  },
-  {
-    'data1': 100,
-    'data2': 5,
-  },
-]
-
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
@@ -97,10 +20,12 @@ export type Props = {
     theme?: ETheme
     width?: string
     height?: string
+    data: any[]
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
+  data: []
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -160,7 +85,8 @@ const Chart: React.FC<Props> = (props: Props) => {
   const {
     theme,
     width,
-    height
+    height,
+    data
   } = renderProps
 
   const tickChanger = (tickItem: any) => {
@@ -169,7 +95,7 @@ const Chart: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className={`CustomChart color-scheme-${theme}`} style={{width: width ? width : '100%', height: height ? height : '500px'}}>
+    <div className={`CustomChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
         <ComposedChart data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
           <defs>

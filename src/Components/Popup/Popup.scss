@@ -10,7 +10,7 @@
     .modal-header {
       position: relative;
       display: block;
-      padding: 0 !important;
+      padding: 0 30px 0 0 !important;
       margin-bottom: 36px;
       border: 0;
       .close-button {
@@ -39,7 +39,6 @@
     .modal-dialog {
       min-width: 342px;
       width: auto;
-      max-width: none;
     }
     .modal-content {
       border-radius: 10px;
@@ -80,6 +79,9 @@
     }
     .modal-body {
       padding: 0;
+      p {
+        margin-bottom: 20px;
+      }
     }
     .modal-footer {
       display: flex;

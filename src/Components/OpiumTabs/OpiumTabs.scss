@@ -10,7 +10,7 @@
 
   &.color-scheme-#{map_get($theme, lightTheme)} {
     .nav-item {
-      @include tabs-component(color(transparent), $darkblue1, transparent);
+      @include tabs-component($darkblue1, transparent);
       &.active {
         color: $darkblue1;
         cursor: default;
@@ -22,7 +22,7 @@
 
   &.color-scheme-#{map_get($theme, darkTheme)} {
     .nav-item {
-      @include tabs-component(color(transparent), $white0, color(transparent));
+      @include tabs-component($white0, color(transparent));
       &.active {
         color: $white0;
         cursor: default;

@@ -8,6 +8,7 @@ import { ETheme } from '../../Constants/Types/theme.types'
 import AttentionLogo from '../../Images/attention.svg'
 
 import './Popup.scss'
+import Loading from '../Loading'
 
 export type Props = {
   /** Define theme */
@@ -17,7 +18,13 @@ export type Props = {
 
   warningTitle?: string
 
+  showWarningIcon?: boolean
+
   subtitle?: string
+  /** Show loader in attention block */
+  loading?: boolean
+  /** Show attention */
+  attention?: boolean
 
   /** Set size */
   size?: 'xs' | 'sm' | 'lg' | 'xl'
@@ -43,11 +50,14 @@ export type Props = {
   cancelButtonTitle?: string
   /** Set class selectors */
   className?: string
+  /** Manually add cross to close the popup */
+  showCross?: boolean
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   popupIsOpen: false,
+  showWarningIcon: true,
   closePopup: () => {}
 }
 
@@ -59,10 +69,14 @@ const Popup: React.FC<Props> = (props: Props) => {
     className,
     title,
     warningTitle,
+    showWarningIcon,
     subtitle,
     component,
     popupIsOpen,
     closePopup,
+    loading,
+    attention,
+    showCross
   } = renderProps
 
   return (
@@ -77,16 +91,17 @@ const Popup: React.FC<Props> = (props: Props) => {
           <Modal.Header>
             {title && <Modal.Title>{title}</Modal.Title>}
             <div className="PopUp__subtitle">{subtitle}</div>
-            {warningTitle && (
+
+            {attention && warningTitle && (
               <div
                 className="PopUp__warning-title"
-                style={{ marginTop: (title && warningTitle) ? '30px' : undefined }}
+                style={{ marginTop: (title && warningTitle) ? '30px' : 'none' }}
               >
-                <img src={AttentionLogo} className="attention-icon" />
+                {showWarningIcon && <img src={AttentionLogo} className="attention-icon" />}
                 <span className={'attention-text'}>{warningTitle}</span>
               </div>
             )}
-            {!warningTitle && <button className="close-button" onClick={closePopup}>
+            {(!warningTitle || showCross) && <button className="close-button" onClick={closePopup}>
               <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line x1="2.00162" y1="2.05615" x2="15.5312" y2="15.5858" strokeWidth="2" strokeLinecap="round"/>
                 <line x1="2.02563" y1="15.5296" x2="15.5553" y2="2.00001" strokeWidth="2" strokeLinecap="round"/>
@@ -96,7 +111,12 @@ const Popup: React.FC<Props> = (props: Props) => {
       }
 
       <Modal.Body>
-        {component}
+        {loading && <Loading theme={theme} type='spinningBubbles' height='6rem' />}
+        {
+          typeof component === 'string' ? (
+            <div dangerouslySetInnerHTML={{ __html: component }}></div>
+          ) : component
+        }
       </Modal.Body>
     </Modal>
   )
