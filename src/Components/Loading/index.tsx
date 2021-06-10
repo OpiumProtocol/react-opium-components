@@ -28,12 +28,12 @@ const defaultProps = {
   color: '',
   height: '4rem',
   width: '6rem',
-    size: '150px',
+  size: '150px',
   type: 'bubbles' as LoadingType,
 }
 
 const Loading: FC<Props> = (props: Props) => {
-  const { className, theme, size,  ...rest } = generateRenderProps(defaultProps, props)
+  const { className, theme, size, ...rest } = generateRenderProps(defaultProps, props)
 
   return (
     <>
@@ -47,7 +47,7 @@ const Loading: FC<Props> = (props: Props) => {
         </defs>
       </svg>
 
-      <div className={`tmp-parent color-theme-${theme}`} style={{fontSize: size}}>
+      <div className={`tmp-parent color-theme-${theme}`} style={{ fontSize: size }}>
         <div className="preloader preloader-newton-gooey" aria-label="Loading...">
           <div className="preloader-inner" role="presentation">
             <span className="dot extra-dot"></span>
