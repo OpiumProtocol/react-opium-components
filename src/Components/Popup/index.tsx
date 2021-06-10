@@ -111,7 +111,7 @@ const Popup: React.FC<Props> = (props: Props) => {
       }
 
       <Modal.Body>
-        {loading && <Loading theme={theme} type='spinningBubbles' height='6rem' />}
+        {loading && <div className={'loader-wrap'}><Loading theme={theme} size={'100px'}/></div>}
         {
           typeof component === 'string' ? (
             <div dangerouslySetInnerHTML={{ __html: component }}></div>
