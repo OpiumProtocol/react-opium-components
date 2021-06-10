@@ -37,9 +37,11 @@
     }
 
     &__collapse-btn {
-        background: transparent;
-        border: 0;
-        padding: 0;
+        button {
+            background: transparent;
+            border: 0;
+            padding: 0;
+        }
     }
 
     &__disabled {
@@ -76,7 +78,9 @@
 
             .CollapseContainer {
                 &__collapse-btn {
-                    color: #fff;
+                    button {
+                        color: #fff;
+                    }
                 }
             }
         }
@@ -90,7 +94,9 @@
 
             .CollapseContainer {
                 &__collapse-btn {
-                    color: #000;
+                    button {
+                        color: #000;
+                    }
                 }
             }
         }
