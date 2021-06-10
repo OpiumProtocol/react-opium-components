@@ -23,12 +23,24 @@
     cursor: not-allowed;
   }
 
-  // &.color-scheme-LIGHT {
-  //   @include localized-input-component($white0, $black3, $blue1);
-  // }
-  // &.color-scheme-DARK {
-  //    @include localized-input-component($darkblue2, $white0, transparent);
-  // }
+   &.color-scheme-LIGHT {
+     @include localized-input-component($white0, $black3, $blue1);
+   }
+   &.color-scheme-DARK {
+      @include localized-input-component($darkblue2, $white0, $darkblue4);
+   }
+}
+
+.react-numeric-input {
+  b {
+    background: white !important;
+    margin-bottom: 1px;
+  }
+
+  b:last-child {
+    margin-bottom: 0;
+    margin-top: 1px;
+  }
 }
 
 
@@ -63,10 +75,10 @@
       display: block !important;
 
       &.color-scheme-LIGHT {
-        @include tabs-component(color(gray5), color(black3), transparent);
+        @include tabs-component(color(black3), transparent);
       }
       &.color-scheme-DARK {
-        @include tabs-component(color(darkBlue2), color(white), color(darkBlue3));
+        @include tabs-component(color(white), color(darkBlue3));
       }
     }
 

@@ -1,4 +1,5 @@
 @import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
 
 .OpiumFieldset {
     position: relative;
@@ -21,13 +22,50 @@
             color: #F6029C;
         }
     }
+
+    .react-numeric-input {
+        width: 100%;
+        input {
+            height: 24px;
+            background: transparent;
+            border-radius: 0;
+            font-family: "Montserrat", sans-serif !important;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px !important;
+            line-height: 24px;
+            padding: 0 !important;
+            border: 0 !important;
+            width: 100%;
+            border-bottom: 1px solid !important;
+            outline: none;
+
+            transition: border-color .25s ease;
+
+            &:focus {
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid !important;
+            }
+
+            &:disabled {
+                background-color: transparent;
+                border: 0;
+                border-bottom: 1px solid !important;
+            }
+        }
+
+        b {
+            display: none;
+        }
+
+    }
+
     .OpiumInput {
         height: 24px;
         background: transparent;
         border-radius: 0;
-        border-bottom: 1px solid rgba(white, .3);
-        color: white;
-        font-family: Montserrat;
+        font-family: "Montserrat", sans-serif !important;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -38,11 +76,13 @@
 
         &:focus {
             background-color: transparent;
-            color: #fff;
-            border-color: white;
         }
 
-        &:disabled,
+        &:disabled {
+            background-color: transparent !important;
+            border: 0;
+        }
+
         .form-control[readonly] {
             background: transparent;
         }
@@ -55,9 +95,9 @@
         }
 
         /* Firefox */
-        &[type=number] {
-            -moz-appearance: textfield;
-        }
+        //&[type=number] {
+        //    -moz-appearance: textfield;
+        //}
 
         &.error {
             border-color: #F6029C;
@@ -75,6 +115,39 @@
             line-height: 12px;
 
             padding: 0 6px;
+        }
+    }
+
+    &.color-scheme {
+        &-DARK {
+            .OpiumFieldset {
+                &__label {
+                    color: $white0;
+                }
+            }
+            .OpiumInput {
+                color: $white0;
+                border-bottom: 1px solid rgba($white0, .3) !important;
+                &:focus {
+                    color: $white0;
+                    border-color: $white0;
+                }
+            }
+        }
+        &-LIGHT {
+            .OpiumFieldset {
+                &__label {
+                    color: $darkblue1;
+                }
+            }
+            .OpiumInput {
+                color: $darkblue1;
+                border-bottom: 1px solid rgba($darkblue1, .3) !important;
+                &:focus {
+                    color: $darkblue1;
+                    border-color: $darkblue1;
+                }
+            }
         }
     }
 }
