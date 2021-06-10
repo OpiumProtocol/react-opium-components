@@ -169,7 +169,7 @@ const Chart: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className={`CustomChart color-scheme-${theme}`} style={{width: width ? width : '100%', height: height ? height : '500px'}}>
+    <div className={`CustomChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
         <ComposedChart data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
           <defs>
