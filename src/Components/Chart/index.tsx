@@ -7,6 +7,7 @@ import {
   Tooltip,
   Area,
   ComposedChart,
+  ResponsiveContainer
 } from 'recharts'
 
 const data = [
@@ -94,6 +95,8 @@ import './Chart.scss'
 export type Props = {
     /** Define theme */
     theme?: ETheme
+    width?: string
+    height?: string
 }
 
 const defaultProps: Props = {
@@ -156,6 +159,8 @@ const Chart: React.FC<Props> = (props: Props) => {
 
   const {
     theme,
+    width,
+    height
   } = renderProps
 
   const tickChanger = (tickItem: any) => {
@@ -164,53 +169,55 @@ const Chart: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className={`CustomChart color-scheme-${theme}`}>
-      <ComposedChart width={565} height={265} data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
-        <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.15}/>
-            <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
-          </linearGradient>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#197CD8" stopOpacity={0.15}/>
-            <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
-          </linearGradient>
-        </defs>
-        <CartesianGrid stroke={theme === 'DARK' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
-        <XAxis
-          interval={4}
-          tickFormatter={tickChanger}
-        />
-        <YAxis axisLine />
-        {
-          // @ts-ignore
-          <Tooltip content={<CustomTooltip />} />
-        }
-        <Area
-          type="monotone"
-          dataKey="data1"
-          strokeWidth={2}
-          fillOpacity={1}
-          fill="url(#colorUv)"
+    <div className={`CustomChart color-scheme-${theme}`} style={{width: width ? width : '100%', height: height ? height : '500px'}}>
+      <ResponsiveContainer width='100%' height="100%">
+        <ComposedChart data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#F6029C" stopOpacity={0.15}/>
+              <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
+            </linearGradient>
+            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#197CD8" stopOpacity={0.15}/>
+              <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
+            </linearGradient>
+          </defs>
+          <CartesianGrid stroke={theme === 'DARK' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
+          <XAxis
+            interval={4}
+            tickFormatter={tickChanger}
+          />
+          <YAxis axisLine />
+          {
+            // @ts-ignore
+            <Tooltip content={<CustomTooltip />} />
+          }
+          <Area
+            type="monotone"
+            dataKey="data1"
+            strokeWidth={2}
+            fillOpacity={1}
+            fill="url(#colorUv)"
 
-          stroke={'#F6029C'}
+            stroke={'#F6029C'}
 
-          // @ts-ignore
-          activeDot={<CustomizedActiveDot />}
-        />
-        <Area
-          type="monotone"
-          dataKey="data2"
-          strokeWidth={2}
-          fillOpacity={1}
-          fill="url(#colorPv)"
+            // @ts-ignore
+            activeDot={<CustomizedActiveDot />}
+          />
+          <Area
+            type="monotone"
+            dataKey="data2"
+            strokeWidth={2}
+            fillOpacity={1}
+            fill="url(#colorPv)"
 
-          stroke={'#197CD8'}
+            stroke={'#197CD8'}
 
-          // @ts-ignore
-          activeDot={<CustomizedActiveDot />}
-        />
-      </ComposedChart>
+            // @ts-ignore
+            activeDot={<CustomizedActiveDot />}
+          />
+        </ComposedChart>
+      </ResponsiveContainer>
     </div>
   )
 }

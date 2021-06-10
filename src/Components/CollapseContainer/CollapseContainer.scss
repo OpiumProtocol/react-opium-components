@@ -1,7 +1,16 @@
 @import '../../Styles/index.scss';
 
-.ContainerWithCollapse {
+.CollapseContainer {
     position: relative;
+
+    &__container {
+        border-radius: 20px;
+        border: 1px solid transparent;
+        transition: border-color .5s ease;
+        &.hovered {
+            transition: border-color .3s ease;
+        }
+    }
 
     .accordion {
         border: 1px solid transparent;
@@ -21,6 +30,16 @@
         &-body {
             padding: 0;
         }
+    }
+
+    .ReactCollapse--collapse {
+        transition: height 500ms;
+    }
+
+    &__collapse-btn {
+        background: transparent;
+        border: 0;
+        padding: 0;
     }
 
     &__disabled {
@@ -54,12 +73,24 @@
                     background-color: #0A0A1E;
                 }
             }
+
+            .CollapseContainer {
+                &__collapse-btn {
+                    color: #fff;
+                }
+            }
         }
         &-LIGHT {
             color: #000;
             &:hover {
                 .accordion {
                     background-color: white;
+                }
+            }
+
+            .CollapseContainer {
+                &__collapse-btn {
+                    color: #000;
                 }
             }
         }
