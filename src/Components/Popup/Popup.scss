@@ -79,6 +79,11 @@
     }
     .modal-body {
       padding: 0;
+
+      .loader-wrap {
+        margin-bottom: 15px;
+      }
+
       p {
         margin-bottom: 20px;
       }
