@@ -1,6 +1,6 @@
 @import '../../Styles/colors.scss';
 
-$minHeaderHeight: 55px;
+$minHeaderHeight: 75px;
 
 @keyframes slide-in {
   0% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }
@@ -25,6 +25,7 @@ $minHeaderHeight: 55px;
 .slide-menu {
   position: fixed;
   left: 50%;
+  z-index: 1000;
   margin-left: -172px;
   top: calc(100vh - #{$minHeaderHeight});
   width: 343px;
@@ -49,7 +50,7 @@ $minHeaderHeight: 55px;
     align-items: center;
     justify-content: space-between;
     min-height: $minHeaderHeight;
-    padding: 0 16px;
+    padding: 0 16px 5px 16px;
 
     .header-content {
       display: flex;
