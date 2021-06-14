@@ -1,5 +1,9 @@
 @import '../../Styles/colors.scss';
 
+:root {
+  --app-height: 100vh;
+}
+
 $minHeaderHeight: 75px;
 
 @keyframes slide-in {
@@ -27,7 +31,7 @@ $minHeaderHeight: 75px;
   left: 50%;
   z-index: 1000;
   margin-left: -172px;
-  top: calc(100vh - #{$minHeaderHeight});
+  top: calc(var(--app-height) - #{$minHeaderHeight});
   width: 343px;
   height: 350px;
   border: 1px solid #000000;
