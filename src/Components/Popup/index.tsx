@@ -47,7 +47,7 @@ export type Props = {
   /** Set title for action button */
   actionButtonTitle?: string
   /** Set title for cancel button */
-  cancelButtonTitle?: string
+  cancelButtonTitle?: string | undefined
   /** Set class selectors */
   className?: string
   /** Manually add cross to close the popup */
