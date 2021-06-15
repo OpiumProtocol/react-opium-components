@@ -14,7 +14,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Set title */
-  title?: string
+  title?: string | undefined
 
   warningTitle?: string
 
