@@ -76,8 +76,21 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
         onMouseEnter={() => !hoverControlled && setHovered(true)}
         onMouseLeave={() => !hoverControlled && setHovered(false)}
       >
-        <div className="CollapseContainer__header">
+        <div className="CollapseContainer__header" onClick={(e: any) => {
+          e.persist()
+          if (!(
+            e.target.href ||
+            e.target.nodeName === 'BUTTON' || 
+            e.target.nodeName === 'INPUT'
+          )) {
+            setIsOpened(!isOpened)
+          }
+        }}>
           {header}
+          <a className="test1 test2" href="https://google.com/" onClick={(e) => e.preventDefault()}>Google</a>
+          <button>Test 1</button>
+          <button type="button">Test 2</button>
+          <input type="button" value="test 3" />
         </div>
         <div className="CollapseContainer__body">
           <Collapse isOpened={isOpened}>
