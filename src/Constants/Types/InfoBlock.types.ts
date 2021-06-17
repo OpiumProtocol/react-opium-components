@@ -1,4 +1,7 @@
 export enum EIconType {
-    WARNING = 'warning',
-    INFO = 'info'
+    ERROR = 'ERROR',
+    SUCCESS = 'SUCCESS',
+    INFO = 'INFO',
+    WARNING = 'WARNING',
+    NEUTRAL = 'NEUTRAL',
 }
