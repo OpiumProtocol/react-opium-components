@@ -2,11 +2,20 @@
 @import '../../Styles/colors.scss';
 
 .text-block {
-  
+
   &.color-scheme-LIGHT {
     color: $darkblue1;
   }
   &.color-scheme-DARK {
     color: $white0;
+  }
+}
+
+.info-block {
+  display: flex;
+  flex-direction: row;
+
+  img {
+    margin-right: 10px;
   }
 }

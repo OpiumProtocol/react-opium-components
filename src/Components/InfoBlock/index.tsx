@@ -1,8 +1,13 @@
 import React, { CSSProperties, FC, ReactNode } from 'react'
-import { Alert } from 'react-bootstrap'
 import { v4 as uuidv4 } from 'uuid'
 
+// @ts-ignore
+import InfoIcon from '../../Images/info.svg'
+// @ts-ignore
+import WarningIcon from '../../Images/attention.svg'
 import { ETheme, themes, TVariant } from '../../Constants/Types/theme.types'
+import {EIconType} from '../../Constants/Types/InfoBlock.types'
+import _ from '../../Styles/exportColors.scss'
 
 import { generateRenderProps } from '../../Utils/helpers'
 
@@ -15,6 +20,9 @@ export type Props = {
   content?: string
   /** Set heading */
   heading?: string
+  icon?: boolean,
+
+  type?: EIconType,
   /** Set link */
   link?: {
     as?: ReactNode
@@ -45,43 +53,30 @@ function createMarkup(content: string) {
 }
 
 const InfoBlock: FC<Props> = (props: Props) => {
-  const { content, heading, theme, variant, link, className, wide } = generateRenderProps(defaultProps, props)
-  const { as, to, href, title: linkTitle, newTab, style } = link
+  const { content, className, wide, icon, type } = generateRenderProps(defaultProps, props)
 
-  const { color, backgroundColor, borderColor } = themes[theme as ETheme]
+  const getColor = (type: string) => {
+    switch (type) {
+      case EIconType.WARNING:
+        return _.pink
+      case EIconType.INFO:
+        return _.blue1
+      default:
+        return _.white0
+    }
+  }
 
   const styled = {
-    color: color[variant as TVariant].value,
-    backgroundColor: backgroundColor[variant as TVariant].value,
-    borderColor: borderColor[variant as TVariant].value,
+    color: getColor(type),
     borderStyle: 'solid',
     borderRadius: wide ? 0 : '10px',
     width: wide ? '100%' : 'unset',
-    textAlign: 'center' as 'center',
-  }
-
-  const target = newTab ? '_blank' : undefined
-  const rel = newTab ? 'noreferrer' : undefined
-  const linkStyles = {
-    textDecoration: 'none',
-    color: 'white',
+    textAlign: 'left' as 'left',
   }
 
   return (
-    <Alert className={className} style={styled}>
-      {heading && <Alert.Heading>{heading}</Alert.Heading>}
-      {
-        linkTitle && <Alert.Link
-          as={as}
-          to={to}
-          href={href}
-          style={{ ...linkStyles, ...style }}
-          rel={rel}
-          target={target}
-        >
-          {linkTitle}
-        </Alert.Link>
-      }
+    <div className={`info-block ${className}`} style={styled}>
+      {icon && <img src={type === EIconType.WARNING ? WarningIcon : InfoIcon } />}
       {
         content && content.split('\n').map((contentLine: string) => (
           <div
@@ -91,7 +86,7 @@ const InfoBlock: FC<Props> = (props: Props) => {
           />
         ))
       }
-    </Alert >
+    </div>
   )
 }
 

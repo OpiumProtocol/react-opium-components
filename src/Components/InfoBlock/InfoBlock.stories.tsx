@@ -4,7 +4,8 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import InfoBlock from './index'
 import Button from '../OpiumButton'
 
-import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
+import {ETheme, sectionThemes, TVariant} from '../../Constants/Types/theme.types'
+import {EIconType} from "../../Constants/Types/InfoBlock.types";
 
 export const infoBlock = () => {
   const message = text('Text', 'InfoBlock')
@@ -50,7 +51,9 @@ export const infoBlock = () => {
         }}
         theme={theme}
         content={content}
-        variant={'success'}
+        variant={'secondaryRed'}
+        icon={true}
+        type={EIconType.INFO}
       />
       <InfoBlock
         link={{
@@ -61,7 +64,8 @@ export const infoBlock = () => {
         }}
         theme={theme}
         content={content}
-        variant={'warning'}
+        icon={true}
+        type={EIconType.WARNING}
       />
       <InfoBlock
         link={{
