@@ -22,7 +22,7 @@ export type Props = {
   heading?: string
   icon?: boolean,
 
-  type?: EIconType,
+  type?: string,
   /** Set link */
   link?: {
     as?: ReactNode
