@@ -6,9 +6,9 @@ import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
-export const dropdownSelector = () => {
+export const blockWithList = () => {
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
-  const message = text('Text', 'DropdownSelector')
+  const message = text('Text', 'BlockWithList')
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
