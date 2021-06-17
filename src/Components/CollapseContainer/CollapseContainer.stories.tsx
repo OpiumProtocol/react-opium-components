@@ -97,6 +97,10 @@ export const collapseContainer = () => {
             const headerContent = (id: number) => (
               <div>
                 <p>{el.headerText}</p>
+                <a className="test1 test2" href="https://google.com/" onClick={(e) => e.preventDefault()}>Google</a>
+                <button>Test 1</button>
+                <button type="button">Test 2</button>
+                <input type="button" value="test 3" />
               </div>
             )
 
