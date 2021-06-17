@@ -4,8 +4,8 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import InfoBlock from './index'
 import Button from '../OpiumButton'
 
-import {ETheme, sectionThemes, TVariant} from '../../Constants/Types/theme.types'
-import {EIconType} from "../../Constants/Types/InfoBlock.types";
+import { ETheme, sectionThemes, TVariant } from '../../Constants/Types/theme.types'
+import { EIconType } from '../../Constants/Types/InfoBlock.types'
 
 export const infoBlock = () => {
   const message = text('Text', 'InfoBlock')

@@ -6,7 +6,7 @@ import InfoIcon from '../../Images/info.svg'
 // @ts-ignore
 import WarningIcon from '../../Images/attention.svg'
 import { ETheme, themes, TVariant } from '../../Constants/Types/theme.types'
-import {EIconType} from '../../Constants/Types/InfoBlock.types'
+import { EIconType } from '../../Constants/Types/InfoBlock.types'
 import _ from '../../Styles/exportColors.scss'
 
 import { generateRenderProps } from '../../Utils/helpers'
