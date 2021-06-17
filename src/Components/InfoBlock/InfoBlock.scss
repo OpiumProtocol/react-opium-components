@@ -14,6 +14,23 @@
 .info-block {
   display: flex;
   flex-direction: row;
+  line-height: 20px;
+
+  &.error {
+    a {
+      color: $pink
+    }
+  }
+
+  &.info {
+    a {
+      color: $blue1
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
 
   img {
     margin-right: 10px;

@@ -19,7 +19,7 @@ export const infoBlock = () => {
     borderRadius: '5px',
   }
 
-  const content = 'Initial text line'
+  const content = 'Initial text line <a href="">Your are withdrawing from the secondary market</a>'
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
