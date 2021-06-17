@@ -58,8 +58,11 @@ const InfoBlock: FC<Props> = (props: Props) => {
   const getColor = (type: string) => {
     switch (type) {
       case EIconType.WARNING:
+      case EIconType.ERROR:
         return _.pink
       case EIconType.INFO:
+      case EIconType.SUCCESS:
+      case EIconType.NEUTRAL:
         return _.blue1
       default:
         return _.white0
@@ -76,7 +79,7 @@ const InfoBlock: FC<Props> = (props: Props) => {
 
   return (
     <div className={`info-block ${className}`} style={styled}>
-      {icon && <img src={type === EIconType.WARNING ? WarningIcon : InfoIcon } />}
+      {icon && <img src={[EIconType.WARNING, EIconType.ERROR].includes(type) ? WarningIcon : InfoIcon } />}
       {
         content && content.split('\n').map((contentLine: string) => (
           <div
