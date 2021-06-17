@@ -78,10 +78,11 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
       >
         <div className="CollapseContainer__header" onClick={(e: any) => {
           e.persist()
+          console.log('... ', e.target.nodeName)
           if (!(
             e.target.href ||
-            e.target.nodeName === 'BUTTON' || 
-            e.target.nodeName === 'INPUT'
+            e.target.nodeName.includes('BUTTON') || 
+            e.target.nodeName.includes('INPUT')
           )) {
             setIsOpened(!isOpened)
           }
