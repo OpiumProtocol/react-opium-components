@@ -69,6 +69,20 @@ const InfoBlock: FC<Props> = (props: Props) => {
     }
   }
 
+  const getLinkColor = (type: string) => {
+    switch (type) {
+      case EIconType.WARNING:
+      case EIconType.ERROR:
+        return 'error'
+      case EIconType.INFO:
+      case EIconType.SUCCESS:
+      case EIconType.NEUTRAL:
+        return 'info'
+      default:
+        return ''
+    }
+  }
+
   const styled = {
     color: getColor(type),
     borderStyle: 'solid',
@@ -78,7 +92,7 @@ const InfoBlock: FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className={`info-block ${className}`} style={styled}>
+    <div className={`info-block ${getLinkColor(type)} ${className}`} style={styled}>
       {icon && <img src={[EIconType.WARNING, EIconType.ERROR].includes(type) ? WarningIcon : InfoIcon } />}
       {
         content && content.split('\n').map((contentLine: string) => (
