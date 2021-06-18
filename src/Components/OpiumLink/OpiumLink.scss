@@ -1,0 +1,21 @@
+a {
+  display: inline-block;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -8px;
+    width: 6px;
+    height: 6px;
+    background-image: url('../../Images/link-target-blank-white.svg');
+    background-size: contain;
+    background-position: center;
+  }
+}

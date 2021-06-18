@@ -22,6 +22,7 @@ import BlockWithList from './Components/BlockWithList'
 import Switcher from './Components/Switcher'
 import ProgressBar from './Components/ProgressBar'
 import SlideMenu from './Components/SlideMenu'
+import OpiumLink from './Components/OpiumLink'
 
 import {
   themes,
@@ -65,6 +66,7 @@ export {
   sectionThemes,
   ETheme,
   colors,
+  OpiumLink
 }
 
 export type {
