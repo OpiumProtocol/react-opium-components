@@ -60,12 +60,10 @@ const OpiumLink: FC<Props> = (props: Props) => {
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
 
-    console.log('href', href);
-
   return (
-    <>
-        {(href) ? (<a href={href} target={target} style={coreStyles} rel={rel}>{label}</a>) : <div></div> }
-    </>
+    <div className={`opium-link  color-scheme-${theme}`}>
+        {(href || (href && newTab)) ? (<a href={href} target={target} style={coreStyles} rel={rel}>{label}</a>) : <div></div> }
+    </div>
   )
 }
 

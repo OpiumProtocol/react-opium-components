@@ -29,7 +29,7 @@ export const opiumLink = () => {
         onClick={() => setTheme(ETheme.DARK)}
       />
     </div>
-    <OpiumLink label={'Link'} href={'http://app.opium.finance'} />
+    <OpiumLink theme={theme} label={'Link'} href={'http://app.opium.finance'} />
   </div>)
 }
 
