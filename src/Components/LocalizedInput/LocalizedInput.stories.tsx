@@ -55,6 +55,7 @@ export const localizedInput = () => {
         onChange={handleChange}
         maxButton="max"
         maxButtonClick={() => setNumber(300)}
+        placeholder={'Enter amount'}
       />
       <LocalizedInput
         theme={theme}

@@ -40,6 +40,8 @@ export type Props = {
   style?: CSSProperties
   /** Disabled flag */
   disabled?: boolean
+  /** Placeholder text */
+  placeholder?: string
 }
 
 const defaultProps: Props = {
@@ -74,7 +76,8 @@ const LocalizedInput: FC<Props> = (props: Props) => {
     onChange,
     className,
     disabled,
-    maxButtonClick
+    maxButtonClick,
+    placeholder
   } = renderProps
 
   const { color, backgroundColor, borderColor } = themes[theme as ETheme]
@@ -105,6 +108,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             pattern="^-?\d+\.?\d*"
             // onSelect={(e: BaseSyntheticEvent) => e.target.select()}
             disabled={disabled}
+            placeholder={placeholder}
           />
           : <Form.Control
             className={classNames}
@@ -115,6 +119,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             onFocus={() => setIsEditing(true)}
             onSelect={(e: BaseSyntheticEvent) => e.target.select()}
             disabled={disabled}
+            placeholder={placeholder}
           />
       default:
         return (
@@ -125,6 +130,7 @@ const LocalizedInput: FC<Props> = (props: Props) => {
             value={value === 0 ? '' : value}
             onChange={(e) => onChange(e.target.value)}
             disabled={disabled}
+            placeholder={placeholder}
           />
         )
     }
