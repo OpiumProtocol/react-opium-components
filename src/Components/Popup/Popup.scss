@@ -30,9 +30,9 @@
       }
     }
     .modal-title {
-      font-family: Montserrat;
+      font-family: "Montserrat", sans-serif;
       font-weight: 500;
-      font-size: 22px;
+      font-size: 16px;
       line-height: 27px;
       text-transform: none;
     }
@@ -49,20 +49,20 @@
       &.color-scheme {
         &-DARK {
           background: $darkblue1;
-          border: 1px solid color(white);
-          color: color(white);
+          border: 1px solid $white0;
+          color: $white0;
           .modal-header {
             .close-button {
               svg {
                 line {
-                  stroke: color(white);
+                  stroke: $white0;
                 }
               }
             }
           }
         }
         &-LIGHT {
-          background: color(white);
+          background: $white0;
           border: 1px solid $darkblue1;
           color: $darkblue1;
           .modal-header {
@@ -102,11 +102,11 @@
     &.modal {
       .modal-body {
         p {
-          font-family: Montserrat;
+          font-family: "Montserrat", sans-serif;
           font-weight: normal;
           font-size: 12px;
           line-height: 16px;
-          
+
           max-width: 274px;
         }
       }
@@ -120,7 +120,7 @@
     flex-direction: row;
     align-items: center;
 
-    font-family: Montserrat;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
@@ -133,7 +133,7 @@
   }
   &__subtitle {
     display: block;
-    font-family: Montserrat;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;

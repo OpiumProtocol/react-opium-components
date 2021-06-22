@@ -62,7 +62,7 @@ const OpiumLink: FC<Props> = (props: Props) => {
 
   return (
     <div className={`opium-link  color-scheme-${theme}`}>
-        {(href || (href && newTab)) ? (<a href={href} target={target} style={coreStyles} rel={rel}>{label}</a>) : <div></div> }
+      {(href || (href && newTab)) ? (<a href={href} target={target} style={coreStyles} rel={rel}>{label}</a>) : <div></div> }
     </div>
   )
 }
