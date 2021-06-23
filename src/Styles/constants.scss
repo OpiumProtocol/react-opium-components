@@ -134,7 +134,7 @@ $font-sizes-px: (
 	background-color: $bg;
 	color: $color;
 	border-color: $border;
-	border-radius: 3px;
+	border-radius: 10px;
 }
 
 @mixin popup-alert-component($bg, $color, $border-color, $border-radius) {
