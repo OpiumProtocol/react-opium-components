@@ -89,7 +89,7 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
         </div>
         <div className="CollapseContainer__body">
           <Collapse isOpened={isOpened}>
-            <div style={{ color: 'white' }}>
+            <div>
               {body}
             </div>
           </Collapse>
