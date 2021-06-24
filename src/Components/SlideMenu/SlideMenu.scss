@@ -2,9 +2,10 @@
 
 :root {
   --app-height: 100vh;
+  --header-height: 75px;
 }
 
-$minHeaderHeight: 75px;
+$minHeaderHeight: var(--header-height);
 
 @keyframes slide-in {
   0% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }

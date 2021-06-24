@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
@@ -15,7 +15,8 @@ export type Props = {
     open?: boolean,
     closeButton?: boolean,
     header: any,
-    content: any
+    content: any,
+    headerHeight?: string
 }
 
 const defaultProps: Props = {
@@ -24,7 +25,8 @@ const defaultProps: Props = {
   open: false,
   header: '',
   content: '',
-  closeButton: false
+  closeButton: false,
+  headerHeight: '75px'
 }
 
 const SlideMenu: React.FC<Props> = (props: Props) => {
@@ -36,8 +38,14 @@ const SlideMenu: React.FC<Props> = (props: Props) => {
     header,
     content,
     onClick,
-    closeButton
+    closeButton,
+    headerHeight
   } = renderProps
+
+  useEffect(() => {
+    const root = document.documentElement
+    root.style.setProperty('--header-height', headerHeight)
+  }, [headerHeight])
 
   return (<>
     <div className={`slide-menu color-scheme-${theme} ${!open ? 'slide-in' : 'slide-out'}`}>
