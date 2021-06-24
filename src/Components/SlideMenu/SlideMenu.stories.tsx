@@ -38,6 +38,7 @@ export const slideMenu = () => {
         <button onClick={() => setStatus(true)}>Open slider</button>
       </div>}
       content={<div style={{ width: '100%', textAlign: 'center' }}>Body</div>}
+      headerHeight={'55px'}
     />
   </div>)
 }
