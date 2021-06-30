@@ -52,6 +52,8 @@ export type Props = {
   className?: string
   /** Manually add cross to close the popup */
   showCross?: boolean
+  /** Change title size */
+  titleSize?: 'lg'
 }
 
 const defaultProps: Props = {
@@ -76,14 +78,15 @@ const Popup: React.FC<Props> = (props: Props) => {
     closePopup,
     loading,
     attention,
-    showCross
+    showCross,
+    titleSize
   } = renderProps
 
   return (
     <Modal
       show={popupIsOpen}
       onHide={closePopup}
-      className={`Popup${className ? ' ' + className : ''}${warningTitle ? ' warning' : ''}`}
+      className={`Popup${className ? ' ' + className : ''}${warningTitle ? ' warning' : ''} ${titleSize === 'lg' ? 'big-title':''}`}
       contentClassName={`color-scheme-${theme}`}
     >
       {

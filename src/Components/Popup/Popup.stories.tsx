@@ -39,6 +39,7 @@ export const popup = () => {
       <Button theme={theme} label="Show Warning PopUp" onClick={() => setWarningPopupIsOpen(!warningPopupIsOpen)} />
       <Popup
         theme={theme}
+        titleSize="lg"
         title="Title"
         subtitle="subtitle"
         popupIsOpen={popupIsOpen}
