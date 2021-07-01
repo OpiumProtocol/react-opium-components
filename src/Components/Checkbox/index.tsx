@@ -10,6 +10,7 @@ export type Props = {
   theme?: ETheme
   label?: string | React.ReactNode
   onChange: (e: any) => void
+  manualChecked?: boolean
 }
 
 const defaultProps: Props = {
@@ -20,12 +21,18 @@ const defaultProps: Props = {
 
 const Checkbox: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
+  const [checked, setChecked] = React.useState(false)
 
   const {
     theme,
     label,
-    onChange
+    onChange,
+    manualChecked
   } = renderProps
+
+  React.useEffect(() => {
+    if (manualChecked === true) setChecked(true)
+  }, [manualChecked])
 
   return (
     <label className={`CheckBox color-scheme-${theme}`}>
@@ -34,9 +41,10 @@ const Checkbox: React.FC<Props> = (props: Props) => {
       }
       <input
         type="checkbox"
-        onChange={(e) => {
-          e.persist()
-          onChange(e.target.checked)
+        checked={checked}
+        onChange={() => {
+          setChecked(!checked)
+          onChange(!checked)
         }}
       />
       <span className="checkmark">

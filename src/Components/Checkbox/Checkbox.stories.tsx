@@ -41,6 +41,11 @@ export const checkbox = () => {
         label={<>Checkbox 2 with <a href="#">Link</a></>}
         onChange={(e) => console.log(e)}
       />
+      <Checkbox
+        theme={theme}
+        onChange={(e) => console.log(e)}
+        manualChecked
+      />
     </div>
   )
 }
