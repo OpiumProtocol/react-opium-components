@@ -104,9 +104,8 @@ const Chart: React.FC<Props> = (props: Props) => {
     data
   } = renderProps
 
-  const tickChanger = (tickItem: any) => {
-    const divided = tickItem / data.length
-    return divided === 0 ? '0' : divided.toFixed(2).toString()
+  const tickChanger = (dataIndex: number) => {
+    return data[dataIndex].price.toFixed(2).toString()
   }
 
   return (
@@ -125,7 +124,7 @@ const Chart: React.FC<Props> = (props: Props) => {
           </defs>
           <CartesianGrid stroke={theme === 'DARK' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
           <XAxis
-            interval={4}
+            interval={2}
             tickFormatter={tickChanger}
           />
           <YAxis axisLine />
