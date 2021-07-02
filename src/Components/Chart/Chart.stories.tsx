@@ -19,76 +19,94 @@ export const chart = () => {
     {
       'data1': 0,
       'data2': 100,
+      'price': 1
     },
     {
       'data1': 5,
       'data2': 95,
+      'price': 2
     },
     {
       'data1': 10,
       'data2': 80,
+      'price': 3
     },
     {
       'data1': 15,
       'data2': 75,
+      'price': 5
     },
     {
       'data1': 20,
       'data2': 70,
+      'price': 6
     },
     {
       'data1': 30,
       'data2': 65,
+      'price': 7
     },
   
     {
       'data1': 35,
       'data2': 60,
+      'price': 8
     },
     {
       'data1': 40,
       'data2': 55,
+      'price': 9
     },
     {
       'data1': 45,
       'data2': 50,
+      'price': 10
     },
     {
       'data1': 50,
       'data2': 45,
+      'price': 12
     },
   
     {
       'data1': 55,
       'data2': 40,
+      'price': 13
     },
     {
       'data1': 60,
       'data2': 35,
+      'price': 14
     },
     {
       'data1': 65,
       'data2': 30,
+      'price': 15
     },
     {
       'data1': 70,
       'data2': 25,
+      'price': 16
     },
     {
       'data1': 75,
       'data2': 20,
+      'price': 17
     },
     {
       'data1': 80,
       'data2': 15,
+      'price': 18
     },
     {
       'data1': 85,
       'data2': 10,
+      'price': 19
     },
     {
       'data1': 100,
       'data2': 5,
+      'price': 20
     },
   ]
 
