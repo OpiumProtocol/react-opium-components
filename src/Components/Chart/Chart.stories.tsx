@@ -113,6 +113,8 @@ export const chart = () => {
       <Chart
         theme={theme}
         data={data}
+        chartData1={{ tooltipTitle: 'Pool', tooltipSuffix: '%' }}
+        chartData2={{ tooltipTitle: 'Buyer', tooltipSuffix: '%' }}
       />
     </div>
   )

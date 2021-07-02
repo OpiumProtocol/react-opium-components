@@ -15,17 +15,32 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Chart.scss'
 
+export type ChartData = {
+  tooltipTitle: string
+  tooltipSuffix: string
+}
+
 export type Props = {
     /** Define theme */
     theme?: ETheme
     width?: string
     height?: string
     data: any[]
+    chartData1: ChartData
+    chartData2: ChartData
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  data: []
+  data: [],
+  chartData1: {
+    tooltipTitle: 'Pool',
+    tooltipSuffix: '%'
+  },
+  chartData2: {
+    tooltipTitle: 'Buyer',
+    tooltipSuffix: '%'
+  }
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -44,7 +59,7 @@ const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, f
 
 CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 
-const CustomTooltip = ({ active, payload }: {active: boolean, payload: any}) => {
+const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boolean, payload: any, chartData1: ChartData, chartData2: ChartData}) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
@@ -55,9 +70,9 @@ const CustomTooltip = ({ active, payload }: {active: boolean, payload: any}) => 
           <p
             className="label"
           >
-                        Buyer:
+            {`${chartData1.tooltipTitle}:`}
             <strong> {payload[0].value} </strong>
-                        tokens
+            {chartData1.tooltipSuffix}
           </p>
         </div>
         <div
@@ -67,9 +82,9 @@ const CustomTooltip = ({ active, payload }: {active: boolean, payload: any}) => 
           <p
             className="label"
           >
-                        Seller:
+            {`${chartData2.tooltipTitle}:`}
             <strong> {payload[1].value} </strong>
-                        tokens
+            {chartData2.tooltipSuffix}
           </p>
         </div>
       </div>
@@ -116,7 +131,7 @@ const Chart: React.FC<Props> = (props: Props) => {
           <YAxis axisLine />
           {
             // @ts-ignore
-            <Tooltip content={<CustomTooltip />} />
+            <Tooltip content={<CustomTooltip chartData1={props.chartData1} chartData2={props.chartData2}/>} />
           }
           <Area
             type="monotone"
