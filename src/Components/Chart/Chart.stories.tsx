@@ -46,7 +46,7 @@ export const chart = () => {
       'data2': 65,
       'price': 7
     },
-  
+
     {
       'data1': 35,
       'data2': 60,
@@ -67,7 +67,7 @@ export const chart = () => {
       'data2': 45,
       'price': 12
     },
-  
+
     {
       'data1': 55,
       'data2': 40,
@@ -106,6 +106,83 @@ export const chart = () => {
     {
       'data1': 100,
       'data2': 5,
+      'price': 20
+    },
+  ]
+
+  const dataOneChart = [
+    {
+      'data1': 0,
+      'price': 1
+    },
+    {
+      'data1': 5,
+      'price': 2
+    },
+    {
+      'data1': 10,
+      'price': 3
+    },
+    {
+      'data1': 15,
+      'price': 5
+    },
+    {
+      'data1': 20,
+      'price': 6
+    },
+    {
+      'data1': 30,
+      'price': 7
+    },
+
+    {
+      'data1': 35,
+      'price': 8
+    },
+    {
+      'data1': 40,
+      'price': 9
+    },
+    {
+      'data1': 45,
+      'price': 10
+    },
+    {
+      'data1': 50,
+      'price': 12
+    },
+
+    {
+      'data1': 55,
+      'price': 13
+    },
+    {
+      'data1': 60,
+      'price': 14
+    },
+    {
+      'data1': 65,
+      'price': 15
+    },
+    {
+      'data1': 70,
+      'price': 16
+    },
+    {
+      'data1': 75,
+      'price': 17
+    },
+    {
+      'data1': 80,
+      'price': 18
+    },
+    {
+      'data1': 85,
+      'price': 19
+    },
+    {
+      'data1': 100,
       'price': 20
     },
   ]
