@@ -1,12 +1,5 @@
 import React from 'react'
-
-import {
-  Accordion,
-  Card,
-} from 'react-bootstrap'
 import { Collapse } from 'react-collapse'
-
-import _ from '../../Styles/exportColors.scss'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
@@ -14,6 +7,12 @@ import { ETheme } from '../../Constants/Types/theme.types'
 import './CollapseContainer.scss'
 
 export type Props = {
+  /** Uniq key for collapse block */
+  collapseKey?: string,
+  /** Status for showing collapse body or hide it */
+  isOpened: boolean,
+  /** Function, which change status */
+  setIsOpened?: Function,
   /** Custom class */
   className?: string
   /** Border for dark theme */
@@ -34,9 +33,12 @@ export type Props = {
   hoverControlled?: boolean
   /** Name of button or content for button */
   collapseButton?: string | object
+  /** Additional action for collapse button */
+  onCollapseButtonClick?: Function
 }
 
 const defaultProps: Props = {
+  isOpened: false,
   theme: ETheme.DARK,
   header: <div></div>,
   body: <div></div>,
@@ -46,6 +48,9 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
+    collapseKey,
+    isOpened,
+    setIsOpened,
     className,
     theme,
     accentColor: accentColorProp,
@@ -55,13 +60,13 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
     disabled,
     hoverControlled,
     disabledMessage,
-    collapseButton
+    collapseButton,
+    onCollapseButtonClick
   } = renderProps
 
   let accentColor = (theme === ETheme.LIGHT && accentColorLightProp) ? accentColorLightProp : accentColorProp
 
   const [hovered, setHovered] = React.useState(false)
-  const [isOpened, setIsOpened] = React.useState(false)
 
   return (
     <div className={`CollapseContainer ${className ? className : ''} color-scheme-${theme} ${disabled ? 'CollapseContainer_disabled' : ''}`}>
@@ -81,8 +86,8 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
           if (!(
             e.target.href ||
             ['BUTTON', 'INPUT'].includes(e.target.nodeName)
-          )) {
-            setIsOpened(!isOpened)
+          ) && setIsOpened) {
+            setIsOpened(collapseKey, !isOpened)
           }
         }}>
           {header}
@@ -93,13 +98,16 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
               {body}
             </div>
           </Collapse>
-          <div className={`CollapseContainer__collapse-btn ${isOpened ? 'opened' : ''}`}>
+          {collapseButton && <div className={`CollapseContainer__collapse-btn ${isOpened ? 'opened' : ''}`}>
             <button onClick={() => {
-              setIsOpened(!isOpened)
+              if (onCollapseButtonClick) {
+                onCollapseButtonClick()
+              }
+              setIsOpened(collapseKey, !isOpened)
             }}>
               {collapseButton}
             </button>
-          </div>
+          </div>}
         </div>
       </div>
       {disabled && <div className="CollapseContainer__disabled">

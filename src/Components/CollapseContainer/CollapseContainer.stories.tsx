@@ -12,9 +12,14 @@ export const collapseContainer = () => {
   const message = text('Text', 'CollapseContainer')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
+  const [collapseIsOpened, setCollapseIsOpened] = useState<{[index: string]: any}>({})
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
+
+  const changeCollapseStatus = (id: string, status: boolean) => {
+    setCollapseIsOpened({ ...collapseIsOpened, [id]: status })
+  }
 
   const componentsArr = [
     {
@@ -25,7 +30,10 @@ export const collapseContainer = () => {
       disabled: false,
       disabledMessage: '',
       hoverControlled: false,
-      collapseButton: 'click me :)'
+      collapseButton: 'click me :)',
+      onCollapseButtonClick: () => {
+        alert('Additional action')
+      }
     },
     {
       id: 1123,
@@ -112,11 +120,14 @@ export const collapseContainer = () => {
 
             return (
               <CollapseContainer
+                isOpened={collapseIsOpened[el.id.toString()]}
+                setIsOpened={changeCollapseStatus}
                 key={el.id.toString()}
+                collapseKey={el.id.toString()}
                 theme={theme}
                 accentColor={el.accentColor}
                 accentColorLight={el.accentColorLight}
-                
+
                 header={headerContent(el.id)}
                 body={bodyContent}
                 collapseButton={el.collapseButton}
@@ -124,6 +135,7 @@ export const collapseContainer = () => {
                 disabled={el.disabled}
                 disabledMessage={el.disabledMessage}
                 hoverControlled={el.hoverControlled}
+                onCollapseButtonClick={el.onCollapseButtonClick}
               />
             )
           })
