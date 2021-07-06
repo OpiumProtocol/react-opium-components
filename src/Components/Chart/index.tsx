@@ -26,21 +26,17 @@ export type Props = {
     width?: string
     height?: string
     data: any[]
-    chartData1: ChartData
-    chartData2: ChartData
+    labelX?: {[index: string]: any}
+    labelY?: {[index: string]: any}
+    chartData1?: ChartData
+    chartData2?: ChartData
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   data: [],
-  chartData1: {
-    tooltipTitle: 'Pool',
-    tooltipSuffix: '%'
-  },
-  chartData2: {
-    tooltipTitle: 'Buyer',
-    tooltipSuffix: '%'
-  }
+  labelX: {},
+  labelY: {}
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -59,34 +55,25 @@ const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, f
 
 CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 
-const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boolean, payload: any, chartData1: ChartData, chartData2: ChartData}) => {
+const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boolean, payload: any, chartData1?: ChartData, chartData2?: ChartData}) => {
+  const tooltips = (chartData1 && chartData2) ? [chartData1, chartData2] : chartData1 ? [chartData1] : [chartData2]
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <div
-          className="custom-tooltip__container"
-          style={{ backgroundColor: payload[0].color }}
-        >
-          <p
-            className="label"
+        {tooltips.map((chartData, i) => {
+          return chartData && (<div
+            className="custom-tooltip__container"
+            style={{ backgroundColor: payload[i].color }}
           >
-            {`${chartData1.tooltipTitle}:`}
-            <strong> {payload[0].value} </strong>
-            {chartData1.tooltipSuffix}
-          </p>
-        </div>
-        <div
-          className="custom-tooltip__container"
-          style={{ backgroundColor: payload[1].color }}
-        >
-          <p
-            className="label"
-          >
-            {`${chartData2.tooltipTitle}:`}
-            <strong> {payload[1].value} </strong>
-            {chartData2.tooltipSuffix}
-          </p>
-        </div>
+            <p
+              className="label"
+            >
+              {`${chartData.tooltipTitle}:`}
+              <strong> {payload[i].value}</strong>
+              {chartData.tooltipSuffix}
+            </p>
+          </div>)
+        })}
       </div>
     )
   }
@@ -101,7 +88,11 @@ const Chart: React.FC<Props> = (props: Props) => {
     theme,
     width,
     height,
-    data
+    data,
+    labelX,
+    labelY,
+    chartData1,
+    chartData2
   } = renderProps
 
   const tickChanger = (dataIndex: number) => {
@@ -125,14 +116,16 @@ const Chart: React.FC<Props> = (props: Props) => {
           <CartesianGrid stroke={theme === 'DARK' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
           <XAxis
             interval={2}
+            label={labelX}
             tickFormatter={tickChanger}
+            height={50}
           />
-          <YAxis axisLine />
+          <YAxis axisLine label={labelY} />
           {
             // @ts-ignore
-            <Tooltip content={<CustomTooltip chartData1={props.chartData1} chartData2={props.chartData2}/>} />
+            <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
           }
-          <Area
+          {chartData1 && <Area
             type="monotone"
             dataKey="data1"
             strokeWidth={2}
@@ -143,8 +136,8 @@ const Chart: React.FC<Props> = (props: Props) => {
 
             // @ts-ignore
             activeDot={<CustomizedActiveDot />}
-          />
-          <Area
+          />}
+          {chartData2 && <Area
             type="monotone"
             dataKey="data2"
             strokeWidth={2}
@@ -155,7 +148,7 @@ const Chart: React.FC<Props> = (props: Props) => {
 
             // @ts-ignore
             activeDot={<CustomizedActiveDot />}
-          />
+          />}
         </ComposedChart>
       </ResponsiveContainer>
     </div>

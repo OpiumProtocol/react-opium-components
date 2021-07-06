@@ -23,16 +23,29 @@
     }
   }
 
-  .recharts-layer .recharts-cartesian-axis-tick {
-    line {
-      stroke: transparent !important;
+  .recharts-layer {
+    .recharts-text {
+      &.recharts-label {
+        tspan {
+          fill: $white0;
+        }
+      }
     }
-    text {
-      tspan {
-        font-family: Montserrat;
-        font-weight: normal;
-        font-size: 10px;
-        line-height: 12px;
+
+    .recharts-cartesian-axis-tick {
+
+      line {
+        stroke: transparent !important;
+      }
+
+      text {
+        tspan {
+          font-family: Montserrat;
+          font-weight: normal;
+          font-size: 10px;
+          line-height: 12px;
+          fill: $white0;
+        }
       }
     }
   }
