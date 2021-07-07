@@ -133,6 +133,7 @@ $font-sizes-px: (
 @mixin tooltip-component($bg, $color, $border) {
 	background-color: $bg;
 	color: $color;
+	font-family: 'Montserrat', sans-serif;
 	border-color: $border;
 	border-radius: 10px;
 }
