@@ -16,98 +16,35 @@ export const chart = () => {
   const color = sectionThemes[theme as ETheme].color.primary.value
 
   const data = [
-    {
-      'data1': 0,
-      'data2': 100,
-      'price': 1
-    },
-    {
-      'data1': 5,
-      'data2': 95,
-      'price': 2
-    },
-    {
-      'data1': 10,
-      'data2': 80,
-      'price': 3
-    },
-    {
-      'data1': 15,
-      'data2': 75,
-      'price': 5
-    },
-    {
-      'data1': 20,
-      'data2': 70,
-      'price': 6
-    },
-    {
-      'data1': 30,
-      'data2': 65,
-      'price': 7
-    },
-
-    {
-      'data1': 35,
-      'data2': 60,
-      'price': 8
-    },
-    {
-      'data1': 40,
-      'data2': 55,
-      'price': 9
-    },
-    {
-      'data1': 45,
-      'data2': 50,
-      'price': 10
-    },
-    {
-      'data1': 50,
-      'data2': 45,
-      'price': 12
-    },
-
-    {
-      'data1': 55,
-      'data2': 40,
-      'price': 13
-    },
-    {
-      'data1': 60,
-      'data2': 35,
-      'price': 14
-    },
-    {
-      'data1': 65,
-      'data2': 30,
-      'price': 15
-    },
-    {
-      'data1': 70,
-      'data2': 25,
-      'price': 16
-    },
-    {
-      'data1': 75,
-      'data2': 20,
-      'price': 17
-    },
-    {
-      'data1': 80,
-      'data2': 15,
-      'price': 18
-    },
-    {
-      'data1': 85,
-      'data2': 10,
-      'price': 19
-    },
-    {
-      'data1': 100,
-      'data2': 5,
-      'price': 20
-    },
+    { data1: '0', data2: '0', price: 4 },
+    { data1: '0', data2: '0', price: 4.25 },
+    { data1: '0', data2: '0', price: 4.5 },
+    { data1: '0', data2: '0', price: 4.75 },
+    { data1: '0', data2: '0', price: 5 },
+    { data1: '-5', data2: '5', price: 5.25 },
+    { data1: '-9', data2: '9', price: 5.5 },
+    { data1: '-13', data2: '13', price: 5.75 },
+    { data1: '-17', data2: '17', price: 6 },
+    { data1: '-20', data2: '20', price: 6.25 },
+    { data1: '-23', data2: '23', price: 6.5 },
+    { data1: '-26', data2: '26', price: 6.75 },
+    { data1: '-29', data2: '29', price: 7 },
+    { data1: '-31', data2: '31', price: 7.25 },
+    { data1: '-33', data2: '33', price: 7.5 },
+    { data1: '-35', data2: '35', price: 7.75 },
+    { data1: '-38', data2: '38', price: 8 },
+    { data1: '-39', data2: '39', price: 8.25 },
+    { data1: '-41', data2: '41', price: 8.5 },
+    { data1: '-43', data2: '43', price: 8.75 },
+    { data1: '-44', data2: '44', price: 9 },
+    { data1: '-46', data2: '46', price: 9.25 },
+    { data1: '-47', data2: '47', price: 9.5 },
+    { data1: '-49', data2: '49', price: 9.75 },
+    { data1: '-50', data2: '50', price: 10 },
+    { data1: '-51', data2: '51', price: 10.25 },
+    { data1: '-52', data2: '52', price: 10.5 },
+    { data1: '-53', data2: '53', price: 10.75 },
+    { data1: '-55', data2: '55', price: 11 }
   ]
 
   const dataOneChart = [
@@ -209,7 +146,7 @@ export const chart = () => {
         theme={theme}
         data={data}
         chartData1={{ tooltipTitle: 'Pool', tooltipSuffix: '%' }}
-        chartData2={{ tooltipTitle: 'Buyer', tooltipSuffix: '%' }}
+        // chartData2={{ tooltipTitle: 'Buyer', tooltipSuffix: '%' }}
       />
     </div>
   )

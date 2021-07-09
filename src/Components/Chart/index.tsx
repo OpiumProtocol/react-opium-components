@@ -30,13 +30,17 @@ export type Props = {
     labelY?: {[index: string]: any}
     chartData1?: ChartData
     chartData2?: ChartData
+    domainX?: (string | number)[]
+    domainY?: (string | number)[]
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   data: [],
   labelX: {},
-  labelY: {}
+  labelY: {},
+  domainX: [0, 'auto'],
+  domainY: [0, 'auto']
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -92,7 +96,9 @@ const Chart: React.FC<Props> = (props: Props) => {
     labelX,
     labelY,
     chartData1,
-    chartData2
+    chartData2,
+    domainX,
+    domainY
   } = renderProps
 
   const tickChanger = (dataIndex: number) => {
@@ -119,8 +125,10 @@ const Chart: React.FC<Props> = (props: Props) => {
             label={labelX}
             tickFormatter={tickChanger}
             height={50}
+            allowDataOverflow
+            domain={domainX}
           />
-          <YAxis axisLine label={labelY} />
+          <YAxis axisLine label={labelY} allowDataOverflow domain={domainY} />
           {
             // @ts-ignore
             <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
