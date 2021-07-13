@@ -4,7 +4,7 @@
     position: relative;
 
     &__container {
-        border-radius: 20px;
+        border-radius: 10px;
         border: 1px solid transparent;
         transition: border-color .5s ease;
         &.hovered {
@@ -66,10 +66,10 @@
             pointer-events: none;
         }
     }
-    
+
     &.color-scheme {
         &-DARK {
-            color: #fff;
+            color: $white0;
             &:hover {
                 .accordion {
                     background-color: #0A0A1E;
@@ -79,7 +79,7 @@
             .CollapseContainer {
                 &__collapse-btn {
                     button {
-                        color: #fff;
+                        color: $white0;
                     }
                 }
             }
