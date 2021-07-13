@@ -1,5 +1,10 @@
 @import './colors.scss';
 
+$theme: (
+	darkTheme: 'DARK',
+	lightTheme: 'LIGHT'
+);
+
 $headerSidePadding: 1rem;
 
 $sizes: (
@@ -78,6 +83,10 @@ $font-sizes: (
 	xxl: 2rem
 );
 
+$font-sizes-px: (
+	label: 10px
+);
+
 
 @function size($size-name) {
 	@return map-get($sizes, $size-name);
@@ -93,6 +102,10 @@ $font-sizes: (
 
 @function fz($font-size) {
 	@return map-get($font-sizes, $font-size);
+}
+
+@function fzpx($font-size) {
+	@return map-get($font-sizes-px, $font-size);
 }
 
 @function indent($size) {
@@ -120,15 +133,17 @@ $font-sizes: (
 @mixin tooltip-component($bg, $color, $border) {
 	background-color: $bg;
 	color: $color;
+	font-family: 'Montserrat', sans-serif;
 	border-color: $border;
-	border-radius: 3px;
+	border-radius: 10px;
 }
 
-@mixin popup-alert-component($bg, $color, $border-color) {
+@mixin popup-alert-component($bg, $color, $border-color, $border-radius) {
 	background-color: $bg;
 	color: $color;
 	border-color: $border-color;
 	border-style: solid;
+	border-radius: $border-radius;
 }
 
 @mixin loader-component($color) {
@@ -144,12 +159,6 @@ $font-sizes: (
 	border-style: solid;
 }
 
-@mixin text-block-component($bg, $color, $border-color) {
-	background-color: $bg;
-	color: $color;
-	border: 1px solid $border-color;
-}
-
 @mixin table-component($bg, $color, $hover-bg) {
 	background-color: $bg;
 	border: 0px solid;
@@ -159,16 +168,17 @@ $font-sizes: (
 	}
 }
 
-@mixin tabs-component($bg, $color, $border-color) {
-	background-color: $bg;
+@mixin tabs-component($color, $border-color) {
 	color: $color;
 	border: 0px solid $border-color;
+	font-size: fzpx(label);
 }
 
 @mixin localized-input-component($bg, $color, $border-color) {
 	background-color: $bg !important;
 	color: $color !important;
 	border: 1px solid $border-color !important;
+	border-radius: 4px;
 	&:focus {
 		background-color: $bg !important;
 		color: $color !important;

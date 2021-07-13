@@ -1,0 +1,118 @@
+@import '../../Styles/colors.scss';
+
+:root {
+  --app-height: 100vh;
+  --header-height: 75px;
+}
+
+$minHeaderHeight: var(--header-height);
+
+@keyframes slide-in {
+  0% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+  100% { transform: translateY(0%); }
+}
+
+@-webkit-keyframes slide-in {
+  0% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+  100% { -webkit-transform: translateY(0%); }
+}
+
+@keyframes slide-out {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+}
+
+@-webkit-keyframes slide-out {
+  0% { -webkit-transform: translateY(0%); }
+  100% { -webkit-transform: translateY(calc(-100% + #{$minHeaderHeight})); }
+}
+
+.slide-menu {
+  position: fixed;
+  left: 50%;
+  z-index: 1000;
+  margin-left: -172px;
+  top: calc(var(--app-height) - #{$minHeaderHeight});
+  width: 343px;
+  height: 350px;
+  border: 1px solid #000000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+
+  &.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+  }
+
+  &.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+  }
+
+  .header-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: $minHeaderHeight;
+    padding: 0 16px 5px 16px;
+
+    .header-content {
+      display: flex;
+    }
+
+    .close-button {
+      position: relative;
+      top: 0;
+      right: 0;
+      padding: 0;
+
+      outline: none;
+
+      &::before {
+        display: none;
+      }
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &.color-scheme {
+    &-DARK {
+      background: $darkblue7;
+      color: $white0;
+
+      .header-block {
+        .close-button {
+          svg {
+            line {
+              stroke: $white0;
+            }
+          }
+        }
+      }
+
+    }
+
+    &-LIGHT {
+      background: $white0;
+      color: $darkblue7;
+
+      .header-block {
+        .close-button {
+          svg {
+            line {
+              stroke: $darkblue1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .body-block {
+    padding: 16px;
+  }
+}

@@ -4,7 +4,8 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import InfoBlock from './index'
 import Button from '../OpiumButton'
 
-import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
+import { ETheme, sectionThemes, TVariant } from '../../Constants/Types/theme.types'
+import { EIconType } from '../../Constants/Types/InfoBlock.types'
 
 export const infoBlock = () => {
   const message = text('Text', 'InfoBlock')
@@ -18,7 +19,7 @@ export const infoBlock = () => {
     borderRadius: '5px',
   }
 
-  const content = 'Initial text line'
+  const content = 'Initial text line <a href="">Your are withdrawing from the secondary market</a>'
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
@@ -50,7 +51,9 @@ export const infoBlock = () => {
         }}
         theme={theme}
         content={content}
-        variant={'success'}
+        variant={'secondaryRed'}
+        icon={true}
+        type={EIconType.INFO}
       />
       <InfoBlock
         link={{
@@ -61,7 +64,8 @@ export const infoBlock = () => {
         }}
         theme={theme}
         content={content}
-        variant={'warning'}
+        icon={true}
+        type={EIconType.WARNING}
       />
       <InfoBlock
         link={{
