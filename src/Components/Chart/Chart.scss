@@ -7,7 +7,7 @@
       border-radius: 10px;
     }
     .label {
-      font-family: "Montserrat";
+      font-family: "Montserrat", sans-serif;
       margin: 4px 0;
       padding: 3px 8px;
 
@@ -15,7 +15,7 @@
       font-size: 10px;
       line-height: 12px;
       strong {
-        font-family: "Montserrat";
+        font-family: "Montserrat", sans-serif;
         font-weight: 500;
         font-size: 10px;
         line-height: 12px;
@@ -25,6 +25,7 @@
 
   .recharts-layer {
     .recharts-text {
+      text-anchor: middle;
       &.recharts-label {
         tspan {
           fill: $white0;
@@ -39,8 +40,9 @@
       }
 
       text {
+        text-anchor: middle;
         tspan {
-          font-family: Montserrat;
+          font-family: "Montserrat", sans-serif;
           font-weight: normal;
           font-size: 10px;
           line-height: 12px;
@@ -54,12 +56,6 @@
   .recharts-cartesian-axis-line {
     stroke: transparent !important;
   }
-
-  // .recharts-cartesian-grid-horizontal {
-  //     line {
-  //         stroke: rgba(255, 255, 255, 0.1) !important;
-  //     }
-  // }
 
   .recharts-default-tooltip {
     border: 0 !important;
@@ -98,6 +94,7 @@
         text {
           // text on the sides
           transition: fill .5s ease;
+          text-anchor: middle;
           fill: #fff !important;
         }
       }
@@ -126,6 +123,7 @@
       .recharts-layer .recharts-cartesian-axis-tick {
         text {
           transition: fill .5s ease;
+          text-anchor: middle;
           fill: #0A0A1E !important;
         }
       }
