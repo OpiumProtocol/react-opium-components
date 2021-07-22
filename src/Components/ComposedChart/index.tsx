@@ -1,19 +1,22 @@
 import React from 'react'
 
 import {
+  ComposedChart,
+  Line,
+  Area,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Area,
-  ComposedChart,
-  ResponsiveContainer
+  Legend,
+  ResponsiveContainer,
 } from 'recharts'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
-import './Chart.scss'
+import './OpiumComposedChart.scss'
 
 export type ChartData = {
   tooltipTitle: string
@@ -28,19 +31,13 @@ export type Props = {
     data: any[]
     labelX?: {[index: string]: any}
     labelY?: {[index: string]: any}
-    chartData1?: ChartData
-    chartData2?: ChartData
-    domainX?: (string | number)[]
-    domainY?: (string | number)[]
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   data: [],
   labelX: {},
-  labelY: {},
-  domainX: [0, 'auto'],
-  domainY: [0, 'auto']
+  labelY: {}
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -85,7 +82,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boo
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const Chart: React.FC<Props> = (props: Props) => {
+const OpiumComposedChart: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const {
@@ -106,61 +103,19 @@ const Chart: React.FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className={`CustomChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
+    <div className={`OpiumComposedChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
         <ComposedChart data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
-          <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#F6029C" stopOpacity={0.15}/>
-              <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
-            </linearGradient>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#197CD8" stopOpacity={0.15}/>
-              <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
-            </linearGradient>
-          </defs>
-          <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
-          <XAxis
-            interval={2}
-            label={labelX}
-            tickFormatter={tickChanger}
-            height={50}
-            allowDataOverflow
-            domain={domainX}
-          />
-          <YAxis axisLine label={labelY} allowDataOverflow domain={domainY} />
-          {
-            // @ts-ignore
-            <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
-          }
-          {chartData1 && <Area
-            type="monotone"
-            dataKey="data1"
-            strokeWidth={2}
-            fillOpacity={1}
-            fill="url(#colorUv)"
-
-            stroke={'#F6029C'}
-
-            // @ts-ignore
-            activeDot={<CustomizedActiveDot />}
-          />}
-          {chartData2 && <Area
-            type="monotone"
-            dataKey="data2"
-            strokeWidth={2}
-            fillOpacity={1}
-            fill="url(#colorPv)"
-
-            stroke={'#197CD8'}
-
-            // @ts-ignore
-            activeDot={<CustomizedActiveDot />}
-          />}
+          <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
+          <XAxis dataKey="label" scale="band" label={labelX}/>
+          <YAxis label={labelY}/>
+          <Tooltip />
+          <Bar dataKey="barData" barSize={10} fill="#197CD8" />
+          <Line type="monotone" dataKey="lineData" stroke="#31EDA9" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
   )
 }
 
-export default Chart
+export default OpiumComposedChart
