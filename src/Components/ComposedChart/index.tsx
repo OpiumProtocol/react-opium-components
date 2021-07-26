@@ -106,12 +106,27 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     <div className={`OpiumComposedChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
         <ComposedChart data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#31EDA9" stopOpacity={0.1}/>
+              <stop offset="100%" stopColor="#31EDA9" stopOpacity={0}/>
+            </linearGradient>
+          </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX}/>
           <YAxis label={labelY}/>
           <Tooltip />
           <Bar dataKey="barData" barSize={10} fill="#197CD8" />
-          <Line type="monotone" dataKey="lineData" stroke="#31EDA9" />
+
+          <Area
+              type="monotone"
+              dataKey="lineData"
+              strokeWidth={2}
+              fillOpacity={1}
+              fill="url(#colorUv)"
+
+              stroke="#31EDA9"
+              />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
