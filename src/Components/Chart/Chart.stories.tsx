@@ -7,7 +7,7 @@ import Button from '../OpiumButton'
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 export const chart = () => {
-  const message = text('Text', 'Alert')
+  const message = text('Text', 'Chart')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
@@ -146,6 +146,8 @@ export const chart = () => {
         theme={theme}
         data={data}
         chartData1={{ tooltipTitle: 'Pool', tooltipSuffix: '%' }}
+        labelX={{ value: 'Label X', position: 'insideBottom' }}
+        labelY={{ value: 'Label Y', angle: -90, position: 'insideLeft' }}
         // chartData2={{ tooltipTitle: 'Buyer', tooltipSuffix: '%' }}
       />
     </div>
