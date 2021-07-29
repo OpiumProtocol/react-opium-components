@@ -31,13 +31,17 @@ export type Props = {
     data: any[]
     labelX?: {[index: string]: any}
     labelY?: {[index: string]: any}
+  tickFormatterX?: (value: any) => string
+  tickFormatterY?: (value: any) => string
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   data: [],
   labelX: {},
-  labelY: {}
+  labelY: {},
+  tickFormatterX: (label) => label,
+  tickFormatterY: (label) => label
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -95,12 +99,25 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     chartData1,
     chartData2,
     domainX,
-    domainY
+    domainY,
+    tickFormatterX,
+    tickFormatterY
   } = renderProps
 
-  const tickChanger = (dataIndex: number) => {
-    return data[dataIndex].price.toFixed(2).toString()
+  const CustomTooltip = ({ active, payload }: {payload: Array<{[index: string]: any}>, active: boolean}) => {
+    if (active) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`cumulative: ${payload[0].value}%`}</p>
+          <p className="label">{`performance: ${payload[1].value}%`}</p>
+        </div>
+      )
+    }
+
+    return null
   }
+
+
 
   return (
     <div className={`OpiumComposedChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
@@ -113,20 +130,20 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
             </linearGradient>
           </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
-          <XAxis dataKey="label" scale="band" label={labelX}/>
-          <YAxis label={labelY}/>
-          <Tooltip />
+          <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX}/>
+          <YAxis label={labelY} tickFormatter={tickFormatterY}/>
+          <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="barData" barSize={10} fill="#197CD8" />
 
           <Area
-              type="monotone"
-              dataKey="lineData"
-              strokeWidth={2}
-              fillOpacity={1}
-              fill="url(#colorUv)"
+            type="monotone"
+            dataKey="lineData"
+            strokeWidth={2}
+            fillOpacity={1}
+            fill="url(#colorUv)"
 
-              stroke="#31EDA9"
-              />
+            stroke="#31EDA9"
+          />
         </ComposedChart>
       </ResponsiveContainer>
     </div>

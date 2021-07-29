@@ -93,6 +93,7 @@
       }
 
       .custom-tooltip {
+        background-color: white;
         .label {
           transition: color .5s ease;
           color: #0A0A1E;
@@ -135,6 +136,7 @@
       }
 
       .custom-tooltip {
+        background-color: $darkblue1;
         .label {
           color: $white0;
           transition: color .5s ease;
