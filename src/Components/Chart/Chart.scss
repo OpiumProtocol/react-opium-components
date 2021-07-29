@@ -28,6 +28,7 @@
       text-anchor: middle;
       &.recharts-label {
         tspan {
+          font-weight: bold;
           fill: $white0;
         }
       }
