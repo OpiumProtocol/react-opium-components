@@ -7,7 +7,7 @@ import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import OpiumComposedChart from '.'
 
 export const chart = () => {
-  const message = text('Text', 'Alert')
+  const message = text('Text', 'Composed Chart')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
