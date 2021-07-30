@@ -83,12 +83,12 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     tickFormatterY
   } = renderProps
 
-  const CustomTooltip = ({payload, active}: ICustomTooltip) => {
+  const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-            {payload && payload[0] && <p className="label">{`cumulative: ${payload[0].value}%`}</p>}
-            {payload && payload[1] && <p className="label">{`performance: ${payload[1].value}%`}</p>}
+          {payload && payload[0] && <p className="label">{`cumulative: ${payload[0].value}%`}</p>}
+          {payload && payload[1] && <p className="label">{`performance: ${payload[1].value}%`}</p>}
         </div>
       )
     }
