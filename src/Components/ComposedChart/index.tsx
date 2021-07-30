@@ -60,30 +60,9 @@ const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, f
 
 CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 
-const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boolean, payload: any, chartData1?: ChartData, chartData2?: ChartData}) => {
-  const tooltips = (chartData1 && chartData2) ? [chartData1, chartData2] : chartData1 ? [chartData1] : [chartData2]
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        {tooltips.map((chartData, i) => {
-          return chartData && (<div
-            className="custom-tooltip__container"
-            style={{ backgroundColor: payload[i].color }}
-          >
-            <p
-              className="label"
-            >
-              {`${chartData.tooltipTitle}:`}
-              <strong> {payload[i].value}</strong>
-              {chartData.tooltipSuffix}
-            </p>
-          </div>)
-        })}
-      </div>
-    )
-  }
-
-  return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
+type ICustomTooltip = {
+    payload?: Array<{[index: string]: any}>
+    active?: boolean
 }
 
 const OpiumComposedChart: React.FC<Props> = (props: Props) => {
@@ -104,12 +83,12 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     tickFormatterY
   } = renderProps
 
-  const CustomTooltip = ({ active, payload }: {payload: Array<{[index: string]: any}>, active: boolean}) => {
+  const CustomTooltip = ({payload, active}: ICustomTooltip) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          <p className="label">{`cumulative: ${payload[0].value}%`}</p>
-          <p className="label">{`performance: ${payload[1].value}%`}</p>
+            {payload && payload[0] && <p className="label">{`cumulative: ${payload[0].value}%`}</p>}
+            {payload && payload[1] && <p className="label">{`performance: ${payload[1].value}%`}</p>}
         </div>
       )
     }
