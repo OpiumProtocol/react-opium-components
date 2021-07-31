@@ -24,4 +24,18 @@
   img{
     width: 100%;
   }
+  .mobile {
+    display: none !important;
+  }
+  @media (max-width: 768px) {
+    .sliderpd{
+      padding: 2rem 1rem !important;
+    }
+    .mobile {
+      display: block !important;
+    }
+    .desktop {
+      display: none !important;
+    }
+  }
 }

@@ -52,7 +52,6 @@
       top:42%;      
       }     
   }  
-
   .slick-prev {
     position: absolute;
     left: 0px;
@@ -79,18 +78,9 @@
     top:42%;
     }
   }
-}
-.mobile {
-  display: none !important;
-}
-@media (max-width: 768px) {
-  .sliderpd{
-    padding: 2rem 1rem !important;
-  }
-  .mobile {
-    display: block !important;
-  }
-  .desktop {
-    display: none !important;
+  @media (max-width: 768px) {
+    .sliderpd{
+      padding: 2rem 1rem !important;
+    }
   }
 }
