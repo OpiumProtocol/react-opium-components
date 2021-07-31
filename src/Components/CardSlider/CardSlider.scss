@@ -1,0 +1,63 @@
+@import "../../Styles/constants.scss";
+@import "../../Styles/colors.scss";
+
+.custom-slider {
+  width: 100%;
+  .slick-dots li button::before {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .slick-dots {
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: center;
+    li {
+      pointer-events: none;
+    }
+    .slick-active {
+      button {
+        &::before {
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .slick-next {
+    position: absolute;
+    right: 8px;
+    height: 100%;
+    padding: 20px 5px;
+    &::before {
+      content: "";
+      background-image: url("../../Images/sprev.svg");
+      display: block;
+      width: 16px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: 0% 50%;
+    }
+    &:hover {
+      background: rgba(10, 10, 30, 0.1);
+    }
+  }
+  .slick-prev {
+    position: absolute;
+    left: 8px;
+    z-index: 10;
+    height: 100%;
+    padding: 20px 5px;
+    &::before {
+      content: "";
+      background-image: url("../../Images/snext.svg");
+      display: block;
+      width: 16px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: 0% 50%;
+    }
+    &:hover {
+      background: rgba(10, 10, 30, 0.1);
+    }
+  }
+}

@@ -2,6 +2,9 @@
 @import './reset.scss';
 @import './colors.scss';
 @import './bootstrap.scss';
+// Slider css
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 html {
 	font-size: 14px;
 }

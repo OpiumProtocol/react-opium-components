@@ -1,0 +1,63 @@
+@import '../../Styles/constants.scss';
+@import '../../Styles/colors.scss';
+
+.custom-card {
+  border-radius: 10px;
+  .button-warap {
+    position: relative;
+    .staking-button {
+      position: absolute;
+      right: 0;
+      width: 145px;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 15px;
+      padding: 7px 10px 7px 35px;
+      z-index: 1000;
+      color: $white0;
+      background-color: $blue1;
+      background-image: url('../../Images/staking-button-icon.svg');
+      background-repeat: no-repeat;
+      background-position: 10% 50%;
+      &.mobile {
+        display: none;
+        @media (max-width: 768px) {
+          display: block;
+          width: 15px;
+          height: 45px;
+          border-radius: 50%;
+          background-position: 50% 50%;
+        }
+      }
+      &.desktop {
+        display: block;
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.card1-wrap {
+    background-image: url('../../Images/card1-back-image.svg'), linear-gradient(269.67deg, #8452D8 0.29%, #3A265C 76.22%);
+    background-repeat: no-repeat;
+    background-position: 85% 50%;
+    background-size: contain;
+  }
+  &.card2-wrap {
+    background-image: url('../../Images/card2-back-image.svg'), linear-gradient(267.61deg, rgba(10, 10, 30, 0.07) 0%, rgba(10, 10, 30, 0.7) 100%);
+    background-repeat: no-repeat;
+    background-position: 95% 68%;
+  }
+  &.card3-wrap {
+    background-image: url('../../Images/card3-back-image.svg'), linear-gradient(267.61deg, #FFA9D0 0%, #EB1C79 100%);
+    background-repeat: no-repeat;
+    background-position: 95% 92%;
+  }
+  &.card4-wrap {
+    background-image: url('../../Images/card4-back-image.svg'), linear-gradient(267.61deg, rgba(10, 10, 30, 0.07) 0%, rgba(10, 10, 30, 0.7) 100%), linear-gradient(267.7deg, #B254A0 0%, #31B8C6 103.57%);
+    background-repeat: no-repeat;
+    background-position: 77% 50%;
+  }
+}
