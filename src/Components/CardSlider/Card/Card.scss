@@ -3,68 +3,22 @@
 
 .custom-card {
   border-radius: 10px;
-
-  &.card1-wrap {  
-    background-repeat: no-repeat;
-    background-position: 77% 50%;
-    background-size: cover;   
-    position: relative;
-    img{
-      width: 100%;
-    }
-  }
-  &.card2-wrap {   
-    background-repeat: no-repeat;
-    background-position: 95% 92%;
-    background-size: cover;
-    height: 240px;
-    position: relative;
-    img{
-      width: 100%;
+  .text-block{
+    position: absolute;
+    width: 100%;
+    top: 57%;
+    left: 11%;
+    @media (max-width:480px) {  
+    left: 5%;
+    top:50%;
     }
     @media (max-width:420px) {
-      .text-block {
-        top: 40%;
-        left: 5%;
-    }
-    }
-    @media (min-width:1500px) {
-      .text-block {
-        top: 70%;       
-    }
+      top: 48%;
+      left: 5%;
     }
   }
- 
-  &.card3-wrap { 
-    background-repeat: no-repeat;
-    background-position: 95% 68%;
-    background-size: cover;
-    height: 240px;
-    position: relative;
-    img{
-      width: 100%;
-    }
-    @media (min-width:1500px) {
-      .text-block {
-        top: 70%;       
-    }
-    }
-  
-  }
-  
-  &.card4-wrap {       
-    background-repeat: no-repeat;
-    background-position: 85% 50%;
-    background-size: cover;
-    height: 240px;
-    position: relative;
-    img{
-      width: 100%;
-    }
-    @media (min-width:1500px) {
-      .text-block {
-        top: 70%;       
-    }
-    }
+  position: relative;
+  img{
+    width: 100%;
   }
 }

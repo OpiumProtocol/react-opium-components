@@ -82,20 +82,6 @@
     top:42%;
     }
   }
-  .text-block{
-    position: absolute;
-    width: 100%;
-    top: 57%;
-    left: 11%;
-    @media (max-width:480px) {  
-    left: 5%;
-    top:50%;
-    }
-    @media (max-width:420px) {
-      top: 48%;
-      left: 5%;
-    }
-  }
 }
 .mobile {
   display: none !important;

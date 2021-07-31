@@ -32,24 +32,20 @@ export const cardSlider = () => {
 
   const SliderItems = [
     {
-      className: 'card1-wrap',
       cardImageMobile: CardDefaulImageMob4,
       cardImageDesktop: CardDefaulImageWeb4,
     },
     {
-      className: 'card2-wrap',
       cardImageMobile: CardDefaulImageMob3,
       cardImageDesktop: CardDefaulImageWeb3
     },
    
     {
-      className: 'card3-wrap',
       cardImageMobile: CardDefaulImageMob2,
       cardImageDesktop: CardDefaulImageWeb2 
     },
     
     {
-      className: 'card4-wrap',
       cardImageMobile: CardDefaulImageMob1,
       cardImageDesktop: CardDefaulImageWeb1 
     },
@@ -88,7 +84,6 @@ export const cardSlider = () => {
             <Card
               key={index}
               theme={theme}
-              className={item.className}
               cardImageDesktop={item.cardImageDesktop}
               cardImageMobile={item.cardImageMobile}
             />
