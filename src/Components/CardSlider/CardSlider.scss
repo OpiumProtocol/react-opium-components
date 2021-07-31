@@ -9,7 +9,7 @@
   }
   .card-slider {
     width: 100%;
-}
+  }
   .slick-dots {
     display: flex !important;
     justify-content: flex-end;
@@ -93,7 +93,7 @@
     }
     @media (max-width:420px) {
       top: 48%;
-    left: 5%;
+      left: 5%;
     }
   }
 }
@@ -109,5 +109,5 @@
   }
   .desktop {
     display: none !important;
-}
   }
+}
