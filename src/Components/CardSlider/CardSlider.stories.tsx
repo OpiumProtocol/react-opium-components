@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import Button from '../OpiumButton'
+import Card from '../Card'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import CardSlider from './index'
-import Card from '../Card'
-
+// @ts-ignore
+import CardDefaulImageWeb1 from '../../Images/card1-back-image.svg'
+// @ts-ignore
+import CardDefaulImageMob1 from '../../Images/card1-back-mobileimage.svg'
+// @ts-ignore
+import CardDefaulImageWeb2 from '../../Images/card2-back-image.svg'
+// @ts-ignore
+import CardDefaulImageMob2 from '../../Images/card2-back-mobileimage.svg'
+// @ts-ignore
+import CardDefaulImageWeb3 from '../../Images/card3-back-image.svg'
+// @ts-ignore
+import CardDefaulImageMob3 from '../../Images/card3-back-mobileimage.svg'
+// @ts-ignore
+import CardDefaulImageWeb4 from '../../Images/card4-back-image.svg'
+// @ts-ignore
+import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
 
@@ -18,28 +33,30 @@ export const cardSlider = () => {
   const SliderItems = [
     {
       className: 'card1-wrap',
-      title: 'Turbo MATIC',
-      content: <><span style={{ fontSize: '2rem' }}>72.21% </span>return annually*</>,
+      cardImageMobile: CardDefaulImageMob4,
+      cardImageDesktop: CardDefaulImageWeb4,
     },
     {
       className: 'card2-wrap',
-      title: 'ETH Dump Protection',
-      content: <><span style={{ fontSize: '2rem' }}>12.24% </span>return annually*</>,
+      cardImageMobile: CardDefaulImageMob3,
+      cardImageDesktop: CardDefaulImageWeb3
     },
+   
     {
       className: 'card3-wrap',
-      title: 'Turbo ETH staking pools',
-      content: <><span style={{ fontSize: '2rem' }}>7.44% </span>return annually* <span style={{ fontSize: '2rem' }}>5.19% </span>APR on BSC*</>,
+      cardImageMobile: CardDefaulImageMob2,
+      cardImageDesktop: CardDefaulImageWeb2 
     },
+    
     {
       className: 'card4-wrap',
-      title: 'Turbo AAVE',
-      content: <>up to <span style={{ fontSize: '2rem' }}>300% </span>APR*</>,
-    }
+      cardImageMobile: CardDefaulImageMob1,
+      cardImageDesktop: CardDefaulImageWeb1 
+    },
   ]
 
   return (
-    <div style={{ padding: '3rem', backgroundColor }}>
+    <div style={{ padding: '3rem', backgroundColor }} className="sliderpd">
       <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>
         {message}
       </h1>
@@ -61,7 +78,7 @@ export const cardSlider = () => {
       <CardSlider
         dots={true}
         infinite={true}
-        autoplay={true}
+        autoplay={false}
         speed={500}
         slidesToShow={1}
         slidesToScroll={1}
@@ -72,8 +89,8 @@ export const cardSlider = () => {
               key={index}
               theme={theme}
               className={item.className}
-              title={item.title}
-              content={item.content}
+              cardImageDesktop={item.cardImageDesktop}
+              cardImageMobile={item.cardImageMobile}
             />
           )
         })}

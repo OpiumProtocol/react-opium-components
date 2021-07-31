@@ -2,7 +2,10 @@ import React, { FC } from 'react'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
-import TextBlock from '../TextBlock'
+// @ts-ignore
+import CardDefaulImageWeb from '../../Images/card1-back-image.svg'
+// @ts-ignore
+import CardDefaulImageMob from '../../Images/card1-back-mobileimage.svg'
 import Button from '../OpiumButton'
 
 // @ts-ignore
@@ -16,28 +19,29 @@ export type Props = {
   /** Set class selectors */
   className?: string
   /** Set title */
-  title: string
-  /** Set content */
-  content: JSX.Element
+  /** Card Image Desktop */
+  cardImageMobile:string
+  /** Card Image Desktop */
+  cardImageDesktop:string
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   className: '',
-  title: '',
-  content: <></>
+  cardImageMobile: CardDefaulImageMob,
+  cardImageDesktop: CardDefaulImageWeb
 }
 
 const Card: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { theme, className, content, title } = renderProps
+  const { theme, className, cardImageMobile, cardImageDesktop } = renderProps
   return (
-    <div className={`d-flex justify-content-between py-3 px-5 custom-card ${className}`}>
-      <div className={'pt-3 px-5'}>
+    <div className={`d-flex justify-content-between custom-card ${className}`}>
+      <div className="card-slider">
+        <img src={cardImageMobile} className="mobile" />
+        <img src={cardImageDesktop} className="desktop"/>
         <div className="text-block color-scheme-DARK ">
-          <h2>{title}</h2>
-          {content}
           <div className="d-flex py-3 d-inline-block">
             <Button
               theme={theme}
@@ -54,12 +58,7 @@ const Card: FC<Props> = (props: Props) => {
               onClick={() => { }}
             />
           </div>
-          <span style={{ fontSize: '9px' }}>* Past performance doesn’t guarantee future results.</span>
         </div>
-      </div>
-      <div className={'button-warap pr-2'}>
-        <div className={'staking-button desktop'}>Staking pool</div>
-        <div className={'staking-button mobile'}></div>
       </div>
     </div>
   )

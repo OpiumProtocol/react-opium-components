@@ -1,4 +1,4 @@
-import React, { Children, FC } from 'react'
+import React, { FC } from 'react'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
@@ -7,7 +7,6 @@ import TextBlock from '../TextBlock'
 // @ts-ignore
 import Slider from 'react-slick'
 import './CardSlider.scss'
-import Card from '../Card'
 
 export type Props = {
   /** Define theme */
@@ -42,6 +41,7 @@ const defaultProps: Props = {
 const CardSlider: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
   const {
+    theme,
     className,
     dots,
     infinite,
@@ -49,7 +49,7 @@ const CardSlider: FC<Props> = (props: Props) => {
     slidesToShow,
     slidesToScroll,
     autoplay,
-    children
+    children,
   } = renderProps
   const settings = {
     dots,
