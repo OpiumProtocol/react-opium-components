@@ -1,15 +1,12 @@
 import React, { FC } from 'react'
 
-import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme } from '../../Constants/Types/theme.types'
+import { generateRenderProps } from '../../../Utils/helpers'
+import { ETheme } from '../../../Constants/Types/theme.types'
 // @ts-ignore
-import CardDefaulImageWeb from '../../Images/card1-back-image.svg'
+import CardDefaulImageWeb from '../../../Images/card1-back-image.svg'
 // @ts-ignore
-import CardDefaulImageMob from '../../Images/card1-back-mobileimage.svg'
-import Button from '../OpiumButton'
-
-// @ts-ignore
-import StakingIcon from '../../Images/staking-button-icon.svg'
+import CardDefaulImageMob from '../../../Images/card1-back-mobileimage.svg'
+import Button from '../../OpiumButton'
 
 import './Card.scss'
 

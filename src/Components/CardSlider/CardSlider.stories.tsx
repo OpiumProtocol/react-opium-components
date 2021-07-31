@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import Button from '../OpiumButton'
-import Card from '../Card'
+import Card from './Card'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import CardSlider from './index'
