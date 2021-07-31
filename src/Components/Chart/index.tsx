@@ -119,7 +119,7 @@ const Chart: React.FC<Props> = (props: Props) => {
               <stop offset="100%" stopColor="#197CD8" stopOpacity={0}/>
             </linearGradient>
           </defs>
-          <CartesianGrid stroke={theme === 'DARK' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
+          <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
           <XAxis
             interval={2}
             label={labelX}
