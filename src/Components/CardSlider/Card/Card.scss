@@ -3,6 +3,10 @@
 
 .custom-card {
   border-radius: 10px;
+  position: relative;
+  .card-warap {
+    width: 100%;
+  }
   .text-block{
     position: absolute;
     width: 100%;
@@ -17,7 +21,6 @@
       left: 5%;
     }
   }
-  position: relative;
   img{
     width: 100%;
   }

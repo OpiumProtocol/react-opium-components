@@ -35,7 +35,7 @@ const Card: FC<Props> = (props: Props) => {
   const { theme, className, cardImageMobile, cardImageDesktop } = renderProps
   return (
     <div className={`d-flex justify-content-between custom-card ${className}`}>
-      <div className="card-slider">
+      <div className="card-warap">
         <img src={cardImageMobile} className="mobile" />
         <img src={cardImageDesktop} className="desktop"/>
         <div className="text-block color-scheme-DARK ">
