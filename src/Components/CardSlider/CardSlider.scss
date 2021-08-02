@@ -11,10 +11,7 @@
     display: flex !important;
     justify-content: flex-end;
     align-items: center;
-    @media (max-width: 768px) {
-      justify-content: center;
-    }
-    li {
+     li {
       pointer-events: none;
     }
     .slick-active {
@@ -78,9 +75,24 @@
     top:42%;
     }
   }
-  @media (max-width: 768px) {
-    .sliderpd{
-      padding: 2rem 1rem !important;
+ 
+  @media (max-width: 420px) {
+    .opiumBtn.btn{
+     padding: 6px 10px;
+    }
+    .slick-list .slick-slide{
+      &:nth-child(4){
+       .text-block {
+         top: 65%;
+         left: 5%;
+     }
+      }
     }
   }
 }
+@media (max-width: 768px) {
+  .sliderpd{
+    padding: 2rem 1rem !important;
+  }
+}
+

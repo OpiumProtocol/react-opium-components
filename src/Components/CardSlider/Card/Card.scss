@@ -4,23 +4,36 @@
 .custom-card {
   border-radius: 10px;
   position: relative;
+  
   .card-warap {
     width: 100%;
+  
   }
-  .text-block{
+ 
+  .text-block{ 
     position: absolute;
     width: 100%;
     top: 57%;
     left: 11%;
-    @media (max-width:480px) {  
-    left: 5%;
-    top:50%;
+  
+  
+    @media (max-width:991px) {      
+      top:50%;
+      }
+      @media (max-width:768px) {      
+        top:68%;
+        left: 6%;  
     }
+    @media (max-width:600px) {  
+      left: 5%;
+      top:65%;
+      }  
     @media (max-width:420px) {
-      top: 48%;
+      top: 56%;
       left: 5%;
     }
   }
+}   
   img{
     width: 100%;
   }
@@ -35,4 +48,3 @@
       display: none !important;
     }
   }
-}
