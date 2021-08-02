@@ -24,6 +24,8 @@ import ProgressBar from './Components/ProgressBar'
 import SlideMenu from './Components/SlideMenu'
 import OpiumLink from './Components/OpiumLink'
 import CardSlider from './Components/CardSlider'
+import ComposedChart from './Components/ComposedChart'
+
 import {
   themes,
   widgetThemes,
@@ -68,6 +70,7 @@ export {
   colors,
   OpiumLink,
   CardSlider
+  ComposedChart
 }
 
 export type {
