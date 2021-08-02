@@ -33,6 +33,8 @@ export type Props = {
     labelY?: {[index: string]: any}
   tickFormatterX?: (value: any) => string
   tickFormatterY?: (value: any) => string
+  domainX?: (string | number)[]
+  domainY?: (string | number)[]
 }
 
 const defaultProps: Props = {
@@ -41,7 +43,9 @@ const defaultProps: Props = {
   labelX: {},
   labelY: {},
   tickFormatterX: (label) => label,
-  tickFormatterY: (label) => label
+  tickFormatterY: (label) => label,
+  domainX: [0, 'auto'],
+  domainY: [0, 'auto']
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -109,8 +113,8 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
             </linearGradient>
           </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
-          <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX}/>
-          <YAxis label={labelY} tickFormatter={tickFormatterY}/>
+          <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX}/>
+          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY}/>
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="barData" barSize={10} fill="#197CD8" />
 
