@@ -1,0 +1,98 @@
+@import "../../Styles/constants.scss";
+@import "../../Styles/colors.scss";
+
+.custom-slider {
+  width: 100%;
+  .slick-dots li button::before {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .slick-dots {
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: center;
+     li {
+      pointer-events: none;
+    }
+    .slick-active {
+      button {
+        &::before {
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .slick-next {
+    position: absolute;
+    right: 0;    
+    z-index: 10;
+    height: 100%;
+    padding: 20px 8px;
+    width: 30px;
+    &::before {
+      content: "";
+      background-image: url("../../Images/sprev.svg");
+      display: block;
+      width: 16px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: 0% 50%;
+    }
+    &:hover {
+      background: rgba(10, 10, 30, 0.1);
+      @media (max-width: 768px) {
+        background: transparent;
+      }
+    }
+    @media (max-width: 768px) {
+      top:42%;      
+      }     
+  }  
+  .slick-prev {
+    position: absolute;
+    left: 0px;
+    z-index: 10;
+    height: 100%;
+    padding: 20px 8px;
+    width: 30px;
+    &::before {
+      content: "";
+      background-image: url("../../Images/snext.svg");
+      display: block;
+      width: 16px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: 0% 50%;
+    }
+    &:hover {
+      background: rgba(10, 10, 30, 0.1);
+      @media (max-width: 768px) {
+        background: transparent;
+      }
+    }
+    @media (max-width: 768px) {
+    top:42%;
+    }
+  }
+ 
+  @media (max-width: 420px) {
+    .opiumBtn.btn{
+     padding: 6px 10px;
+    }
+    .slick-list .slick-slide{
+      &:nth-child(4){
+       .text-block {
+         top: 65%;
+         left: 5%;
+     }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .sliderpd{
+    padding: 2rem 1rem !important;
+  }
+}
+
