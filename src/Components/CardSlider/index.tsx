@@ -65,7 +65,7 @@ const CardSlider: FC<Props> = (props: Props) => {
   return (
     <div className={`custom-slider ${className}`}>
       <Slider {...settings}>
-        {sliderType === "card" ? (
+        {sliderType === 'card' ? (
           sliderItems.map((item: any, index: number) => {
             return (
               <Card
