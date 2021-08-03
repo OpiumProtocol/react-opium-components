@@ -69,7 +69,7 @@ export {
   ETheme,
   colors,
   OpiumLink,
-  CardSlider
+  CardSlider,
   ComposedChart
 }
 
