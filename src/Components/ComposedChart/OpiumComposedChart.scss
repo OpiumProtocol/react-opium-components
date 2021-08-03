@@ -38,6 +38,7 @@
         tspan {
           font-weight: bold;
           fill: $white0;
+          font-size: 12px;
         }
       }
     }
@@ -102,7 +103,7 @@
       }
 
       .custom-tooltip {
-        background-color: white;
+        background-color: $darkblue1;
         .label {
           transition: color .5s ease;
         }
@@ -144,7 +145,7 @@
       }
 
       .custom-tooltip {
-        background-color: $darkblue1;
+        background-color: $white0;
         .label {
           transition: color .5s ease;
         }
