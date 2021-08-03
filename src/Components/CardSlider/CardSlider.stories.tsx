@@ -20,67 +20,107 @@ import CardDefaulImageMob3 from '../../Images/card3-back-mobileimage.svg'
 import CardDefaulImageWeb4 from '../../Images/card4-back-image.svg'
 // @ts-ignore
 import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
+// @ts-ignore
+import BoxDefaulImage from '../../Images/box-avtar.svg'
+
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
-  const backgroundColor =
-    sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
 
-  const SliderItems = [
+  const SliderItemsCard = [
     {
       cardImageMobile: CardDefaulImageMob4,
       cardImageDesktop: CardDefaulImageWeb4,
     },
     {
       cardImageMobile: CardDefaulImageMob3,
-      cardImageDesktop: CardDefaulImageWeb3
+      cardImageDesktop: CardDefaulImageWeb3,
     },
-   
+
     {
       cardImageMobile: CardDefaulImageMob2,
-      cardImageDesktop: CardDefaulImageWeb2 
+      cardImageDesktop: CardDefaulImageWeb2,
     },
-    
+
     {
       cardImageMobile: CardDefaulImageMob1,
-      cardImageDesktop: CardDefaulImageWeb1 
+      cardImageDesktop: CardDefaulImageWeb1,
+    },
+  ]
+
+  const SliderItemsBox = [
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImage,
+      grossReturn: 10.0,
+      annualReturn: 15.0,
+      link: '',
     },
   ]
 
   return (
     <div style={{ padding: '3rem', backgroundColor }} className="sliderpd">
-      <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>
-        {message}
-      </h1>
+      <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
-        <Button
-          theme={theme}
-          label="Light theme"
-          variant={'secondary'}
-          style={{ marginRight: '1rem' }}
-          onClick={() => setTheme(ETheme.LIGHT)}
-        />
-        <Button
-          theme={theme}
-          label="Dark theme"
-          variant={'primary'}
-          onClick={() => setTheme(ETheme.DARK)}
-        />
+        <Button theme={theme} label="Light theme" variant={'secondary'} style={{ marginRight: '1rem' }} onClick={() => setTheme(ETheme.LIGHT)} />
+        <Button theme={theme} label="Dark theme" variant={'primary'} onClick={() => setTheme(ETheme.DARK)} />
       </div>
-      <CardSlider
-        dots={true}
-        infinite={true}
-        autoplay={false}
-        speed={500}
-        slidesToShow={1}
-        slidesToScroll={1}
-        sliderItems={SliderItems}
-        sliderType="card"
-      >
-      </CardSlider>
+      <CardSlider dots={true} infinite={true} autoplay={false} speed={500} slidesToShow={3} slidesToScroll={1} sliderItems={SliderItemsBox} sliderType="box" className="custom-slider-box"></CardSlider>
     </div>
   )
 }

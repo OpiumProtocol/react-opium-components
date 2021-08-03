@@ -1,0 +1,74 @@
+@import '../../../Styles/constants.scss';
+@import '../../../Styles/colors.scss';
+
+.custom-box {
+  border-radius: 10px;
+  position: relative;
+}
+.box-slider {
+  padding: 20px 10px 20px 36px;
+  td {
+    padding: 10px;
+    text-align: left;
+    font-size: 12px;
+  
+    &:nth-child(2){
+      width: 100px;
+    }
+    
+  }
+  .stak-tr {
+    img{
+      max-width: 90px;
+    }
+    td {
+      font-size: 12px;
+      line-height: 15px;
+
+      &:nth-child(2) {
+        text-decoration-line: underline;
+      }
+    }
+  }
+  .eth-tr {
+    img {
+      max-width: 60px;
+      max-height: 45px;
+      position: relative;
+      top: 15px;
+    }
+    td {
+      &:nth-child(1) {
+        font-size: 18px;
+        position: relative;
+        top: -11px;
+      }
+    }
+  }
+  .ret-tr {
+    td {
+      &:nth-child(2) {
+        color: #2ecd94;
+      }
+    }
+  }
+  .gotostak {
+    text-align: center;
+    button {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 12px;
+      line-height: 15px;
+      padding: 10px 30px;
+      border-radius: 18px;
+      margin-top: 25px;
+    }
+  }
+}
+.custom-slider-box {
+  .custom-box {
+    border-radius: 10px;
+    position: relative;
+  }
+}

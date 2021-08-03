@@ -8,6 +8,7 @@ import TextBlock from '../TextBlock'
 import Slider from 'react-slick'
 import './CardSlider.scss'
 import Card from './Card'
+import Box from './Box'
 
 export type Props = {
   /** Define theme */
@@ -65,7 +66,7 @@ const CardSlider: FC<Props> = (props: Props) => {
   return (
     <div className={`custom-slider ${className}`}>
       <Slider {...settings}>
-        {sliderType === "card" ? (
+        {sliderType === 'card' ? (
           sliderItems.map((item: any, index: number) => {
             return (
               <Card
@@ -77,7 +78,19 @@ const CardSlider: FC<Props> = (props: Props) => {
             )
           })
         ) : (
-          <></>
+          sliderItems.map((item: any, index: number) => {
+            return (
+              <Box
+                key={index}
+                theme={theme}
+                boxImage={item.image}
+                title={item.title}
+                grossReturn={item.grossReturn}
+                annualReturn={item.annualReturn}
+                link={item.link}
+              />
+            )
+          })
         )}
 
       </Slider>
