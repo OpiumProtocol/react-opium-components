@@ -7,6 +7,7 @@ import TextBlock from '../TextBlock'
 // @ts-ignore
 import Slider from 'react-slick'
 import './CardSlider.scss'
+import Card from './Card'
 
 export type Props = {
   /** Define theme */
@@ -49,7 +50,8 @@ const CardSlider: FC<Props> = (props: Props) => {
     slidesToShow,
     slidesToScroll,
     autoplay,
-    children,
+    sliderItems,
+    sliderType
   } = renderProps
   const settings = {
     dots,
@@ -63,7 +65,21 @@ const CardSlider: FC<Props> = (props: Props) => {
   return (
     <div className={`custom-slider ${className}`}>
       <Slider {...settings}>
-        {children}
+        {sliderType === "card" ? (
+          sliderItems.map((item: any, index: number) => {
+            return (
+              <Card
+                key={index}
+                theme={theme}
+                cardImageDesktop={item.cardImageDesktop}
+                cardImageMobile={item.cardImageMobile}
+              />
+            )
+          })
+        ) : (
+          <></>
+        )}
+
       </Slider>
     </div>
   )

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import Button from '../OpiumButton'
-import Card from './Card'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import CardSlider from './index'
@@ -78,17 +77,9 @@ export const cardSlider = () => {
         speed={500}
         slidesToShow={1}
         slidesToScroll={1}
+        sliderItems={SliderItems}
+        sliderType="card"
       >
-        {SliderItems.map((item: any, index: number) => {
-          return (
-            <Card
-              key={index}
-              theme={theme}
-              cardImageDesktop={item.cardImageDesktop}
-              cardImageMobile={item.cardImageMobile}
-            />
-          )
-        })}
       </CardSlider>
     </div>
   )
