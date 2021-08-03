@@ -15,37 +15,7 @@ export const chart = () => {
   const background = theme === 'DARK' ? 'radial-gradient(72.74% 182.65% at 85.89% 66.02%, #111132 2.27%, #0A0A1E 98.05%)' : 'radial-gradient(100% 249.28% at 100% 100%, #DEDEFE 2.27%, #FFFFFF 70.22%)'
   const color = sectionThemes[theme as ETheme].color.primary.value
 
-  const data = [
-    { data1: '0', data2: '0', price: 4 },
-    { data1: '0', data2: '0', price: 4.25 },
-    { data1: '0', data2: '0', price: 4.5 },
-    { data1: '0', data2: '0', price: 4.75 },
-    { data1: '0', data2: '0', price: 5 },
-    { data1: '-5', data2: '5', price: 5.25 },
-    { data1: '-9', data2: '9', price: 5.5 },
-    { data1: '-13', data2: '13', price: 5.75 },
-    { data1: '-17', data2: '17', price: 6 },
-    { data1: '-20', data2: '20', price: 6.25 },
-    { data1: '-23', data2: '23', price: 6.5 },
-    { data1: '-26', data2: '26', price: 6.75 },
-    { data1: '-29', data2: '29', price: 7 },
-    { data1: '-31', data2: '31', price: 7.25 },
-    { data1: '-33', data2: '33', price: 7.5 },
-    { data1: '-35', data2: '35', price: 7.75 },
-    { data1: '-38', data2: '38', price: 8 },
-    { data1: '-39', data2: '39', price: 8.25 },
-    { data1: '-41', data2: '41', price: 8.5 },
-    { data1: '-43', data2: '43', price: 8.75 },
-    { data1: '-44', data2: '44', price: 9 },
-    { data1: '-46', data2: '46', price: 9.25 },
-    { data1: '-47', data2: '47', price: 9.5 },
-    { data1: '-49', data2: '49', price: 9.75 },
-    { data1: '-50', data2: '50', price: 10 },
-    { data1: '-51', data2: '51', price: 10.25 },
-    { data1: '-52', data2: '52', price: 10.5 },
-    { data1: '-53', data2: '53', price: 10.75 },
-    { data1: '-55', data2: '55', price: 11 }
-  ]
+  const data = [{ data1: 3, data2: -100, price: 34701.98344888704 }, { data1: 3, data2: -100, price: 36870.85741444248 }, { data1: 3, data2: -100, price: 39039.73137999792 }, { data1: 3, data2: -100, price: 41208.605345553355 }, { data1: 3, data2: -100, price: 43377.47931110879 }, { data1: -2, data2: 59, price: 45546.35327666423 }, { data1: -6, data2: 203, price: 47715.22724221967 }, { data1: -10, data2: 335, price: 49884.10120777511 }, { data1: -14, data2: 456, price: 52052.975173330546 }, { data1: -17, data2: 567, price: 54221.849138885984 }, { data1: -20, data2: 669, price: 56390.72310444142 }, { data1: -23, data2: 764, price: 58559.59706999686 }, { data1: -26, data2: 852, price: 60728.4710355523 }, { data1: -28, data2: 934, price: 62897.34500110774 }, { data1: -30, data2: 1011, price: 65066.218966663175 }, { data1: -32, data2: 1083, price: 67235.09293221861 }, { data1: -34, data2: 1150, price: 69403.96689777405 }, { data1: -36, data2: 1213, price: 71572.84086332949 }, { data1: -38, data2: 1273, price: 73741.71482888493 }, { data1: -40, data2: 1329, price: 75910.58879444037 }, { data1: -41, data2: 1381, price: 78079.4627599958 }, { data1: -43, data2: 1432, price: 80248.33672555124 }, { data1: -44, data2: 1479, price: 82417.21069110668 }, { data1: -46, data2: 1524, price: 84586.08465666212 }, { data1: -47, data2: 1567, price: 86754.95862221756 }, { data1: -48, data2: 1607, price: 88923.832587773 }, { data1: -49, data2: 1646, price: 91092.70655332843 }, { data1: -50, data2: 1683, price: 93261.58051888387 }, { data1: -52, data2: 1718, price: 95430.45448443931 }]
 
   const dataOneChart = [
     {
@@ -145,10 +115,12 @@ export const chart = () => {
       <Chart
         theme={theme}
         data={data}
-        chartData1={{ tooltipTitle: 'Pool', tooltipSuffix: '%' }}
+        height={'256px'}
+        width={'500px'}
+        chartData2={{ tooltipTitle: 'Pool', tooltipSuffix: '%' }}
         labelX={{ value: 'Label X', position: 'insideBottom' }}
         labelY={{ value: 'Label Y', angle: -90, position: 'insideLeft' }}
-        // chartData2={{ tooltipTitle: 'Buyer', tooltipSuffix: '%' }}
+      // chartData2={{ tooltipTitle: 'Buyer', tooltipSuffix: '%' }}
       />
     </div>
   )
