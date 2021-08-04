@@ -121,14 +121,14 @@ const Chart: React.FC<Props> = (props: Props) => {
           </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
           <XAxis
-            interval={2}
+            // interval="preserveStart"
             label={labelX}
             tickFormatter={tickChanger}
             height={50}
             allowDataOverflow
             domain={domainX}
           />
-          <YAxis axisLine label={labelY} allowDataOverflow domain={domainY} />
+          <YAxis axisLine label={labelY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
           {
             // @ts-ignore
             <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
