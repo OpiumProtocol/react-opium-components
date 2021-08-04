@@ -7,8 +7,6 @@ import TextBlock from '../TextBlock'
 // @ts-ignore
 import Slider from 'react-slick'
 import './CardSlider.scss'
-import Card from './Card'
-import Box from './Box'
 
 export type Props = {
   /** Define theme */

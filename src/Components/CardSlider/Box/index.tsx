@@ -46,7 +46,7 @@ const defaultProps: Props = {
 const Box: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { theme, className, title, boxImage, grossReturn, annualReturn, link, setTheme } = renderProps
+  const { theme, className, title, boxImage, grossReturn, annualReturn, link } = renderProps
   return (
     <div className={`custom-box ${theme}`}>
       <div className="box-warap">
@@ -84,7 +84,7 @@ const Box: FC<Props> = (props: Props) => {
                 label="go to staking"
                 variant={'secondary'}
                 style={{ marginRight: '1rem' }}
-                onClick={() => setTheme(ETheme.LIGHT)}
+                onClick={() => console.log()}
               />
             </div>
           </div>
