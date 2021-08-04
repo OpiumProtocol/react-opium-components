@@ -65,8 +65,8 @@ const CardSlider: FC<Props> = (props: Props) => {
       {
         breakpoint: 1600,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: sliderType === 'box' ? 3 : 1,
+          slidesToScroll: 1,
           infinite: true,
           dots: true
         }
@@ -74,9 +74,9 @@ const CardSlider: FC<Props> = (props: Props) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
+          slidesToShow: sliderType === 'box' ? 2 : 1,
+          slidesToScroll: 1,
+          initialSlide: 1
         }
       },
       {
@@ -91,7 +91,7 @@ const CardSlider: FC<Props> = (props: Props) => {
   }
 
   return (
-    <div className={`custom-slider ${className}`}>
+    <div className={`${className}`}>
       <Slider {...settings}>
         {sliderType === 'card' ? (
           sliderItems.map((item: any, index: number) => {

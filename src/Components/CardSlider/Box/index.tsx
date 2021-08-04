@@ -11,6 +11,7 @@ import StakingSVGLight from '../../../Images/staking-light.svg'
 import './Box.scss'
 // @ts-ignore
 import Button from '../../OpiumButton'
+import OpiumLink from '../../OpiumLink'
 export type Props = {
   /** Define theme */
   theme?: ETheme;
@@ -23,9 +24,9 @@ export type Props = {
   /** Box Image Desktop */
   defaultImage?: string;
   /** Box gross return */
-  grossReturn?: number;
+  grossReturn?: string;
   /** Box annual return */
-  annualReturn?: number;
+  annualReturn?: string;
   /** Box read more link */
   link?: string;
 };
@@ -35,9 +36,9 @@ const defaultProps: Props = {
   className: '',
   boxImage: defaultImage,
   title: '',
-  grossReturn: 0.0,
-  annualReturn: 0.0,
-  link: '',  
+  grossReturn: '',
+  annualReturn: '',
+  link: '',
 }
 
 
@@ -58,7 +59,7 @@ const Box: FC<Props> = (props: Props) => {
                     <img src={theme === 'DARK' ? StakingSVGDark : StakingSVGLight} />
                   </td>
                   <td>
-                    <a href={link}>Read more</a>
+                    {link}
                   </td>
                 </tr>
                 <tr className="eth-tr">
@@ -69,11 +70,11 @@ const Box: FC<Props> = (props: Props) => {
                 </tr>
                 <tr className="ret-tr">
                   <td>Return since inception :</td>
-                  <td>{grossReturn}% *</td>
+                  <td>{grossReturn}</td>
                 </tr>
                 <tr className="ann-tr">
                   <td>Annualized return:</td>
-                  <td>{annualReturn}% *</td>
+                  <td>{annualReturn}</td>
                 </tr>
               </tbody>
             </table>
