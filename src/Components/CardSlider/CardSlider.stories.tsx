@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import Button from '../OpiumButton'
+import Card from './Card'
+import Box from './Box'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import CardSlider from './index'
@@ -146,22 +148,22 @@ export const cardSlider = () => {
   ]
 
   return (
-    <div style={{ padding: '3rem', backgroundColor }} className="sliderpd">
-      <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>
+    <div style={{ padding: "3rem", backgroundColor }} className="sliderpd">
+      <h1 style={{ color, textAlign: "center", marginBottom: "3rem" }}>
         {message}
       </h1>
-      <div style={{ display: 'flex', marginBottom: '5rem' }}>
+      <div style={{ display: "flex", marginBottom: "5rem" }}>
         <Button
           theme={theme}
           label="Light theme"
-          variant={'secondary'}
-          style={{ marginRight: '1rem' }}
+          variant={"secondary"}
+          style={{ marginRight: "1rem" }}
           onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
-          variant={'primary'}
+          variant={"primary"}
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
@@ -174,11 +176,48 @@ export const cardSlider = () => {
         slidesToShow={4}
         slidesToScroll={1}
         sliderItems={SliderItemsBox}
+        sliderType="card"
+        className="custom-slider-box"
+      >
+        {SliderItemsCard.map((item: any, index: number) => {
+          return (
+            <Card
+              key={index}
+              theme={theme}
+              cardImageDesktop={item.cardImageDesktop}
+              cardImageMobile={item.cardImageMobile}
+            />
+          );
+        })}
+      </CardSlider>
+      <CardSlider
+        theme={theme}
+        dots={true}
+        infinite={true}
+        autoplay={false}
+        speed={500}
+        slidesToShow={4}
+        slidesToScroll={1}
+        sliderItems={SliderItemsBox}
         sliderType="box"
         className="custom-slider-box"
-      ></CardSlider>
+      >
+        {SliderItemsBox.map((item: any, index: number) => {
+            return (
+              <Box
+                key={index}
+                theme={theme}
+                boxImage={item.image}
+                title={item.title}
+                grossReturn={item.grossReturn}
+                annualReturn={item.annualReturn}
+                link={item.link}
+              />
+            )
+          })}
+      </CardSlider>
     </div>
-  )
+  );
 }
 
 cardSlider.defaultProps = {

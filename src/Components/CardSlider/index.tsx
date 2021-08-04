@@ -51,8 +51,8 @@ const CardSlider: FC<Props> = (props: Props) => {
     slidesToShow,
     slidesToScroll,
     autoplay,
-    sliderItems,
-    sliderType
+    sliderType,
+    children
   } = renderProps
   const settings = {
     dots,
@@ -91,33 +91,7 @@ const CardSlider: FC<Props> = (props: Props) => {
   return (
     <div className={`${className}`}>
       <Slider {...settings}>
-        {sliderType === 'card' ? (
-          sliderItems.map((item: any, index: number) => {
-            return (
-              <Card
-                key={index}
-                theme={theme}
-                cardImageDesktop={item.cardImageDesktop}
-                cardImageMobile={item.cardImageMobile}
-              />
-            )
-          })
-        ) : (
-          sliderItems.map((item: any, index: number) => {
-            return (
-              <Box
-                key={index}
-                theme={theme}
-                boxImage={item.image}
-                title={item.title}
-                grossReturn={item.grossReturn}
-                annualReturn={item.annualReturn}
-                link={item.link}
-              />
-            )
-          })
-        )}
-
+        {children}
       </Slider>
     </div>
   )
