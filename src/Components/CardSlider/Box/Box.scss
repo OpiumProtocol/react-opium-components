@@ -1,9 +1,84 @@
-@import '../../../Styles/constants.scss';
-@import '../../../Styles/colors.scss';
+@import "../../../Styles/constants.scss";
+@import "../../../Styles/colors.scss";
 
 .custom-box {
-  border-radius: 10px;
-  position: relative;
+  width: calc(100% - 40px);
+-webkit-transition: 0.3s;
+-o-transition: 0.3s;
+transition: 0.3s;
+border: 0.5px solid transparent;
+margin-left: 20px;
+  .color-scheme-LIGHT {
+    .gotostak button {
+      border: 1px solid #0a0a1e;
+      color: #0a0a1e;
+    }
+  }
+  .color-scheme-LIGHT .box-slider:hover {
+    border: 0.5px solid rgb(10, 10, 30);
+     border-radius: 10px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+  }
+  .color-scheme-DARK .box-slider:hover {
+    background: #0A0A1E;
+    border: 0.5px solid #ffffff;
+     border-radius: 10px;
+     box-sizing: border-box;
+  }
+  .color-scheme-LIGHT{
+    a{
+      color: #0A0A1E;
+
+    }
+  }
+  .color-scheme-DARK{
+    a{
+       color: #fff;
+    }
+  }
+  &.color-scheme {
+    &-DARK {
+      color: $white0;
+
+      .CheckBox {
+        &__label {
+          a {
+            color: $white0;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .checkmark {
+        border-color: #fff;
+
+        svg {
+          stroke: #fff;
+        }
+      }
+    }
+    &-LIGHT {
+      color: #000;
+
+      .CheckBox {
+        &__label {
+          a {
+            color: $darkblue1;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .checkmark {
+        border-color: #000;
+
+        svg {
+          stroke: #000;
+        }
+      }
+    }
+  }
 }
 .box-slider {
   padding: 20px 10px 20px 36px;
@@ -11,14 +86,13 @@
     padding: 10px;
     text-align: left;
     font-size: 12px;
-  
-    &:nth-child(2){
+
+    &:nth-child(2) {
       width: 100px;
     }
-    
   }
   .stak-tr {
-    img{
+    img {
       max-width: 90px;
     }
     td {

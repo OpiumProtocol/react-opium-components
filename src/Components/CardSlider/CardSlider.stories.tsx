@@ -21,7 +21,7 @@ import CardDefaulImageWeb4 from '../../Images/card4-back-image.svg'
 // @ts-ignore
 import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
 // @ts-ignore
-import BoxDefaulImage from '../../Images/box-avtar.svg'
+import BoxDefaulImageDark from '../../Images/box-avtar-dark.svg'
 
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
@@ -55,22 +55,14 @@ export const cardSlider = () => {
   const SliderItemsBox = [
     {
       title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
+      image: BoxDefaulImageDark,
       grossReturn: 10.5,
       annualReturn: 15.0,
       link: '',
     },
     {
       title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
-      grossReturn: 10.5,
-      annualReturn: 15.0,
-      link: '',
-    },
-
-    {
-      title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
+      image: BoxDefaulImageDark,
       grossReturn: 10.5,
       annualReturn: 15.0,
       link: '',
@@ -78,35 +70,43 @@ export const cardSlider = () => {
 
     {
       title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
+      image: BoxDefaulImageDark,
+      grossReturn: 10.5,
+      annualReturn: 15.0,
+      link: '',
+    },
+
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
       grossReturn: 10.5,
       annualReturn: 15.0,
       link: '',
     },
     {
       title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
+      image: BoxDefaulImageDark,
       grossReturn: 10.5,
       annualReturn: 15.0,
       link: '',
     },
     {
       title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
+      image: BoxDefaulImageDark,
       grossReturn: 10.5,
       annualReturn: 15.0,
       link: '',
     },
     {
       title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
+      image: BoxDefaulImageDark,
       grossReturn: 10.5,
       annualReturn: 15.0,
       link: '',
     },
     {
       title: 'ETH Dump Protection',
-      image: BoxDefaulImage,
+      image: BoxDefaulImageDark,
       grossReturn: 10.0,
       annualReturn: 15.0,
       link: '',
@@ -115,12 +115,36 @@ export const cardSlider = () => {
 
   return (
     <div style={{ padding: '3rem', backgroundColor }} className="sliderpd">
-      <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>{message}</h1>
+      <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>
+        {message}
+      </h1>
       <div style={{ display: 'flex', marginBottom: '5rem' }}>
-        <Button theme={theme} label="Light theme" variant={'secondary'} style={{ marginRight: '1rem' }} onClick={() => setTheme(ETheme.LIGHT)} />
-        <Button theme={theme} label="Dark theme" variant={'primary'} onClick={() => setTheme(ETheme.DARK)} />
+        <Button
+          theme={theme}
+          label="Light theme"
+          variant={'secondary'}
+          style={{ marginRight: '1rem' }}
+          onClick={() => setTheme(ETheme.LIGHT)}
+        />
+        <Button
+          theme={theme}
+          label="Dark theme"
+          variant={'primary'}
+          onClick={() => setTheme(ETheme.DARK)}
+        />
       </div>
-      <CardSlider dots={true} infinite={true} autoplay={false} speed={500} slidesToShow={3} slidesToScroll={1} sliderItems={SliderItemsBox} sliderType="box" className="custom-slider-box"></CardSlider>
+      <CardSlider
+        theme={theme}
+        dots={true}
+        infinite={true}
+        autoplay={false}
+        speed={500}
+        slidesToShow={4}
+        slidesToScroll={1}
+        sliderItems={SliderItemsBox}
+        sliderType="box"
+        className="custom-slider-box"
+      ></CardSlider>
     </div>
   )
 }
@@ -134,6 +158,7 @@ cardSlider.defaultProps = {
   autoplay: true,
   slidesToShow: 1,
   slidesToScroll: 1,
+  
 }
 
 export default {

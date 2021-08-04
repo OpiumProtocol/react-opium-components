@@ -5,12 +5,12 @@ import { ETheme } from '../../../Constants/Types/theme.types'
 // @ts-ignore
 import defaultImage from '../../../Images/card1-back-image.svg'
 // @ts-ignore
-import CardDefaulImageWeb4 from '../../../Images/card4-back-image.svg'
+import StakingSVGDark from '../../../Images/staking-dark.svg'
 // @ts-ignore
-import StakingSVG from '../../../Images/staking.svg'
-
+import StakingSVGLight from '../../../Images/staking-light.svg'
 import './Box.scss'
-
+// @ts-ignore
+import Button from '../../OpiumButton'
 export type Props = {
   /** Define theme */
   theme?: ETheme;
@@ -37,23 +37,29 @@ const defaultProps: Props = {
   title: '',
   grossReturn: 0.0,
   annualReturn: 0.0,
-  link: '',
+  link: '',  
 }
+
+
 
 const Box: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { theme, className, title, boxImage, grossReturn, annualReturn, link } = renderProps
+  const { theme, className, title, boxImage, grossReturn, annualReturn, link, setTheme } = renderProps
   return (
-    <div className={`custom-box ${className}`}>
+    <div className={`custom-box ${theme}`}>
       <div className="box-warap">
-        <div className="text-block color-scheme-DARK ">
+        <div className={`text-block color-scheme-${theme}`}>
           <div className="box-slider">
             <table>
               <tbody>
                 <tr className="stak-tr">
-                  <td><img src={StakingSVG} /></td>
-                  <td><a href={link}>Read more</a></td>
+                  <td>
+                    <img src={theme === 'DARK' ? StakingSVGDark : StakingSVGLight} />
+                  </td>
+                  <td>
+                    <a href={link}>Read more</a>
+                  </td>
                 </tr>
                 <tr className="eth-tr">
                   <td>{title}</td>
@@ -62,19 +68,24 @@ const Box: FC<Props> = (props: Props) => {
                   </td>
                 </tr>
                 <tr className="ret-tr">
-                  <td >Return since inception :</td>
+                  <td>Return since inception :</td>
                   <td>{grossReturn}% *</td>
                 </tr>
                 <tr className="ann-tr">
-                  <td >Annualized return:</td>
+                  <td>Annualized return:</td>
                   <td>{annualReturn}% *</td>
                 </tr>
               </tbody>
             </table>
             <div className="gotostak">
-            <button>go to staking</button>
+              <Button
+                theme={theme}
+                label="go to staking"
+                variant={'secondary'}
+                style={{ marginRight: '1rem' }}
+                onClick={() => setTheme(ETheme.LIGHT)}
+              />
             </div>
-            
           </div>
         </div>
       </div>
