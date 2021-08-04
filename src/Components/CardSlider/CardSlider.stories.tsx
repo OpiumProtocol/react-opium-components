@@ -22,7 +22,6 @@ import CardDefaulImageWeb4 from '../../Images/card4-back-image.svg'
 import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
 // @ts-ignore
 import BoxDefaulImageDark from '../../Images/box-avtar-dark.svg'
-import OpiumLink from '../OpiumLink'
 
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
@@ -59,14 +58,22 @@ export const cardSlider = () => {
       image: BoxDefaulImageDark,
       grossReturn: '10.5% *',
       annualReturn: '15.0% *',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
     },
     {
       title: 'ETH Dump Protection',
       image: BoxDefaulImageDark,
       grossReturn: '10.5% *',
       annualReturn: '15.0% *',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
     },
 
     {
@@ -74,7 +81,11 @@ export const cardSlider = () => {
       image: BoxDefaulImageDark,
       grossReturn: '10.5% *',
       annualReturn: '15.0% *',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
     },
 
     {
@@ -82,35 +93,55 @@ export const cardSlider = () => {
       image: BoxDefaulImageDark,
       grossReturn: '10.5% *',
       annualReturn: '15.0% *',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
     },
     {
       title: 'ETH Dump Protection',
       image: BoxDefaulImageDark,
       grossReturn: '10.5% *',
       annualReturn: '15.0% *',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
     },
     {
       title: 'ETH Dump Protection',
       image: BoxDefaulImageDark,
       grossReturn: '10.5% *',
       annualReturn: '15.0% *',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
     },
     {
       title: 'ETH Dump Protection',
       image: BoxDefaulImageDark,
       grossReturn: '10.5% *',
       annualReturn: '15.0% *',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
     },
     {
       title: 'ETH Dump Protection',
       image: BoxDefaulImageDark,
       grossReturn: '10.0',
       annualReturn: '15.0',
-      link: <OpiumLink label={'Read More'} href="http://app.opium.finance" />,
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      }
     },
   ]
 

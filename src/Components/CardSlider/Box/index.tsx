@@ -59,7 +59,7 @@ const Box: FC<Props> = (props: Props) => {
                     <img src={theme === 'DARK' ? StakingSVGDark : StakingSVGLight} />
                   </td>
                   <td>
-                    {link}
+                    <OpiumLink theme={theme} newTab={link.newTab} href={link.href} label={link.label} />
                   </td>
                 </tr>
                 <tr className="eth-tr">

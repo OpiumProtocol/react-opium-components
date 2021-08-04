@@ -67,8 +67,6 @@ const CardSlider: FC<Props> = (props: Props) => {
         settings: {
           slidesToShow: sliderType === 'box' ? 3 : 1,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true
         }
       },
       {
