@@ -41,8 +41,6 @@ const defaultProps: Props = {
   link: '',
 }
 
-
-
 const Box: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
