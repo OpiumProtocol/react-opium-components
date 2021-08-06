@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import { Collapse } from 'react-collapse'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -117,4 +117,4 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
   )
 }
 
-export default CollapseContainer
+export default React.memo(CollapseContainer)
