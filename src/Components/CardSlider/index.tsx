@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
-import TextBlock from '../TextBlock'
 
 // @ts-ignore
 import Slider from 'react-slick'
@@ -83,7 +82,6 @@ const CardSlider: FC<Props> = (props: Props) => {
         }
       }
     ]
-    
   }
 
   return (

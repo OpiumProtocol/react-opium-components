@@ -105,7 +105,7 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
   return (
     <div className={`OpiumComposedChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
-        <ComposedChart data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+        <ComposedChart isAnimationActive={false} data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#31EDA9" stopOpacity={0.1}/>
@@ -132,5 +132,4 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     </div>
   )
 }
-
 export default OpiumComposedChart

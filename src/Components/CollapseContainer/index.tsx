@@ -116,5 +116,5 @@ const CollapseContainer: React.FC<Props> = (props: Props) => {
     </div>
   )
 }
-
-export default CollapseContainer
+const MemoizedCollapseContainer = React.memo(CollapseContainer)
+export default MemoizedCollapseContainer
