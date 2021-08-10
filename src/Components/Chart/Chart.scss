@@ -74,6 +74,15 @@
   &.color-scheme {
     &-DARK {
 
+      .recharts-text {
+        text-anchor: middle;
+        &.recharts-label {
+          tspan {
+            fill: $white0;
+          }
+        }
+      }
+
       .recharts-active-dot {
         .dot-bg {
           transition: fill .5s ease;
@@ -86,9 +95,9 @@
       }
 
       .custom-tooltip {
+        background-color: $darkblue1;
         .label {
           transition: color .5s ease;
-          color: #0A0A1E;
         }
       }
 
@@ -97,11 +106,23 @@
           // text on the sides
           transition: fill .5s ease;
           text-anchor: middle;
-          fill: #fff !important;
+          fill: $white0 !important;
+          tspan {
+            fill: $white0 !important;
+          };
         }
       }
     }
     &-LIGHT {
+
+      .recharts-text {
+        text-anchor: middle;
+        &.recharts-label {
+          tspan {
+            fill: $darkblue1;
+          }
+        }
+      }
 
       .recharts-active-dot {
         .dot-bg {
@@ -116,17 +137,21 @@
       }
 
       .custom-tooltip {
+        background-color: $white0;
         .label {
-          color: #fff;
           transition: color .5s ease;
         }
       }
+
 
       .recharts-layer .recharts-cartesian-axis-tick {
         text {
           transition: fill .5s ease;
           text-anchor: middle;
-          fill: #0A0A1E !important;
+          fill: $darkblue1 !important;
+          tspan {
+            fill: $darkblue1 !important;
+          };
         }
       }
 
