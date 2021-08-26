@@ -136,9 +136,6 @@
     img {
       margin-right: 10px;
     }
-    .attention-text {
-      margin-left: 5px;
-    }
   }
   &__subtitle {
     display: block;
@@ -146,5 +143,8 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 15px;
+  }
+  .attention-text {
+    margin-left: 5px;
   }
 }
