@@ -36,6 +36,8 @@ export type Props = {
   onMouseEnter?: Function
   /** Handler, that works on mouse leave event */
   onMouseLeave?: Function
+  /** Set Icon Path */
+  iconPath?: string
 }
 
 export const defaultProps: Props = {
@@ -67,6 +69,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
     className,
     onMouseEnter,
     onMouseLeave,
+    iconPath,
     ...rest } = generateRenderProps(defaultProps, props)
 
   const { color, backgroundColor, borderColor, ...restStyles } = themes[theme as ETheme]
@@ -139,7 +142,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
               className="btn__label"
               style={rainbowLabel}
             >
-              {label}
+              {iconPath && <img src={iconPath} />}{label}
             </span>
           </Button>
           : <Button
@@ -155,7 +158,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
             style={monoStyles}
             {...rest}
           >
-            {label}
+            {iconPath && <img src={iconPath} />}{label}
           </Button>
       }
     </>
