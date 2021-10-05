@@ -73,7 +73,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boo
               className="label"
             >
               {`${chartData.tooltipTitle}:`}
-              <strong> {payload[i].value}</strong>
+              <strong> {payload[i].value > 0 ? `+${payload[i].value}` : payload[i].value}</strong>
               {chartData.tooltipSuffix}
             </p>
           </div>)
