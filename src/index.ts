@@ -23,6 +23,8 @@ import Switcher from './Components/Switcher'
 import ProgressBar from './Components/ProgressBar'
 import SlideMenu from './Components/SlideMenu'
 import OpiumLink from './Components/OpiumLink'
+import CardSlider from './Components/CardSlider'
+import ComposedChart from './Components/ComposedChart'
 
 import {
   themes,
@@ -66,7 +68,9 @@ export {
   sectionThemes,
   ETheme,
   colors,
-  OpiumLink
+  OpiumLink,
+  CardSlider,
+  ComposedChart
 }
 
 export type {

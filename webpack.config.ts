@@ -24,7 +24,7 @@ module.exports = {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(eot|woff|woff2|ttf|png|svg|jpg|gif)$/,
         use: [
           {
             loader: 'url-loader',
@@ -36,7 +36,7 @@ module.exports = {
         ]
       },
       { 
-        test: /\.scss$/, 
+        test: /\.(css|scss)$/, 
         use: [ 
           { loader: 'style-loader' },
           { loader: 'css-loader' }, 

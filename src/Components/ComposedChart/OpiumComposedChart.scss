@@ -1,6 +1,6 @@
 @import '../../Styles/index.scss';
 
-.CustomChart {
+.OpiumComposedChart {
 
   .custom-tooltip {
     &__container {
@@ -14,6 +14,14 @@
       font-weight: normal;
       font-size: 10px;
       line-height: 12px;
+
+      &.cumulative {
+        color: #197CD8
+      }
+
+      &.performance {
+        color: #31EDA9;
+      }
       strong {
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
@@ -74,6 +82,15 @@
   &.color-scheme {
     &-DARK {
 
+      .recharts-text {
+        text-anchor: middle;
+        &.recharts-label {
+          tspan {
+            fill: $white0;
+          }
+        }
+      }
+
       .recharts-active-dot {
         .dot-bg {
           transition: fill .5s ease;
@@ -86,9 +103,9 @@
       }
 
       .custom-tooltip {
+        background-color: $darkblue1;
         .label {
           transition: color .5s ease;
-          color: #0A0A1E;
         }
       }
 
@@ -97,16 +114,28 @@
           // text on the sides
           transition: fill .5s ease;
           text-anchor: middle;
-          fill: #fff !important;
+          fill: $white0 !important;
+          tspan {
+            fill: $white0 !important;
+          };
         }
       }
     }
     &-LIGHT {
 
+      .recharts-text {
+        text-anchor: middle;
+        &.recharts-label {
+          tspan {
+            fill: $darkblue1;
+          }
+        }
+      }
+
       .recharts-active-dot {
         .dot-bg {
           transition: fill .5s ease;
-          fill: #fff;
+          fill: $white0;
         }
       }
 
@@ -116,8 +145,8 @@
       }
 
       .custom-tooltip {
+        background-color: $white0;
         .label {
-          color: #fff;
           transition: color .5s ease;
         }
       }
@@ -126,7 +155,10 @@
         text {
           transition: fill .5s ease;
           text-anchor: middle;
-          fill: #0A0A1E !important;
+          fill: $darkblue1 !important;
+          tspan {
+            fill: $darkblue1 !important;
+          };
         }
       }
 
