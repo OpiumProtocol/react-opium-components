@@ -25,6 +25,8 @@ import SlideMenu from './Components/SlideMenu'
 import OpiumLink from './Components/OpiumLink'
 import CardSlider from './Components/CardSlider'
 import ComposedChart from './Components/ComposedChart'
+import Card from './Components/CardSlider/Card'
+import Box from './Components/CardSlider/Box'
 
 import {
   themes,
@@ -70,7 +72,9 @@ export {
   colors,
   OpiumLink,
   CardSlider,
-  ComposedChart
+  ComposedChart,
+  Card,
+  Box
 }
 
 export type {

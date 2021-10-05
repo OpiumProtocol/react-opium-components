@@ -1,38 +1,32 @@
 import React, { FC } from 'react'
-
-import { generateRenderProps } from '../../../Utils/helpers'
 import { ETheme } from '../../../Constants/Types/theme.types'
-// @ts-ignore
-import CardDefaulImageWeb from '../../../Images/card1-back-image.svg'
-// @ts-ignore
-import CardDefaulImageMob from '../../../Images/card1-back-mobileimage.svg'
 import Button from '../../OpiumButton'
 
 import './Card.scss'
 
-export type Props = {
+export type TProps = {
   /** Define theme */
   theme?: ETheme
   /** Set class selectors */
   className?: string
   /** Set title */
   /** Card Image Desktop */
-  cardImageMobile:string
+  cardImageMobile: string
   /** Card Image Desktop */
-  cardImageDesktop:string
+  cardImageDesktop: string
+  /** Staking Button Label */
+  stakingButtonLabel: string
+  /** Find more Button Label */
+  findMoreButtonLabel: string
+  /** Staking Button Label */
+  stakingButtonClick: Function
+  /** Find more Button Label */
+  findMoreButtonClick: Function
 }
 
-const defaultProps: Props = {
-  theme: ETheme.DARK,
-  className: '',
-  cardImageMobile: CardDefaulImageMob,
-  cardImageDesktop: CardDefaulImageWeb
-}
+const Card: FC<TProps> = (props: TProps) => {
 
-const Card: FC<Props> = (props: Props) => {
-  const renderProps = generateRenderProps(defaultProps, props)
-
-  const { theme, className, cardImageMobile, cardImageDesktop } = renderProps
+  const { theme, className, cardImageMobile, cardImageDesktop, stakingButtonLabel, findMoreButtonLabel, stakingButtonClick, findMoreButtonClick } = props
   return (
     <div className={`d-flex justify-content-between custom-card ${className}`}>
       <div className="card-warap">
@@ -43,16 +37,16 @@ const Card: FC<Props> = (props: Props) => {
             <Button
               theme={theme}
               variant={'success'}
-              label={'go to staking'}
+              label={stakingButtonLabel}
               className={'mr-2'}
-              onClick={() => { }}
+              onClick={stakingButtonClick}
             />
             <Button
               theme={theme}
               variant={'secondary'}
-              label={'find out more'}
+              label={findMoreButtonLabel}
               className={'ml-2'}
-              onClick={() => { }}
+              onClick={findMoreButtonClick}
             />
           </div>
         </div>

@@ -1,18 +1,18 @@
-import React, { FC } from 'react'
-
+import React, { FC, useEffect } from 'react'
 import { generateRenderProps } from '../../../Utils/helpers'
 import { ETheme } from '../../../Constants/Types/theme.types'
-// @ts-ignore
-import defaultImage from '../../../Images/card1-back-image.svg'
+
 // @ts-ignore
 import StakingSVGDark from '../../../Images/staking-dark.svg'
 // @ts-ignore
 import StakingSVGLight from '../../../Images/staking-light.svg'
-import './Box.scss'
 // @ts-ignore
 import Button from '../../OpiumButton'
 import OpiumLink from '../../OpiumLink'
-export type Props = {
+
+import './Box.scss'
+
+type Props = {
   /** Define theme */
   theme?: ETheme;
   /** Set class selectors */
@@ -28,29 +28,44 @@ export type Props = {
   /** Box annual return */
   annualReturn?: string;
   /** Box read more link */
-  link?: string;
+  link?: any;
+  /** Staking Button Label */
+  stakingButtonLabel: string
+  /** Staking Button click */
+  stakingButtonClick: Function
+  /** Gross return text */
+  grossReturnText?: string
+  /** Annual return text */
+  annualReturnText?: string
 };
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   className: '',
-  boxImage: defaultImage,
+  boxImage: '',
   title: '',
   grossReturn: '',
   annualReturn: '',
   link: '',
+  stakingButtonLabel: '',
+  grossReturnText: 'Return since inception',
+  annualReturnText: 'Annualized return',
+  stakingButtonClick: () => {}
 }
 
 const Box: FC<Props> = (props: Props) => {
+
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const { theme, className, title, boxImage, grossReturn, annualReturn, link } = renderProps
+  const { theme, className, title, boxImage, grossReturn, annualReturn, link, stakingButtonLabel, grossReturnText, annualReturnText, stakingButtonClick } = renderProps
+
+
   return (
-    <div className={`custom-box ${theme}`}>
+    <div className={`custom-box ${theme}`} >
       <div className="box-warap">
         <div className={`text-block color-scheme-${theme}`}>
           <div className="box-slider">
-            <table>
+            <table className="staking-table">
               <tbody>
                 <tr className="stak-tr">
                   <td>
@@ -67,11 +82,11 @@ const Box: FC<Props> = (props: Props) => {
                   </td>
                 </tr>
                 <tr className="ret-tr">
-                  <td>Return since inception :</td>
+                  <td>{grossReturnText}</td>
                   <td>{grossReturn}</td>
                 </tr>
                 <tr className="ann-tr">
-                  <td>Annualized return:</td>
+                  <td>{annualReturnText}</td>
                   <td>{annualReturn}</td>
                 </tr>
               </tbody>
@@ -79,10 +94,9 @@ const Box: FC<Props> = (props: Props) => {
             <div className="gotostak">
               <Button
                 theme={theme}
-                label="go to staking"
+                label={stakingButtonLabel}
                 variant={'secondary'}
-                style={{ marginRight: '1rem' }}
-                onClick={() => console.log()}
+                onClick={stakingButtonClick}
               />
             </div>
           </div>

@@ -148,22 +148,22 @@ export const cardSlider = () => {
   ]
 
   return (
-    <div style={{ padding: "3rem", backgroundColor }} className="sliderpd">
-      <h1 style={{ color, textAlign: "center", marginBottom: "3rem" }}>
+    <div style={{ padding: '3rem', backgroundColor }} className="sliderpd">
+      <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>
         {message}
       </h1>
-      <div style={{ display: "flex", marginBottom: "5rem" }}>
+      <div style={{ display: 'flex', marginBottom: '3rem' }}>
         <Button
           theme={theme}
           label="Light theme"
-          variant={"secondary"}
-          style={{ marginRight: "1rem" }}
+          variant={'secondary'}
+          style={{ marginRight: '1rem' }}
           onClick={() => setTheme(ETheme.LIGHT)}
         />
         <Button
           theme={theme}
           label="Dark theme"
-          variant={"primary"}
+          variant="primary"
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
@@ -186,8 +186,12 @@ export const cardSlider = () => {
               theme={theme}
               cardImageDesktop={item.cardImageDesktop}
               cardImageMobile={item.cardImageMobile}
+              stakingButtonLabel='Stake'
+              stakingButtonClick={() => {}}
+              findMoreButtonClick={() => {}}
+              findMoreButtonLabel='find more'
             />
-          );
+          )
         })}
       </CardSlider>
       <CardSlider
@@ -203,21 +207,23 @@ export const cardSlider = () => {
         className="custom-slider-box"
       >
         {SliderItemsBox.map((item: any, index: number) => {
-            return (
-              <Box
-                key={index}
-                theme={theme}
-                boxImage={item.image}
-                title={item.title}
-                grossReturn={item.grossReturn}
-                annualReturn={item.annualReturn}
-                link={item.link}
-              />
-            )
-          })}
+          return (
+            <Box
+              key={index}
+              theme={theme}
+              boxImage={item.image}
+              title={item.title}
+              grossReturn={item.grossReturn}
+              annualReturn={item.annualReturn}
+              link={item.link}
+              stakingButtonLabel='Stake'
+              stakingButtonClick={() => {}}
+            />
+          )
+        })}
       </CardSlider>
     </div>
-  );
+  )
 }
 
 cardSlider.defaultProps = {

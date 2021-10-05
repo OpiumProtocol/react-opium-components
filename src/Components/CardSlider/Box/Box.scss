@@ -6,9 +6,11 @@
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  border: 0.5px solid transparent;
+  border: 1px solid transparent;
   margin-left: 5px;
-
+  .box-slider {
+    border: 1px solid transparent;
+  }
   .color-scheme-LIGHT {
     .gotostak button {
       border: 1px solid #0a0a1e;
@@ -16,14 +18,14 @@
     }
   }
   .color-scheme-LIGHT .box-slider:hover {
-    border: 0.5px solid rgb(10, 10, 30);
+    border: 1px solid rgb(10, 10, 30);
     border-radius: 10px;
     box-sizing: border-box;
     background: #ffffff;
   }
   .color-scheme-DARK .box-slider:hover {
     background: #0a0a1e;
-    border: 0.5px solid #ffffff;
+    border: 1px solid #ffffff;
     border-radius: 10px;
     box-sizing: border-box;
   }
@@ -81,9 +83,15 @@
   }
 }
 .box-slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px 10px 20px 10px;
   @media (max-width: 768px) {
     padding: 10px;
+  }
+  @media (min-width: 1500px) {
+    padding: 10px 60px;
   }
   td {
     padding: 10px;
@@ -129,6 +137,12 @@
       &:nth-child(2) {
         color: #2ecd94;
       }
+      font-weight: bold;
+    }
+  }
+  .ann-tr {
+    td {
+      font-weight: bold;
     }
   }
   .gotostak {
@@ -177,6 +191,16 @@
       background-position: 0% 50%;
     }
   }
+  
+  .slick-track {
+    display: flex !important;
+    .slick-slide {
+      height: auto;
+      div:first-child {
+        height: 100%
+      }
+    }
+  }
 }
 @media (max-width: 768px) {
   .custom-slider-box .custom-box {
@@ -193,5 +217,8 @@
     a:before {
       background-image: none !important;
     }
+  }
+  .staking-table {
+    width: 100%;
   }
 }
