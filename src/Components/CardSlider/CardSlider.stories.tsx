@@ -24,6 +24,8 @@ import CardDefaulImageWeb4 from '../../Images/card4-back-image.svg'
 import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
 // @ts-ignore
 import BoxDefaulImageDark from '../../Images/box-avtar-dark.svg'
+// @ts-ignore
+import CardTest from '../../Images/card-test.svg'
 
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
@@ -36,21 +38,21 @@ export const cardSlider = () => {
   const SliderItemsCard = [
     {
       cardImageMobile: CardDefaulImageMob4,
-      cardImageDesktop: CardDefaulImageWeb4,
+      cardImageDesktop: CardTest,
     },
     {
       cardImageMobile: CardDefaulImageMob3,
-      cardImageDesktop: CardDefaulImageWeb3,
+      cardImageDesktop: CardTest,
     },
 
     {
       cardImageMobile: CardDefaulImageMob2,
-      cardImageDesktop: CardDefaulImageWeb2,
+      cardImageDesktop: CardTest,
     },
 
     {
       cardImageMobile: CardDefaulImageMob1,
-      cardImageDesktop: CardDefaulImageWeb1,
+      cardImageDesktop: CardTest,
     },
   ]
 
@@ -172,7 +174,7 @@ export const cardSlider = () => {
         dots={true}
         infinite={true}
         autoplay={false}
-        speed={5000000000}
+        speed={1000}
         slidesToShow={4}
         slidesToScroll={1}
         sliderItems={SliderItemsBox}
@@ -181,16 +183,18 @@ export const cardSlider = () => {
       >
         {SliderItemsCard.map((item: any, index: number) => {
           return (
-            <Card
-              key={index}
-              theme={theme}
-              cardImageDesktop={item.cardImageDesktop}
-              cardImageMobile={item.cardImageMobile}
-              stakingButtonLabel='Stake'
-              stakingButtonClick={() => {}}
-              findMoreButtonClick={() => {}}
-              findMoreButtonLabel='find more'
-            />
+            <div key={index} className='card-slider-wrapper' style={{ height: '20rem' }}>
+              <Card
+                key={index}
+                theme={theme}
+                cardImageDesktop={item.cardImageDesktop}
+                cardImageMobile={item.cardImageMobile}
+                stakingButtonLabel='Stake'
+                stakingButtonClick={() => {}}
+                findMoreButtonClick={() => {}}
+                findMoreButtonLabel='find more'
+              />
+            </div>
           )
         })}
       </CardSlider>
