@@ -8,7 +8,7 @@
   transition: 0.3s;
   border: 1px solid transparent;
   margin-left: 5px;
-  .box-slider {
+  .box-wrapper {
     border: 1px solid transparent;
   }
   .color-scheme-LIGHT {
@@ -17,13 +17,13 @@
       color: #0a0a1e;
     }
   }
-  .color-scheme-LIGHT .box-slider:hover {
+  .color-scheme-LIGHT .box-wrapper:hover {
     border: 1px solid rgb(10, 10, 30);
     border-radius: 10px;
     box-sizing: border-box;
     background: #ffffff;
   }
-  .color-scheme-DARK .box-slider:hover {
+  .color-scheme-DARK .box-wrapper:hover {
     background: #0a0a1e;
     border: 1px solid #ffffff;
     border-radius: 10px;
@@ -82,26 +82,18 @@
     }
   }
 }
-.box-slider {
+.box-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 20px 30px;
   @media (max-width: 768px) {
     padding: 10px;
   }
   @media (min-width: 1500px) {
     padding: 10px 60px;
   }
-  td {
-    padding: 10px;
-    text-align: left;
-    font-size: 12px;
 
-    &:nth-child(2) {
-      width: 95px;
-    }
-  }
   .box-info-wrapper {
     display: flex;
     flex-direction: column;
@@ -109,7 +101,7 @@
     align-items: center;
 
     .box-item-wrapper {
-      padding: 10px 0;
+      padding: 5px 0;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -121,51 +113,12 @@
       a {
         text-decoration: underline;
       }
-    }
-  }
-  .stak-tr {
-    img {
-      max-width: 90px;
-      position: relative;
-      top: 5px;
-    }
-    td {
-      font-size: 12px;
-      line-height: 15px;
-
-      &:nth-child(2) {
-        text-decoration-line: underline;
-      }
-    }
-  }
-  .eth-tr {
-    img {
-      max-width: 60px;
-      max-height: 45px;
-      position: relative;
-      top: 15px;
-    }
-    td {
-      &:nth-child(1) {
-        font-size: 18px;
-        position: relative;
-        top: -11px;
-      }
-    }
-  }
-  .ret-tr {
-    td {
-      &:nth-child(2) {
+      .green-text {
         color: #2ecd94;
       }
-      font-weight: bold;
     }
   }
-  .ann-tr {
-    td {
-      font-weight: bold;
-    }
-  }
+
   .gotostak {
     text-align: center;
     button {
@@ -233,7 +186,7 @@
   }
 }
 
-.box-slider {
+.box-wrapper {
   .opium-link {
     a:before {
       background-image: none !important;

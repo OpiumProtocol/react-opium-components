@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import Button from '../OpiumButton'
 import Card from './Card'
-import Box from './Box'
+import Box2 from './Box2'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import CardSlider from './index'
@@ -208,7 +208,7 @@ export const cardSlider = () => {
       >
         {SliderItemsBox.map((item: any, index: number) => {
           return (
-            <Box
+            <Box2
               key={index}
               theme={theme}
               boxImage={item.image}

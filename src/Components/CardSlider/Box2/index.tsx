@@ -62,61 +62,33 @@ const Box: FC<Props> = (props: Props) => {
 
   return (
     <div className={`custom-box ${theme}`} >
-      <div className="box-warap">
-        <div className={`text-block color-scheme-${theme}`}>
-          <div className="box-slider">
-            {/* <table className="staking-table">
-              <tbody>
-                <tr className="stak-tr">
-                  <td>
-                    <img src={theme === 'DARK' ? StakingSVGDark : StakingSVGLight} />
-                  </td>
-                  <td>
-                    <OpiumLink theme={theme} newTab={link.newTab} href={link.href} label={link.label} />
-                  </td>
-                </tr>
-                <tr className="eth-tr">
-                  <td>{title}</td>
-                  <td>
-                    <img src={boxImage} />
-                  </td>
-                </tr>
-                <tr className="ret-tr">
-                  <td>{grossReturnText}</td>
-                  <td>{grossReturn}</td>
-                </tr>
-                <tr className="ann-tr">
-                  <td>{annualReturnText}</td>
-                  <td>{annualReturn}</td>
-                </tr>
-              </tbody>
-            </table> */}
-            <div className='box-info-wrapper'>
-              <div className='box-item-wrapper'>
-                <img src={theme === 'DARK' ? StakingSVGDark : StakingSVGLight} />
-                <OpiumLink theme={theme} newTab={link.newTab} href={link.href} label={link.label} />
-              </div>
-              <div className='box-item-wrapper'>
-                <div>{title}</div>
-                <img src={boxImage} />
-              </div>
-              <div className='box-item-wrapper'>
-                <div>{grossReturnText}</div>
-                <div>{grossReturn}</div>
-              </div>
-              <div className='box-item-wrapper'>
-                <div>{annualReturnText}</div>
-                <div>{annualReturn}</div>
-              </div>
+      <div className={`text-block color-scheme-${theme}`}>
+        <div className="box-wrapper">
+          <div className='box-info-wrapper'>
+            <div className='box-item-wrapper'>
+              <img src={theme === 'DARK' ? StakingSVGDark : StakingSVGLight} />
+              <OpiumLink theme={theme} newTab={link.newTab} href={link.href} label={link.label} />
             </div>
-            <div className="gotostak">
-              <Button
-                theme={theme}
-                label={stakingButtonLabel}
-                variant={'secondary'}
-                onClick={stakingButtonClick}
-              />
+            <div className='box-item-wrapper'>
+              <div>{title}</div>
+              <img src={boxImage} />
             </div>
+            <div className='box-item-wrapper'>
+              <div>{grossReturnText}</div>
+              <div className='green-text'>{grossReturn}</div>
+            </div>
+            <div className='box-item-wrapper'>
+              <div>{annualReturnText}</div>
+              <div>{annualReturn}</div>
+            </div>
+          </div>
+          <div className="gotostak">
+            <Button
+              theme={theme}
+              label={stakingButtonLabel}
+              variant={'secondary'}
+              onClick={stakingButtonClick}
+            />
           </div>
         </div>
       </div>
