@@ -27,6 +27,7 @@ import CardSlider from './Components/CardSlider'
 import ComposedChart from './Components/ComposedChart'
 import Card from './Components/CardSlider/Card'
 import Box from './Components/CardSlider/Box'
+import Box2 from './Components/CardSlider/Box2'
 
 import {
   themes,
@@ -74,7 +75,8 @@ export {
   CardSlider,
   ComposedChart,
   Card,
-  Box
+  Box,
+  Box2
 }
 
 export type {
