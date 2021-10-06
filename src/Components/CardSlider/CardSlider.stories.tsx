@@ -172,7 +172,7 @@ export const cardSlider = () => {
         dots={true}
         infinite={true}
         autoplay={false}
-        speed={500}
+        speed={5000000000}
         slidesToShow={4}
         slidesToScroll={1}
         sliderItems={SliderItemsBox}

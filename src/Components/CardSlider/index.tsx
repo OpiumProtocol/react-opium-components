@@ -88,7 +88,7 @@ const CardSlider: FC<Props> = (props: Props) => {
 
   return (
     <div className={`${className}`}>
-      <Slider {...settings}>
+      <Slider {...settings }>
         {children}
       </Slider>
     </div>
