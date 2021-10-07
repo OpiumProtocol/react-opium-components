@@ -98,5 +98,8 @@
 
 .card-slider-wrapper {
   height: 10rem !important;
-  object-fit: cover;
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
 }
