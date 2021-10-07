@@ -13,7 +13,7 @@
   .text-block{ 
     position: absolute;
     width: 100%;
-    top: 50%;
+    top: 52%;
     left: 20%;
     div {
       color:red;
@@ -29,7 +29,7 @@
       top:50%;
       }
       @media (max-width:768px) {      
-        top:68%;
+        top:73%;
         left: 13%;  
     }
     @media (max-width:600px) {  
@@ -38,7 +38,7 @@
       }  
     @media (max-width:420px) {
       top: 50%;
-      left: 9%;
+      left: 5%;
     }
   }
 }   
