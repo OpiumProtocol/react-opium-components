@@ -13,24 +13,32 @@
   .text-block{ 
     position: absolute;
     width: 100%;
-    top: 57%;
-    left: 11%;
-  
+    top: 50%;
+    left: 20%;
+    div {
+      color:red;
+      & > * {
+        font-size: 10px;
+        @media (max-width:768px) {      
+          font-size: 9px;
+        }
+      }
+    }
   
     @media (max-width:991px) {      
       top:50%;
       }
       @media (max-width:768px) {      
         top:68%;
-        left: 6%;  
+        left: 13%;  
     }
     @media (max-width:600px) {  
-      left: 5%;
+      left: 10%;
       top:65%;
       }  
     @media (max-width:420px) {
-      top: 56%;
-      left: 5%;
+      top: 50%;
+      left: 9%;
     }
   }
 }   

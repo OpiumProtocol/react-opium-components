@@ -25,7 +25,7 @@ import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
 // @ts-ignore
 import BoxDefaulImageDark from '../../Images/box-avtar-dark.svg'
 // @ts-ignore
-import CardTest from '../../Images/card-test.svg'
+import CardTest from '../../Images/test-card.svg'
 
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
