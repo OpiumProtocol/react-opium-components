@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { ETheme } from '../../../Constants/Types/theme.types'
-import Button from '../../OpiumButton'
 
 import './Card.scss'
 
@@ -11,29 +10,21 @@ export type TProps = {
   className?: string
   /** Set title */
   /** Card Image Desktop */
-  cardImageMobile: string
+  CardImageMobile: any
   /** Card Image Desktop */
-  cardImageDesktop: string
-  /** Staking Button Label */
-  stakingButtonLabel: string
-  /** Find more Button Label */
-  findMoreButtonLabel: string
-  /** Staking Button Label */
-  stakingButtonClick: Function
-  /** Find more Button Label */
-  findMoreButtonClick: Function
+  CardImageDesktop: any
 }
 
 const Card: FC<TProps> = (props: TProps) => {
 
-  const { theme, className, cardImageMobile, cardImageDesktop, stakingButtonLabel, findMoreButtonLabel, stakingButtonClick, findMoreButtonClick } = props
+  const { theme, className, CardImageMobile, CardImageDesktop } = props
   return (
     <div className={`d-flex justify-content-between custom-card ${className}`}>
       <div className="card-warap">
-        <img src={cardImageMobile} className="mobile" />
-        <img src={cardImageDesktop} className="desktop"/>
+        <CardImageMobile />
+        <CardImageDesktop />
         <div className="text-block color-scheme-DARK ">
-          <div className="d-flex py-3 d-inline-block">
+          {/* <div className="d-flex py-3 d-inline-block">
             <Button
               theme={theme}
               variant={'success'}
@@ -48,7 +39,7 @@ const Card: FC<TProps> = (props: TProps) => {
               className={'ml-2'}
               onClick={findMoreButtonClick}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

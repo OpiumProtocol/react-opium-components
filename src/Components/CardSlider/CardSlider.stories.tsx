@@ -25,7 +25,7 @@ import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
 // @ts-ignore
 import BoxDefaulImageDark from '../../Images/box-avtar-dark.svg'
 // @ts-ignore
-import CardTest from '../../Images/test-card.svg'
+import { image } from '../../Images/test-card'
 
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
@@ -37,22 +37,22 @@ export const cardSlider = () => {
 
   const SliderItemsCard = [
     {
-      cardImageMobile: CardDefaulImageMob4,
-      cardImageDesktop: CardTest,
+      cardImageMobile: image,
+      cardImageDesktop: image,
     },
     {
-      cardImageMobile: CardDefaulImageMob3,
-      cardImageDesktop: CardTest,
-    },
-
-    {
-      cardImageMobile: CardDefaulImageMob2,
-      cardImageDesktop: CardTest,
+      cardImageMobile: image,
+      cardImageDesktop: image,
     },
 
     {
-      cardImageMobile: CardDefaulImageMob1,
-      cardImageDesktop: CardTest,
+      cardImageMobile: image,
+      cardImageDesktop: image,
+    },
+
+    {
+      cardImageMobile: image,
+      cardImageDesktop: image,
     },
   ]
 
@@ -187,12 +187,8 @@ export const cardSlider = () => {
               <Card
                 key={index}
                 theme={theme}
-                cardImageDesktop={item.cardImageDesktop}
-                cardImageMobile={item.cardImageMobile}
-                stakingButtonLabel='Stake'
-                stakingButtonClick={() => {}}
-                findMoreButtonClick={() => {}}
-                findMoreButtonLabel='find more'
+                CardImageDesktop={item.cardImageDesktop}
+                CardImageMobile={item.cardImageMobile}
               />
             </div>
           )
