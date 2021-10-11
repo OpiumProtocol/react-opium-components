@@ -38,6 +38,10 @@
       height: 40px;
       background-repeat: no-repeat;
       background-position: 0% 50%;
+      @media (max-width: 768px) {
+        .mobile {
+          display: none !important;
+        }
     }
     &:hover {
       background: rgba(10, 10, 30, 0.1);
@@ -61,6 +65,10 @@
       height: 40px;
       background-repeat: no-repeat;
       background-position: 0% 50%;
+      @media (max-width: 768px) {
+        .mobile {
+          display: none !important;
+        }
     }
     &:hover {
       background: rgba(10, 10, 30, 0.1);
