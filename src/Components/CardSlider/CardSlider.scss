@@ -38,11 +38,7 @@
       height: 40px;
       background-repeat: no-repeat;
       background-position: 0% 50%;
-      @media (max-width: 768px) {
-        .mobile {
-          display: none !important;
-        }
-      }
+
     }
     &:hover {
       background: rgba(10, 10, 30, 0.1);
@@ -105,5 +101,11 @@
   img {
     object-fit: cover;
     height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-arrow {
+    display: none !important;
   }
 }
