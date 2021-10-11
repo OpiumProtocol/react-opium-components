@@ -78,7 +78,7 @@ const CardSlider: FC<Props> = (props: Props) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.3,
           slidesToScroll: 1
         }
       }
