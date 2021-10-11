@@ -75,11 +75,11 @@ const Box: FC<Props> = (props: Props) => {
             </div>
             <div className='box-item-wrapper'>
               <div>{grossReturnText}</div>
-              <div className='green-text'>{grossReturn}</div>
+              <span className='green-text'>{grossReturn}</span>
             </div>
             <div className='box-item-wrapper'>
               <div>{annualReturnText}</div>
-              <div>{annualReturn}</div>
+              <span>{annualReturn}</span>
             </div>
           </div>
           <div className="gotostak">
