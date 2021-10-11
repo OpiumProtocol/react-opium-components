@@ -109,6 +109,7 @@
       & > * {
         display: flex;
         align-items: center;
+        white-space: none;
       }
       img {
         max-width: 80px;
