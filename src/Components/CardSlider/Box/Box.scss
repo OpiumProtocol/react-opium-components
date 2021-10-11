@@ -89,8 +89,16 @@
   justify-content: space-between;
   padding: 32px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1350px) {
     padding: 20px;
+  }
+
+  @media (max-width: 1199px) {
+    padding: 32px;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 2opx;
   }
 
   @media (max-width: 768px) {
@@ -116,6 +124,7 @@
       }
       span {
         white-space: nowrap;
+        padding: 0 0 0 7px;
       }
       img {
         max-width: 80px;
