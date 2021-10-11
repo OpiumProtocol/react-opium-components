@@ -68,7 +68,7 @@ const CardSlider: FC<Props> = (props: Props) => {
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 1070,
         settings: {
           slidesToShow: sliderType === 'box' ? 2 : 1,
           slidesToScroll: 1,
