@@ -10,18 +10,18 @@ export type TProps = {
   className?: string
   /** Set title */
   /** Card Image Desktop */
-  CardImageMobile: any
+  cardImageMobile: string
   /** Card Image Desktop */
   CardImageDesktop: any
 }
 
 const Card: FC<TProps> = (props: TProps) => {
 
-  const { theme, className, CardImageMobile, CardImageDesktop } = props
+  const { theme, className, cardImageMobile, CardImageDesktop } = props
   return (
     <div className={`d-flex justify-content-between custom-card ${className}`}>
       <div className="card-warap">
-        <CardImageMobile className="mobile"/>
+        <img src={cardImageMobile} className="mobile" />
         <CardImageDesktop className="desktop"/>
         <div className="text-block color-scheme-DARK ">
           {/* <div className="d-flex py-3 d-inline-block">
