@@ -22,7 +22,8 @@ const Card: FC<TProps> = (props: TProps) => {
     <div className={`d-flex justify-content-between custom-card ${className}`}>
       <div className="card-warap">
         <img src={cardImageMobile} className="mobile" />
-        <CardImageDesktop className="desktop"/>
+        {CardImageDesktop}
+        {/* <CardImageDesktop className="desktop" stakingClick={stakingClick}/> */}
         <div className="text-block color-scheme-DARK ">
           {/* <div className="d-flex py-3 d-inline-block">
             <Button
