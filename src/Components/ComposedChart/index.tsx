@@ -100,12 +100,11 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     return null
   }
 
-
-
+  const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   return (
     <div className={`OpiumComposedChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
-        <ComposedChart data={data} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+        <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#31EDA9" stopOpacity={0.1}/>
@@ -117,7 +116,7 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="barData" barSize={10} fill="#197CD8" />
-
+          <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false}/>
           <Area
             type="monotone"
             dataKey="lineData"
