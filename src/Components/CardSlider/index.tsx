@@ -31,6 +31,8 @@ export type Props = {
   sliderItems?: any;
   /** type of slider */
   sliderType?: string;
+  /** responsive settings */
+  responsive?: any;
 };
 
 const defaultProps: Props = {
@@ -50,7 +52,8 @@ const CardSlider: FC<Props> = (props: Props) => {
     slidesToScroll,
     autoplay,
     sliderType,
-    children
+    children,
+    responsive
   } = renderProps
   const settings = {
     dots,
@@ -59,7 +62,7 @@ const CardSlider: FC<Props> = (props: Props) => {
     autoplay,
     slidesToShow,
     slidesToScroll,
-    responsive: [
+    responsive: responsive || [
       {
         breakpoint: 1600,
         settings: {
