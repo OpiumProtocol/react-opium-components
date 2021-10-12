@@ -116,7 +116,7 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="barData" barSize={10} fill="#197CD8" />
-          <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false}/>
+          <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
           <Area
             type="monotone"
             dataKey="lineData"
