@@ -7,7 +7,9 @@
   
   .card-warap {
     width: 100%;
-  
+    img{
+      width: 100%;
+    }
   }
  
   .text-block{ 
@@ -42,9 +44,7 @@
     }
   }
 }   
-  img{
-    width: 100%;
-  }
+
   .mobile {
     display: none !important;
   }
