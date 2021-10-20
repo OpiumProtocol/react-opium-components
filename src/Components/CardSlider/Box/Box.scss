@@ -105,6 +105,12 @@
     padding: 7px 10px;
   }
 
+  @media (max-width: 480px) {
+    padding: 7px 10px;
+    border: 1px solid rgb(10, 10, 30);
+    border-radius: 10px;
+  }
+
   .box-info-wrapper {
     display: flex;
     flex-direction: column;
