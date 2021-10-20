@@ -105,11 +105,7 @@
     padding: 7px 10px;
   }
 
-  @media (max-width: 480px) {
-    padding: 7px 10px;
-    border: 1px solid rgb(10, 10, 30);
-    border-radius: 10px;
-  }
+
 
   .box-info-wrapper {
     display: flex;
@@ -220,5 +216,22 @@
   }
   .staking-table {
     width: 100%;
+  }
+}
+
+
+
+.color-scheme-LIGHT .box-wrapper {
+  @media (max-width: 480px) {
+    padding: 7px 10px;
+    border: 1px solid rgb(10, 10, 30);
+    border-radius: 10px;
+  }
+}
+.color-scheme-DARK .box-wrapper {
+  @media (max-width: 480px) {
+    padding: 7px 10px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
   }
 }
