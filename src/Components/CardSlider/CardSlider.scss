@@ -123,6 +123,19 @@
     &::before {
       font-size: 14px;
       color: #0A0A1E !important;
+      opacity: 1;
     }
   }
 }
+
+.color-scheme-LIGHT .slick-next {
+  &::before {
+    background-image: url("../../Images/snext-black.svg");
+  }
+} 
+
+.color-scheme-LIGHT .slick-prev {
+  &::before {
+    background-image: url("../../Images/sprev-black.svg");
+  }
+} 
