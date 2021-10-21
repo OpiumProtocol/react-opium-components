@@ -11,7 +11,7 @@
     display: flex !important;
     justify-content: flex-end;
     align-items: center;
-     li {
+    li {
       pointer-events: none;
     }
     .slick-active {
@@ -107,5 +107,21 @@
 @media (max-width: 768px) {
   .slick-arrow {
     display: none !important;
+  }
+}
+
+
+.color-scheme-LIGHT .slick-dots li button::before {
+  font-size: 14px;
+  color: red;
+}
+
+
+.color-scheme-LIGHT .slick-active {
+  button {
+    &::before {
+      font-size: 14px;
+      color: green;
+    }
   }
 }

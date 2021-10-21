@@ -25,7 +25,7 @@ import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
 // @ts-ignore
 import BoxDefaulImageDark from '../../Images/box-avtar-dark.svg'
 // @ts-ignore
-import { image } from '../../Images/test-card'
+import { Image } from '../../Images/test-card'
 
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
@@ -37,22 +37,22 @@ export const cardSlider = () => {
 
   const SliderItemsCard = [
     {
-      cardImageMobile: image,
-      cardImageDesktop: image,
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
     },
     {
-      cardImageMobile: image,
-      cardImageDesktop: image,
-    },
-
-    {
-      cardImageMobile: image,
-      cardImageDesktop: image,
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
     },
 
     {
-      cardImageMobile: image,
-      cardImageDesktop: image,
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
+    },
+
+    {
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
     },
   ]
 
@@ -194,7 +194,7 @@ export const cardSlider = () => {
           )
         })}
       </CardSlider>
-      <CardSlider
+      {/* <CardSlider
         theme={theme}
         dots={true}
         infinite={true}
@@ -221,7 +221,7 @@ export const cardSlider = () => {
             />
           )
         })}
-      </CardSlider>
+      </CardSlider> */}
     </div>
   )
 }

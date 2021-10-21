@@ -146,15 +146,19 @@
 
   .gotostak {
     text-align: center;
-    button {
+    .btn {
       background: transparent;
       border: 1px solid #fff;
       color: #fff;
       font-size: 12px;
       line-height: 15px;
-      padding: 10px 30px;
+      padding: 4px 16px;
       border-radius: 18px;
       margin-top: 25px;
+      font-weight: 500;
+
+
+
     }
   }
 }
@@ -168,6 +172,7 @@
     border-radius: 10px;
     position: relative;
   }
+
   .slick-prev {
     &::before {
       content: '';

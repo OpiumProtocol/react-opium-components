@@ -1,9 +1,10 @@
 import React from 'react'
-export const image = (props) => {
-  const { stakingClick, findClick } = props
+export const Image = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { stakingClick, findClick, className } = props
   
   return (
-    <svg width="1280" height="200" viewBox="0 0 1280 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
+    <svg className={className} width="1280" height="200" viewBox="0 0 1280 200" fill="none" xmlns="http://www.w3.org/2000/svg" >
       <rect width="1280" height="200" rx="10" fill="url(#paint0_linear)" />
       <rect width="1280" height="200" rx="10" fill="url(#paint1_linear)" fillOpacity="0.7" />
       <circle cx="759" cy="101" r="73.5" stroke="white" strokeOpacity="0.07" strokeWidth="3" />
