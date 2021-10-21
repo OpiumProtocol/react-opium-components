@@ -123,19 +123,19 @@
     &::before {
       font-size: 14px;
       color: #0A0A1E !important;
-      opacity: 1;
+      opacity: 1 !important;
     }
   }
 }
 
 .color-scheme-LIGHT .slick-next {
   &::before {
-    background-image: url("../../Images/snext-black.svg");
+    background-image: url("../../Images/snext-black.svg") !important;
   }
 } 
 
 .color-scheme-LIGHT .slick-prev {
   &::before {
-    background-image: url("../../Images/sprev-black.svg");
+    background-image: url("../../Images/sprev-black.svg") !important;
   }
 } 
