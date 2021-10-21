@@ -113,7 +113,8 @@
 
 .color-scheme-LIGHT .slick-dots li button::before {
   font-size: 14px;
-  color: red;
+  color: #0A0A1E;
+  opacity: 0.3;
 }
 
 
@@ -121,7 +122,7 @@
   button {
     &::before {
       font-size: 14px;
-      color: green;
+      color: #0A0A1E !important;
     }
   }
 }
