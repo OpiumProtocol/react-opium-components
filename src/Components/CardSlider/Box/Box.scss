@@ -244,11 +244,13 @@
 
 .color-scheme-LIGHT .box-wrapper:hover {
   @media (max-width: 480px) {
-    border: none !important;
+    border-color: transparent !important;
+    background: transparent !important;
   }
 }
 .color-scheme-DARK .box-wrapper:hover {
   @media (max-width: 480px) {
-    border: none !important;
+    border-color: transparent !important;
+    background: transparent !important;
   }
 }
