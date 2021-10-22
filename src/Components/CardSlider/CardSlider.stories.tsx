@@ -194,7 +194,7 @@ export const cardSlider = () => {
           )
         })}
       </CardSlider>
-      {/* <CardSlider
+      <CardSlider
         theme={theme}
         dots={true}
         infinite={true}
@@ -221,7 +221,7 @@ export const cardSlider = () => {
             />
           )
         })}
-      </CardSlider> */}
+      </CardSlider>
     </div>
   )
 }
