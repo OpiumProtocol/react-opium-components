@@ -5,7 +5,11 @@
   width: 100%;
   &:hover {
     .slick-next {
-      display: block !important; // wewes
+      display: block !important;
+    }
+
+    .slick-prev {
+      display: block !important;
     }
   }
   .slick-dots li button::before {
@@ -35,7 +39,7 @@
     height: 100%;
     padding: 20px 8px;
     width: 30px;
-    display: none !important; // wewes
+    display: none !important;
     &::before {
       content: "";
       background-image: url("../../Images/sprev.svg");
@@ -60,6 +64,7 @@
     height: 100%;
     padding: 20px 8px;
     width: 30px;
+    display: none !important;
     &::before {
       content: "";
       background-image: url("../../Images/snext.svg");

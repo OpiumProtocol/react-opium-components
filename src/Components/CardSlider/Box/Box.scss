@@ -226,14 +226,14 @@
 
 
 
-.color-scheme-LIGHT .custom-box {
+.color-scheme-LIGHT .box-wrapper {
   @media (max-width: 480px) {
     padding: 7px 10px;
     border: 1px solid rgb(10, 10, 30);
     border-radius: 10px;
   }
 }
-.color-scheme-DARK .custom-box {
+.color-scheme-DARK .box-wrapper {
   @media (max-width: 480px) {
     padding: 7px 10px;
     border: 1px solid #ffffff;
