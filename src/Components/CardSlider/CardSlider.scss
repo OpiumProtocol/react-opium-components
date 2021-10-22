@@ -3,6 +3,11 @@
 
 .custom-slider {
   width: 100%;
+  &:hover {
+    .slick-next {
+      display: block !important; // wewes
+    }
+  }
   .slick-dots li button::before {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
@@ -42,7 +47,6 @@
 
     }
     &:hover {
-      display: block; // wewes
       background: rgba(10, 10, 30, 0.1);
       @media (max-width: 768px) {
         background: transparent;
