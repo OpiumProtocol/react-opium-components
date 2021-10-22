@@ -240,3 +240,15 @@
     border-radius: 10px;
   }
 }
+
+
+.color-scheme-LIGHT .box-wrapper:hover {
+  @media (max-width: 480px) {
+    border: none !important;
+  }
+}
+.color-scheme-DARK .box-wrapper:hover {
+  @media (max-width: 480px) {
+    border: none !important;
+  }
+}
