@@ -7,7 +7,6 @@ import TextBlock from '../TextBlock'
 // @ts-ignore
 import Slider from 'react-slick'
 import './CardSlider.scss'
-import Card from './Card'
 
 export type Props = {
   /** Define theme */
@@ -32,6 +31,8 @@ export type Props = {
   sliderItems?: any;
   /** type of slider */
   sliderType?: string;
+  /** responsive settings */
+  responsive?: any;
 };
 
 const defaultProps: Props = {
@@ -50,8 +51,9 @@ const CardSlider: FC<Props> = (props: Props) => {
     slidesToShow,
     slidesToScroll,
     autoplay,
-    sliderItems,
-    sliderType
+    sliderType,
+    children,
+    responsive
   } = renderProps
   const settings = {
     dots,
@@ -60,26 +62,37 @@ const CardSlider: FC<Props> = (props: Props) => {
     autoplay,
     slidesToShow,
     slidesToScroll,
+    responsive: responsive || [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: sliderType === 'box' ? 3 : 1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: sliderType === 'box' ? 2 : 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+    
   }
 
   return (
-    <div className={`custom-slider ${className}`}>
-      <Slider {...settings}>
-        {sliderType === 'card' ? (
-          sliderItems.map((item: any, index: number) => {
-            return (
-              <Card
-                key={index}
-                theme={theme}
-                cardImageDesktop={item.cardImageDesktop}
-                cardImageMobile={item.cardImageMobile}
-              />
-            )
-          })
-        ) : (
-          <></>
-        )}
-
+    <div className={`${className}`}>
+      <Slider {...settings }>
+        {children}
       </Slider>
     </div>
   )

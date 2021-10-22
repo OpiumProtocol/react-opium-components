@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import Button from '../OpiumButton'
+import Card from './Card'
+import Box from './Box'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import CardSlider from './index'
@@ -20,33 +22,130 @@ import CardDefaulImageMob3 from '../../Images/card3-back-mobileimage.svg'
 import CardDefaulImageWeb4 from '../../Images/card4-back-image.svg'
 // @ts-ignore
 import CardDefaulImageMob4 from '../../Images/card4-back-mobileimage.svg'
+// @ts-ignore
+import BoxDefaulImageDark from '../../Images/box-avtar-dark.svg'
+// @ts-ignore
+import { Image } from '../../Images/test-card'
+
 export const cardSlider = () => {
   const message = text('Text', 'Card Slider Component')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
-  const backgroundColor =
-    sectionThemes[theme as ETheme].backgroundColor.primary.value
+  const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
 
-  const SliderItems = [
+  const SliderItemsCard = [
     {
-      cardImageMobile: CardDefaulImageMob4,
-      cardImageDesktop: CardDefaulImageWeb4,
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
     },
     {
-      cardImageMobile: CardDefaulImageMob3,
-      cardImageDesktop: CardDefaulImageWeb3
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
     },
-   
+
     {
-      cardImageMobile: CardDefaulImageMob2,
-      cardImageDesktop: CardDefaulImageWeb2 
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
     },
-    
+
     {
-      cardImageMobile: CardDefaulImageMob1,
-      cardImageDesktop: CardDefaulImageWeb1 
+      cardImageMobile: <Image className='mobile'/>,
+      cardImageDesktop: <Image className='desktop'/>,
+    },
+  ]
+
+  const SliderItemsBox = [
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.5% *',
+      annualReturn: '15.0% *',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.5% *',
+      annualReturn: '15.0% *',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
+    },
+
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.5% *',
+      annualReturn: '15.0% *',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
+    },
+
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.5% *',
+      annualReturn: '15.0% *',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.5% *',
+      annualReturn: '15.0% *',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.5% *',
+      annualReturn: '15.0% *',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.5% *',
+      annualReturn: '15.0% *',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      },
+    },
+    {
+      title: 'ETH Dump Protection',
+      image: BoxDefaulImageDark,
+      grossReturn: '10.0',
+      annualReturn: '15.0',
+      link: {
+        href: 'http://app.opium.finance',
+        label: 'Read More',
+        newTab: ''
+      }
     },
   ]
 
@@ -55,7 +154,7 @@ export const cardSlider = () => {
       <h1 style={{ color, textAlign: 'center', marginBottom: '3rem' }}>
         {message}
       </h1>
-      <div style={{ display: 'flex', marginBottom: '5rem' }}>
+      <div style={{ display: 'flex', marginBottom: '3rem' }}>
         <Button
           theme={theme}
           label="Light theme"
@@ -66,20 +165,62 @@ export const cardSlider = () => {
         <Button
           theme={theme}
           label="Dark theme"
-          variant={'primary'}
+          variant="primary"
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
       <CardSlider
+        theme={theme}
+        dots={true}
+        infinite={true}
+        autoplay={false}
+        speed={1000}
+        slidesToShow={4}
+        slidesToScroll={1}
+        sliderItems={SliderItemsBox}
+        sliderType="card"
+        className="custom-slider-box"
+      >
+        {SliderItemsCard.map((item: any, index: number) => {
+          return (
+            <div key={index} className='card-slider-wrapper' style={{ height: '20rem' }}>
+              <Card
+                key={index}
+                theme={theme}
+                CardImageDesktop={item.cardImageDesktop}
+                CardImageMobile={item.cardImageMobile}
+              />
+            </div>
+          )
+        })}
+      </CardSlider>
+      <CardSlider
+        theme={theme}
         dots={true}
         infinite={true}
         autoplay={false}
         speed={500}
-        slidesToShow={1}
+        slidesToShow={4}
         slidesToScroll={1}
-        sliderItems={SliderItems}
-        sliderType="card"
+        sliderItems={SliderItemsBox}
+        sliderType="box"
+        className="custom-slider-box"
       >
+        {SliderItemsBox.map((item: any, index: number) => {
+          return (
+            <Box
+              key={index}
+              theme={theme}
+              boxImage={item.image}
+              title={item.title}
+              grossReturn={item.grossReturn}
+              annualReturn={item.annualReturn}
+              link={item.link}
+              stakingButtonLabel='Stake'
+              stakingButtonClick={() => {}}
+            />
+          )
+        })}
       </CardSlider>
     </div>
   )
@@ -94,6 +235,7 @@ cardSlider.defaultProps = {
   autoplay: true,
   slidesToShow: 1,
   slidesToScroll: 1,
+
 }
 
 export default {

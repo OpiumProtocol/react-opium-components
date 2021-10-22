@@ -3,6 +3,15 @@
 
 .custom-slider {
   width: 100%;
+  &:hover {
+    .slick-next {
+      display: block !important;
+    }
+
+    .slick-prev {
+      display: block !important;
+    }
+  }
   .slick-dots li button::before {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
@@ -11,9 +20,9 @@
     display: flex !important;
     justify-content: flex-end;
     align-items: center;
-     li {
-      pointer-events: none;
-    }
+    // li {
+      // pointer-events: none;
+    // }
     .slick-active {
       button {
         &::before {
@@ -30,6 +39,7 @@
     height: 100%;
     padding: 20px 8px;
     width: 30px;
+    display: none !important;
     &::before {
       content: "";
       background-image: url("../../Images/sprev.svg");
@@ -38,6 +48,7 @@
       height: 40px;
       background-repeat: no-repeat;
       background-position: 0% 50%;
+
     }
     &:hover {
       background: rgba(10, 10, 30, 0.1);
@@ -45,9 +56,6 @@
         background: transparent;
       }
     }
-    @media (max-width: 768px) {
-      top:42%;      
-      }     
   }  
   .slick-prev {
     position: absolute;
@@ -56,6 +64,7 @@
     height: 100%;
     padding: 20px 8px;
     width: 30px;
+    display: none !important;
     &::before {
       content: "";
       background-image: url("../../Images/snext.svg");
@@ -64,15 +73,17 @@
       height: 40px;
       background-repeat: no-repeat;
       background-position: 0% 50%;
+      @media (max-width: 768px) {
+        .mobile {
+          display: none !important;
+        }
+      }
     }
     &:hover {
       background: rgba(10, 10, 30, 0.1);
       @media (max-width: 768px) {
         background: transparent;
       }
-    }
-    @media (max-width: 768px) {
-    top:42%;
     }
   }
  
@@ -96,3 +107,46 @@
   }
 }
 
+.card-slider-wrapper {
+  height: fit-content !important;
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-arrow {
+    display: none !important;
+  }
+}
+
+
+.color-scheme-LIGHT .slick-dots li button::before {
+  font-size: 14px;
+  color: #0A0A1E;
+  opacity: 0.3;
+}
+
+
+.color-scheme-LIGHT .slick-active {
+  button {
+    &::before {
+      font-size: 14px;
+      color: #0A0A1E !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+.color-scheme-LIGHT .slick-next {
+  &::before {
+    background-image: url("../../Images/snext-black.svg") !important;
+  }
+} 
+
+.color-scheme-LIGHT .slick-prev {
+  &::before {
+    background-image: url("../../Images/sprev-black.svg") !important;
+  }
+} 
