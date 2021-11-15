@@ -101,8 +101,8 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          {payload && payload[1] && <p className="label performance">{`${payload[1].payload.barLabel1}: ${payload[1].value}$`}</p>}
-          {payload && payload[0] && <p className="label cumulative">{`${payload[0].payload.barLabel0}: ${payload[0].value}$`}</p>}
+          {payload && payload[1] && <p className="label performance">{`${payload[1].payload.barLabel1}: ${payload[1].value} $`}</p>}
+          {payload && payload[0] && <p className="label cumulative">{`${payload[0].payload.barLabel0}: ${payload[0].value} $`}</p>}
         </div>
       )
     }
@@ -117,8 +117,8 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
         <BarChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#31EDA9" stopOpacity={0.1}/>
-              <stop offset="100%" stopColor="#31EDA9" stopOpacity={0}/>
+              <stop offset="0%" stopColor="#1EC992" stopOpacity={0.1}/>
+              <stop offset="100%" stopColor="#1EC992" stopOpacity={0}/>
             </linearGradient>
           </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
@@ -126,7 +126,7 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -17 }}/>
           <Tooltip content={<CustomTooltip />} cursor={false} />
           <Bar name={legendName0} dataKey="barData0" stackId="a" barSize={barSize} fill="#197CD8" />
-          <Bar name={legendName1} dataKey="barData1" stackId="a" barSize={barSize} fill="#31EDA9" />
+          <Bar name={legendName1} dataKey="barData1" stackId="a" barSize={barSize} fill="#1EC992" />
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
           <Legend verticalAlign="bottom" height={36} margin={{ top: 20 }} />
         </BarChart>
