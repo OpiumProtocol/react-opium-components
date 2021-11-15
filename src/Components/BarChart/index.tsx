@@ -37,6 +37,8 @@ export type Props = {
   domainX?: (string | number)[]
   domainY?: (string | number)[]
   barSize?: number
+  legendName0?: string
+  legendName1?: string
 }
 
 const defaultProps: Props = {
@@ -48,7 +50,9 @@ const defaultProps: Props = {
   tickFormatterY: (label) => label,
   domainX: [0, 'auto'],
   domainY: [0, 'auto'],
-  barSize: 10
+  barSize: 10,
+  legendName0: 'green',
+  legendName1: 'blue'
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -88,7 +92,9 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
     domainY,
     tickFormatterX,
     tickFormatterY,
-    barSize
+    barSize,
+    legendName0,
+    legendName1
   } = renderProps
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
@@ -117,11 +123,12 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
           </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
-          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
+          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -15 }}/>
           <Tooltip content={<CustomTooltip />} cursor={false} />
-          <Bar dataKey="barData0" stackId="a" barSize={barSize} fill="#31EDA9" />
-          <Bar dataKey="barData1" stackId="a" barSize={barSize} fill="#197CD8" />
+          <Bar name={legendName0} dataKey="barData0" stackId="a" barSize={barSize} fill="#31EDA9" />
+          <Bar name={legendName1} dataKey="barData1" stackId="a" barSize={barSize} fill="#197CD8" />
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
+          <Legend verticalAlign="bottom" height={36} />
         </BarChart>
       </ResponsiveContainer>
     </div>
