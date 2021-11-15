@@ -101,8 +101,8 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          {payload && payload[0] && <p className="label cumulative">{`${payload[0].payload.barLabel0}: ${payload[0].value}$`}</p>}
           {payload && payload[1] && <p className="label performance">{`${payload[1].payload.barLabel1}: ${payload[1].value}$`}</p>}
+          {payload && payload[0] && <p className="label cumulative">{`${payload[0].payload.barLabel0}: ${payload[0].value}$`}</p>}
         </div>
       )
     }
