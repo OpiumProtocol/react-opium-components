@@ -112,7 +112,7 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   return (
-    <div className={`OpiumBarChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
+    <div className={`OpiumBarChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '100%' }}>
       <ResponsiveContainer width='100%' height="100%">
         <BarChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
           <defs>
@@ -123,7 +123,7 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
           </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
-          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -15 }}/>
+          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -17 }}/>
           <Tooltip content={<CustomTooltip />} cursor={false} />
           <Bar name={legendName0} dataKey="barData0" stackId="a" barSize={barSize} fill="#31EDA9" />
           <Bar name={legendName1} dataKey="barData1" stackId="a" barSize={barSize} fill="#197CD8" />
