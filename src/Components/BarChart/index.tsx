@@ -128,7 +128,7 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
           <Bar name={legendName0} dataKey="barData0" stackId="a" barSize={barSize} fill="#197CD8" />
           <Bar name={legendName1} dataKey="barData1" stackId="a" barSize={barSize} fill="#1EC992" />
           {/* <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/> */}
-          <Legend layout="horizontal" wrapperStyle={{ position: 'absolute' }}/>
+          {/* <Legend layout="horizontal" verticalAlign="bottom" wrapperStyle={{ position: 'absolute' }} /> */}
         </BarChart>
       </ResponsiveContainer>
     </div>

@@ -557,15 +557,45 @@ export const chart = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <OpiumBarChart
-        theme={ETheme.DARK}
-        height='300px'
-        width='100'
-        data={data}
-        labelX={{ value: '', position: 'insideBottom' }}
-        labelY={{ value: 'volumes in $', angle: -90, position: 'insideLeft' }}
-        barSize={100}
-      />
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+        <OpiumBarChart
+          theme={ETheme.DARK}
+          height='300px'
+          width='100'
+          data={data}
+          labelX={{ value: '', position: 'insideBottom' }}
+          labelY={{ value: 'volumes in $', angle: -90, position: 'insideLeft' }}
+          barSize={100}
+        />
+        <OpiumBarChart
+          theme={ETheme.DARK}
+          height='300px'
+          width='100'
+          data={data}
+          labelX={{ value: '', position: 'insideBottom' }}
+          labelY={{ value: 'volumes in $', angle: -90, position: 'insideLeft' }}
+          barSize={100}
+        />
+        <OpiumBarChart
+          theme={ETheme.DARK}
+          height='300px'
+          width='100'
+          data={data}
+          labelX={{ value: '', position: 'insideBottom' }}
+          labelY={{ value: 'volumes in $', angle: -90, position: 'insideLeft' }}
+          barSize={100}
+        />
+        <OpiumBarChart
+          theme={ETheme.DARK}
+          height='300px'
+          width='100'
+          data={data}
+          labelX={{ value: '', position: 'insideBottom' }}
+          labelY={{ value: 'volumes in $', angle: -90, position: 'insideLeft' }}
+          barSize={100}
+        />
+      </div>
+
     </div>
   )
 }
