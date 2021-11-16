@@ -112,7 +112,7 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   return (
-    <div className={`OpiumBarChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '100%' }}>
+    <div className={`OpiumBarChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
         <BarChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
           <defs>
@@ -128,7 +128,7 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
           <Bar name={legendName0} dataKey="barData0" stackId="a" barSize={barSize} fill="#197CD8" />
           <Bar name={legendName1} dataKey="barData1" stackId="a" barSize={barSize} fill="#1EC992" />
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
-          <Legend verticalAlign="bottom" height={36} margin={{ top: 20 }} />
+          <Legend verticalAlign="bottom" height={36} margin={{ top: 20 }} wrapperStyle={{ position: 'relative' }}/>
         </BarChart>
       </ResponsiveContainer>
     </div>
