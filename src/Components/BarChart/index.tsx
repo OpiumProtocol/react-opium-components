@@ -121,7 +121,7 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
               <stop offset="100%" stopColor="#1EC992" stopOpacity={0}/>
             </linearGradient>
           </defs>
-          <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
+          <CartesianGrid vertical={false} stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -17 }}/>
           <Tooltip content={<CustomTooltip />} cursor={false} />
