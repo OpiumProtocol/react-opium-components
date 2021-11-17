@@ -1,5 +1,5 @@
 import React from 'react'
-
+import numeral from 'numeral'
 import {
   ComposedChart,
   Line,
@@ -101,8 +101,8 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          {payload && payload[1] && <p className="label performance">{`${payload[1].payload.barLabel1}: ${payload[1].value} $`}</p>}
-          {payload && payload[0] && <p className="label cumulative">{`${payload[0].payload.barLabel0}: ${payload[0].value} $`}</p>}
+          {payload && payload[1] && <p className="label performance">{`${payload[1].payload.barLabel1}: ${numeral(payload[1].value).format('0[.]0 a')} $`}</p>}
+          {payload && payload[0] && <p className="label cumulative">{`${payload[0].payload.barLabel0}: ${numeral(payload[0].value).format('0[.]0 a')} $`}</p>}
         </div>
       )
     }
