@@ -1,7 +1,9 @@
 import React from 'react'
+import Loader, { LoadingType } from 'react-loading'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
+import _ from '../../Styles/exportColors.scss'
 
 import './Checkbox.scss'
 
@@ -11,12 +13,14 @@ export type Props = {
   label?: string | React.ReactNode
   onChange: (e: any) => void
   manualChecked?: boolean
+  loading?: boolean
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   label: '',
-  onChange: (e) => {}
+  onChange: (e) => {},
+  loading: false
 }
 
 const Checkbox: React.FC<Props> = (props: Props) => {
@@ -27,7 +31,8 @@ const Checkbox: React.FC<Props> = (props: Props) => {
     theme,
     label,
     onChange,
-    manualChecked
+    manualChecked,
+    loading
   } = renderProps
 
   React.useEffect(() => {
@@ -47,11 +52,15 @@ const Checkbox: React.FC<Props> = (props: Props) => {
           onChange(!checked)
         }}
       />
-      <span className="checkmark">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11 1L5.10415 10.331C4.90792 10.6416 4.45499 10.6416 4.25877 10.331L1 5.17356" strokeWidth="1.5" strokeLinecap="round"/>
-        </svg>
-      </span>
+      {loading ? 
+        <Loader className="loading-check" type='spin' width="16px" height="16px" color={theme === ETheme.DARK ? _.white : _.darkblue1}/> 
+        :
+        <span className="checkmark">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 1L5.10415 10.331C4.90792 10.6416 4.45499 10.6416 4.25877 10.331L1 5.17356" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
+        </span>
+      }
     </label>
   )
 }

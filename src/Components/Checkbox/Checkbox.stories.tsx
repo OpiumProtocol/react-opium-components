@@ -10,6 +10,7 @@ export const checkbox = () => {
   const message = text('Text', 'Checkbox')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
+  const [loading, setLoading] = useState(false)
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
@@ -31,15 +32,24 @@ export const checkbox = () => {
           variant={'primary'}
           onClick={() => setTheme(ETheme.DARK)}
         />
+        <Button
+          theme={theme}
+          label="Loading"
+          variant={'primary'}
+          onClick={() => setLoading(!loading)}
+        />
       </div>
       <Checkbox
         theme={theme}
         onChange={(e) => console.log(e)}
+        loading={loading}
       />
       <Checkbox
         theme={theme}
         label={<>Checkbox 2 with <a href="#">Link</a></>}
         onChange={(e) => console.log(e)}
+        loading={!loading}
+
       />
       <Checkbox
         theme={theme}
