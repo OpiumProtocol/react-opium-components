@@ -46,9 +46,9 @@ const Checkbox: React.FC<Props> = (props: Props) => {
       }
       <input
         type="checkbox"
-        checked={checked}
+        checked={manualChecked}
         onChange={() => {
-          setChecked(!checked)
+          // setChecked(!checked)
           onChange(!checked)
         }}
       />
