@@ -89,11 +89,10 @@ const LineChart: React.FC<Props> = (props: Props) => {
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
-      console.log(payload)
       return (
         <div className="custom-tooltip">
           {payload && payload[0] && <p className="label performance">{`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}</p>}
-          {payload && payload[1] && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY')}`}</p>}
+          {payload && payload[1] && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY hh:mm')}`}</p>}
         </div>
       )
     }
