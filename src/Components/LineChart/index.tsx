@@ -118,7 +118,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
           </defs>
           <CartesianGrid vertical={false} stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} interval={intervalX} tickFormatter={tickFormatterX} domain={domainX} height={50} tick={{ dx: 20 }}/>
-          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
+          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -20 }}/>
           <Tooltip content={<CustomTooltip />} />
           <Area
             type="monotone"
