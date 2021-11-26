@@ -49,6 +49,18 @@
         }
     }
 
+    .loading-check {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+
+        svg {
+            position: absolute;
+        }
+    }
+
     .CheckBox {
         &__label {
             font-weight: normal;
