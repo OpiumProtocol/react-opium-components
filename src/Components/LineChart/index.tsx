@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 import {
   ComposedChart,
@@ -92,7 +93,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
       return (
         <div className="custom-tooltip">
           {payload && payload[0] && <p className="label performance">{`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}</p>}
-          {payload && payload[1] && <p className="label cumulative">{`${payload[1].payload.label}`}</p>}
+          {payload && payload[1] && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY')}`}</p>}
         </div>
       )
     }
@@ -111,7 +112,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
               <stop offset="100%" stopColor="#31EDA9" stopOpacity={0}/>
             </linearGradient>
           </defs>
-          <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
+          <CartesianGrid vertical={false} stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
           <Tooltip content={<CustomTooltip />} />
