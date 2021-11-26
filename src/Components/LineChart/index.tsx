@@ -35,6 +35,8 @@ export type Props = {
   tickFormatterY?: (value: any) => string
   domainX?: (string | number)[]
   domainY?: (string | number)[]
+  intervalX?: number
+  intervalY?: number
 }
 
 const defaultProps: Props = {
@@ -45,7 +47,9 @@ const defaultProps: Props = {
   tickFormatterX: (label) => label,
   tickFormatterY: (label) => label,
   domainX: [0, 'auto'],
-  domainY: [0, 'auto']
+  domainY: [0, 'auto'],
+  intervalX: 5,
+  intervalY: 3
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -84,15 +88,16 @@ const LineChart: React.FC<Props> = (props: Props) => {
     domainX,
     domainY,
     tickFormatterX,
-    tickFormatterY
+    tickFormatterY,
+    intervalX
   } = renderProps
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
       return (
         <div className="custom-tooltip">
+          {payload && payload[1] && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY HH:mm')}`}</p>}
           {payload && payload[0] && <p className="label performance">{`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}</p>}
-          {payload && payload[1] && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY hh:mm')}`}</p>}
         </div>
       )
     }
@@ -112,7 +117,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
             </linearGradient>
           </defs>
           <CartesianGrid vertical={false} stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
-          <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
+          <XAxis dataKey="label" scale="band" label={labelX} interval={intervalX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
           <Tooltip content={<CustomTooltip />} />
           <Area

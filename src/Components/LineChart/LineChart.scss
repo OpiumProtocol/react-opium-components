@@ -16,11 +16,13 @@
       line-height: 12px;
 
       &.cumulative {
-        color: #197CD8
+        color: white;
+        font-size: 12px;
       }
 
       &.performance {
         color: #31EDA9;
+        font-size: 12px;
       }
       strong {
         font-family: "Montserrat", sans-serif;
