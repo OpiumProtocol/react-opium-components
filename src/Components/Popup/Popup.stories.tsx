@@ -42,6 +42,7 @@ export const popup = () => {
         titleSize="lg"
         title="Title"
         subtitle="subtitle"
+        subtitle2='subtitle2'
         popupIsOpen={popupIsOpen}
         closePopup={() => setPopupIsOpen(false)}
         component={`

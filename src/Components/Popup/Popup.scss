@@ -141,8 +141,15 @@
     display: block;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  &__subtitle2 {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     font-size: 12px;
-    line-height: 15px;
+    line-height: 16px;
   }
   .attention-text {
     margin-left: 5px;

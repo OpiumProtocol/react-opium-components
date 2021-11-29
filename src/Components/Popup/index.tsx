@@ -21,6 +21,7 @@ export type Props = {
   showWarningIcon?: boolean
 
   subtitle?: string
+  subtitle2?: string
   /** Show loader in attention block */
   loading?: boolean
   /** Show attention */
@@ -79,7 +80,8 @@ const Popup: React.FC<Props> = (props: Props) => {
     loading,
     attention,
     showCross,
-    titleSize
+    titleSize,
+    subtitle2
   } = renderProps
 
   return (
@@ -93,7 +95,8 @@ const Popup: React.FC<Props> = (props: Props) => {
         (title || warningTitle) &&
           <Modal.Header>
             {title && <Modal.Title>{title}</Modal.Title>}
-            <div className="PopUp__subtitle">{subtitle}</div>
+            <div className="Popup__subtitle">{subtitle}</div>
+            <div className="Popup__subtitle2">{subtitle2}</div>
 
             {attention && warningTitle && (
               <div
