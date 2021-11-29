@@ -138,18 +138,14 @@
     }
   }
   &__subtitle {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-  }
-  &__subtitle2 {
-    display: block;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
+    width: 100%;
   }
   .attention-text {
     margin-left: 5px;

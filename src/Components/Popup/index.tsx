@@ -95,8 +95,7 @@ const Popup: React.FC<Props> = (props: Props) => {
         (title || warningTitle) &&
           <Modal.Header>
             {title && <Modal.Title>{title}</Modal.Title>}
-            <div className="Popup__subtitle">{subtitle}</div>
-            <div className="Popup__subtitle2">{subtitle2}</div>
+            <div className="Popup__subtitle">{subtitle} {subtitle2}</div>
 
             {attention && warningTitle && (
               <div
