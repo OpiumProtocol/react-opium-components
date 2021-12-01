@@ -43,6 +43,7 @@ export const checkbox = () => {
         theme={theme}
         onChange={(e) => console.log(e)}
         loading={loading}
+        disabled
       />
       <Checkbox
         theme={theme}
