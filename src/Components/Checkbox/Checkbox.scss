@@ -9,12 +9,18 @@
     user-select: none;
     min-height: 7px;
 
+    .checkbox-input-disabled {
+        cursor: not-allowed;
+        border-color: #4f4f4f !important;
+    }
+
     input {
         position: absolute;
         opacity: 0;
         cursor: pointer;
         height: 0;
         width: 0;
+
 
         &:checked ~ .checkmark {
             background-color: transparent;
@@ -73,7 +79,7 @@
             }
         }
     }
-  
+
     &:hover input ~ .checkmark {
         background-color: transparent;
     }

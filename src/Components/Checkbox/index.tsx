@@ -14,13 +14,15 @@ export type Props = {
   onChange: (e: any) => void
   manualChecked?: boolean
   loading?: boolean
+  disabled?: boolean
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
   label: '',
   onChange: (e) => {},
-  loading: false
+  loading: false,
+  disabled: false
 }
 
 const Checkbox: React.FC<Props> = (props: Props) => {
@@ -32,7 +34,8 @@ const Checkbox: React.FC<Props> = (props: Props) => {
     label,
     onChange,
     manualChecked,
-    loading
+    loading,
+    disabled
   } = renderProps
 
   React.useEffect(() => {
@@ -47,15 +50,17 @@ const Checkbox: React.FC<Props> = (props: Props) => {
       <input
         type="checkbox"
         checked={manualChecked}
+        disabled={disabled}
         onChange={() => {
           // setChecked(!checked)
           onChange(!checked)
         }}
+        className={`${disabled ? 'checkbox-input-disabled' : ''}`}
       />
       {loading ? 
         <Loader className="loading-check" type='spin' width="16px" height="16px" color={theme === ETheme.DARK ? _.white : _.darkblue1}/> 
         :
-        <span className="checkmark">
+        <span className={`checkmark ${disabled && 'checkbox-input-disabled'}`}>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11 1L5.10415 10.331C4.90792 10.6416 4.45499 10.6416 4.25877 10.331L1 5.17356" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
