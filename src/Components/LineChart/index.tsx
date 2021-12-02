@@ -37,6 +37,7 @@ export type Props = {
   domainY?: (string | number)[]
   intervalX?: number
   intervalY?: number
+  dontShowLabel?: boolean
 }
 
 const defaultProps: Props = {
@@ -89,14 +90,15 @@ const LineChart: React.FC<Props> = (props: Props) => {
     domainY,
     tickFormatterX,
     tickFormatterY,
-    intervalX
+    intervalX,
+    dontShowLabel
   } = renderProps
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          {payload && payload[1] && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY HH:mm')}`}</p>}
+          {payload && payload[1] && !dontShowLabel && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY HH:mm')}`}</p>}
           {payload && payload[0] && <p className="label performance">{`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}</p>}
         </div>
       )
@@ -117,7 +119,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
             </linearGradient>
           </defs>
           <CartesianGrid vertical={false} stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
-          <XAxis dataKey="label" scale="band" label={labelX} interval={intervalX} tickFormatter={tickFormatterX} domain={domainX} height={50} tick={{ dx: 20 }}/>
+          <XAxis dataKey="label" scale="band" label={labelX} interval={intervalX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -20 }}/>
           <Tooltip content={<CustomTooltip />} />
           <Area
