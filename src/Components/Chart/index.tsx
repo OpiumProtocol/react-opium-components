@@ -33,6 +33,7 @@ export type Props = {
     chartData2?: ChartData
     domainX?: (string | number)[]
     domainY?: (string | number)[]
+    logScaleY?: boolean
 }
 
 const defaultProps: Props = {
@@ -99,7 +100,8 @@ const Chart: React.FC<Props> = (props: Props) => {
     chartData1,
     chartData2,
     domainX,
-    domainY
+    domainY,
+    logScaleY
   } = renderProps
 
   const tickChanger = (dataIndex: number) => {
@@ -132,7 +134,7 @@ const Chart: React.FC<Props> = (props: Props) => {
             allowDataOverflow
             domain={domainX}
           />
-          <YAxis axisLine label={labelY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
+          <YAxis axisLine label={labelY} scale={logScaleY ? 'log' : 'auto'} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
           {
             // @ts-ignore
             <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
