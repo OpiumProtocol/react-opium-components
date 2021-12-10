@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
   Line
 } from 'recharts'
-
+import { scaleLog } from 'd3-scale'
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
@@ -109,6 +109,7 @@ const Chart: React.FC<Props> = (props: Props) => {
   }
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
+  const scale = scaleLog().base(Math.E)
 
 
   return (
@@ -134,7 +135,7 @@ const Chart: React.FC<Props> = (props: Props) => {
             allowDataOverflow
             domain={domainX}
           />
-          <YAxis axisLine label={labelY} scale={logScaleY ? 'log' : 'auto'} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
+          <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
           {
             // @ts-ignore
             <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
