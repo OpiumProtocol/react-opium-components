@@ -125,8 +125,8 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -17 }}/>
           <Tooltip content={<CustomTooltip />} cursor={false} />
-          <Bar name={legendName0} dataKey="barData0" stackId="a" barSize={barSize} fill="#197CD8" />
-          <Bar name={legendName1} dataKey="barData1" stackId="a" barSize={barSize} fill="#1EC992" />
+          <Bar name={legendName0} dataKey="barData0" barSize={barSize} fill="#197CD8" />
+          <Bar name={legendName1} dataKey="barData1" barSize={barSize} fill="#1EC992" />
           {/* <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/> */}
           {/* <Legend layout="horizontal" verticalAlign="bottom" wrapperStyle={{ position: 'absolute' }} /> */}
         </BarChart>
