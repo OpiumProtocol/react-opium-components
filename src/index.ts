@@ -83,11 +83,14 @@ export {
   LineChart,
 }
 
+export {
+  EControlledTabsSizes,
+}
+
 export type {
   TThemes,
   TVariant,
   TColorScheme,
   TTableHeight,
   TTableDimension,
-  EControlledTabsSizes,
 }
