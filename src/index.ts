@@ -28,6 +28,7 @@ import ComposedChart from './Components/ComposedChart'
 import Card from './Components/CardSlider/Card'
 import Box from './Components/CardSlider/Box'
 import BarChart from './Components/BarChart'
+import ControlledTabs, { EControlledTabsSizes } from './Components/ControlledTabs'
 
 import {
   themes,
@@ -76,7 +77,8 @@ export {
   ComposedChart,
   Card,
   Box,
-  BarChart
+  BarChart,
+  ControlledTabs,
 }
 
 export type {
@@ -85,4 +87,5 @@ export type {
   TColorScheme,
   TTableHeight,
   TTableDimension,
+  EControlledTabsSizes,
 }
