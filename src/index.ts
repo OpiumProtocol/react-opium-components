@@ -28,6 +28,7 @@ import ComposedChart from './Components/ComposedChart'
 import Card from './Components/CardSlider/Card'
 import Box from './Components/CardSlider/Box'
 import BarChart from './Components/BarChart'
+import ControlledTabs, { EControlledTabsSizes } from './Components/ControlledTabs'
 import LineChart from './Components/LineChart'
 
 import {
@@ -78,7 +79,12 @@ export {
   Card,
   Box,
   BarChart,
-  LineChart
+  ControlledTabs,
+  LineChart,
+}
+
+export {
+  EControlledTabsSizes,
 }
 
 export type {
