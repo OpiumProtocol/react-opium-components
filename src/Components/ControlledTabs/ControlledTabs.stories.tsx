@@ -17,7 +17,7 @@ export const ControlledTabs = () => {
   ]
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
-  const [activeTabId, setActiveTabId] = useState(tabs[1].id)
+  const [activeTabId, setActiveTabId] = useState<string>(tabs[1].id)
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value

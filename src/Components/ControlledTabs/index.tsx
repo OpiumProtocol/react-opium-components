@@ -3,6 +3,12 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import './ControlledTabs.scss'
 
+export enum EControlledTabsSizes {
+  S = 'S',
+  M = 'M',
+  L = 'L',
+}
+
 export type Props = {
   theme?: ETheme,
   tabs: {
@@ -11,6 +17,7 @@ export type Props = {
   }[],
   activeTabId: string,
   disabledTabIds?: string[],
+  size?: EControlledTabsSizes,
   className?: string,
   switchTab: (newTabId: string) => any,
 }
@@ -20,12 +27,14 @@ const ControlledTabs: FC<Props> = ({
   tabs,
   activeTabId,
   disabledTabIds = [],
+  size = EControlledTabsSizes.M,
   className = '',
   switchTab,
 }: Props) => {
   const tabsClasses = [
     'controlled-tabs',
     `controlled-tabs_${theme}`,
+    `controlled-tabs_size-${size}`,
     ...(className ? [className] : []),
   ].join(' ')
 
