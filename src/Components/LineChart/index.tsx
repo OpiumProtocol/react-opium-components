@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 
 import {
   ComposedChart,
@@ -98,7 +97,9 @@ const LineChart: React.FC<Props> = (props: Props) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          {payload && payload[1] && !dontShowLabel && <p className="label cumulative">{`${moment(payload[1].payload.label).format('DD MMM YYYY HH:mm')}`}</p>}
+          {(payload && payload[1] && !dontShowLabel) && (
+            <p className="label cumulative">{payload[1].payload.label}</p>
+          )}
           {payload && payload[0] && <p className="label performance">{`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}</p>}
         </div>
       )
