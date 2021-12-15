@@ -76,6 +76,9 @@ type ICustomTooltip = {
 const LineChart: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
+  console.log('props', props)
+  console.log('renderProps', renderProps)
+
   const {
     theme,
     width,
