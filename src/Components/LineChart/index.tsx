@@ -76,9 +76,6 @@ type ICustomTooltip = {
 const LineChart: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
-  console.log('props', props)
-  console.log('renderProps', renderProps)
-
   const {
     theme,
     width,
@@ -101,7 +98,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
       return (
         <div className="custom-tooltip">
           {(payload && payload[1] && !dontShowLabel) && (
-            <p className="label cumulative">{payload[1].payload.label}</p>
+            <p className="label cumulative">{payload[1].payload.tooltipLabel}</p>
           )}
           {payload && payload[0] && <p className="label performance">{`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}</p>}
         </div>
