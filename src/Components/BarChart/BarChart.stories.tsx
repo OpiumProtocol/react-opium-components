@@ -42,9 +42,9 @@ export const chart = () => {
   // ]
 
   const data = [
-    { label: 'PUTS', barData0: 20000000, zeroData: 0, barData1: 41212220, barData2: 41212220, barLabel0: 'Bitcoin', barLabel1: 'Ethereum', barLabel2: 'wewes' },
-    { label: 'FUTURES', barData0: 30123123, zeroData: 0, barData1: 39292390, barData2: 0, barLabel0: 'Bitcoin', barLabel1: 'Ethereum', barLabel2: 'wewes' },
-    { label: 'CALLS', barData0: 43939390, zeroData: 0, barData1: 2033939, barData2: 41212220, barLabel0: 'Bitcoin', barLabel1: 'Ethereum', barLabel2: 'wewes' },
+    { label: 'PUTS', barData0: 20000000, zeroData: 0, barData1: 41212220, barData2: 0, barLabel0: 'BTC', barLabel1: 'ETH', barLabel2: 'wewes' },
+    { label: 'FUTURES', barData0: 70123123, zeroData: 0, barData1: 7292390, barData2: 10, barLabel0: 'BTC', barLabel1: 'ETH', barLabel2: 'wewes' },
+    { label: 'CALLS', barData0: 43939390, zeroData: 0, barData1: 2033939, barData2: 41212220, barLabel0: 'BTC', barLabel1: 'ETH', barLabel2: 'wewes' },
   ]
   // const data = [
   //   {
@@ -565,7 +565,7 @@ export const chart = () => {
           data={data}
           labelX={{ value: '', position: 'insideBottom' }}
           labelY={{ value: 'volumes in $', angle: -90, position: 'insideLeft' }}
-          barSize={100}
+          barSize={40}
           hideSecondBar
         />
       </div>

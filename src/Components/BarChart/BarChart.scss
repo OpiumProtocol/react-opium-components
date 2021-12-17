@@ -3,20 +3,28 @@
 .OpiumBarChart {
 
   .custom-tooltip {
+    padding: 10px 0;
     &__container {
       border-radius: 10px;
     }
     .label {
       font-family: "Montserrat", sans-serif;
-      margin: 4px 0;
-      padding: 3px 8px;
+      padding: 1px 8px;
 
-      font-weight: normal;
-      font-size: 10px;
-      line-height: 12px;
+      font-weight: 900;
+      font-size: 12px;
+      line-height: 16px;
 
       &.cumulative {
-        color: #197CD8
+        color: #197CD8;
+      }
+
+      .bold {
+        font-weight: 700;
+      }
+
+      &.expected {
+        color: #882AFF
       }
 
       &.performance {
@@ -103,9 +111,16 @@
       }
 
       .custom-tooltip {
-        background-color: $darkblue1;
+        background-color: #12122C;
+        border: 1px solid #5D5F7C;
+        border-radius: 10px;
+        width: 130px;
         .label {
           transition: color .5s ease;
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-between;
         }
       }
 

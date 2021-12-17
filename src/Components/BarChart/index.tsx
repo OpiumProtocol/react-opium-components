@@ -103,11 +103,37 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
+      console.log(payload)
       return (
         <div className="custom-tooltip">
-          {payload && payload[0] && <p className="label cumulative">{`${payload[0].payload.barLabel0}: $${numeral(payload[0].value).format('0[.]0 a')}`}</p>}
-          {payload && payload[1] && !hideSecondBar && <p className="label performance">{`${payload[1].payload.barLabel1}: $${numeral(payload[1].value).format('0[.]0 a')}`}</p>}
-          {payload && payload[1] && !hideExpectedBar && payload[1].value !== 0 && <p className="label performance">{`${payload[1].payload.barLabel1}: $${numeral(payload[1].value).format('0[.]0 a')}`}</p>}
+          {payload && payload[1] && !hideExpectedBar && payload[1].value !== 0 && <div className="label expected">
+            <div>
+              {`${payload[1].payload.barLabel1}`}
+            </div>
+            <div className='bold'>
+              {`$${numeral(payload[1].value + payload[0].value).format('0[.]0 a')}`}
+            </div>
+          </div>}
+
+          {payload && payload[0] && <div className="label cumulative">
+            <div>
+              {`${payload[0].payload.barLabel0}`}
+            </div>
+            <div className='bold'>
+              {`$${numeral(payload[0].value).format('0[.]0 a')}`}
+            </div>
+          </div>}
+
+          {payload && payload[2] && !hideSecondBar && <div className="label performance">
+            <div>
+              {`${payload[2].payload.barLabel2}`}
+            </div>
+            <div className='bold'>
+              {`$${numeral(payload[2].value).format('0[.]0 a')}`}
+            </div>
+          </div>}
+
+
         </div>
       )
     }
@@ -130,9 +156,9 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -17 }}/>
           <Tooltip content={<CustomTooltip />} cursor={false} />
-          <Bar name={legendName0} dataKey="barData0" stackId={0} barSize={barSize} fill="#197CD8" />
-          {!hideSecondBar && <Bar name={legendName1} dataKey="barData1" barSize={barSize} fill="#1EC992" />}
-          {!hideExpectedBar && <Bar name={legendName1} stackId={0} dataKey="barData2" barSize={barSize} fill="white" />}
+          <Bar name={legendName0} dataKey="barData0" stackId={0} barSize={barSize} fill="rgba(25, 124, 216, 0.5)" stroke='#197CD8' />
+          {!hideExpectedBar && <Bar name={legendName1} stackId={0} dataKey="barData1" barSize={barSize} fill="rgba(136, 42, 255, 0.5)" stroke='#882AFF' />}
+          {!hideSecondBar && <Bar name={legendName1} dataKey="barData2" barSize={barSize} fill="rgba(30, 201, 146, 0.5)" stroke='#1EC992'/>}
           {/* <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/> */}
           {/* <Legend layout="horizontal" verticalAlign="bottom" wrapperStyle={{ position: 'absolute' }} /> */}
         </BarChart>
