@@ -17,7 +17,6 @@ export const radioButton = () => {
   const color = sectionThemes[theme as ETheme].color.primary.value
 
   const changed = (e: any) => {
-    console.log(e)
     setActive(e)
   }
 
