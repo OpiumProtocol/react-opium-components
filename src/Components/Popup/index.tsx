@@ -27,7 +27,7 @@ export type Props = {
   attention?: boolean
 
   /** Set size */
-  size?: 'xs' | 'sm' | 'lg' | 'xl'
+  size?: 'sm' | 'lg' | 'xl'
   /** Insert content */
   component?: string | ReactNode
   /** Hide close button */
