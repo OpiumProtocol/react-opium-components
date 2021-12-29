@@ -79,7 +79,8 @@ const Popup: React.FC<Props> = (props: Props) => {
     loading,
     attention,
     showCross,
-    titleSize
+    titleSize,
+    size,
   } = renderProps
 
   return (
@@ -89,6 +90,7 @@ const Popup: React.FC<Props> = (props: Props) => {
       className={`Popup${className ? ' ' + className : ''}${warningTitle ? ' warning' : ''} ${titleSize === 'lg' ? 'big-title' : ''}`}
       contentClassName={`color-scheme-${theme}`}
       centered
+      size={size}
     >
       {
         (title || warningTitle) &&
