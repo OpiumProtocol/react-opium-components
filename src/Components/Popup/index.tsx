@@ -88,6 +88,7 @@ const Popup: React.FC<Props> = (props: Props) => {
       onHide={closePopup}
       className={`Popup${className ? ' ' + className : ''}${warningTitle ? ' warning' : ''} ${titleSize === 'lg' ? 'big-title' : ''}`}
       contentClassName={`color-scheme-${theme}`}
+      centered
     >
       {
         (title || warningTitle) &&
