@@ -63,7 +63,7 @@ export const popup = () => {
               <Checkbox
                 theme={theme}
                 onChange={() => {}}
-                label="Do not show this massage again"
+                label="Do not show this message again"
               />
             </div>
             <Button

@@ -27,7 +27,7 @@ export type Props = {
   attention?: boolean
 
   /** Set size */
-  size?: 'xs' | 'sm' | 'lg' | 'xl'
+  size?: 'sm' | 'lg' | 'xl'
   /** Insert content */
   component?: string | ReactNode
   /** Hide close button */
@@ -79,7 +79,8 @@ const Popup: React.FC<Props> = (props: Props) => {
     loading,
     attention,
     showCross,
-    titleSize
+    titleSize,
+    size,
   } = renderProps
 
   return (
@@ -88,6 +89,8 @@ const Popup: React.FC<Props> = (props: Props) => {
       onHide={closePopup}
       className={`Popup${className ? ' ' + className : ''}${warningTitle ? ' warning' : ''} ${titleSize === 'lg' ? 'big-title' : ''}`}
       contentClassName={`color-scheme-${theme}`}
+      centered
+      size={size}
     >
       {
         (title || warningTitle) &&

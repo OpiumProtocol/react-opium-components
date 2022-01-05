@@ -3,9 +3,6 @@
 
 .Popup {
   &.modal {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
     background: rgba($darkblue1, .4);
     .modal-header {
       position: relative;
