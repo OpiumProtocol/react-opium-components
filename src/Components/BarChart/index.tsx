@@ -80,6 +80,7 @@ type ICustomTooltip = {
 
 const OpiumBarChart: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
+  console.log('OpiumBarChart renderProps', renderProps)
 
   const {
     theme,
@@ -102,6 +103,9 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
   } = renderProps
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
+    console.log('CustomTooltip payload', payload)
+    console.log('CustomTooltip active', active)
+
     if (active) {
       return (
         <div className="custom-tooltip">
