@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 
 import { generateRenderProps } from '../../Utils/helpers'
+import { useMobile } from '../../Utils/hooks'
 import { ETheme } from '../../Constants/Types/theme.types'
 import TextBlock from '../TextBlock'
 
@@ -42,6 +43,7 @@ const defaultProps: Props = {
 
 const CardSlider: FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
+  const { isMobile } = useMobile()
   const {
     theme,
     className,
@@ -62,6 +64,7 @@ const CardSlider: FC<Props> = (props: Props) => {
     autoplay,
     slidesToShow,
     slidesToScroll,
+    arrows: !isMobile,
     responsive: responsive || [
       {
         breakpoint: 1600,
