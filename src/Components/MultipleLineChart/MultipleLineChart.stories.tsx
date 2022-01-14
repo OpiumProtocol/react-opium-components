@@ -15,7 +15,7 @@ export const chart = () => {
   const background = theme === 'DARK' ? 'radial-gradient(72.74% 182.65% at 85.89% 66.02%, #111132 2.27%, #0A0A1E 98.05%)' : 'radial-gradient(100% 249.28% at 100% 100%, #DEDEFE 2.27%, #FFFFFF 70.22%)'
   const color = sectionThemes[theme as ETheme].color.primary.value
 
-  const data = [{ data1: 3, data2: 3.5, label: '10-2021', customTooltip: <div>wewes</div> }, { data1: 4, data2: 3.5, label: '11-2021', customTooltip: <div>wewes</div> }, { data1: 5, data2: 2, label: '12-2021', customTooltip: <div>wewes</div> }]
+  const data = [{ data1: 3, data2: 3.5, label: '10-2021' }, { data1: 4, data2: 3.5, label: '11-2021' }, { data1: 5, data2: 2, label: '12-2021' }]
 
 
   const tickChanger = (dataIndex: number) => {

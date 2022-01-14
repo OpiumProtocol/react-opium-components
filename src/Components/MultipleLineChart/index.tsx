@@ -82,9 +82,8 @@ const CustomTooltip = ({ payload, active, chartData1, chartData2 }: ICustomToolt
         </div>
       )
     }
-
+    
     if (payload && payload.length) {
-
       const tooltips = (chartData1 && chartData2) ? [chartData1, chartData2] : chartData1 ? [chartData1] : [chartData2]
 
       return (
@@ -98,7 +97,7 @@ const CustomTooltip = ({ payload, active, chartData1, chartData2 }: ICustomToolt
                 className="label"
               >
                 {`${chartData.tooltipTitle}:`}
-                <strong> {payload[i].value > 0 ? `+${payload[i].value}` : payload[i].value}</strong>
+                <strong> {payload[i].value}</strong>
                 {chartData.tooltipSuffix}
               </p>
             </div>)
@@ -135,7 +134,6 @@ const MultipleLineChart: React.FC<Props> = (props: Props) => {
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   const scale = scaleLog().base(Math.E)
 
-  console.log(dataWithZeros)
   return (
     <div className={`MultipleLineChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
@@ -160,7 +158,7 @@ const MultipleLineChart: React.FC<Props> = (props: Props) => {
             tickFormatter={tickFormatterX}
           />
           <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
-          <Tooltip content={<CustomTooltip />} cursor={false} />
+          <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} cursor={false} />
           {chartData1 && <Area
             type="monotone"
             dataKey="data1"
