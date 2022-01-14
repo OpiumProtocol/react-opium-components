@@ -68,10 +68,12 @@ CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 type ICustomTooltip = {
   payload?: Array<{[index: string]: any}>
   active?: boolean
+  chartData1?: any
+  chartData2?: any
 }
 
 
-const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
+const CustomTooltip = ({ payload, active, chartData1, chartData2 }: ICustomTooltip) => {
   if (active) {
     if (payload && payload[0].payload.customTooltip) {
       return (
@@ -80,7 +82,34 @@ const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
         </div>
       )
     }
-  } return <div />
+
+    if (payload && payload.length) {
+
+      const tooltips = (chartData1 && chartData2) ? [chartData1, chartData2] : chartData1 ? [chartData1] : [chartData2]
+
+      return (
+        <div className="custom-tooltip">
+          {tooltips.map((chartData, i) => {
+            return chartData && (<div
+              className="custom-tooltip__container"
+              style={{ backgroundColor: payload[i].color }}
+            >
+              <p
+                className="label"
+              >
+                {`${chartData.tooltipTitle}:`}
+                <strong> {payload[i].value > 0 ? `+${payload[i].value}` : payload[i].value}</strong>
+                {chartData.tooltipSuffix}
+              </p>
+            </div>)
+          })}
+        </div>
+      )
+    }
+  }
+  
+  return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
+
 }
 
 
