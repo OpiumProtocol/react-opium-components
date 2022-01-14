@@ -103,6 +103,14 @@ const OpiumBarChart: React.FC<Props> = (props: Props) => {
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
+      if (payload && payload[0].payload.customTooltip) {
+        return (
+          <div className="custom-tooltip">
+            {payload[0].payload.customTooltip}
+          </div>
+        )
+      }
+
       return (
         <div className="custom-tooltip">
 
