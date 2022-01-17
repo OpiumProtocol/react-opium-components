@@ -3,9 +3,10 @@
 .MultipleLineChart {
 
   .custom-tooltip {
-    &__container {
-      border-radius: 10px;
-    }
+    background-color: white;
+    padding: 8px;
+    border-radius: 10px;
+
     .label {
       font-family: "Montserrat", sans-serif;
       margin: 4px 0;
