@@ -95,7 +95,8 @@
         background-color: #12122C;
         border: 1px solid #5D5F7C;
         border-radius: 10px;
-        width: 130px;
+        min-width: 130px;
+        max-width: 230px;
         .label {
           transition: color .5s ease;
         }
@@ -139,7 +140,8 @@
       .custom-tooltip {
         background-color: $white0;
         border-radius: 10px;
-        width: 130px;
+        min-width: 130px;
+        max-width: 230px;
         .label {
           transition: color .5s ease;
         }
