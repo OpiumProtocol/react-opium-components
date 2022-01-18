@@ -30,6 +30,7 @@ import Box from './Components/CardSlider/Box'
 import BarChart from './Components/BarChart'
 import ControlledTabs, { EControlledTabsSizes } from './Components/ControlledTabs'
 import LineChart from './Components/LineChart'
+import MultipleLineChart from './Components/MultipleLineChart'
 
 import {
   themes,
@@ -81,6 +82,7 @@ export {
   BarChart,
   ControlledTabs,
   LineChart,
+  MultipleLineChart
 }
 
 export {
