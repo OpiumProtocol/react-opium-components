@@ -1,40 +1,49 @@
 @import '../../Styles/index.scss';
 
 .OpiumBarChart {
-
   .custom-tooltip {
-    padding: 10px 0;
+    border-radius: 10px;
+    min-width: 130px;
+    max-width: 200px;
+    padding: 10px;
+
+    p {
+      margin-bottom: 0;
+    }
+
     &__container {
       border-radius: 10px;
     }
+
     .label {
       font-family: "Montserrat", sans-serif;
-      padding: 1px 8px;
-
-      font-weight: 900;
       font-size: 12px;
       line-height: 16px;
+      font-weight: 900;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: #5D5F7C;
+      transition: color .5s ease;
 
       &.cumulative {
-        color: #197CD8;
-      }
-
-      .bold {
-        font-weight: 700;
-      }
-
-      &.expected {
-        color: #999BBC
+        color: #197CD8
       }
 
       &.performance {
-        color: #1EC992;
+        color: #31EDA9;
       }
+
       strong {
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         font-size: 10px;
         line-height: 12px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
       }
     }
   }
@@ -113,15 +122,6 @@
       .custom-tooltip {
         background-color: #12122C;
         border: 1px solid #5D5F7C;
-        border-radius: 10px;
-        width: 130px;
-        .label {
-          transition: color .5s ease;
-          display: flex;
-          width: 100%;
-          flex-direction: row;
-          justify-content: space-between;
-        }
       }
 
       .recharts-layer .recharts-cartesian-axis-tick {
@@ -161,9 +161,7 @@
 
       .custom-tooltip {
         background-color: $white0;
-        .label {
-          transition: color .5s ease;
-        }
+        border: 1px solid #BDBDBD;
       }
 
       .recharts-layer .recharts-cartesian-axis-tick {

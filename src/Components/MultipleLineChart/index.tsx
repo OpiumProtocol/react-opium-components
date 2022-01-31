@@ -89,16 +89,13 @@ const CustomTooltip = ({ payload, active, chartData1, chartData2 }: ICustomToolt
       return (
         <div className="custom-tooltip">
           {tooltips.map((chartData, i) => {
-            return chartData && (<div
-              className="custom-tooltip__container"
-              style={{ color: payload[i].color }}
-            >
+            return chartData && (<div className="custom-tooltip__container">
               <p
                 className="label"
+                style={{ color: payload[i].color }}
               >
                 {`${chartData.tooltipTitle}:`}
                 <strong> {payload[i].value} {chartData.tooltipSuffix}</strong>
-                
               </p>
             </div>)
           })}
@@ -158,7 +155,7 @@ const MultipleLineChart: React.FC<Props> = (props: Props) => {
             tickFormatter={tickFormatterX}
           />
           <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
-          <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} cursor={false} />
+          <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} cursor={false} trigger="click" />
           {chartData1 && <Area
             type="monotone"
             dataKey="data1"
