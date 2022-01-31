@@ -155,7 +155,7 @@ const MultipleLineChart: React.FC<Props> = (props: Props) => {
             tickFormatter={tickFormatterX}
           />
           <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
-          <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} cursor={false} trigger="click" />
+          <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} cursor={false} />
           {chartData1 && <Area
             type="monotone"
             dataKey="data1"
