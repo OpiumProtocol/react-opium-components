@@ -1,21 +1,48 @@
 @import '../../Styles/index.scss';
 
 .MultipleLineChart {
-
   .custom-tooltip {
+    border-radius: 10px;
+    min-width: 130px;
+    padding: 10px;
+
+    p {
+      margin-bottom: 0 !important;
+    }
+
+    &__container {
+      border-radius: 10px;
+    }
+
     .label {
       font-family: "Montserrat", sans-serif;
-      margin: 4px 0;
-      padding: 3px 8px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 900;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: #5D5F7C;
+      transition: color .5s ease;
 
-      font-weight: normal;
-      font-size: 10px;
-      line-height: 12px;
+      &.cumulative {
+        color: #197CD8
+      }
+
+      &.performance {
+        color: #31EDA9;
+      }
+
       strong {
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         font-size: 10px;
         line-height: 12px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
       }
     }
   }
@@ -94,12 +121,6 @@
       .custom-tooltip {
         background-color: #12122C;
         border: 1px solid #5D5F7C;
-        border-radius: 10px;
-        min-width: 130px;
-        max-width: 230px;
-        .label {
-          transition: color .5s ease;
-        }
       }
 
       .recharts-layer .recharts-cartesian-axis-tick {
@@ -139,14 +160,8 @@
 
       .custom-tooltip {
         background-color: $white0;
-        border-radius: 10px;
-        min-width: 130px;
-        max-width: 230px;
-        .label {
-          transition: color .5s ease;
-        }
+        border: 1px solid #BDBDBD;
       }
-
 
       .recharts-layer .recharts-cartesian-axis-tick {
         text {

@@ -97,10 +97,16 @@ const LineChart: React.FC<Props> = (props: Props) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          {(payload && payload[1] && !dontShowLabel) && (
-            <p className="label cumulative">{payload[1].payload.tooltipLabel}</p>
+          {(payload && payload[1] && payload[1].payload.tooltipLabel && !dontShowLabel) && (
+            <p className="label cumulative">
+              {payload[1].payload.tooltipLabel}
+            </p>
           )}
-          {payload && payload[0] && <p className="label performance">{`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}</p>}
+          {(payload && payload[0] && payload[0].payload.valueMeaning) && (
+            <p className="label performance">
+              {`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}
+            </p>
+          )}
         </div>
       )
     }

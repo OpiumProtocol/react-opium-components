@@ -89,16 +89,13 @@ const CustomTooltip = ({ payload, active, chartData1, chartData2 }: ICustomToolt
       return (
         <div className="custom-tooltip">
           {tooltips.map((chartData, i) => {
-            return chartData && (<div
-              className="custom-tooltip__container"
-              style={{ color: payload[i].color }}
-            >
+            return chartData && (<div className="custom-tooltip__container">
               <p
                 className="label"
+                style={{ color: payload[i].color }}
               >
                 {`${chartData.tooltipTitle}:`}
                 <strong> {payload[i].value} {chartData.tooltipSuffix}</strong>
-                
               </p>
             </div>)
           })}
