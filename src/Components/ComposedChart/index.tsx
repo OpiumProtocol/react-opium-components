@@ -88,11 +88,14 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
   } = renderProps
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
+    console.log('payload', payload)
+    console.log('active', active)
+
     if (active) {
       return (
         <div className="custom-tooltip">
-          {payload?.[0]?.value && <p className="label cumulative">{`Pool performance: ${payload[0].value}%`}</p>}
-          {payload?.[1]?.value && <p className="label performance">{`Return since inception: ${payload[1].value}%`}</p>}
+          {!!payload?.[0]?.value && <p className="label cumulative">{`Pool performance: ${payload[0].value}%`}</p>}
+          {!!payload?.[1]?.value && <p className="label performance">{`Return since inception: ${payload[1].value}%`}</p>}
         </div>
       )
     }
@@ -114,7 +117,7 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
           <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip />} trigger="click" />
           <Bar dataKey="barData" barSize={10} fill="#197CD8" />
           <Area
             type="monotone"
