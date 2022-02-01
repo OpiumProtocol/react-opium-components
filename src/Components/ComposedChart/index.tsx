@@ -91,8 +91,18 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     if (active) {
       return (
         <div className="custom-tooltip">
-          {!!payload?.[0]?.value && <p className="label cumulative">{`Pool performance: ${payload[0].value}%`}</p>}
-          {!!payload?.[1]?.value && <p className="label performance">{`Return since inception: ${payload[1].value}%`}</p>}
+          {!!payload?.[0]?.value && (
+            <div className="label cumulative">
+              <span className="field-name">Pool performance</span>
+              <span>{payload[0].value}%</span>
+            </div>
+          )}
+          {!!payload?.[1]?.value && (
+            <div className="label performance">
+              <span className="field-name">Return since inception</span>
+              <span>{payload[1].value}%</span>
+            </div>
+          )}
         </div>
       )
     }
