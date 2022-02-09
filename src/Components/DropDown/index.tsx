@@ -70,17 +70,15 @@ const DropDown: React.FC<Props> = (props: Props) => {
   const [eventKey, setEventKey] = useState<any>(items[0].id)
   const [title, setTitle] = useState<any>(items[0].title)
 
-  const { color, backgroundColor, borderColor } = widgetThemes[theme as ETheme]
+  const { color, backgroundColor } = widgetThemes[theme as ETheme]
 
   const hoveredItem = {
     backgroundColor: backgroundColor['primary'].hover,
-    borderColor: borderColor['primary'].hover,
     color: color['info'].hover,
   }
-
+  
   const styledItem = {
     backgroundColor: backgroundColor['primary'].value,
-    borderColor: borderColor['primary'].value,
     color: color['info'].value,
     borderStyle: 'solid',
   }
@@ -94,7 +92,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
     setIndex(null)
     setHover(false)
   }
-  
+
+  const cutString = (text: string) => text.substring(0, 18)
 
   const list = (
     <>
@@ -112,6 +111,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
             }}
             onMouseEnter={() => handleEnter(idx)}
             onMouseLeave={handleLeave}
+            className={`DropDown-items-${theme}`}
           >
             {item.title}
           </Dropdown.Item>
@@ -123,8 +123,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme} DropDown-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        <div className='DropDown_icon'></div>
-        {title}
+        {cutString(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         <Scrollbars
