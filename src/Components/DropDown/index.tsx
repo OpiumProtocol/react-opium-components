@@ -19,8 +19,9 @@ export type Props = {
 export type OptionsData = {
   id: string, 
   title: string, 
-  address: string,
-  ticker: string
+  address?: string,
+  ticker?: string,
+  decimals?: string
 }
 
 const defaultProps: Props = {
@@ -93,7 +94,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
     setHover(false)
   }
 
-  const cutString = (text: string) => text.substring(0, 18)
+  const cutString = (text: string) => text.substring(0, 15)
 
   const list = (
     <>
@@ -121,7 +122,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
   )
 
   return (
-    <Dropdown className={`DropDown ${className} color-scheme-${theme} DropDown-${theme}`}>
+    <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
         {cutString(title)}
       </Dropdown.Toggle>
