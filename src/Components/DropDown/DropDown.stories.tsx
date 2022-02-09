@@ -23,7 +23,7 @@ const data = [
     id: 'SYNTH_OPTION_CALL_V0',
     title: 'Option Call2',
     address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
-    decimals: 'OPT-C',
+    decimals: 18,
   },
   {
     id: 'SYNTH_OPTION_CALL_V2',

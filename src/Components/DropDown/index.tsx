@@ -21,7 +21,7 @@ export type OptionsData = {
   title: string, 
   address?: string,
   ticker?: string,
-  decimals?: string
+  decimals?: number
 }
 
 const defaultProps: Props = {
