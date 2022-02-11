@@ -149,7 +149,7 @@ const Autocomplete: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={`OpiumFieldset OpiumAutocomplete color-scheme-${theme}`}>
-      <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
+      <Dropdown className={`DropDown ${className} color-scheme-${theme} Dropdown__width`}>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle" >
           {renderInput()}
         </Dropdown.Toggle>

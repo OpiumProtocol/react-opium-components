@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useState } from 'react'
+import React, { BaseSyntheticEvent, useState, useEffect } from 'react'
 import { Dropdown } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -14,6 +14,7 @@ export type Props = {
   items: Array<OptionsData>,
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   bodyScrollHeight?: number | string
+  
 }
 
 export type OptionsData = {
@@ -68,8 +69,9 @@ const DropDown: React.FC<Props> = (props: Props) => {
     bodyScrollHeight
   } = renderProps
 
-  const [eventKey, setEventKey] = useState<any>(items[0].id)
-  const [title, setTitle] = useState<any>(items[0].title)
+  const [eventKey, setEventKey] = useState<string>(items[0].id)
+  const [title, setTitle] = useState<string>(items[0].title)
+  const [ticker, setTicker] = useState<string>(items[0].ticker)
 
   const { color, backgroundColor } = widgetThemes[theme as ETheme]
 
@@ -94,7 +96,18 @@ const DropDown: React.FC<Props> = (props: Props) => {
     setHover(false)
   }
 
-  const cutString = (text: string) => text.substring(0, 15)
+  const cutString = (text: string) => text.substring(0, 14)
+
+  const findTicker = (key: any) => {  
+    const currentItem = items.find((el: OptionsData) => {
+      return el.id === key
+    })
+    setTicker(currentItem?.ticker)
+  }
+
+  const wrapTicker = (ticker: string) => {
+    return ticker.indexOf('/') ? ticker : ''
+  }
 
   const list = (
     <>
@@ -108,6 +121,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
             onSelect={(key: any, event: React.BaseSyntheticEvent) => {
               setEventKey(key)
               setTitle(event.target.innerText)
+              findTicker(key)
               onSelect(key)
             }}
             onMouseEnter={() => handleEnter(idx)}

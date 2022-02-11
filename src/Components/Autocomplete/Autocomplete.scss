@@ -19,7 +19,13 @@
     }
 }
 
-.OpiumFieldset.OpiumAutocomplete
+.OpiumFieldset.OpiumAutocomplete {
+    max-width: 343px;
+
+    .dropdown {
+        width: 100% !important;
+    }
+
     .DropDown {
         button, &__toggle {
             .DropDown__label {
@@ -30,8 +36,9 @@
                     font-weight: normal;
                 }
             }
-    }         
+        }         
         .dropdown-menu {
-             width: 100%;
-        }   
+             width: 100% !important;
+        }    
+    }
 }
