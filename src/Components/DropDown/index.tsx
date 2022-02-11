@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  items: Array<OptionsData> | number,
+  items: Array<OptionsData> | string,
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   bodyScrollHeight?: number | string
   value?: string
