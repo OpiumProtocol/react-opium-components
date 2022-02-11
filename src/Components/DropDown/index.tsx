@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  items: Array<OptionsData>,
+  items: Array<OptionsData> | number,
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   bodyScrollHeight?: number | string
   value?: string
@@ -70,9 +70,9 @@ const DropDown: React.FC<Props> = (props: Props) => {
     value
   } = renderProps
 
-  const [eventKey, setEventKey] = useState<string>(items[0].id)
-  const [title, setTitle] = useState<string>(items[0].title)
-  const [ticker, setTicker] = useState<string>(items[0].ticker)
+  const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
+  const [title, setTitle] = useState<string>(items[0].title || value || '')
+  // const [ticker, setTicker] = useState<string>(items[0].ticker)
 
   const { color, backgroundColor } = widgetThemes[theme as ETheme]
 
@@ -99,12 +99,12 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   const cutString = (text: string) => text.substring(0, 14)
 
-  const findTicker = (key: any) => {  
-    const currentItem = items.find((el: OptionsData) => {
-      return el.id === key
-    })
-    setTicker(currentItem?.ticker)
-  }
+  // const findTicker = (key: any) => {  
+  //   const currentItem = items.find((el: OptionsData) => {
+  //     return el.id === key
+  //   })
+  //   setTicker(currentItem?.ticker)
+  // }
 
   const wrapTicker = (ticker: string) => {
     return ticker.indexOf('/') ? ticker : ''
@@ -122,7 +122,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
             onSelect={(key: any, event: React.BaseSyntheticEvent) => {
               setEventKey(key)
               setTitle(event.target.innerText)
-              findTicker(key)
+              // findTicker(key)
               onSelect(key)
             }}
             onMouseEnter={() => handleEnter(idx)}
@@ -139,7 +139,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        {value || cutString(title)}
+        { cutString(value || title)}
 
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
