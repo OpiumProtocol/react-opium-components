@@ -11,10 +11,10 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  items: Array<OptionsData> | string,
+  items: Array<OptionsData> | string[] | number[],
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   bodyScrollHeight?: number | string
-  value?: string
+  value?: string | number
 }
 
 export type OptionsData = {
