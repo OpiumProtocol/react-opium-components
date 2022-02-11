@@ -21,7 +21,7 @@
 
 .OpiumFieldset.OpiumAutocomplete
     .DropDown {
-        button {
+        button, &__toggle {
             .DropDown__label {
                 input {
                     border-bottom: none!important;
