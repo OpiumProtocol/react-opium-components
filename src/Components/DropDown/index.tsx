@@ -143,14 +143,14 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
-        <Scrollbars
+        {/* <Scrollbars
           style={{ width: '100%' }}
           autoHeight
           autoHeightMax={bodyScrollHeight}
           thumbMinSize={20}
-        >
-          { list }
-        </Scrollbars>
+        > */}
+        { list }
+        {/* </Scrollbars> */}
       </Dropdown.Menu>
     </Dropdown>
   )
