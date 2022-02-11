@@ -14,7 +14,7 @@ export type Props = {
   items: Array<OptionsData>,
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   bodyScrollHeight?: number | string
-  
+  value?: string
 }
 
 export type OptionsData = {
@@ -66,7 +66,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
     className,
     items,
     onSelect,
-    bodyScrollHeight
+    bodyScrollHeight,
+    value
   } = renderProps
 
   const [eventKey, setEventKey] = useState<string>(items[0].id)
@@ -138,7 +139,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        {cutString(title)}
+        {value || cutString(title)}
+
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         <Scrollbars
