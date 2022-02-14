@@ -10,6 +10,7 @@ export const NumberFieldStory = () => {
   const message = text('Text', 'Number input component')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
+  const [value, setValue] = useState<number>(0)
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
@@ -34,7 +35,10 @@ export const NumberFieldStory = () => {
       </div>
       <NumberField
         theme={theme}
-        onChange={() => { }}
+        onChange={(e: any) => {
+          setValue(e)
+        }}
+        value={value}
       />
     </div>
   )

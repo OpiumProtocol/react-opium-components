@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme, widgetThemes } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import './NumberField.scss'
 import NumericInput from 'react-numeric-input'
@@ -9,12 +9,14 @@ import NumericInput from 'react-numeric-input'
 export type Props = {
   /** Define theme */
   theme?: ETheme
-  className?: string
+  className?: string,
+  value: number,
   onChange: (value: number) => void
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
+  value: 0,
   onChange: () => {}
 }
 
@@ -24,21 +26,9 @@ const NumberField: React.FC<Props> = (props: Props) => {
   const {
     theme,
     className,
+    value,
     onChange,
   } = renderProps
-
-  const { color, backgroundColor } = widgetThemes[theme as ETheme]
-
-  const hoveredItem = {
-    backgroundColor: backgroundColor['primary'].hover,
-    color: color['info'].hover,
-  }
-  
-  const styledItem = {
-    backgroundColor: backgroundColor['primary'].value,
-    color: color['info'].value,
-    borderStyle: 'solid',
-  }
 
   return (
     <div className={`NumberField ${className} color-scheme-${theme}`}>
@@ -46,7 +36,7 @@ const NumberField: React.FC<Props> = (props: Props) => {
         className="OpiumInputNumber"
         min={0}
         max={10000}
-        value={0}
+        value={value}
         onChange={(value: number | null) => onChange(value) }
       />
     </div>
