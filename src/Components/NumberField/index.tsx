@@ -1,5 +1,4 @@
-import React, { BaseSyntheticEvent, useState, useEffect } from 'react'
-import { Dropdown } from 'react-bootstrap'
+import React from 'react'
 
 import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme, widgetThemes } from '../../Constants/Types/theme.types'
@@ -11,14 +10,12 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  // onChange?: (eventKey: any, event: BaseSyntheticEvent) => any,
-  onChange: (value: number | null) => void
+  onChange: (value: number) => void
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  // onChange: (eventKey: any, event: BaseSyntheticEvent) => { },
-  onChange: (value: number | null) => {}
+  onChange: () => {}
 }
 
 const NumberField: React.FC<Props> = (props: Props) => {

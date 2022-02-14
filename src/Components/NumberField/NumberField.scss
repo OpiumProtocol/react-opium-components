@@ -1,6 +1,7 @@
 @import '../../Styles/index.scss';
 
 .NumberField {
+    margin-top: -7px;
 
     .react-numeric-input {
         width: 100%;
@@ -54,10 +55,6 @@
                     }
                 }
             }
-        }
-    
-        .OpiumInputNumber {
-    
         }
 }
     
