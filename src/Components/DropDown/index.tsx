@@ -5,7 +5,6 @@ import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme, widgetThemes } from '../../Constants/Types/theme.types'
 
 import './DropDown.scss'
-import { setConstantValue } from 'typescript'
 
 export type Props = {
   /** Define theme */
@@ -30,7 +29,7 @@ const defaultProps: Props = {
   items: [],
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
   arrayNumbers: false,
-  characters: 14
+  characters: 30
 }
 
 // @ts-ignore
@@ -67,13 +66,12 @@ const DropDown: React.FC<Props> = (props: Props) => {
     className,
     items,
     onSelect,
-    value,
     arrayNumbers,
     characters
   } = renderProps
 
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
-  const [title, setTitle] = useState<string>(items[0].title || value || '')
+  const [title, setTitle] = useState<string>(items[0].title || items[0])
 
   const { color, backgroundColor } = widgetThemes[theme as ETheme]
 
@@ -89,8 +87,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
   }
 
   useEffect(() => {
-    setTitle(arrayNumbers ? items[0] : items[0].title)
-    setEventKey(arrayNumbers ? items[0] : items[0].id)
+    setTitle(items[0].title ? items[0].title : items[0])
+    setEventKey(items[0].id ? items[0].id : items[0])
   }, [items])
 
   const handleEnter = (i: number) => {
@@ -103,7 +101,9 @@ const DropDown: React.FC<Props> = (props: Props) => {
     setHover(false)
   }
 
-  const cutString = (text: string) => text.substring(0, characters)
+  const cutString = (text: string) => {
+    return text && text.substring(0, characters)
+  }
 
   const list = (
     <>
@@ -112,9 +112,9 @@ const DropDown: React.FC<Props> = (props: Props) => {
           ? items?.map((item: any, idx: number) => (
             <Dropdown.Item
               style={idx === index ? hoveredItem : styledItem}
-              key={item.id}
+              key={item.id ? item.id : item}
               title={title}
-              eventKey={`${item.id}`}
+              eventKey={`${item.id ? item.id : item}`}
               onSelect={(key: any, event: React.BaseSyntheticEvent) => {
                 setEventKey(key)
                 setTitle(event.target.innerText)
@@ -124,7 +124,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}
             >
-              {item.title}
+              {item.title ? item.title : item}
             </Dropdown.Item>
           ))
           : items?.map((item: any, idx: number) => (

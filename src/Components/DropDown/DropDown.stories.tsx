@@ -45,8 +45,6 @@ const data = [
   }
 ]
 
-// const data = [3000, 2900, 2800, 2700, 2600, 2500, 2400, 2300, 2200, 2100, 2000, 1900]
-
 export const DropDownStory = () => {
   const message = text('Text', 'DropDown')
 
@@ -79,7 +77,7 @@ export const DropDownStory = () => {
         items={items}
         onSelect={() => {}}
         arrayNumbers={false}
-        characters={14}
+        characters={30}
       />
     </div>
   )
