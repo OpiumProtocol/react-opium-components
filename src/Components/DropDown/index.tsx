@@ -12,7 +12,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  items: Array<OptionsData> | Array<number>,
+  items: Array<OptionsData> | string[] | number[],
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   bodyScrollHeight?: number | string,
   arrayNumbers?: boolean
@@ -69,11 +69,12 @@ const DropDown: React.FC<Props> = (props: Props) => {
     items,
     onSelect,
     bodyScrollHeight,
+    value,
     arrayNumbers
   } = renderProps
 
-  const [eventKey, setEventKey] = useState<string>(arrayNumbers ? items[0] : items[0].id)
-  const [title, setTitle] = useState<string>(arrayNumbers ? items[0] : items[0].title)
+  const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
+  const [title, setTitle] = useState<string>(items[0].title || value || '')
 
   const { color, backgroundColor } = widgetThemes[theme as ETheme]
 
@@ -153,17 +154,17 @@ const DropDown: React.FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        {arrayNumbers ? title : cutString(title)}
+        {value || arrayNumbers ? title : cutString(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
-        <Scrollbars
+        {/* <Scrollbars
           style={{ width: '100%' }}
           autoHeight
           autoHeightMax={bodyScrollHeight}
           thumbMinSize={20}
-        >
-          { list }
-        </Scrollbars>
+        > */}
+        { list }
+        {/* </Scrollbars> */}
       </Dropdown.Menu>
     </Dropdown>
   )
