@@ -1,0 +1,63 @@
+@import '../../Styles/index.scss';
+
+.NumberField {
+
+    .react-numeric-input {
+        width: 100%;
+        input {
+            height: 24px;
+            background: transparent;
+            border-radius: 0;
+            font-family: "Montserrat", sans-serif !important;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px !important;
+            line-height: 24px;
+            border: 0 !important;
+            width: 100%;
+            border-bottom: 0.5px solid #5D5F7C !important;
+            outline: none;
+            color: #fff;
+    
+            transition: border-color .25s ease;
+        }
+    
+            &:hover {
+                background-color: transparent;
+            }
+            &:focus {
+                outline: none;
+            }
+    
+            b {
+                background: transparent !important;
+                border-color: none !important;
+                box-shadow: none !important;
+                
+                i {
+                    cursor: default !important;
+                    background-color: transparent !important;
+                }
+                &:nth-child(2) {
+                    margin-top: -4px !important;
+                    i {
+                        border-width: 0px 0.8ex 0.8ex !important;
+                        border-color: transparent transparent #999BBC !important;
+                    }
+                }
+    
+                &:nth-child(3) {
+                    margin-top: -2px !important;
+                    i {
+                        border-width: 0.8ex 0.8ex 0px !important;
+                        border-color: #999BBC transparent transparent!important;
+                    }
+                }
+            }
+        }
+    
+        .OpiumInputNumber {
+    
+        }
+}
+    

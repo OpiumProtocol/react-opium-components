@@ -78,7 +78,8 @@ export const DropDownStory = () => {
         theme={theme}
         items={items}
         onSelect={() => {}}
-        bodyScrollHeight="120"
+        arrayNumbers={false}
+        characters={14}
       />
     </div>
   )

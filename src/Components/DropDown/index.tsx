@@ -5,7 +5,6 @@ import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme, widgetThemes } from '../../Constants/Types/theme.types'
 
 import './DropDown.scss'
-import Scrollbars from 'react-custom-scrollbars'
 import { setConstantValue } from 'typescript'
 
 export type Props = {
@@ -14,8 +13,8 @@ export type Props = {
   className?: string
   items: Array<OptionsData> | string[] | number[],
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
-  bodyScrollHeight?: number | string,
   arrayNumbers?: boolean
+  characters?: number
 }
 
 export type OptionsData = {
@@ -30,8 +29,8 @@ const defaultProps: Props = {
   theme: ETheme.DARK,
   items: [],
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
-  bodyScrollHeight: '120',
-  arrayNumbers: false
+  arrayNumbers: false,
+  characters: 14
 }
 
 // @ts-ignore
@@ -68,9 +67,9 @@ const DropDown: React.FC<Props> = (props: Props) => {
     className,
     items,
     onSelect,
-    bodyScrollHeight,
     value,
-    arrayNumbers
+    arrayNumbers,
+    characters
   } = renderProps
 
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
@@ -92,7 +91,6 @@ const DropDown: React.FC<Props> = (props: Props) => {
   useEffect(() => {
     setTitle(arrayNumbers ? items[0] : items[0].title)
     setEventKey(arrayNumbers ? items[0] : items[0].id)
-    console.log('items', items)
   }, [items])
 
   const handleEnter = (i: number) => {
@@ -105,7 +103,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
     setHover(false)
   }
 
-  const cutString = (text: string) => text.substring(0, 14)
+  const cutString = (text: string) => text.substring(0, characters)
 
   const list = (
     <>
@@ -154,17 +152,10 @@ const DropDown: React.FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        {value || arrayNumbers ? title : cutString(title)}
+        { arrayNumbers ? title : cutString(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
-        {/* <Scrollbars
-          style={{ width: '100%' }}
-          autoHeight
-          autoHeightMax={bodyScrollHeight}
-          thumbMinSize={20}
-        > */}
         { list }
-        {/* </Scrollbars> */}
       </Dropdown.Menu>
     </Dropdown>
   )
