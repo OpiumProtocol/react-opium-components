@@ -6,15 +6,16 @@ import { ETheme, widgetThemes } from '../../Constants/Types/theme.types'
 
 import './DropDown.scss'
 import Scrollbars from 'react-custom-scrollbars'
+import { setConstantValue } from 'typescript'
 
 export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  items: Array<OptionsData>,
+  items: Array<OptionsData> | Array<number>,
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
-  bodyScrollHeight?: number | string
-  
+  bodyScrollHeight?: number | string,
+  arrayNumbers?: boolean
 }
 
 export type OptionsData = {
@@ -30,6 +31,7 @@ const defaultProps: Props = {
   items: [],
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
   bodyScrollHeight: '120',
+  arrayNumbers: false
 }
 
 // @ts-ignore
@@ -66,12 +68,12 @@ const DropDown: React.FC<Props> = (props: Props) => {
     className,
     items,
     onSelect,
-    bodyScrollHeight
+    bodyScrollHeight,
+    arrayNumbers
   } = renderProps
 
-  const [eventKey, setEventKey] = useState<string>(items[0].id)
-  const [title, setTitle] = useState<string>(items[0].title)
-  const [ticker, setTicker] = useState<string>(items[0].ticker)
+  const [eventKey, setEventKey] = useState<string>(arrayNumbers ? items[0] : items[0].id)
+  const [title, setTitle] = useState<string>(arrayNumbers ? items[0] : items[0].title)
 
   const { color, backgroundColor } = widgetThemes[theme as ETheme]
 
@@ -86,6 +88,12 @@ const DropDown: React.FC<Props> = (props: Props) => {
     borderStyle: 'solid',
   }
 
+  useEffect(() => {
+    setTitle(arrayNumbers ? items[0] : items[0].title)
+    setEventKey(arrayNumbers ? items[0] : items[0].id)
+    console.log('items', items)
+  }, [items])
+
   const handleEnter = (i: number) => {
     setIndex(i)
     setHover(true)
@@ -98,39 +106,46 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   const cutString = (text: string) => text.substring(0, 14)
 
-  const findTicker = (key: any) => {  
-    const currentItem = items.find((el: OptionsData) => {
-      return el.id === key
-    })
-    setTicker(currentItem?.ticker)
-  }
-
-  const wrapTicker = (ticker: string) => {
-    return ticker.indexOf('/') ? ticker : ''
-  }
-
   const list = (
     <>
       {
-        items?.map((item: any, idx: number) => (
-          <Dropdown.Item
-            style={idx === index ? hoveredItem : styledItem}
-            key={item.id}
-            title={title}
-            eventKey={`${item.id}`}
-            onSelect={(key: any, event: React.BaseSyntheticEvent) => {
-              setEventKey(key)
-              setTitle(event.target.innerText)
-              findTicker(key)
-              onSelect(key)
-            }}
-            onMouseEnter={() => handleEnter(idx)}
-            onMouseLeave={handleLeave}
-            className={`DropDown-items-${theme}`}
-          >
-            {item.title}
-          </Dropdown.Item>
-        ))
+        !arrayNumbers 
+          ? items?.map((item: any, idx: number) => (
+            <Dropdown.Item
+              style={idx === index ? hoveredItem : styledItem}
+              key={item.id}
+              title={title}
+              eventKey={`${item.id}`}
+              onSelect={(key: any, event: React.BaseSyntheticEvent) => {
+                setEventKey(key)
+                setTitle(event.target.innerText)
+                onSelect(key)
+              }}
+              onMouseEnter={() => handleEnter(idx)}
+              onMouseLeave={handleLeave}
+              className={`DropDown-items-${theme}`}
+            >
+              {item.title}
+            </Dropdown.Item>
+          ))
+          : items?.map((item: any, idx: number) => (
+            <Dropdown.Item
+              style={idx === index ? hoveredItem : styledItem}
+              key={item}
+              title={item}
+              eventKey={`${item}`}
+              onSelect={(key: any, event: React.BaseSyntheticEvent) => {
+                setEventKey(key)
+                setTitle(event.target.innerText)
+                onSelect(key)
+              }}
+              onMouseEnter={() => handleEnter(idx)}
+              onMouseLeave={handleLeave}
+              className={`DropDown-items-${theme}`}
+            >
+              {item}
+            </Dropdown.Item>
+          ))
       }
     </>
   )
@@ -138,7 +153,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        {cutString(title)}
+        {arrayNumbers ? title : cutString(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         <Scrollbars

@@ -45,6 +45,8 @@ const data = [
   }
 ]
 
+// const data = [3000, 2900, 2800, 2700, 2600, 2500, 2400, 2300, 2200, 2100, 2000, 1900]
+
 export const DropDownStory = () => {
   const message = text('Text', 'DropDown')
 
@@ -52,6 +54,7 @@ export const DropDownStory = () => {
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
+  const [items, setItems] = useState(data)
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -73,9 +76,10 @@ export const DropDownStory = () => {
       </div>
       <DropDown
         theme={theme}
-        items={data}
+        items={items}
         onSelect={() => {}}
         bodyScrollHeight="120"
+        arrayNumbers={false}
       />
     </div>
   )
