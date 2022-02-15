@@ -162,6 +162,8 @@ const OpiumButton: FC<Props> = (props: Props) => {
             className={`opiumBtn color-scheme-${theme}${size ? ' ' + size : ''}${className ? ' ' + className : ''}`}
             variant={variant}
             style={monoStyles}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             {...rest}
           >
             {iconBeforeLabel && <img src={iconPath} />}{label}
