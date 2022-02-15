@@ -33,6 +33,11 @@
     &__label {
         position: relative;
     }
+    &__icon-after {
+        margin-left: 6px;
+        object-fit: cover;
+        margin-right: 0px !important;
+    }
 }
 
 .opiumBtn {
