@@ -18,7 +18,9 @@
             width: 100%;
             border-bottom: 0.5px solid #5D5F7C !important;
             outline: none;
-            color: #fff;
+            text-align: left !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
     
             transition: border-color .25s ease;
         }
@@ -34,6 +36,8 @@
                 background: transparent !important;
                 border-color: none !important;
                 box-shadow: none !important;
+                outline: none !important;
+                border-style: none !important;
                 
                 i {
                     cursor: default !important;
@@ -56,5 +60,26 @@
                 }
             }
         }
+
+        &.color-scheme {
+            &-DARK {
+                
+                .react-numeric-input {
+                    width: 100%;
+                    input {
+                        color: #fff;
+                    }
+                }
+            }
+
+            &-LIGHT {
+                
+                .react-numeric-input {
+                    width: 100%;
+                    input {
+                        color: #0A0A1E;
+                    }
+                }
+            }
+        }
 }
-    
