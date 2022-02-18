@@ -38,15 +38,7 @@ export const NumberFieldStory = () => {
         onChange={(e: any) => {
           setValue(e)
         }}
-        value={'50%'}
-        disabled
-      />
-      <NumberField
-        theme={theme}
-        onChange={(e: any) => {
-          setValue(e)
-        }}
-        value={'50%'}
+        value={value}
       />
     </div>
   )
