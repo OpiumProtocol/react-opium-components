@@ -10,7 +10,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string,
-  value: number | string,
+  value: number,
   onChange: (value: number) => void
   disabled?: boolean
 }

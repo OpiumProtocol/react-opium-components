@@ -157,7 +157,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
       }
     </>
   )
-  console.log({ value })
+  
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">

@@ -31,7 +31,8 @@ export const opiumTabs = () => {
     {
       title: 'Tab4',
       eventKey: 'tab4',
-      content: <p key={uuidv4()}>Tab4 content</p>
+      content: <p key={uuidv4()}>Tab4 content</p>,
+      disabled: true
     },
   ]
 
