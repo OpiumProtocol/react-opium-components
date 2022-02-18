@@ -129,6 +129,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}
             >
+              { item.image && <img src={item.image} alt='img'/>}
               {item.title ? item.title : item}
             </Dropdown.Item>
           ))
@@ -147,6 +148,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}
             >
+              { item.image && <img src={item.image} alt='img'/>}
               {item}
             </Dropdown.Item>
           ))

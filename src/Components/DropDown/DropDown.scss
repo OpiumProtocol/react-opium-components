@@ -61,8 +61,7 @@
             text-transform: capitalize;
             position: relative;
             padding: 5px 35px;
-
-            &:before {
+            img {
                 position: absolute;
                 content: '';
                 width: 16px;
