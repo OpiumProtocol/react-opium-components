@@ -130,6 +130,32 @@ const Chart: React.FC<Props> = (props: Props) => {
     return ({ data1: index, price: el })
   })
 
+  const CustomLabel = (props: any) => {
+    console.log(props)
+    return (
+      <g>
+        <rect
+          x={props.viewBox.x}
+          y={props.viewBox.y}
+          fill="#aaa"
+          width={100}
+          height={30}
+        />
+        <text x={props.viewBox.x} y={props.viewBox.y} fill="#111" dy={20} dx={30}>
+          Label
+        </text>
+      </g>
+    )
+  }
+
+  const AverageCircle = () => {
+    return (
+      <Label>
+        any string or number
+      </Label>
+    )
+  }
+
   return (
     <div className={`CustomChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
       <ResponsiveContainer width='100%' height="100%">
@@ -189,9 +215,15 @@ const Chart: React.FC<Props> = (props: Props) => {
               key={item.price}
               stroke='#C4C4C4' 
               strokeDasharray="4 2 1" 
-              strokeWidth={1}
+              strokeWidth={2}
               strokeOpacity={0.2}
-              label={activeRefLabel === item.price ? item.price : ''}
+              label={{
+                position: 'insideTopRight',
+                value: activeRefLabel === item.price ? item.price : '',
+                fill: '#595959',
+                fontSize: '0.75rem',
+              }}
+              position={'start'}
               onMouseEnter={() => showRefLabel(item.price)}
               onMouseLeave={() => showRefLabel(null)}
             />
