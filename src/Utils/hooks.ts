@@ -1,5 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { checkIsMobile } from './helpers'
+
+export const usePrevious = (value: any) => {
+  const ref = useRef()
+  useEffect(() => {
+    ref.current = value
+  }, [value])
+  return ref.current
+}
+
+export const objectsEqual = (items: any, prevItems: any) => {
+  return JSON.stringify(items) === JSON.stringify(prevItems)
+}
 
 export const useMobile = () => {
   const [isMobile, setMobile] = useState(false)

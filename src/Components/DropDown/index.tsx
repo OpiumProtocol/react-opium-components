@@ -5,6 +5,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme, widgetThemes } from '../../Constants/Types/theme.types'
 
 import './DropDown.scss'
+import { objectsEqual, usePrevious } from '../../Utils/hooks'
 
 export type Props = {
   /** Define theme */
@@ -69,7 +70,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
     arrayNumbers,
     characters
   } = renderProps
-
+  
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
   const [title, setTitle] = useState<string>(items[0].title || items[0])
 
@@ -86,10 +87,14 @@ const DropDown: React.FC<Props> = (props: Props) => {
     borderStyle: 'solid',
   }
 
+  const prevItems = usePrevious(items)
+
   useEffect(() => {
-    setTitle(items[0].title ? items[0].title : items[0])
-    setEventKey(items[0].id ? items[0].id : items[0])
-  }, [items])
+    if (!objectsEqual(items, prevItems)) {
+      setTitle(items[0].title ? items[0].title : items[0])
+      setEventKey(items[0].id ? items[0].id : items[0])
+    }
+  }, [items, prevItems])
 
   const handleEnter = (i: number) => {
     setIndex(i)
