@@ -53,6 +53,15 @@ export const DropDownStory = () => {
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
   const [items, setItems] = useState(data)
+  const [value, setValue] = useState(data[0])
+
+
+  const handler = (e: string) => {
+    const value = data.find(item => item.id === e) 
+    if (value) {
+      setValue(value)
+    }
+  }
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -75,9 +84,10 @@ export const DropDownStory = () => {
       <DropDown
         theme={theme}
         items={items}
-        onSelect={() => {}}
+        onSelect={handler}
         arrayNumbers={false}
         characters={30}
+        value={value.title}
       />
     </div>
   )
