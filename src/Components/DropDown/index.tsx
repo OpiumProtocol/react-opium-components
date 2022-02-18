@@ -15,6 +15,7 @@ export type Props = {
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   arrayNumbers?: boolean
   characters?: number
+  value?: string | number
 }
 
 export type OptionsData = {
@@ -68,7 +69,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
     items,
     onSelect,
     arrayNumbers,
-    characters
+    characters,
+    value
   } = renderProps
   
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
@@ -159,7 +161,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        { arrayNumbers ? title : cutString(title)}
+        { value || arrayNumbers ? title : cutString(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         { list }
