@@ -11,7 +11,7 @@ const data = [
     id: 'SYNTH_OPTION_CALL_V1',
     title: 'Option Call Call Call',
     address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
-    ticker: 'OPT-C1'
+    ticker: 'OPT-C1',
   },
   {
     id: 'SYNTH_OPTION_PUT_V1',
@@ -53,6 +53,15 @@ export const DropDownStory = () => {
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
   const [items, setItems] = useState(data)
+  const [value, setValue] = useState(data[0])
+
+
+  const handler = (e: string) => {
+    const value = data.find(item => item.id === e) 
+    if (value) {
+      setValue(value)
+    }
+  }
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -75,9 +84,10 @@ export const DropDownStory = () => {
       <DropDown
         theme={theme}
         items={items}
-        onSelect={() => {}}
+        onSelect={handler}
         arrayNumbers={false}
         characters={30}
+        value={value.title}
       />
     </div>
   )

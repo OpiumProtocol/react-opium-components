@@ -67,7 +67,7 @@
                 .react-numeric-input {
                     width: 100%;
                     input {
-                        color: #fff;
+                        color: #fff !important;
                     }
                 }
             }
@@ -77,9 +77,15 @@
                 .react-numeric-input {
                     width: 100%;
                     input {
-                        color: #0A0A1E;
+                        color: #0A0A1E !important;
                     }
                 }
             }
         }
+}
+
+.disabled {
+    b {
+        display: none !important;
+    }
 }

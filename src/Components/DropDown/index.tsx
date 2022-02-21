@@ -14,8 +14,8 @@ export type Props = {
   items: Array<OptionsData> | string[] | number[],
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   arrayNumbers?: boolean
-  characters?: number,
-  iconPath?: string
+  characters?: number
+  value?: string | number
 }
 
 export type OptionsData = {
@@ -70,7 +70,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
     onSelect,
     arrayNumbers,
     characters,
-    iconPath
+    value
   } = renderProps
   
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
@@ -131,10 +131,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}
             >
-              <div className="dropdown-item__content">
-                {iconPath ? <img className="dropdown-item__image" src={iconPath} /> : <div className="dropdown-item__circle"></div>}
-                {item.title ? item.title : item}
-              </div>
+              { item.image && <img src={item.image} alt='img'/>}
+              {item.title ? item.title : item}
             </Dropdown.Item>
           ))
           : items?.map((item: any, idx: number) => (
@@ -152,20 +150,18 @@ const DropDown: React.FC<Props> = (props: Props) => {
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}
             >
-              <div className="dropdown-item__content">
-                {iconPath ? <img className="dropdown-item__image" src={iconPath} /> : <div className="dropdown-item__circle"></div>}
-                {item}
-              </div>
+              { item.image && <img src={item.image} alt='img'/>}
+              {item}
             </Dropdown.Item>
           ))
       }
     </>
   )
-
+  
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
-        { arrayNumbers ? title : cutString(title)}
+        { value || arrayNumbers ? title : cutString(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
         { list }

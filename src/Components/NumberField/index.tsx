@@ -12,6 +12,7 @@ export type Props = {
   className?: string,
   value: number,
   onChange: (value: number) => void
+  disabled?: boolean
 }
 
 const defaultProps: Props = {
@@ -28,16 +29,18 @@ const NumberField: React.FC<Props> = (props: Props) => {
     className,
     value,
     onChange,
+    disabled
   } = renderProps
 
   return (
-    <div className={`NumberField ${className} color-scheme-${theme}`}>
+    <div className={`NumberField ${className} color-scheme-${theme} ${disabled && 'disabled'}`}>
       <NumericInput 
         className="OpiumInputNumber"
         min={0}
         max={10000}
         value={value}
         onChange={(value: number | null) => onChange(value) }
+        disabled={disabled}
       />
     </div>
   )

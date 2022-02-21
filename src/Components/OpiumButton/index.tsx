@@ -40,6 +40,7 @@ export type Props = {
   iconPath?: string,
   /** Set Icon Position*/
   isIconAfter?: boolean
+  htmlLabel?: boolean
 }
 
 export const defaultProps: Props = {
@@ -74,6 +75,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
     onMouseLeave,
     iconPath,
     isIconAfter,
+    htmlLabel,
     ...rest } = generateRenderProps(defaultProps, props)
 
   const { color, backgroundColor, borderColor, ...restStyles } = themes[theme as ETheme]
@@ -166,7 +168,7 @@ const OpiumButton: FC<Props> = (props: Props) => {
             onMouseLeave={onMouseLeave}
             {...rest}
           >
-            {iconBeforeLabel && <img src={iconPath} />}{label}
+            {iconBeforeLabel && <img src={iconPath} />}{htmlLabel ? <div dangerouslySetInnerHTML={{ __html: label }} /> : label}
             {iconAfterLabel && <img className="btn__icon-after" src={iconPath} />}
           </Button>
       }
