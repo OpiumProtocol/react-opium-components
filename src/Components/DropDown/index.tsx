@@ -14,7 +14,8 @@ export type Props = {
   items: Array<OptionsData> | string[] | number[],
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   arrayNumbers?: boolean
-  characters?: number
+  characters?: number,
+  iconPath?: string
 }
 
 export type OptionsData = {
@@ -68,7 +69,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
     items,
     onSelect,
     arrayNumbers,
-    characters
+    characters,
+    iconPath
   } = renderProps
   
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
@@ -129,7 +131,10 @@ const DropDown: React.FC<Props> = (props: Props) => {
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}
             >
-              {item.title ? item.title : item}
+              <div className="dropdown-item__content">
+                {iconPath ? <img className="dropdown-item__image" src={iconPath} /> : <div className="dropdown-item__circle"></div>}
+                {item.title ? item.title : item}
+              </div>
             </Dropdown.Item>
           ))
           : items?.map((item: any, idx: number) => (
@@ -147,7 +152,10 @@ const DropDown: React.FC<Props> = (props: Props) => {
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}
             >
-              {item}
+              <div className="dropdown-item__content">
+                {iconPath ? <img className="dropdown-item__image" src={iconPath} /> : <div className="dropdown-item__circle"></div>}
+                {item}
+              </div>
             </Dropdown.Item>
           ))
       }
