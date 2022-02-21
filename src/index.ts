@@ -31,6 +31,8 @@ import BarChart from './Components/BarChart'
 import ControlledTabs, { EControlledTabsSizes } from './Components/ControlledTabs'
 import LineChart from './Components/LineChart'
 import MultipleLineChart from './Components/MultipleLineChart'
+import Autocomplete from './Components/Autocomplete'
+import NumberField from './Components/NumberField'
 
 import {
   themes,
@@ -82,7 +84,9 @@ export {
   BarChart,
   ControlledTabs,
   LineChart,
-  MultipleLineChart
+  MultipleLineChart,
+  Autocomplete,
+  NumberField
 }
 
 export {

@@ -1,61 +1,57 @@
 import React, { useState } from 'react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 
-import DropDown from './index'
+import Autocomplete from './index'
 import Button from '../OpiumButton'
 
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 const data = [
   {
-    id: 'SYNTH_V1',
+    id: 'SYNTH_OPTION_CALL_V1',
     title: 'Option Call Call Call',
-    address: '0x1111111111111111111111111111111111111111',
-    ticker: 'OPT-C1',
+    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
+    ticker: 'OPT-C'
   },
   {
-    id: 'SYNTH_V1',
+    id: 'SYNTH_OPTION_PUT_V1',
     title: 'Option Put',
-    address: '0x1111111111111111111111111111111111111111',
+    address: '0xb9D953f961Dbb7CC8E6ED79C3cca19fD7DA92204',
     ticker: 'OPT-P',
   },
   {
-    id: 'SYNTH_V2',
+    id: 'SYNTH_OPTION_CALL_V0',
+    title: 'Option Call2',
+    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
+    ticker: 'OPT-P2',
+  },
+  {
+    id: 'SYNTH_OPTION_CALL_V2',
     title: 'Option Call3',
-    address: '0x1111111111111111111111111111111111111111',
-    ticker: ' WETH/USD'
+    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
+    ticker: 'OPT-C'
   },
   {
-    id: 'SYNTH_V3',
+    id: 'SYNTH_OPTION_CALL_V3',
     title: 'Option Call',
-    address: '0x1111111111111111111111111111111111111111',
-    ticker: 'OPT-C123'
+    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
+    ticker: 'OPT-C'
   },
   {
-    id: 'SYNTH_V4',
+    id: 'SYNTH_OPTION_CALL_V4',
     title: 'Option Call',
-    address: '0x1111111111111111111111111111111111111111',
-    ticker: 'OPT-C12'
+    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
+    ticker: 'OPT-C'
   }
 ]
 
-export const DropDownStory = () => {
-  const message = text('Text', 'DropDown')
+export const AutocompleteStory = () => {
+  const message = text('Text', 'Autocomplete')
 
   const [theme, setTheme] = useState<ETheme>(ETheme.DARK)
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
-  const [items, setItems] = useState(data)
-  const [value, setValue] = useState(data[0])
-
-
-  const handler = (e: string) => {
-    const value = data.find(item => item.id === e) 
-    if (value) {
-      setValue(value)
-    }
-  }
 
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -75,13 +71,12 @@ export const DropDownStory = () => {
           onClick={() => setTheme(ETheme.DARK)}
         />
       </div>
-      <DropDown
+      <Autocomplete
         theme={theme}
-        items={items}
-        onSelect={handler}
-        arrayNumbers={false}
-        characters={30}
-        value={value.title}
+        items={data}
+        onSelect={() => {}}
+        bodyScrollHeight="120"
+        withCircle={true}
       />
     </div>
   )
@@ -89,8 +84,8 @@ export const DropDownStory = () => {
 
 
 export default {
-  title: 'DropDown component',
+  title: 'Autocomplete component',
   decorators: [withKnobs],
-  component: DropDownStory,
+  component: AutocompleteStory,
   parameters: {},
 }

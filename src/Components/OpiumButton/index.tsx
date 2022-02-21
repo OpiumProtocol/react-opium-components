@@ -37,7 +37,10 @@ export type Props = {
   /** Handler, that works on mouse leave event */
   onMouseLeave?: Function
   /** Set Icon Path */
-  iconPath?: string
+  iconPath?: string,
+  /** Set Icon Position*/
+  isIconAfter?: boolean
+  htmlLabel?: boolean
 }
 
 export const defaultProps: Props = {
@@ -47,6 +50,7 @@ export const defaultProps: Props = {
   label: '',
   style: {},
   onClick: () => { },
+  isIconAfter: false
 }
 
 const OpiumButton: FC<Props> = (props: Props) => {
@@ -70,6 +74,8 @@ const OpiumButton: FC<Props> = (props: Props) => {
     onMouseEnter,
     onMouseLeave,
     iconPath,
+    isIconAfter,
+    htmlLabel,
     ...rest } = generateRenderProps(defaultProps, props)
 
   const { color, backgroundColor, borderColor, ...restStyles } = themes[theme as ETheme]
@@ -99,6 +105,8 @@ const OpiumButton: FC<Props> = (props: Props) => {
 
   const target = newTab ? '_blank' : undefined
   const rel = newTab ? 'noreferrer' : undefined
+  const iconBeforeLabel = iconPath && !isIconAfter
+  const iconAfterLabel = iconPath && isIconAfter
 
   const handleRainbowClick = (e: BaseSyntheticEvent) => {
     e.stopPropagation()
@@ -156,9 +164,12 @@ const OpiumButton: FC<Props> = (props: Props) => {
             className={`opiumBtn color-scheme-${theme}${size ? ' ' + size : ''}${className ? ' ' + className : ''}`}
             variant={variant}
             style={monoStyles}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             {...rest}
           >
-            {iconPath && <img src={iconPath} />}{label}
+            {iconBeforeLabel && <img src={iconPath} />}{htmlLabel ? <div dangerouslySetInnerHTML={{ __html: label }} /> : label}
+            {iconAfterLabel && <img className="btn__icon-after" src={iconPath} />}
           </Button>
       }
     </>

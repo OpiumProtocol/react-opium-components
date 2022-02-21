@@ -1,0 +1,44 @@
+@import '../../Styles/index.scss';
+
+.OpiumInput {
+    &__indent {
+        margin-left: 24px;
+    }
+}
+
+.OpiumFieldset {
+
+    &__circle {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 0;
+        top: 4px;
+        background: #C4C4C4;
+        border-radius: 50%;
+    }
+}
+
+.OpiumFieldset.OpiumAutocomplete {
+    max-width: 343px;
+
+    .dropdown {
+        width: 100% !important;
+    }
+
+    .DropDown {
+        button, &__toggle {
+            .DropDown__label {
+                input {
+                    border-bottom: none!important;
+                    font-size: 16px;
+                    width: 83%;
+                    font-weight: normal;
+                }
+            }
+        }         
+        .dropdown-menu {
+             width: 100% !important;
+        }    
+    }
+}

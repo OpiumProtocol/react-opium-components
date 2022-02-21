@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import numeral from 'numeral'
 
 import {
   XAxis,
@@ -8,7 +9,9 @@ import {
   Area,
   ComposedChart,
   ResponsiveContainer,
-  Line
+  Line,
+  ReferenceLine,
+  Label
 } from 'recharts'
 import { scaleLog } from 'd3-scale'
 import { generateRenderProps } from '../../Utils/helpers'
@@ -34,6 +37,7 @@ export type Props = {
     domainX?: (string | number)[]
     domainY?: (string | number)[]
     logScaleY?: boolean
+    referenceLines?: number[]
 }
 
 const defaultProps: Props = {
@@ -63,6 +67,7 @@ CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 
 const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boolean, payload: any, chartData1?: ChartData, chartData2?: ChartData}) => {
   const tooltips = (chartData1 && chartData2) ? [chartData1, chartData2] : chartData1 ? [chartData1] : [chartData2]
+  
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
@@ -101,16 +106,56 @@ const Chart: React.FC<Props> = (props: Props) => {
     chartData2,
     domainX,
     domainY,
-    logScaleY
+    logScaleY,
+    referenceLines
   } = renderProps
 
   const tickChanger = (dataIndex: number) => {
-    return data[dataIndex].price.toFixed(2).toString()
+    return numeral(data[dataIndex].price).format('0[.]00').toString()
   }
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   const scale = scaleLog().base(Math.E)
 
+  const [activeRefLabel, setActiveRefLabel] = useState<number | null>(null)
+
+  const showRefLabel: any = (label: number | null) => {
+    setActiveRefLabel(label)
+  }
+
+  const dataRefsLines = referenceLines?.map((el: any) => {
+    const obj = dataWithZeros.reduce((prev: any, curr: any) => {
+      return (Math.abs(curr.price - el) < Math.abs(prev.price - el) ? curr : prev)
+    })
+    const index = dataWithZeros.findIndex((el: any) => (el.price === obj.price))
+    return ({ data1: index, price: el })
+  })
+
+  const CustomLabel = (props: any) => {
+    console.log(props)
+    return (
+      <g>
+        <rect
+          x={props.viewBox.x}
+          y={props.viewBox.y}
+          fill="#aaa"
+          width={100}
+          height={30}
+        />
+        <text x={props.viewBox.x} y={props.viewBox.y} fill="#111" dy={20} dx={30}>
+          Label
+        </text>
+      </g>
+    )
+  }
+
+  const AverageCircle = () => {
+    return (
+      <Label>
+        any string or number
+      </Label>
+    )
+  }
 
   return (
     <div className={`CustomChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
@@ -165,6 +210,26 @@ const Chart: React.FC<Props> = (props: Props) => {
             activeDot={<CustomizedActiveDot />}
           />}
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
+          {dataRefsLines?.map((item: any) => {
+            return <ReferenceLine
+              x={item.data1}
+              key={item.price}
+              stroke='#C4C4C4' 
+              strokeDasharray="4 2 1" 
+              strokeWidth={2}
+              strokeOpacity={0.2}
+              label={{
+                position: 'insideTopRight',
+                value: activeRefLabel === item.price ? item.price : '',
+                fill: '#595959',
+                fontSize: '0.75rem',
+              }}
+              position={'start'}
+              onMouseEnter={() => showRefLabel(item.price)}
+              onMouseLeave={() => showRefLabel(null)}
+            />
+          }) 
+          }
         </ComposedChart>
       </ResponsiveContainer>
     </div>

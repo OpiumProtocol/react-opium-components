@@ -16,6 +16,7 @@ export type Props = {
     title: string,
     eventKey: string,
     content: JSX.Element,
+    disable?: boolean
   }[]
   /** Default tab key value */
   defaultActiveKey?: string,
@@ -59,7 +60,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
     >
       {
         items.length ? items.map((item: any) => {
-          const { title, eventKey, content } = item
+          const { title, eventKey, content, disabled } = item
           return (
             <Tab
               key={uuidv4()}
@@ -67,6 +68,7 @@ const OpiumTabs: FC<Props> = (props: Props) => {
               eventKey={eventKey}
               tabClassName={`color-scheme-${theme}`}
               className={`color-scheme-${theme} ${className}`}
+              disabled={disabled}
             >
               {content}
             </Tab>
