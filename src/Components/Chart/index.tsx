@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import numeral from 'numeral'
 
 import {
   XAxis,
@@ -110,7 +111,7 @@ const Chart: React.FC<Props> = (props: Props) => {
   } = renderProps
 
   const tickChanger = (dataIndex: number) => {
-    return data[dataIndex].price.toFixed(2).toString()
+    return numeral(data[dataIndex].price).format('0[.]00').toString()
   }
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
