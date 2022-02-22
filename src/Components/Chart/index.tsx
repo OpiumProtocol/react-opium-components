@@ -159,18 +159,24 @@ const Chart: React.FC<Props> = (props: Props) => {
   }
 
   const ReferenceLabel = (props: any) => {
-    const { viewBox, color, value, price, data1, height } = props
+    const { viewBox, color, value, price, data1, height, index, count } = props
     const center: number = Number(height.match(/\d/g).join('')) / 4
+    const diff: number = data1 < count ? 16 : data1
     
-    const posY = viewBox.y + center + (data1 % 2 == 0 ? -data1 : data1)
+    const posY = viewBox.y + center + (index % 2 == 0 ? -diff : diff)
     const valueLength: number = value.length
-    const priceLength: number = price.toString().length + 3
+    const priceLength: number = data1 === 0 ? 6 : price.toString().length + 3
     const widthBox: number = (priceLength + valueLength) * 7
+    const posX: number = data1 < count ? viewBox.x : viewBox.x - widthBox
+
+    const secondTextX: number = data1 < count ?
+      posX + widthBox - (widthBox / 2.1) :
+      viewBox.x - (widthBox / valueLength) * 6.5
     
     return (
       <g>
         <rect
-          x={viewBox.x - widthBox}
+          x={posX}
           y={posY}
           fill={color}
           width={widthBox}
@@ -178,10 +184,10 @@ const Chart: React.FC<Props> = (props: Props) => {
           rx="10" 
           ry="10"
         />
-        <text x={viewBox.x - widthBox + (valueLength - priceLength)} y={posY + 13} fill="#fff" fontSize="8pt" dy={0} dx={0}>
+        <text x={posX + (valueLength - priceLength)} y={posY + 13} fill="#fff" fontSize="8pt" dy={0} dx={0}>
           {value}
         </text>
-        <text x={viewBox.x - (widthBox / valueLength) * 6.5} y={posY + 13} fill="#fff" fontSize="9pt" fontWeight={'bold'} dy={0} dx={0}>
+        <text x={secondTextX} y={posY + 13} fill="#fff" fontSize="9pt" fontWeight={'bold'} dy={0} dx={0}>
           {price} USD
         </text>
       </g>
@@ -241,7 +247,7 @@ const Chart: React.FC<Props> = (props: Props) => {
             activeDot={<CustomizedActiveDot />}
           />}
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
-          {dataRefsLines?.map((item: any) => {
+          {dataRefsLines?.map((item: any, idx: number) => {
             return <ReferenceLine
               x={item.data1}
               key={item.price}
@@ -250,7 +256,7 @@ const Chart: React.FC<Props> = (props: Props) => {
               strokeWidth={2}
               strokeOpacity={0.2}
             >
-              <Label {...item} height={height} position="right" content={<ReferenceLabel />}/>
+              <Label {...item} index={idx} height={height} count={Math.floor(dataWithZeros.length / 3)} position="right" content={<ReferenceLabel />}/>
             </ReferenceLine>
           }) 
           }
