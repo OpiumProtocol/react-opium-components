@@ -165,13 +165,10 @@ const Chart: React.FC<Props> = (props: Props) => {
     
     const posY = viewBox.y + center + (index % 2 == 0 ? -diff : diff)
     const valueLength: number = value.length
-    const priceLength: number = data1 === 0 ? 6 : price.toString().length + 3
+    const priceLength: number = price.toString().length + 3
     const widthBox: number = (priceLength + valueLength) * 7
     const posX: number = data1 < count ? viewBox.x : viewBox.x - widthBox
-
-    const secondTextX: number = data1 < count ?
-      posX + widthBox - (widthBox / 2.1) :
-      viewBox.x - (widthBox / valueLength) * 6.5
+    const secondTextX: number = data1 < count ? viewBox.x + widthBox - 5 : viewBox.x - 5
     
     return (
       <g>
@@ -184,10 +181,10 @@ const Chart: React.FC<Props> = (props: Props) => {
           rx="10" 
           ry="10"
         />
-        <text x={posX + (valueLength - priceLength)} y={posY + 13} fill="#fff" fontSize="8pt" dy={0} dx={0}>
+        <text x={posX + 4} y={posY + 13} textAnchor="start" fill="#fff" fontSize="8pt" dy={0} dx={0}>
           {value}
         </text>
-        <text x={secondTextX} y={posY + 13} fill="#fff" fontSize="9pt" fontWeight={'bold'} dy={0} dx={0}>
+        <text x={secondTextX} y={posY + 13} fill="#fff" fontSize="9pt" textAnchor="end" fontWeight={'bold'} dy={0} dx={0}>
           {price} USD
         </text>
       </g>
