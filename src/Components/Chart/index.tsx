@@ -37,7 +37,7 @@ export type Props = {
     domainX?: (string | number)[]
     domainY?: (string | number)[]
     logScaleY?: boolean
-    referenceLines?: number[]
+    referenceLines?: referenceLinesData[]
 }
 
 const defaultProps: Props = {
@@ -47,6 +47,12 @@ const defaultProps: Props = {
   labelY: {},
   domainX: [0, 'auto'],
   domainY: [0, 'auto']
+}
+
+export type referenceLinesData = {
+  value: string,
+  price: number,
+  color?: string
 }
 
 const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
@@ -73,6 +79,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boo
       <div className="custom-tooltip">
         {tooltips.map((chartData, i) => {
           return chartData && (<div
+            key={i}
             className="custom-tooltip__container"
             style={{ backgroundColor: payload[i].color }}
           >
@@ -117,19 +124,13 @@ const Chart: React.FC<Props> = (props: Props) => {
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   const scale = scaleLog().base(Math.E)
 
-  const [activeRefLabel, setActiveRefLabel] = useState<number | null>(null)
-
-  const showRefLabel: any = (label: number | null) => {
-    setActiveRefLabel(label)
-  }
-
   const dataRefsLines = referenceLines?.map((el: any) => {
     const obj = dataWithZeros.reduce((prev: any, curr: any) => {
-      return (Math.abs(curr.price - el) < Math.abs(prev.price - el) ? curr : prev)
+      return (Math.abs(curr.price - el.price) < Math.abs(prev.price - el.price) ? curr : prev)
     })
     const index = dataWithZeros.findIndex((el: any) => (el.price === obj.price))
-    return ({ data1: index, price: el })
-  })
+    return ({ data1: index, ...el })
+  }) 
 
   const CustomLabel = (props: any) => {
     console.log(props)
@@ -154,6 +155,36 @@ const Chart: React.FC<Props> = (props: Props) => {
       <Label>
         any string or number
       </Label>
+    )
+  }
+
+  const ReferenceLabel = (props: any) => {
+    const { viewBox, color, value, price, data1, height } = props
+    const center: number = Number(height.match(/\d/g).join('')) / 4
+    
+    const posY = viewBox.y + center + (data1 % 2 == 0 ? -data1 : data1)
+    const valueLength: number = value.length
+    const priceLength: number = price.toString().length + 3
+    const widthBox: number = (priceLength + valueLength) * 7
+    
+    return (
+      <g>
+        <rect
+          x={viewBox.x - widthBox}
+          y={posY}
+          fill={color}
+          width={widthBox}
+          height={20}
+          rx="10" 
+          ry="10"
+        />
+        <text x={viewBox.x - widthBox + (valueLength - priceLength)} y={posY + 13} fill="#fff" fontSize="8pt" dy={0} dx={0}>
+          {value}
+        </text>
+        <text x={viewBox.x - (widthBox / valueLength) * 6.5} y={posY + 13} fill="#fff" fontSize="9pt" fontWeight={'bold'} dy={0} dx={0}>
+          {price} USD
+        </text>
+      </g>
     )
   }
 
@@ -218,16 +249,9 @@ const Chart: React.FC<Props> = (props: Props) => {
               strokeDasharray="4 2 1" 
               strokeWidth={2}
               strokeOpacity={0.2}
-              label={{
-                position: 'insideTopRight',
-                value: activeRefLabel === item.price ? item.price : '',
-                fill: '#595959',
-                fontSize: '0.75rem',
-              }}
-              position={'start'}
-              onMouseEnter={() => showRefLabel(item.price)}
-              onMouseLeave={() => showRefLabel(null)}
-            />
+            >
+              <Label {...item} height={height} position="right" content={<ReferenceLabel />}/>
+            </ReferenceLine>
           }) 
           }
         </ComposedChart>
