@@ -14,7 +14,7 @@ const data = [
     ticker: 'OPT-C1',
   },
   {
-    id: 'SYNTH_V1',
+    id: 'SYNTH_V5',
     title: 'Option Put',
     address: '0x1111111111111111111111111111111111111111',
     ticker: 'OPT-P',
