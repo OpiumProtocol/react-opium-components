@@ -65,7 +65,7 @@ const SearchBox: React.FC<Props> = (props: Props) => {
 
     const onKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Enter') {
-        onClick(value)
+        onClick(search)
       }
     }
 
