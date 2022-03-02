@@ -210,10 +210,10 @@ const Chart: React.FC<Props> = (props: Props) => {
             activeDot={<CustomizedActiveDot />}
           />}
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
-          {dataRefsLines?.map((item: any) => {
+          {dataRefsLines?.map((item: any, index: number) => {
             return <ReferenceLine
               x={item.data1}
-              key={item.price}
+              key={item.price + index}
               stroke='#C4C4C4' 
               strokeDasharray="4 2 1" 
               strokeWidth={2}

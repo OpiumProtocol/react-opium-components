@@ -37,7 +37,6 @@ export const SearchBoxStory = () => {
         theme={theme}
         onChange={() => {}}
         onClick={() => {}}
-        label="Long position"
       />
     </div>
   )

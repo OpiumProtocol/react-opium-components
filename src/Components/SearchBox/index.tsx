@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, CSSProperties, KeyboardEvent, useState } from 'react'
+import React, { BaseSyntheticEvent, CSSProperties, KeyboardEvent, useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -14,7 +14,7 @@ export type Props = {
   onChange?: (eventKey: any, event: BaseSyntheticEvent) => any,
   onClick: (e: string) => any
   label?: string,
-  firstValue?: string,
+  value?: string,
   placeholder?: string,
   style?: CSSProperties
 }
@@ -32,14 +32,18 @@ const SearchBox: React.FC<Props> = (props: Props) => {
     theme,
     className,
     label,
-    firstValue,
+    value,
     placeholder,
     style,
     onChange,
     onClick
   } = renderProps
 
-  const [value, setValue] = useState<string>(firstValue)
+  const [search, setSearch] = useState<string>(value)
+
+  useEffect(() => {
+    setSearch(value)
+  }, [value])
 
   const styles = {
     borderColor: _.darkblue4,
@@ -55,7 +59,7 @@ const SearchBox: React.FC<Props> = (props: Props) => {
     const classNames = `OpiumInput SearchBoxInput ${className !== undefined ? className : ''}`
 
     const handleChange = (e: string) => {
-      setValue(e)
+      setSearch(e)
       onChange(e)
     }
 
@@ -74,7 +78,7 @@ const SearchBox: React.FC<Props> = (props: Props) => {
           onChange={(e) => handleChange(e.target.value)}
           onKeyPress={onKeyPress}
           style={styles}
-          value={value ? value : ''}
+          value={search ? search : ''}
         />
       </>
     )
