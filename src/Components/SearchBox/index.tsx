@@ -11,7 +11,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  onChange: (eventKey: any, event: BaseSyntheticEvent) => any,
+  onChange?: (eventKey: any, event: BaseSyntheticEvent) => any,
   onClick: (e: string) => any
   label?: string,
   firstValue?: string,
