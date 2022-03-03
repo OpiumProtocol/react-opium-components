@@ -18,6 +18,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Chart.scss'
+import { useDomainY } from '../../Utils/hooks'
 
 export type ChartData = {
   tooltipTitle: string
@@ -38,6 +39,7 @@ export type Props = {
     domainY?: (string | number)[]
     logScaleY?: boolean
     referenceLines?: number[]
+    increaseDomainY?: number
 }
 
 const defaultProps: Props = {
@@ -107,7 +109,8 @@ const Chart: React.FC<Props> = (props: Props) => {
     domainX,
     domainY,
     logScaleY,
-    referenceLines
+    referenceLines,
+    increaseDomainY
   } = renderProps
 
   const tickChanger = (dataIndex: number) => {
@@ -118,6 +121,7 @@ const Chart: React.FC<Props> = (props: Props) => {
   const scale = scaleLog().base(Math.E)
 
   const [activeRefLabel, setActiveRefLabel] = useState<number | null>(null)
+  const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
   const showRefLabel: any = (label: number | null) => {
     setActiveRefLabel(label)
@@ -130,6 +134,7 @@ const Chart: React.FC<Props> = (props: Props) => {
     const index = dataWithZeros.findIndex((el: any) => (el.price === obj.price))
     return ({ data1: index, price: el })
   })
+
 
   const CustomLabel = (props: any) => {
     console.log(props)
@@ -180,7 +185,7 @@ const Chart: React.FC<Props> = (props: Props) => {
             allowDataOverflow
             domain={domainX}
           />
-          <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
+          <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} allowDataOverflow domain={domainAxisY} tick={{ dx: -10 }}/>
           {
             // @ts-ignore
             <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />

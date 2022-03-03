@@ -17,6 +17,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
 import './OpiumComposedChart.scss'
+import { useDomainY } from '../../Utils/hooks'
 
 export type ChartData = {
   tooltipTitle: string
@@ -35,6 +36,7 @@ export type Props = {
   tickFormatterY?: (value: any) => string
   domainX?: (string | number)[]
   domainY?: (string | number)[]
+  increaseDomainY?: number
 }
 
 const defaultProps: Props = {
@@ -84,8 +86,11 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
     domainX,
     domainY,
     tickFormatterX,
-    tickFormatterY
+    tickFormatterY,
+    increaseDomainY
   } = renderProps
+
+  const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
@@ -123,7 +128,7 @@ const OpiumComposedChart: React.FC<Props> = (props: Props) => {
           </defs>
           <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
-          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
+          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainAxisY} tick={{ dx: -10 }}/>
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="barData" barSize={10} fill="#197CD8" />
           <Area

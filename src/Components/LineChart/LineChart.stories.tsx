@@ -69,6 +69,7 @@ export const chart = () => {
           return moment(label).format('DD.MMM.YYYY')
         }}
         domainY={[-5.07, 109.19]}
+        increaseDomainY={0.1}
       />
     </div>
   )
