@@ -15,6 +15,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
 import './MultipleLineChart.scss'
+import { useDomainY } from '../../Utils/hooks'
 
 export type ChartData = {
   tooltipTitle: string
@@ -36,6 +37,7 @@ export type Props = {
     logScaleY?: boolean
     tickFormatterX?: (value: any) => string
     tickFormatterY?: (value: any) => string
+    increaseDomainY?: number
 }
 
 const defaultProps: Props = {
@@ -125,11 +127,13 @@ const MultipleLineChart: React.FC<Props> = (props: Props) => {
     domainY,
     logScaleY,
     tickFormatterX,
-    tickFormatterY
+    tickFormatterY,
+    increaseDomainY
   } = renderProps
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   const scale = scaleLog().base(Math.E)
+  const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
   return (
     <div className={`MultipleLineChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
@@ -154,7 +158,7 @@ const MultipleLineChart: React.FC<Props> = (props: Props) => {
             domain={domainX}
             tickFormatter={tickFormatterX}
           />
-          <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -10 }}/>
+          <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} tickFormatter={tickFormatterY} allowDataOverflow domain={domainAxisY} tick={{ dx: -10 }}/>
           <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} cursor={false} />
           {chartData1 && <Area
             type="monotone"

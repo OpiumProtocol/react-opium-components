@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { checkIsMobile } from './helpers'
+import { calculateIncreaseDomain, checkIsMobile } from './helpers'
 
 export const usePrevious = (value: any) => {
   const ref = useRef()
@@ -64,4 +64,17 @@ export const useMobile = () => {
   }, [])
 
   return { isMobile, mobileOrientation, ...dimension }
+}
+
+export const useDomainY = (domainY: (string | number)[], increaseDomainY?: number) => {
+  const [domainAxisY, setDomainAxisY] = useState<(string | number)[]>(domainY)
+
+  useEffect(() => {
+    const domainValue: number[] | null = (increaseDomainY && (domainY.every((i: any) => typeof i == 'number')))
+      ? calculateIncreaseDomain(domainY as number[], increaseDomainY) 
+      : null
+    domainValue ? setDomainAxisY(domainValue) : setDomainAxisY(domainY)
+  }, [])
+
+  return domainAxisY as string[] | number[]
 }

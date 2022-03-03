@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import numeral from 'numeral'
 
 import {
@@ -14,10 +14,11 @@ import {
   Label
 } from 'recharts'
 import { scaleLog } from 'd3-scale'
-import { calculateIncreaseDomain, generateRenderProps } from '../../Utils/helpers'
+import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
 import './Chart.scss'
+import { useDomainY } from '../../Utils/hooks'
 
 export type ChartData = {
   tooltipTitle: string
@@ -120,18 +121,11 @@ const Chart: React.FC<Props> = (props: Props) => {
   const scale = scaleLog().base(Math.E)
 
   const [activeRefLabel, setActiveRefLabel] = useState<number | null>(null)
-  const [domainAxisY, setDomainAxisY] = useState<string[] | number[]>(domainY)
+  const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
   const showRefLabel: any = (label: number | null) => {
     setActiveRefLabel(label)
   }
-
-  useEffect(() => {
-    const domainValue: number[] | null = (increaseDomainY && (domainY.every((i: any) => typeof i == 'number')))
-      ? calculateIncreaseDomain(domainY, increaseDomainY) 
-      : null
-    domainValue ? setDomainAxisY(domainValue) : setDomainAxisY(domainY)
-  }, [])
 
   const dataRefsLines = referenceLines?.map((el: any) => {
     const obj = dataWithZeros.reduce((prev: any, curr: any) => {
