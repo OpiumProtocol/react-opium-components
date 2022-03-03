@@ -16,6 +16,7 @@ import { generateRenderProps } from '../../Utils/helpers'
 import { ETheme } from '../../Constants/Types/theme.types'
 
 import './LineChart.scss'
+import { useDomainY } from '../../Utils/hooks'
 
 export type ChartData = {
   tooltipTitle: string
@@ -36,7 +37,8 @@ export type Props = {
   domainY?: (string | number)[]
   intervalX?: number
   intervalY?: number
-  dontShowLabel?: boolean
+  dontShowLabel?: boolean,
+  increaseDomainY?: number
 }
 
 const defaultProps: Props = {
@@ -90,8 +92,11 @@ const LineChart: React.FC<Props> = (props: Props) => {
     tickFormatterX,
     tickFormatterY,
     intervalX,
-    dontShowLabel
+    dontShowLabel,
+    increaseDomainY
   } = renderProps
+
+  const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
     if (active) {
@@ -127,7 +132,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
           </defs>
           <CartesianGrid vertical={false} stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.15)' : 'rgba(10, 10, 30, 0.15)'} />
           <XAxis dataKey="label" scale="band" label={labelX} interval={intervalX} tickFormatter={tickFormatterX} domain={domainX} height={50}/>
-          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainY} tick={{ dx: -20 }}/>
+          <YAxis label={labelY} tickFormatter={tickFormatterY} allowDataOverflow domain={domainAxisY} tick={{ dx: -20 }}/>
           <Tooltip content={<CustomTooltip />} />
           <Area
             type="monotone"
