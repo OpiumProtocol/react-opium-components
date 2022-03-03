@@ -19,7 +19,7 @@ export const checkIsMobile = () => {
 }
 
 export const calculateIncreaseDomain = (acc: number[], increaseDomainY: number): number[] => {
-  const minY = (acc[0] === 0 ? acc[0] - (acc[1] * increaseDomainY) : acc[0] * (1 + increaseDomainY))
+  const minY = (acc[0] === 0 ? acc[0] - (acc[1] * increaseDomainY) : acc[0] < 0 ? (acc[0] * (1 + increaseDomainY)) : acc[0] - (acc[0] * increaseDomainY))
   const maxY = (acc[1] === 0 ? acc[1] + (acc[0] * increaseDomainY) : acc[1] * (1 + increaseDomainY))
   return [+numeral(minY).format('0[.]'), +numeral(maxY).format('0[.]')]
 }

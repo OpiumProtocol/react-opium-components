@@ -128,8 +128,6 @@ export const chart = () => {
         labelY={{ value: 'Label Y', angle: -90, position: 'insideLeft' }}
         // chartData2={{ tooltipTitle: 'Buyer', tooltipSuffix: '%' }}
         referenceLines={refLines}
-        increaseDomainY={0.05}
-        domainY={[-100, 1718]}
       />
     </div>
   )
