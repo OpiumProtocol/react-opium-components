@@ -33,6 +33,7 @@ import LineChart from './Components/LineChart'
 import MultipleLineChart from './Components/MultipleLineChart'
 import Autocomplete from './Components/Autocomplete'
 import NumberField from './Components/NumberField'
+import SearchBox from './Components/SearchBox'
 
 import {
   themes,
@@ -86,7 +87,8 @@ export {
   LineChart,
   MultipleLineChart,
   Autocomplete,
-  NumberField
+  NumberField,
+  SearchBox,
 }
 
 export {

@@ -1,0 +1,44 @@
+.SearchBox {
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #999BBC;
+        align-items: flex-start;
+
+        .form-label {
+            margin-top: 0.5rem;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: -5px;
+        right: 2px;
+        background-color: transparent;
+        border: none;
+        width: auto;
+        height: auto;
+        padding: 0;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.OpiumFieldset {
+    .SearchBoxInput {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
