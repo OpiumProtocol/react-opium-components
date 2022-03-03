@@ -134,6 +134,10 @@ const MultipleLineChart: React.FC<Props> = (props: Props) => {
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
   const scale = scaleLog().base(Math.E)
   const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
+  console.log('domainAxisY', domainAxisY)
+  console.log('domainY', domainY)
+  console.log('increaseDomainY', increaseDomainY)
+  
 
   return (
     <div className={`MultipleLineChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
