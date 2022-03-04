@@ -185,7 +185,13 @@ const Chart: React.FC<Props> = (props: Props) => {
             allowDataOverflow
             domain={domainX}
           />
-          <YAxis axisLine label={labelY} scale={logScaleY ? scale : 'auto'} allowDataOverflow domain={domainAxisY} tick={{ dx: -10 }}/>
+          <YAxis 
+            axisLine 
+            label={labelY} 
+            scale={logScaleY ? scale : 'auto'} 
+            domain={domainAxisY} 
+            tick={{ dx: -10 }} 
+            padding={{ bottom: increaseDomainY ? 1 : 0 }}/>
           {
             // @ts-ignore
             <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
