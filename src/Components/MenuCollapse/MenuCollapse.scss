@@ -1,0 +1,33 @@
+@import '../../Styles/constants.scss';
+@import '../../Styles/index.scss';
+
+.MenuAccordion {
+    background-color: transparent;
+
+    .MenuAccordion__card {
+        background-color: transparent;
+
+        .MenuAccordion__btn {
+            border: none !important;
+            color: #999BBC;
+            text-transform: capitalize;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .MenuAccordion__list {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 16px;
+            color: #999BBC;
+
+            .list-group-item {
+                background-color: transparent;
+                border-bottom: none;
+            }
+        }
+    }
+}

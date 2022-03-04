@@ -34,6 +34,7 @@ import MultipleLineChart from './Components/MultipleLineChart'
 import Autocomplete from './Components/Autocomplete'
 import NumberField from './Components/NumberField'
 import SearchBox from './Components/SearchBox'
+import MenuCollapse from './Components/MenuCollapse'
 
 import {
   themes,
@@ -89,6 +90,7 @@ export {
   Autocomplete,
   NumberField,
   SearchBox,
+  MenuCollapse,
 }
 
 export {
