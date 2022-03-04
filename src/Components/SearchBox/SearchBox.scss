@@ -1,4 +1,18 @@
+@import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
+
 .SearchBox {
+
+    .SearchBox-wrapper {
+        display: flex;
+        border-bottom: 1px solid #999BBC!important;
+        position: relative;
+        padding: 0;
+
+        .SearchBoxInput {
+            border: none !important;
+        }
+    }
 
     &__label {
         display: flex;
@@ -19,14 +33,13 @@
     }
 
     &__btn {
-        position: absolute;
         top: -5px;
         right: 2px;
         background-color: transparent;
         border: none;
         width: auto;
         height: auto;
-        padding: 0;
+        padding: 0 5px;
 
         &:hover {
             background-color: transparent;
