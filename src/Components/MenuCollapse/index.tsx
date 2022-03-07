@@ -46,6 +46,7 @@ const MenuCollapse: React.FC<Props> = (props: Props) => {
   const [activeTitle, setActiveTitle] = useState<string>('')
   
   const handleClick = (title: string) => {  
+    activeTitle === title ? setActiveTitle('') : setActiveTitle(title)
     arrIndex.includes(title) ? setArrIndex(arrIndex.filter(i => i !== title)) : setArrIndex([...arrIndex, title])
   }
 
