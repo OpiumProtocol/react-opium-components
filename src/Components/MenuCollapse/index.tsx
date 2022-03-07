@@ -1,8 +1,8 @@
-import React, { BaseSyntheticEvent, useState, useEffect, CSSProperties } from 'react'
-import { Accordion, Card, Button, ListGroup } from 'react-bootstrap'
+import React, { useState, CSSProperties } from 'react'
+import { Accordion, Card, Button, ListGroup, Nav } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
-import { ETheme, widgetThemes } from '../../Constants/Types/theme.types'
+import { ETheme } from '../../Constants/Types/theme.types'
 
 import './MenuCollapse.scss'
 
@@ -10,95 +10,91 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   className?: string
-  style?: CSSProperties,
-//   items: Array<ItemsData>,
-  onClick?: Function,
+  style?: CSSProperties
+  items: Array<Articles>
 }
-
-export type ItemsData = {
-  category: {
-      title: string,
-      articles: {
-          title: string,
-          url: string
-      }
-  }
+type Articles = {
+  title: string
+  articles?: (ArticlesEntity)[]
+}
+type ArticlesEntity = {
+  title: string
+  link?: string
+  articles?: (ArticlesRoot)[]
+}
+type ArticlesRoot = {
+  [key: string]: string
 }
 
 const defaultProps: Props = {
   theme: ETheme.DARK,
-  //   items: [],
-  onClick: () => {},
+  items: [],
 }
-
-// @ts-ignore
-const CustomToggle = React.forwardRef(({ children, disable, onClick }: {children: any, disable: boolean, onClick: (e: any) => void}, ref) => ( 
-  // @ts-ignore
-  <button
-    // @ts-ignore
-    ref={ref}
-    onClick={(e) => {
-      e.preventDefault()
-      onClick(e)
-    }}
-    disabled={disable}
-  >
-    <div className="MenuItems__label">
-      {children}
-    </div>
-  
-  </button>
-))
-
-CustomToggle.displayName = 'CustomToggle'
 
 const MenuCollapse: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
-  const [hover, setHover] = useState<boolean>(false)
-  const [index, setIndex] = useState<number | null>(null)
-
   const {
     theme,
     className,
-    items,
-    onClick
+    items
   } = renderProps
   
-  const { color, backgroundColor } = widgetThemes[theme as ETheme]
+  const [arrIndex, setArrIndex] = useState<any[]>([])
+  
+  const handleClick = (title: string) => {    
+    arrIndex.includes(title) ? setArrIndex(arrIndex.filter(i => i !== title)) : setArrIndex([...arrIndex, title])
+  }
+
+  const svgIcon = (styles: CSSProperties) => {
+    return (
+      <svg width="8" height="5" viewBox="0 0 8 5" fill="none" style={{ ...styles }} xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 0L7.4641 4.5L0.535898 4.5L4 0Z" fill="#999BBC"/>
+      </svg>
+    )
+  }
   
   return (
     <>
-      <Accordion className="MenuAccordion">
-        <Card className="MenuAccordion__card">
-          <Accordion.Toggle as={Button} variant="link" eventKey="0" className="MenuAccordion__btn">
-              Key terms
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey="0">
-            <ListGroup className="MenuAccordion__list">
-              <ListGroup.Item disabled>Strike price</ListGroup.Item>
-              <ListGroup.Item>Options greeks</ListGroup.Item>
-              <ListGroup.Item>... the money</ListGroup.Item>
-              <ListGroup.Item>Strike price 1</ListGroup.Item>
-            </ListGroup>
-          </Accordion.Collapse>
-        </Card>
-        <Card className="MenuAccordion__card">
-          <Accordion.Toggle as={Button} variant="link" eventKey="1" className="MenuAccordion__btn">
-            Click me!
-          </Accordion.Toggle>
-          <Accordion.Collapse eventKey="1">
-            <Card.Body>
-              <ListGroup className="MenuAccordion__list">
-                <ListGroup.Item disabled>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-              </ListGroup>
-            </Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion>
+      <ListGroup className={`${className} MenuAccordion__block`}>
+        {items?.map((item: any, i: number) => {
+          return (
+            <Card className="MenuAccordion__card" key={item.title + i}>
+              <Card.Title className={`MenuAccordion__title-${theme}`}>{ item.title }</Card.Title>
+              {item?.articles.map((article: any, idx: number) => {
+                return (
+                  <div key={article.title + idx}>
+                    { article?.articles ? 
+                      <Accordion className="MenuAccordion">
+                        <Accordion.Toggle as={Button} variant="link" eventKey={article.title} className="MenuAccordion__btn"
+                          onClick={(e) => handleClick(article.title)}>
+                          { article.title }
+                          { arrIndex.includes(article.title) ? (
+                            svgIcon({ transform: 'scale(-1, 1)' })
+                          ) : (
+                            svgIcon({ transform: 'scale(1, -1)' })
+                          ) }
+                        </Accordion.Toggle>
+                        { article.articles && article?.articles.map((element: any, index: number) => {
+                          return (
+                            <Accordion.Collapse eventKey={article.title} key={element.title + index}>
+                              <ListGroup className="MenuAccordion__collapse-list">
+                                <ListGroup.Item><Nav.Link href={element.link} className={`nav-link-${theme}`}>{ element.title }</Nav.Link></ListGroup.Item>
+                              </ListGroup>
+                            </Accordion.Collapse>
+                          )
+                        })
+                        }
+                      </Accordion>
+                      : <ListGroup.Item><Nav.Link href={article.link} className={`nav-link-${theme}`}>{ article.title }</Nav.Link></ListGroup.Item>
+                    }
+                  </div>
+                )
+              })}
+            </Card>
+          )
+        })}
+      </ListGroup>
     </>
   )
 }

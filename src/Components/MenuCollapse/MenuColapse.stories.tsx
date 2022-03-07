@@ -14,6 +14,68 @@ export const MenuCollapseStory = () => {
 
   const backgroundColor = sectionThemes[theme as ETheme].backgroundColor.primary.value
   const color = sectionThemes[theme as ETheme].color.primary.value
+
+  const data = [
+    { 
+      title: 'Key terms',
+      articles: [
+        {
+          title: 'Strike price',
+          link: 'http://app.opium.finance'
+        },
+        { title: 'Options greeks',
+          link: '#'
+        },
+        { title: '...the money',
+          link: '#'
+        }
+      ]
+    },
+    { 
+      title: 'Basic strategies',
+      articles: [
+        { title: 'Options call',
+          articles: [
+            { 
+              title: 'Long',
+              link: 'http://app.opium.finance'
+            },
+            { 
+              title: 'Short',
+              link: '#'
+            }
+          ]
+        },
+        { title: 'Options put',
+          articles: [
+            { 
+              title: 'Long',
+              link: '#'
+            },
+            { 
+              title: 'Short',
+              link: '#'
+            }
+          ]
+        }
+      ]
+    },
+    { 
+      title: 'Strategies',
+      articles: [
+        {
+          title: 'Strike price',
+          link: '#'
+        },
+        { title: 'Options greeks',
+          link: '#'
+        },
+        { title: '...the money',
+          link: '#'
+        }
+      ]
+    }
+  ]
   
   return (
     <div style={{ padding: '3rem', backgroundColor }}>
@@ -35,7 +97,7 @@ export const MenuCollapseStory = () => {
       </div>
       <DropDown
         theme={theme}
-        onClick={() => {}}
+        items={data}
       />
     </div>
   )

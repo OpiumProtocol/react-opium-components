@@ -1,11 +1,46 @@
 @import '../../Styles/constants.scss';
 @import '../../Styles/index.scss';
 
-.MenuAccordion {
-    background-color: transparent;
+.MenuAccordion__block {
+    background: transparent;
+    width: 100%;
 
     .MenuAccordion__card {
         background-color: transparent;
+        font-family: "Montserrat", sans-serif;
+        border: none;
+        padding-bottom: 1.5rem;
+
+        .list-group-item {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+
+            .nav-link {
+                background-color: transparent;
+                border-bottom: none;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 16px;
+                color: #999BBC;
+                padding-left: 0;
+                transition: color .25s linear;
+                cursor: pointer;
+
+                &-DARK {
+                    &:hover {
+                        color: #FFFFFF;
+                    }
+                }
+    
+                &-LIGHT {
+                    &:hover {
+                        color: #000
+                    }
+                }
+            }
+        }
 
         .MenuAccordion__btn {
             border: none !important;
@@ -15,18 +50,54 @@
             font-weight: normal;
             font-size: 16px;
             line-height: 24px;
+            padding-left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            transition: color .25s linear;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
 
-        .MenuAccordion__list {
+        .MenuAccordion__title {
+
+            &-DARK {
+                color: #FFFFFF;
+                margin-bottom: 1rem;
+                font-weight: bold;
+            }
+
+            &-LIGHT {
+                color: #000;
+                margin-bottom: 1rem;
+                font-weight: bold;
+            }
+        }
+
+        .MenuAccordion__collapse-list {
             font-style: normal;
             font-weight: normal;
-            font-size: 12px;
             line-height: 16px;
             color: #999BBC;
 
             .list-group-item {
-                background-color: transparent;
-                border-bottom: none;
+                padding-left: 0;
+
+                .nav-link {
+                    background-color: transparent;
+                    border-bottom: none;
+                    font-size: 12px;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
         }
     }
