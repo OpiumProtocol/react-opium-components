@@ -32,12 +32,18 @@
                 cursor: pointer;
 
                 &-DARK {
+                    &.active {
+                        color: #FFFFFF;
+                    }
                     &:hover {
                         color: #FFFFFF;
                     }
                 }
     
                 &-LIGHT {
+                    &.active {
+                        color: #000;
+                    }
                     &:hover {
                         color: #000
                     }
@@ -62,10 +68,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-
-            &:hover {
-                text-decoration: none;
-            }
+            text-decoration: none;
         }
 
         .MenuAccordion__title {

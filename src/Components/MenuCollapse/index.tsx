@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from 'react'
+import React, { useState, CSSProperties, useEffect } from 'react'
 import { Accordion, Card, Button, ListGroup, Nav } from 'react-bootstrap'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -12,6 +12,7 @@ export type Props = {
   className?: string
   style?: CSSProperties
   items: Array<Articles>
+  activeLink?: string
 }
 type Articles = {
   title: string
@@ -37,14 +38,40 @@ const MenuCollapse: React.FC<Props> = (props: Props) => {
   const {
     theme,
     className,
-    items
+    items,
+    activeLink
   } = renderProps
   
-  const [arrIndex, setArrIndex] = useState<any[]>([])
+  const [arrIndex, setArrIndex] = useState<string[]>([])
+  const [activeTitle, setActiveTitle] = useState<string>('')
   
-  const handleClick = (title: string) => {    
+  const handleClick = (title: string) => {  
     arrIndex.includes(title) ? setArrIndex(arrIndex.filter(i => i !== title)) : setArrIndex([...arrIndex, title])
   }
+
+  const getParent = (arr: any, search: string) => {
+    let res: string = ''
+    for (let root of arr) {
+      for (let child of root.articles ) {
+        if (child.articles) {
+          for (let article of child.articles ) {
+            if (article.link === search) {
+              res = child.title
+            }
+          }
+        }
+      }
+    }
+    return res
+  }
+
+  useEffect(() => {
+    const title: any = getParent(items, activeLink)
+    if (title) {
+      setActiveTitle(title)
+      handleClick(title)
+    }
+  }, [activeLink])
 
   const svgIcon = (styles: CSSProperties) => {
     return (
@@ -65,7 +92,7 @@ const MenuCollapse: React.FC<Props> = (props: Props) => {
                 return (
                   <div key={article.title + idx}>
                     { article?.articles ? 
-                      <Accordion className="MenuAccordion">
+                      <Accordion className="MenuAccordion" activeKey={activeTitle} >
                         <Accordion.Toggle as={Button} variant="link" eventKey={article.title} className="MenuAccordion__btn"
                           onClick={(e) => handleClick(article.title)}>
                           { article.title }
@@ -79,14 +106,27 @@ const MenuCollapse: React.FC<Props> = (props: Props) => {
                           return (
                             <Accordion.Collapse eventKey={article.title} key={element.title + index}>
                               <ListGroup className="MenuAccordion__collapse-list">
-                                <ListGroup.Item><Nav.Link href={element.link} className={`nav-link-${theme}`}>{ element.title }</Nav.Link></ListGroup.Item>
+                                <ListGroup.Item>
+                                  <Nav.Link 
+                                    href={element.link} 
+                                    className={`nav-link-${theme} ${element.link === activeLink ? 'active' : ''}`}
+                                  >
+                                    { element.title }
+                                  </Nav.Link>
+                                </ListGroup.Item>
                               </ListGroup>
                             </Accordion.Collapse>
                           )
                         })
                         }
                       </Accordion>
-                      : <ListGroup.Item><Nav.Link href={article.link} className={`nav-link-${theme}`}>{ article.title }</Nav.Link></ListGroup.Item>
+                      : <ListGroup.Item>
+                        <Nav.Link 
+                          href={article.link} 
+                          className={`nav-link-${theme} ${article.link === activeLink ? 'active' : ''}`}>
+                          { article.title }
+                        </Nav.Link>
+                      </ListGroup.Item>
                     }
                   </div>
                 )

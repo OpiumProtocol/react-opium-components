@@ -21,10 +21,10 @@ export const MenuCollapseStory = () => {
       articles: [
         {
           title: 'Strike price',
-          link: 'http://app.opium.finance'
+          link: '/?path=/story/autocomplete-component--autocomplete-story'
         },
         { title: 'Options greeks',
-          link: '#'
+          link: '?path=/story/chart-component--chart'
         },
         { title: '...the money',
           link: '#'
@@ -38,7 +38,7 @@ export const MenuCollapseStory = () => {
           articles: [
             { 
               title: 'Long',
-              link: 'http://app.opium.finance'
+              link: '/long'
             },
             { 
               title: 'Short',
@@ -49,11 +49,11 @@ export const MenuCollapseStory = () => {
         { title: 'Options put',
           articles: [
             { 
-              title: 'Long',
+              title: 'Long1',
               link: '#'
             },
             { 
-              title: 'Short',
+              title: 'Short1',
               link: '#'
             }
           ]
@@ -64,13 +64,13 @@ export const MenuCollapseStory = () => {
       title: 'Strategies',
       articles: [
         {
-          title: 'Strike price',
+          title: 'Option 1',
           link: '#'
         },
-        { title: 'Options greeks',
+        { title: 'Option 2',
           link: '#'
         },
-        { title: '...the money',
+        { title: 'Option 3',
           link: '#'
         }
       ]
@@ -98,6 +98,7 @@ export const MenuCollapseStory = () => {
       <DropDown
         theme={theme}
         items={data}
+        activeLink="/long"
       />
     </div>
   )
