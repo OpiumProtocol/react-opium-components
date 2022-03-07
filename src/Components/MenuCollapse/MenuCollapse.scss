@@ -15,6 +15,9 @@
             padding: 0;
             background-color: transparent;
             border: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
             .nav-link {
                 background-color: transparent;
