@@ -34,18 +34,22 @@
                 &-DARK {
                     &.active {
                         color: #FFFFFF;
+                        font-weight: 700;
                     }
                     &:hover {
                         color: #FFFFFF;
+                        font-weight: 700;
                     }
                 }
     
                 &-LIGHT {
                     &.active {
                         color: #000;
+                        font-weight: 700;
                     }
                     &:hover {
-                        color: #000
+                        color: #000;
+                        font-weight: 700;
                     }
                 }
             }
