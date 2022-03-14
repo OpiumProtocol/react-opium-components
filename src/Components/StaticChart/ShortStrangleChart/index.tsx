@@ -14,6 +14,7 @@ import {
   Scatter,
   ReferenceArea
 } from 'recharts'
+import { useMobile } from '../../../Utils/hooks'
 
 export type ChartData = {
   tooltipTitle: string
@@ -61,6 +62,7 @@ const data = [{
 }]
 
 const ShortStrangleChart: FC<TProps> = (props: TProps) => {
+  const { isMobile } = useMobile()
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
 
@@ -137,15 +139,12 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
         />}
         <ReferenceArea x1={4} x2={5} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited loss', className: 'short-strangle-area-text' }} />
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 2, y: 1 }]} >
-          <Label color={'#1BA159'} value={'Max Profit'} x={300} y={20} content={<ReferenceLabel />}/>
+          <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
         <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
-        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Short Put Strike price', fill: 'white', fontSize: '8', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={3} y={0} label={{ value: 'Short Call Strike price', fill: 'white', fontSize: '8', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={3} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
         <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
-        {/* <ReferenceLine stroke="#F6029C" strokeDasharray="0" strokeWidth={2} segment={[{ x: 4, y: 0 }, { x: 5, y: -1 }]}>
-          <Label color={'#F6029C'} value={'Unlimited loss'} x={750} y={-200} rotate={23} content={<ReferenceLabel />}/>
-        </ReferenceLine> */}
       </ComposedChart>
     </ResponsiveContainer>
   )
