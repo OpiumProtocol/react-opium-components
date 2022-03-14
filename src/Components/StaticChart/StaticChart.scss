@@ -167,16 +167,16 @@
     transform: rotate(-18deg) translateY(70px);
 
     @media (max-width: 1024px) {
-        transform: rotate(-21deg) translateY(70px);
+        transform: rotate(-18deg) translateY(70px);
 
         @media (max-width: 768px) {
-            transform: rotate(-24deg) translate(-50px, 85px);
+            transform: rotate(-20deg) translate(-50px, 85px);
 
             @media (max-width: 425px) {
-                transform: rotate(-46deg) translate(-120px, 65px);
+              transform: rotate(-40deg) translate(-120px, 60px);
 
                 @media (max-width: 375px) {
-                    transform: rotate(-53deg) translate(-155px, 55px);
+                  transform: rotate(-47deg) translate(-135px, 55px);
                   }
               }
           }
@@ -199,7 +199,7 @@
             transform: rotate(-28deg) translate(29em, 16rem);
 
             @media (max-width: 425px) {
-                transform: rotate(-51deg) translate(1rem, 6.5rem);
+              transform: rotate(-49deg) translate(3rem, 7.5rem);
 
                 @media (max-width: 375px) {
                     transform: rotate(-56deg) translate(0rem, 5.8rem);
