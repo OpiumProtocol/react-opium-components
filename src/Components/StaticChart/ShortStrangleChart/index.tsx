@@ -142,7 +142,7 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
         <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
-        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5 }}/> 
         <ReferenceDot r={3} fill="white" stroke="none" x={3} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
         <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
       </ComposedChart>
