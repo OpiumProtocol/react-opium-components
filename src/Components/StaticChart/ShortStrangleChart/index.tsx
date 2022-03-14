@@ -12,7 +12,8 @@ import {
   Label,
   ReferenceDot,
   Scatter,
-  ReferenceArea
+  ReferenceArea,
+  Tooltip
 } from 'recharts'
 import { useMobile } from '../../../Utils/hooks'
 
@@ -39,9 +40,17 @@ const data = [{
   price: 0
 },
 {
+  data1: -0.5,
+  price: 0.5
+},
+{
   data1: 0,
   data2: 0,
   price: 1
+},
+{
+  data2: 0.5,
+  price: 1.25
 },
 {
   data2: 1,
@@ -49,7 +58,15 @@ const data = [{
 },
 {
   data2: 1,
+  price: 2
+},
+{
+  data2: 1,
   price: 3
+},
+{
+  data2: 0.5,
+  price: 2.5
 },
 {
   data2: 0,
@@ -57,9 +74,34 @@ const data = [{
   price: 3.5
 },
 {
+  data1: -0.5,
+  price: 3.5
+},
+{
   data1: -1,
   price: 4
 }]
+
+const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: boolean, payload?: any, chartData1?: ChartData, chartData2?: ChartData}) => {
+
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        { (<div
+          className="custom-tooltip__container"
+          style={{ backgroundColor: payload[1].color }}
+        >
+          <p className="label">
+            {payload[1].value > 0 ? 'Profit' : 'Loss'}
+          </p>
+        </div>)
+        }
+      </div>
+    )
+  }
+
+  return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
+}
 
 const ShortStrangleChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
@@ -68,9 +110,9 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
 
   const tickChanger = (dataIndex: number) => {
     let tick: string = ''
-    if (dataIndex === -1.1) {
+    if (dataIndex === -1.3) {
       tick = 'Loss'
-    } else if (dataIndex === 1.1) {
+    } else if (dataIndex === 1.3) {
       return 'Profit'
     } else if (dataIndex === 0) {
       return '0'
@@ -105,7 +147,13 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
             <stop offset="100%" stopColor="#1BA159" stopOpacity={0}/>
           </linearGradient>
         </defs>
-        <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
+        <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
+        <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' dot={false} strokeOpacity={0.2}/>
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 2, y: -1.3 }, { x: 2, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 4, y: -1.3 }, { x: 4, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 6, y: -1.3 }, { x: 6, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 8, y: -1.3 }, { x: 8, y: 1.3 }]} />
+        <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
           allowDataOverflow
@@ -137,14 +185,14 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
 
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={4} x2={5} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited loss', className: 'short-strangle-area-text' }} />
-        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 2, y: 1 }]} >
+        <ReferenceArea x1={6} x2={6} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited loss', className: 'short-strangle-area-text' }} />
+        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 4, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
-        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5 }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={3} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5 }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={6} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={8} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
       </ComposedChart>
     </ResponsiveContainer>
   )

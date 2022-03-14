@@ -213,21 +213,21 @@
 .short-strangle-area-text {
   fill: #F6029C;
   font-size: 0.8rem;
-  transform: rotate(18deg) translateY(-370px);
+  transform: rotate(12deg) translate(430px,-300px);
   @media (max-width: 1440px) {
-    transform: rotate(26deg) translateY(-360px);
+    transform: rotate(18deg) translate(290px,-320px);
 
     @media (max-width: 1024px) {
-        transform: rotate(29deg) translateY(-370px);
+      transform: rotate(20deg) translate(250px,-300px);
 
         @media (max-width: 768px) {
-            transform: rotate(33deg) translateY(-370px);
+          transform: rotate(30deg) translate(150px,-280px);
 
             @media (max-width: 425px) {
-                transform: rotate(56deg) translateY(-290px);
+                transform: rotate(59deg) translate(70px,-310px);
 
                 @media (max-width: 375px) {
-                    transform: rotate(62deg) translateY(-300px);
+                    transform: rotate(62deg) translate(70px,-290px);
                 }
             }
         }

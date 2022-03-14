@@ -11,7 +11,8 @@ import {
   Label,
   ReferenceDot,
   Line,
-  ReferenceArea
+  ReferenceArea,
+  Tooltip
 } from 'recharts'
 import { useMobile } from '../../../Utils/hooks'
 
@@ -36,15 +37,27 @@ export type TProps = {
 const data = [
   {
     data1: -1,
-    price: 0.7
+    price: 0.25
+  },
+  {
+    data1: -1,
+    price: 0.5
   }, 
   {
     data1: -1,
     price: 1
   },
   {
+    data1: -0.5,
+    price: 0.5
+  },
+  {
     data1: 0,
     data2: 0,
+    price: 2
+  },
+  {
+    data2: 0.5,
     price: 2
   },
   {
@@ -53,8 +66,33 @@ const data = [
   },
   {
     data2: 1,
+    price: 3.5
+  },
+  {
+    data2: 1,
     price: 4
   }]
+
+const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) => {
+
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        { (<div
+          className="custom-tooltip__container"
+          style={{ backgroundColor: payload[1].color }}
+        >
+          <p className="label">
+            {payload[1].value > 0 ? 'Profit' : 'Loss'}
+          </p>
+        </div>)
+        }
+      </div>
+    )
+  }
+
+  return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
+}
 
 const CoveredCollarChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
@@ -63,9 +101,9 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
 
   const tickChanger = (dataIndex: number) => {
     let tick: string = ''
-    if (dataIndex === -1.1) {
+    if (dataIndex === -1.3) {
       tick = 'Loss'
-    } else if (dataIndex === 1.1) {
+    } else if (dataIndex === 1.3) {
       return 'Profit'
     } else if (dataIndex === 0) {
       return '0'
@@ -100,7 +138,11 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
             <stop offset="100%" stopColor="#1BA159" stopOpacity={0}/>
           </linearGradient>
         </defs>
-        <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
+        <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
+        <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' dot={false} strokeOpacity={0.2}/>
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 2, y: -1.3 }, { x: 2, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 6, y: -1.3 }, { x: 6, y: 1.3 }]} />
+        <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
           allowDataOverflow
@@ -133,13 +175,12 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={0} x2={1} y1={0} y2={-1} strokeDasharray="3 3" fill={'transparent'} label={{ value: 'Max loss', className: 'protactive-collar-area-text' }} />
-        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 3, y: 1 }]} >
+        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 6, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
-          {/* <Label color={'#F6029C'} value={'Covered call'} x={160} y={240} rotate={'-15'} content={<ReferenceLabel />}/> */}
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Put strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Break-event point', fill: 'white', fontSize: '9', position: 'top' }}/>
-        <ReferenceDot r={3} fill="white" stroke="none" x={3} y={0} label={{ value: 'Call strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Put strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: 'Break-event point', fill: 'white', fontSize: '9', position: 'top' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={6} y={0} label={{ value: 'Call strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
       </ComposedChart>
     </ResponsiveContainer>
   )

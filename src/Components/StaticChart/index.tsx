@@ -139,7 +139,7 @@ const StaticChart: React.FC<Props> = (props: Props) => {
         />
       </>
     )
-  }, [type])
+  }, [type, domainAxisY])
 
   return (
     <div className={`CustomChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>

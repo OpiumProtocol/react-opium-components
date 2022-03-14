@@ -35,11 +35,11 @@ export const StaticChartStory = () => {
         theme={theme}
         height={'256px'}
         width={'100%'}
-        chartData2={{ tooltipTitle: 'Pool', tooltipSuffix: '%' }}
-        type='Short strangle'
-        chartData1={{ tooltipTitle: 'Short position', tooltipSuffix: '%' }}
+        chartData2={{ tooltipTitle: 'Profit', tooltipSuffix: '%' }}
+        type='Covered collar'
+        chartData1={{ tooltipTitle: 'Loss', tooltipSuffix: '%' }}
         domainY={[-1, 1]}
-        increaseDomainY={0.1}
+        increaseDomainY={0.3}
       />
     </div>
   )
