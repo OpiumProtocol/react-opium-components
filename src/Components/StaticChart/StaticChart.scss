@@ -188,7 +188,7 @@
 .long-strangle-area-text {
   fill: #1BA159;
   font-size: 0.8rem;
-  transform: rotate(-16deg) translate(55rem, 18rem);
+  transform: rotate(-15deg) translate(58rem, 16rem);
   @media (max-width: 1440px) {
     transform: rotate(-23deg) translate(41em, 16rem);
 
@@ -238,5 +238,8 @@
 .protactive-collar-area-text {
   fill: #F6029C;
   font-size: 0.8rem;
-  transform: translateY(70px);
+  transform: translate(6rem, 4rem);
+  @media (max-width: 425px) {
+    transform: translate(2rem, 4rem);
+  }
 }

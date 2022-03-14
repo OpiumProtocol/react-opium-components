@@ -40,8 +40,40 @@ const data = [{
   price: 0
 },
 {
+  data1: -0.9,
+  price: 0.1
+},
+{
+  data1: -0.8,
+  price: 0.2
+},
+{
+  data1: -0.7,
+  price: 0.3
+},
+{
+  data1: -0.6,
+  price: 0.4
+},
+{
   data1: -0.5,
   price: 0.5
+},
+{
+  data1: -0.4,
+  price: 0.6
+},
+{
+  data1: -0.3,
+  price: 0.7
+},
+{
+  data1: -0.2,
+  price: 0.8
+},
+{
+  data1: -0.1,
+  price: 0.9
 },
 {
   data1: 0,
@@ -49,8 +81,40 @@ const data = [{
   price: 1
 },
 {
+  data2: 0.1,
+  price: 1.1
+},
+{
+  data2: 0.2,
+  price: 1.1
+},
+{
+  data2: 0.3,
+  price: 1.1
+},
+{
+  data2: 0.4,
+  price: 1.1
+},
+{
   data2: 0.5,
-  price: 1.25
+  price: 1.1
+},
+{
+  data2: 0.6,
+  price: 1.2
+},
+{
+  data2: 0.7,
+  price: 1.3
+},
+{
+  data2: 0.8,
+  price: 1.4
+},
+{
+  data2: 0.9,
+  price: 1.5
 },
 {
   data2: 1,
@@ -62,11 +126,79 @@ const data = [{
 },
 {
   data2: 1,
+  price: 2.1
+},
+{
+  data2: 1,
+  price: 2.2
+},
+{
+  data2: 1,
+  price: 2.3
+},
+{
+  data2: 1,
+  price: 2.4
+},
+{
+  data2: 1,
+  price: 2.5
+},
+{
+  data2: 1,
+  price: 2.6
+},
+{
+  data2: 1,
+  price: 2.7
+},
+{
+  data2: 1,
+  price: 2.8
+},
+{
+  data2: 1,
+  price: 2.9
+},
+{
+  data2: 1,
   price: 3
+},
+{
+  data2: 0.9,
+  price: 2.9
+},
+{
+  data2: 0.8,
+  price: 2.8
+},
+{
+  data2: 0.7,
+  price: 2.7
+},
+{
+  data2: 0.6,
+  price: 2.6
 },
 {
   data2: 0.5,
   price: 2.5
+},
+{
+  data2: 0.4,
+  price: 2.7
+},
+{
+  data2: 0.3,
+  price: 2.9
+},
+{
+  data2: 0.2,
+  price: 3.2
+},
+{
+  data2: 0.1,
+  price: 3.4
 },
 {
   data2: 0,
@@ -74,8 +206,40 @@ const data = [{
   price: 3.5
 },
 {
+  data1: -0.1,
+  price: 3.1
+},
+{
+  data1: -0.2,
+  price: 3.2
+},
+{
+  data1: -0.3,
+  price: 3.3
+},
+{
+  data1: -0.4,
+  price: 3.4
+},
+{
   data1: -0.5,
   price: 3.5
+},
+{
+  data1: -0.6,
+  price: 3.6
+},
+{
+  data1: -0.7,
+  price: 3.7
+},
+{
+  data1: -0.8,
+  price: 3.8
+},
+{
+  data1: -0.9,
+  price: 3.9
 },
 {
   data1: -1,
@@ -149,10 +313,10 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' dot={false} strokeOpacity={0.2}/>
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 2, y: -1.3 }, { x: 2, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 4, y: -1.3 }, { x: 4, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 6, y: -1.3 }, { x: 6, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 8, y: -1.3 }, { x: 8, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 31, y: -1.3 }, { x: 31, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 41, y: -1.3 }, { x: 41, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
@@ -186,13 +350,13 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={6} x2={6} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited loss', className: 'short-strangle-area-text' }} />
-        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 4, y: 1 }]} >
+        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
-        <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5 }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={6} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={8} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={20} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5 }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={31} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={41} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
       </ComposedChart>
     </ResponsiveContainer>
   )

@@ -37,41 +37,97 @@ export type TProps = {
 const data = [
   {
     data1: -1,
-    price: 0.25
+    price: 0.1
+  },
+  {
+    data1: -1,
+    price: 0.2
+  },
+  {
+    data1: -1,
+    price: 0.3
+  },
+  {
+    data1: -1,
+    price: 0.4
   },
   {
     data1: -1,
     price: 0.5
   }, 
+
   {
     data1: -1,
     price: 1
   },
   {
-    data1: -0.5,
-    price: 0.5
+    data1: -0.8,
+    price: 1.25
+  },
+  {
+    data1: -0.6,
+    price: 1.5
+  },
+  {
+    data1: -0.4,
+    price: 1.75
+  },
+  {
+    data1: -0.2,
+    price: 2
   },
   {
     data1: 0,
     data2: 0,
     price: 2
   },
+
   {
-    data2: 0.5,
-    price: 2
+    data2: 0.2,
+    price: 2.2
+  },
+  {
+    data2: 0.4,
+    price: 2.4
+  },
+  {
+    data2: 0.6,
+    price: 2.6
+  },
+  {
+    data2: 0.8,
+    price: 2.8
   },
   {
     data2: 1,
     price: 3
   },
+
   {
     data2: 1,
     price: 3.5
   },
   {
     data2: 1,
+    price: 3.6
+  },
+  {
+    data2: 1,
+    price: 3.7
+  },
+  {
+    data2: 1,
+    price: 3.8
+  },
+  {
+    data2: 1,
+    price: 3.9
+  },
+  {
+    data2: 1,
     price: 4
   }]
+
 
 const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) => {
 
@@ -140,8 +196,8 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' dot={false} strokeOpacity={0.2}/>
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 2, y: -1.3 }, { x: 2, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 6, y: -1.3 }, { x: 6, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 5, y: -1.3 }, { x: 5, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 15, y: -1.3 }, { x: 15, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
@@ -175,12 +231,12 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={0} x2={1} y1={0} y2={-1} strokeDasharray="3 3" fill={'transparent'} label={{ value: 'Max loss', className: 'protactive-collar-area-text' }} />
-        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 6, y: 1 }]} >
+        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 15, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Put strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: 'Break-event point', fill: 'white', fontSize: '9', position: 'top' }}/>
-        <ReferenceDot r={3} fill="white" stroke="none" x={6} y={0} label={{ value: 'Call strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={5} y={0} label={{ value: 'Put strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-event point', fill: 'white', fontSize: '9', position: 'top' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={15} y={0} label={{ value: 'Call strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
       </ComposedChart>
     </ResponsiveContainer>
   )
