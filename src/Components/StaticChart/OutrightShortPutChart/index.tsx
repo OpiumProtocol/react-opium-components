@@ -51,7 +51,7 @@ const data = [{
   price: 3
 }]
 
-const CoveredCallChart: FC<TProps> = (props: TProps) => {
+const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -139,4 +139,4 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
   )
 }
 
-export default CoveredCallChart
+export default OutrightShortPutChart

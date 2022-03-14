@@ -158,3 +158,40 @@
     }
   }
 }
+
+.covered-area-text{
+  fill: #F6029C;
+  font-size: 0.8rem;
+  transform: rotate(-10deg) translateY(80px);
+  @media (max-width: 1024px) {
+    transform: rotate(-15deg) translateY(60px);
+
+    @media (max-width: 768px) {
+      transform: rotate(-22deg) translateY(60px);
+    }
+  }
+}
+
+.long-strangle-area-text {
+  fill: #1BA159;
+  font-size: 0.8rem;
+  transform: rotate(-15deg) translate(50rem, 14rem);
+  @media (max-width: 1024px) {
+    transform: rotate(-20deg) translate(38rem, 15rem);
+  }
+}
+
+.short-strangle-area-text {
+  fill: #F6029C;
+  font-size: 0.8rem;
+  transform: rotate(26deg) translateY(-390px);
+  @media (max-width: 1024px) {
+    transform: rotate(35deg) translateY(-390px);
+  }
+}
+
+.protactive-collar-area-text {
+  fill: #F6029C;
+  font-size: 0.8rem;
+  transform: translateY(70px);
+}

@@ -7,12 +7,12 @@ import {
   Area,
   ComposedChart,
   ResponsiveContainer,
-  Line,
   ReferenceLine,
   Label,
   ReferenceDot,
-  Scatter
+  ReferenceArea
 } from 'recharts'
+import { useMobile } from '../../../Utils/hooks'
 
 export type ChartData = {
     tooltipTitle: string
@@ -58,6 +58,7 @@ const data = [
 ]
 
 const LongStrangleChart: FC<TProps> = (props: TProps) => {
+  const { isMobile } = useMobile()
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
 
@@ -132,9 +133,10 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
 
           stroke={'#1BA159'}
         />}
+        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited Profit', className: 'long-strangle-area-text' }} />
         <ReferenceLine stroke="#F6029C" strokeDasharray="3 3" segment={[{ x: 0, y: -1 }, { x: 2, y: -1 }]} >
-          <Label color={'#F6029C'} value={'Max loss'} x={200} y={180} content={<ReferenceLabel />}/>
-          <Label color={'#1BA159'} value={'UnlimitedProfit'} x={600} y={370} rotate={-21} content={<ReferenceLabel />}/>
+          <Label color={'#F6029C'} value={'Max loss'} x={isMobile ? 100 : 200} y={180} content={<ReferenceLabel />}/>
+          {/* <Label color={'#1BA159'} value={'UnlimitedProfit'} x={600} y={370} rotate={-21} content={<ReferenceLabel />}/> */}
         </ReferenceLine>
         <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Break-Event point downside', fill: 'white', fontSize: '8', position: 'top' }}/>
         <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Both Put and Call Strike price', fill: 'white', fontSize: '8', position: 'bottom' }}/> 

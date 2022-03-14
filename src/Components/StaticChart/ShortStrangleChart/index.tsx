@@ -11,7 +11,8 @@ import {
   ReferenceLine,
   Label,
   ReferenceDot,
-  Scatter
+  Scatter,
+  ReferenceArea
 } from 'recharts'
 
 export type ChartData = {
@@ -114,9 +115,7 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
           scale={logScaleY ? scale : 'auto'} 
           domain={domainAxisY} 
           tick={{ dx: -20 }} 
-          // tickCount={3}
           tickFormatter={tickChanger}
-          // ticks={['Loss', '0', 'Profit']}
           padding={{ bottom: increaseDomainY ? 1 : 0, top: increaseDomainY ? 1 : 0 }}/>
         {chartData1 && <Area
           type="linear"
@@ -136,18 +135,17 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
 
           stroke={'#1BA159'}
         />}
+        <ReferenceArea x1={4} x2={5} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited loss', className: 'short-strangle-area-text' }} />
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 2, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        {/* <Label color={'#F6029C'} value={'Unlimited loss'} x={300} y={20} content={<ReferenceLabel />}/> */}
-        <ReferenceLine stroke="#F6029C" strokeDasharray="0" strokeWidth={2} segment={[{ x: 0, y: -1 }, { x: 1, y: 0 }]} />
         <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
         <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Short Put Strike price', fill: 'white', fontSize: '8', position: 'bottom' }}/> 
         <ReferenceDot r={3} fill="white" stroke="none" x={3} y={0} label={{ value: 'Short Call Strike price', fill: 'white', fontSize: '8', position: 'bottom' }}/> 
         <ReferenceDot r={3} fill="white" stroke="none" x={4} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
-        <ReferenceLine stroke="#F6029C" strokeDasharray="0" strokeWidth={2} segment={[{ x: 4, y: 0 }, { x: 5, y: -1 }]}>
+        {/* <ReferenceLine stroke="#F6029C" strokeDasharray="0" strokeWidth={2} segment={[{ x: 4, y: 0 }, { x: 5, y: -1 }]}>
           <Label color={'#F6029C'} value={'Unlimited loss'} x={750} y={-200} rotate={23} content={<ReferenceLabel />}/>
-        </ReferenceLine>
+        </ReferenceLine> */}
       </ComposedChart>
     </ResponsiveContainer>
   )

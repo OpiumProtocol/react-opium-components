@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { FC, useMemo, useState } from 'react'
 import numeral from 'numeral'
 import CoveredCallChart from './CoveredCallChart'
 import ShortStrangleChart from './ShortStrangleChart'
 import LongStrangleChart from './LongStrangleChart'
+import CoveredCollarChart from './CoveredCollarChart'
+import OutrightShortPutChart from './OutrightShortPutChart'
 
 import { scaleLog } from 'd3-scale'
 import { generateRenderProps } from '../../Utils/helpers'
@@ -10,6 +12,23 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import './StaticChart.scss'
 import { useDomainY } from '../../Utils/hooks'
+
+type TArticlesComponents = {
+  [key: string]: React.FC<TPropsChart>
+}
+
+type TPropsChart = {
+  /** Define theme */
+  theme?: ETheme
+  /** Set class selectors */
+  className?: string
+  domainAxisY: any
+  increaseDomainY: number
+  chartData1: ChartData,
+  chartData2: ChartData,
+  logScaleY: boolean,
+  scale: any
+}
 
 export type ChartData = {
   tooltipTitle: string
@@ -92,116 +111,39 @@ const StaticChart: React.FC<Props> = (props: Props) => {
 
   const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
-  // const CoveredCall = () => {
-  //   return (
-  //     <ResponsiveContainer width='100%' height="100%">
-  //       <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
-  //         <defs>
-  //           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-  //             <stop offset="0%" stopColor="#F6029C" stopOpacity={0.15}/>
-  //             <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
-  //           </linearGradient>
-  //           <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-  //             <stop offset="0%" stopColor="#1BA159" stopOpacity={0.15}/>
-  //             <stop offset="100%" stopColor="#1BA159" stopOpacity={0}/>
-  //           </linearGradient>
-  //         </defs>
-  //         <CartesianGrid stroke={theme === ETheme.DARK ? 'rgba(255, 255, 255, 0.1)' : 'rgba(10, 10, 30, 0.1)'} />
-  //         <XAxis
-  //           label={labelX}
-  //           height={50}
-  //           allowDataOverflow
-  //           domain={domainX}
-  //           tick={false}
-  //         />
-  //         <YAxis
-  //           axisLine 
-  //           label={labelY} 
-  //           scale={logScaleY ? scale : 'auto'} 
-  //           domain={domainAxisY} 
-  //           tick={{ dx: -20 }} 
-  //           // tickCount={3}
-  //           tickFormatter={tickChanger}
-  //           // ticks={['Loss', '0', 'Profit']}
-  //           padding={{ bottom: increaseDomainY ? 1 : 0, top: increaseDomainY ? 1 : 0 }}/>
-  //         {chartData1 && <Area
-  //           type="linear"
-  //           dataKey="data1"
-  //           strokeWidth={2}
-  //           fillOpacity={1}
-  //           fill="url(#colorUv)"
-
-  //           stroke={'#F6029C'}
-  //         />}
-  //         {chartData2 && <Area
-  //           type="linear"
-  //           dataKey="data2"
-  //           strokeWidth={2}
-  //           fillOpacity={1}
-  //           fill="url(#colorPv)"
-
-  //           stroke={'#1BA159'}
-  //         />}
-  //         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 2, y: 1 }]} >
-  //           <Label color={'#1BA159'} value={'Max Profit'} x={300} y={20} content={<ReferenceLabel />}/>
-  //         </ReferenceLine>
-  //         <ReferenceLine stroke="#F6029C" strokeDasharray="0" strokeWidth={2} segment={[{ x: 0, y: -1 }, { x: 1, y: 0 }]} >
-  //           <Label color={'#F6029C'} value={'Covered call'} x={160} y={240} rotate={'-15'} content={<ReferenceLabel />}/>
-  //           <Label color={'#ffffff'} value={'Strike price'} x={570} y={140} content={<ReferenceLabel />}/>
-  //         </ReferenceLine>
-  //         <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} /> 
-  //         <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} /> 
-  //       </ComposedChart>
-  //     </ResponsiveContainer>
-  //   )
-  // }
-
-
-  const CoveredCall = () => {
-    return (
-      <CoveredCallChart 
-        domainAxisY={domainAxisY}
-        increaseDomainY={increaseDomainY}
-        chartData1={chartData1}
-        chartData2={chartData2}
-        logScaleY={logScaleY}
-        scale={scale}
-      /> 
-    )
+  const camel2title = (camelCase: string) => {
+    return camelCase.split(' ').map((el: string) => el.replace(/^./, (match) => match.toUpperCase())).join('') + 'Chart'
   }
 
-  const ShortStrangle = () => {
-    return (
-      <ShortStrangleChart 
-        domainAxisY={domainAxisY}
-        increaseDomainY={increaseDomainY}
-        chartData1={chartData1}
-        chartData2={chartData2}
-        logScaleY={logScaleY}
-        scale={scale}
-      /> 
-    )
-  }
+  const content = useMemo(() => {
+    const components: TArticlesComponents = {
+      CoveredCallChart,
+      ShortStrangleChart,
+      LongStrangleChart,
+      CoveredCollarChart,
+      OutrightShortPutChart
+    }
 
-  const LongStrangle = () => {
+    const componentName = camel2title(type)
+    const DynamicComponent = components[componentName]
+
     return (
-      <LongStrangleChart 
-        domainAxisY={domainAxisY}
-        increaseDomainY={increaseDomainY}
-        chartData1={chartData1}
-        chartData2={chartData2}
-        logScaleY={logScaleY}
-        scale={scale}
-      /> 
+      <>
+        <DynamicComponent
+          domainAxisY={domainAxisY}
+          increaseDomainY={increaseDomainY}
+          chartData1={chartData1}
+          chartData2={chartData2}
+          logScaleY={logScaleY}
+          scale={scale}
+        />
+      </>
     )
-  }
+  }, [type])
 
   return (
     <div className={`CustomChart color-scheme-${theme}`} style={{ width: width ? width : '100%', height: height ? height : '500px' }}>
-      {(type === 'Covered call' || type === 'Short put') 
-        ? CoveredCall()
-        : type === 'Long strangle' ? LongStrangle() : type === 'Short strangle' && ShortStrangle() }
-
+      {content}
     </div>
   )
 }

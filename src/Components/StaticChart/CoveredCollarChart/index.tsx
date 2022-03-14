@@ -33,25 +33,30 @@ export type TProps = {
   scale: any
 }
 
-const data = [{
-  data1: -1,
-  price: 0
-},
-{
-  data1: 0,
-  data2: 0,
-  price: 1
-},
-{
-  data2: 1,
-  price: 2
-},
-{
-  data2: 1,
-  price: 3
-}]
+const data = [
+  {
+    data1: -1,
+    price: 0.7
+  }, 
+  {
+    data1: -1,
+    price: 1
+  },
+  {
+    data1: 0,
+    data2: 0,
+    price: 2
+  },
+  {
+    data2: 1,
+    price: 3
+  },
+  {
+    data2: 1,
+    price: 4
+  }]
 
-const CoveredCallChart: FC<TProps> = (props: TProps) => {
+const CoveredCollarChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -127,16 +132,17 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
 
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Covered call', className: 'covered-area-text' }} />
-        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 2, y: 1 }]} >
-          <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
+        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} strokeDasharray="3 3" fill={'transparent'} label={{ value: 'Max loss', className: 'protactive-collar-area-text' }} />
+        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 3, y: 1 }]} >
+          <Label color={'#1BA159'} value={'Max profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
           {/* <Label color={'#F6029C'} value={'Covered call'} x={160} y={240} rotate={'-15'} content={<ReferenceLabel />}/> */}
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '9', position: 'top' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={1} y={0} label={{ value: 'Put strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={2} y={0} label={{ value: 'Break-event point', fill: 'white', fontSize: '9', position: 'top' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={3} y={0} label={{ value: 'Call strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
       </ComposedChart>
     </ResponsiveContainer>
   )
 }
 
-export default CoveredCallChart
+export default CoveredCollarChart
