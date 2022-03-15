@@ -350,13 +350,14 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={6} x2={6} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited loss', className: 'short-strangle-area-text' }} />
+        <ReferenceArea x1={41} x2={50} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', fill: 'white', fontSize: '8', position: 'top' }}/>
         <ReferenceDot r={3} fill="white" stroke="none" x={20} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5 }}/> 
         <ReferenceDot r={3} fill="white" stroke="none" x={31} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={41} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '8', position: 'top' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={41} y={0} label={{ value: 'Break-Even point', fill: 'white', fontSize: '8', position: 'top' }}/> 
       </ComposedChart>
     </ResponsiveContainer>
   )

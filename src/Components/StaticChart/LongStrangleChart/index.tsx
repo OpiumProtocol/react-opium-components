@@ -307,12 +307,13 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited Profit', className: 'long-strangle-area-text' }} />
+        <ReferenceArea x1={34} x2={39} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceLine stroke="#F6029C" strokeDasharray="3 3" segment={[{ x: 0, y: -1 }, { x: 20, y: -1 }]} >
           <Label color={'#F6029C'} value={'Max loss'} x={isMobile ? 100 : 200} y={180} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: `${isMobile ? 'Break-Event' : 'Break-Event point downside'}`, fill: 'white', fontSize: '8', position: 'top' }}/>
+        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: `${isMobile ? 'Break-Even' : 'Break-Even point downside'}`, fill: 'white', fontSize: '8', position: 'top' }}/>
         <ReferenceDot r={3} fill="white" stroke="none" x={20} y={0} label={{ value: 'Both Put and Call Strike price', fill: 'white', fontSize: '8', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={30} y={0} label={{ value: `${isMobile ? 'Break-Event' : 'Break-Event point upside'}`, fill: 'white', fontSize: '8', position: 'top' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={30} y={0} label={{ value: `${isMobile ? 'Break-Even' : 'Break-Even point upside'}`, fill: 'white', fontSize: '8', position: 'top' }}/> 
       </ComposedChart>
     </ResponsiveContainer>
   )

@@ -243,3 +243,12 @@
     transform: translate(2rem, 4rem);
   }
 }
+
+.axis-text {
+  font-weight: normal;
+  fill: #fff;
+  font-size: 12px;
+  @media (max-width: 425px) {
+    font-size: 8px;
+  }
+}
