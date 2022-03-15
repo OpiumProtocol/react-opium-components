@@ -1,0 +1,245 @@
+@import '../../Styles/index.scss';
+
+.CustomChart {
+
+  .custom-tooltip {
+    &__container {
+      border-radius: 10px;
+    }
+    .label {
+      font-family: "Montserrat", sans-serif;
+      margin: 4px 0;
+      padding: 3px 8px;
+
+      font-weight: normal;
+      font-size: 10px;
+      line-height: 12px;
+      strong {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+      }
+    }
+  }
+
+  .recharts-layer {
+    .recharts-text {
+      text-anchor: middle;
+      &.recharts-label {
+        tspan {
+          font-weight: bold;
+          fill: $white0;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .recharts-cartesian-axis-tick {
+
+      line {
+        stroke: transparent !important;
+      }
+
+      text {
+        text-anchor: middle;
+        tspan {
+          font-family: "Montserrat", sans-serif;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 14px;
+          fill: $white0;
+        }
+      }
+    }
+  }
+
+  // line on the left and on the bottom of the graph
+  .recharts-cartesian-axis-line {
+    stroke: transparent !important;
+  }
+
+  .recharts-default-tooltip {
+    border: 0 !important;
+    border-radius: 10px;
+    padding: 4px 8px !important;
+  }
+
+  .recharts-active-dot {
+    svg {
+      overflow: visible;
+    }
+  }
+
+  &.color-scheme {
+    &-DARK {
+
+      .recharts-text {
+        text-anchor: middle;
+        &.recharts-label {
+          tspan {
+            fill: $white0;
+          }
+        }
+      }
+
+      .recharts-active-dot {
+        .dot-bg {
+          transition: fill .5s ease;
+          fill: #000;
+        }
+      }
+      .recharts-tooltip-cursor {
+        transition: stroke .5s ease;
+        stroke: rgba(255, 255, 255, 0.5) !important;
+      }
+
+      .custom-tooltip {
+        background-color: $darkblue1;
+        .label {
+          transition: color .5s ease;
+        }
+      }
+
+      .recharts-layer .recharts-cartesian-axis-tick {
+        text {
+          // text on the sides
+          transition: fill .5s ease;
+          text-anchor: middle;
+          fill: $white0 !important;
+          tspan {
+            fill: $white0 !important;
+          };
+        }
+      }
+    }
+    &-LIGHT {
+
+      .recharts-text {
+        text-anchor: middle;
+        &.recharts-label {
+          tspan {
+            fill: $darkblue1;
+          }
+        }
+      }
+
+      .recharts-active-dot {
+        .dot-bg {
+          transition: fill .5s ease;
+          fill: #fff;
+        }
+      }
+
+      .recharts-tooltip-cursor {
+        transition: stroke .5s ease;
+        stroke: rgba(10, 10, 30, 0.5) !important;
+      }
+
+      .custom-tooltip {
+        background-color: $white0;
+        .label {
+          transition: color .5s ease;
+        }
+      }
+
+
+      .recharts-layer .recharts-cartesian-axis-tick {
+        text {
+          transition: fill .5s ease;
+          text-anchor: middle;
+          fill: $darkblue1 !important;
+          tspan {
+            fill: $darkblue1 !important;
+          };
+        }
+      }
+
+    }
+  }
+}
+
+.covered-area-text{
+  fill: #F6029C;
+  font-size: 0.8rem;
+  transform: rotate(-10deg) translateY(80px);
+  @media (max-width: 1440px) {
+    transform: rotate(-18deg) translateY(70px);
+
+    @media (max-width: 1024px) {
+        transform: rotate(-18deg) translateY(70px);
+
+        @media (max-width: 768px) {
+            transform: rotate(-20deg) translate(-50px, 85px);
+
+            @media (max-width: 425px) {
+              transform: rotate(-40deg) translate(-120px, 60px);
+
+                @media (max-width: 375px) {
+                  transform: rotate(-47deg) translate(-135px, 55px);
+                  }
+              }
+          }
+          
+      }
+  }
+}
+
+.long-strangle-area-text {
+  fill: #1BA159;
+  font-size: 0.8rem;
+  transform: rotate(-15deg) translate(58rem, 16rem);
+  @media (max-width: 1440px) {
+    transform: rotate(-23deg) translate(41em, 16rem);
+
+    @media (max-width: 1024px) {
+        transform: rotate(-24deg) translate(37em, 16rem);
+
+        @media (max-width: 768px) {
+            transform: rotate(-28deg) translate(29em, 16rem);
+
+            @media (max-width: 425px) {
+              transform: rotate(-49deg) translate(3rem, 7.5rem);
+
+                @media (max-width: 375px) {
+                    transform: rotate(-56deg) translate(0rem, 5.8rem);
+                }
+            }
+        }
+    }
+}
+}
+
+.short-strangle-area-text {
+  fill: #F6029C;
+  font-size: 0.8rem;
+  transform: rotate(16deg) translate(850px, -320px);
+  @media (max-width: 1440px) {
+    transform: rotate(24deg) translate(580px, -320px);
+
+    @media (max-width: 1024px) {
+      transform: rotate(27deg) translate(540px, -340px);
+
+        @media (max-width: 768px) {
+          transform: rotate(30deg) translate(440px, -290px);
+
+            @media (max-width: 425px) {
+              transform: rotate(53deg) translate(200px, -290px);
+
+                @media (max-width: 375px) {
+                  transform: rotate(60deg) translate(160px, -290px);
+                }
+            }
+        }
+    }
+}
+}
+
+.protactive-collar-area-text {
+  fill: #F6029C;
+  font-size: 0.8rem;
+  transform: translate(6rem, 4rem);
+  @media (max-width: 425px) {
+    transform: translate(2rem, 4rem);
+  }
+}

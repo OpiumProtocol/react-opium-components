@@ -34,6 +34,7 @@ import MultipleLineChart from './Components/MultipleLineChart'
 import Autocomplete from './Components/Autocomplete'
 import NumberField from './Components/NumberField'
 import SearchBox from './Components/SearchBox'
+import StaticChart from './Components/StaticChart'
 import MenuCollapse from './Components/MenuCollapse'
 import SidebarMenu from './Components/SidebarMenu'
 
@@ -91,6 +92,7 @@ export {
   Autocomplete,
   NumberField,
   SearchBox,
+  StaticChart,
   MenuCollapse,
   SidebarMenu,
 }
