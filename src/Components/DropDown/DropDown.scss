@@ -46,6 +46,7 @@
         pointer-events: none;
 
         transition: opacity .4s ease, transform .4s ease;
+        transform: translate(0px, 10px)!important;
 
         &.show {
             opacity: 1;
