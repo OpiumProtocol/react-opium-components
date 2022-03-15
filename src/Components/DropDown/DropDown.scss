@@ -46,7 +46,7 @@
         pointer-events: none;
 
         transition: opacity .4s ease, transform .4s ease;
-        transform: translate(0px, 10px)!important;
+        transform: translate(0px, 4px)!important;
 
         &.show {
             opacity: 1;
@@ -61,17 +61,15 @@
             line-height: 16px;
             text-transform: capitalize;
             position: relative;
-            padding: 5px 35px;
+            padding: 5px 35px 5px 15px;
             img {
-                position: absolute;
-                content: '';
+                position: relative;
                 width: 16px;
                 height: 16px;
-                top: 4px;
                 background: #C4C4C4;
                 border-radius: 50%;
                 margin-right: 8px;
-                top: 0;
+                top: -4px;
               }
         }
     }

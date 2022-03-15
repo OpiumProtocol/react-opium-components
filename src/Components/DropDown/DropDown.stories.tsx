@@ -12,6 +12,7 @@ const data = [
     title: 'Option Call Call Call',
     address: '0x1111111111111111111111111111111111111111',
     ticker: 'OPT-C1',
+    image: 'https://static.opium.finance/images/tokens/weth.png'
   },
   {
     id: 'SYNTH_V5',
