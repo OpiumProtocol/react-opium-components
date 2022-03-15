@@ -1,0 +1,114 @@
+@import '../../Styles/constants.scss';
+@import '../../Styles/index.scss';
+
+.MenuAccordion__block {
+    background: transparent;
+    width: 100%;
+
+    .MenuAccordion__card {
+        background-color: transparent;
+        font-family: "Montserrat", sans-serif;
+        border: none;
+        padding-bottom: 1.5rem;
+
+        .list-group-item {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            .nav-link {
+                background-color: transparent;
+                border-bottom: none;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 16px;
+                color: #999BBC;
+                padding-left: 0;
+                transition: color .25s linear;
+                cursor: pointer;
+
+                &-DARK {
+                    &.active {
+                        color: #FFFFFF;
+                        font-weight: 700;
+                    }
+                    &:hover {
+                        color: #FFFFFF;
+                        font-weight: 700;
+                    }
+                }
+    
+                &-LIGHT {
+                    &.active {
+                        color: #000;
+                        font-weight: 700;
+                    }
+                    &:hover {
+                        color: #000;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .MenuAccordion__btn {
+            border: none !important;
+            color: #999BBC;
+            text-transform: capitalize;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            padding-left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            transition: color .25s linear;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-decoration: none;
+        }
+
+        .MenuAccordion__title {
+
+            &-DARK {
+                color: #FFFFFF;
+                margin-bottom: 1rem;
+                font-weight: bold;
+            }
+
+            &-LIGHT {
+                color: #000;
+                margin-bottom: 1rem;
+                font-weight: bold;
+            }
+        }
+
+        .MenuAccordion__collapse-list {
+            font-style: normal;
+            font-weight: normal;
+            line-height: 16px;
+            color: #999BBC;
+
+            .list-group-item {
+                padding-left: 10px;
+
+                .nav-link {
+                    background-color: transparent;
+                    border-bottom: none;
+                    font-size: 12px;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}

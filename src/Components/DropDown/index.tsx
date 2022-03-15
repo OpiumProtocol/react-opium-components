@@ -15,7 +15,8 @@ export type Props = {
   onSelect?: (eventKey: any, event: BaseSyntheticEvent) => any,
   arrayNumbers?: boolean
   characters?: number
-  value?: string | number
+  value?: string | number,
+  disabled?: boolean
 }
 
 export type OptionsData = {
@@ -31,11 +32,12 @@ const defaultProps: Props = {
   items: [],
   onSelect: (eventKey: any, event: BaseSyntheticEvent) => { },
   arrayNumbers: false,
-  characters: 30
+  characters: 30,
+  disabled: false
 }
 
 // @ts-ignore
-const CustomToggle = React.forwardRef(({ children, onClick }: {children: any, onClick: (e: any) => void}, ref) => (
+const CustomToggle = React.forwardRef(({ children, disable, onClick }: {children: any, disable: boolean, onClick: (e: any) => void}, ref) => ( 
   // @ts-ignore
   <button
     // @ts-ignore
@@ -44,14 +46,15 @@ const CustomToggle = React.forwardRef(({ children, onClick }: {children: any, on
       e.preventDefault()
       onClick(e)
     }}
+    disabled={disable}
   >
     <div className="DropDown__label">
       {children}
     </div>
 
-    <svg className="DropDown__arrow" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {!disable && (<svg className="DropDown__arrow" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6 6L0 0L12 8.80993e-07L6 6Z" fill="#999BBC"/>
-    </svg>
+    </svg>) }
   </button>
 ))
 
@@ -70,7 +73,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
     onSelect,
     arrayNumbers,
     characters,
-    value
+    value,
+    disabled
   } = renderProps
   
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
@@ -160,7 +164,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
   
   return (
     <Dropdown className={`DropDown ${className} color-scheme-${theme}`}>
-      <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
+      <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle" disable={disabled}>
         { value || arrayNumbers ? title : cutString(title)}
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>

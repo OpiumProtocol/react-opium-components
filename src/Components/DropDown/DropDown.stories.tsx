@@ -8,40 +8,34 @@ import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 const data = [
   {
-    id: 'SYNTH_OPTION_CALL_V1',
+    id: 'SYNTH_V1',
     title: 'Option Call Call Call',
-    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
+    address: '0x1111111111111111111111111111111111111111',
     ticker: 'OPT-C1',
   },
   {
-    id: 'SYNTH_OPTION_PUT_V1',
+    id: 'SYNTH_V5',
     title: 'Option Put',
-    address: '0xb9D953f961Dbb7CC8E6ED79C3cca19fD7DA92204',
+    address: '0x1111111111111111111111111111111111111111',
     ticker: 'OPT-P',
   },
   {
-    id: 'Chainlink ETH/USD',
-    title: 'Chainlink ETH/USD',
-    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
-    decimals: 18,
-  },
-  {
-    id: 'SYNTH_OPTION_CALL_V2',
+    id: 'SYNTH_V2',
     title: 'Option Call3',
-    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
+    address: '0x1111111111111111111111111111111111111111',
     ticker: ' WETH/USD'
   },
   {
-    id: 'SYNTH_OPTION_CALL_V3',
+    id: 'SYNTH_V3',
     title: 'Option Call',
-    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
-    ticker: 'OPT-C3'
+    address: '0x1111111111111111111111111111111111111111',
+    ticker: 'OPT-C123'
   },
   {
-    id: 'SYNTH_OPTION_CALL_V4',
+    id: 'SYNTH_V4',
     title: 'Option Call',
-    address: '0xE3Bd3a8Dd0599e734aAED77Eda6cdCc1c5E7C5DC',
-    ticker: 'OPT-C'
+    address: '0x1111111111111111111111111111111111111111',
+    ticker: 'OPT-C12'
   }
 ]
 
