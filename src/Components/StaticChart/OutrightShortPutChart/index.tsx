@@ -298,10 +298,11 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Covered call', className: 'covered-area-text' }} />
+        <ReferenceArea x1={35} x2={39} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: 'insideTop', className: 'axis-text' }} />
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Event point', fill: 'white', fontSize: '9', position: 'top' }}/> 
+        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', fill: 'white', fontSize: '9', position: 'top' }}/> 
         <ReferenceDot r={3} fill="white" stroke="none" x={20} y={0} label={{ value: 'Strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
       </ComposedChart>
     </ResponsiveContainer>
