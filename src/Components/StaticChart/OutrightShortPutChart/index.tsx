@@ -264,8 +264,10 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
         <CartesianGrid strokeOpacity={0.06} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth={0.5} stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
-        <ReferenceArea x1={7} x2={13} y1={-0.1} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
-        <ReferenceArea x1={18} x2={22} y1={-0.35} y2={0.01} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
+        <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
+        <ReferenceArea x1={7} x2={13} y1={0.015} y2={0.35} fill={'rgba(10, 10, 30, 1)'} />
+        <ReferenceArea x1={18} x2={22} y1={-0.35} y2={-0.015} fill={'rgba(10, 10, 30, 1)'} />
         <ReferenceLine strokeOpacity={1} strokeWidth={0.5} stroke='white' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis

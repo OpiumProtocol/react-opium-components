@@ -189,28 +189,33 @@
   fill: #1BA159;
   font-size: 0.8rem;
   transform: rotate(-15deg) translate(58rem, 16rem);
-  @media (max-width: 1650px) {
-    transform: rotate(-16deg) translate(55rem, 14rem);
+  @media (max-width: 1680px) {
+    transform: rotate(-16deg) translate(58rem, 14rem);
 
-    @media (max-width: 1440px) {
-      transform: rotate(-23deg) translate(41em, 16rem);
-  
-      @media (max-width: 1024px) {
-          transform: rotate(-24deg) translate(37em, 16rem);
-  
-          @media (max-width: 768px) {
-              transform: rotate(-28deg) translate(29em, 16rem);
-  
-              @media (max-width: 425px) {
-                transform: rotate(-49deg) translate(3rem, 7.5rem);
-  
-                  @media (max-width: 375px) {
-                      transform: rotate(-56deg) translate(0rem, 5.8rem);
-                  }
-              }
-          }
-      }
+    @media (max-width: 1536px) {
+      transform: rotate(-18deg) translate(46rem, 13.5rem);
+
+      @media (max-width: 1440px) {
+        transform: rotate(-23deg) translate(44em, 16rem);
+    
+        @media (max-width: 1024px) {
+            transform: rotate(-24deg) translate(37em, 16rem);
+    
+            @media (max-width: 768px) {
+                transform: rotate(-28deg) translate(34em, 15rem);
+    
+                @media (max-width: 425px) {
+                  transform: rotate(-49deg) translate(3rem, 7.5rem);
+    
+                    @media (max-width: 375px) {
+                        transform: rotate(-56deg) translate(0rem, 5.8rem);
+                    }
+                }
+            }
+        }
+     }
   }
+    
 }
 
 }

@@ -273,10 +273,11 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
         <Line dataKey="zeroLine" strokeWidth={0.5} stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine strokeWidth={0.5} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
+        <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 30, y: -1.3 }, { x: 30, y: 1.3 }]} />
-        <ReferenceArea x1={5} x2={15} y1={-0.05} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
-        <ReferenceArea x1={15} x2={25} y1={-0.3} y2={0.05} fill={'rgba(10, 10, 30, 0.7)'} />
-        <ReferenceArea x1={26} x2={34} y1={-0.05} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={5} x2={15} y1={0.015} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={15} x2={25} y1={-0.3} y2={-0.015} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={26} x2={34} y1={0.015} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
