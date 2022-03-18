@@ -165,6 +165,10 @@ const data = [{
   price: 3
 },
 {
+  data2: 1,
+  price: 3
+},
+{
   data2: 0.9,
   price: 2.9
 },
@@ -255,7 +259,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
           className="custom-tooltip__container"
           style={{ backgroundColor: payload[1].color }}
         >
-          <p className="label">
+          <p className="label" style={{ fontSize: '14px' }}>
             {payload[1].value > 0 ? 'Profit' : 'Loss'}
           </p>
         </div>)
@@ -312,11 +316,12 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
           </linearGradient>
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
-        <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' dot={false} strokeOpacity={0.2}/>
+        <Line dataKey="zeroLine" strokeWidth={0.5} stroke='white' dot={false}/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 31, y: -1.3 }, { x: 31, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 41, y: -1.3 }, { x: 41, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 32, y: -1.3 }, { x: 32, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 42, y: -1.3 }, { x: 42, y: 1.3 }]} />
+        <ReferenceLine stroke="white" strokeWidth={0.5} segment={[{ x: 26, y: -1.3 }, { x: 26, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
@@ -354,10 +359,10 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', fill: 'white', fontSize: '8', position: 'top' }}/>
-        <ReferenceDot r={3} fill="white" stroke="none" x={20} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5 }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={31} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fill: 'white', fontSize: '8', position: 'bottom' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={41} y={0} label={{ value: 'Break-Even point', fill: 'white', fontSize: '8', position: 'top' }}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', fontSize: '8', position: 'top', className: 'tspan-color' }}/>
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5, className: 'tspan-color' }}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={32} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fontSize: '8', position: 'bottom', className: 'tspan-color' }}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={42} y={0} label={{ value: 'Break-Even point', fontSize: '8', position: 'top', className: 'tspan-color' }}/> 
       </ComposedChart>
     </ResponsiveContainer>
   )

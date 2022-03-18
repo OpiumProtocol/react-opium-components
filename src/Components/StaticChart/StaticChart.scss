@@ -252,3 +252,17 @@
     font-size: 8px;
   }
 }
+
+.tspan-color {
+  fill: #999BBC;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px;
+
+  tspan {
+    height: 2rem;
+    width: 5rem;
+    background-color: #0A0A1E;
+    z-index: 1;
+  }
+}

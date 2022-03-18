@@ -205,7 +205,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
           className="custom-tooltip__container"
           style={{ backgroundColor: payload[1].color }}
         >
-          <p className="label">
+          <p className="label" style={{ fontSize: '14px' }}>
             {payload[1].value > 0 ? 'Profit' : 'Loss'}
           </p>
         </div>)
@@ -262,9 +262,9 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
           </linearGradient>
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
-        <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' dot={false} strokeOpacity={0.2}/>
+        <Line dataKey="zeroLine" strokeWidth={0.5} stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={1} strokeWidth={0.5} stroke='white' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
@@ -302,8 +302,8 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', fill: 'white', fontSize: '9', position: 'top' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={20} y={0} label={{ value: 'Strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', position: 'top', className: 'tspan-color' }}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={{ value: 'Strike price', fill: 'red', position: 'bottom', className: 'tspan-color' }} />
       </ComposedChart>
     </ResponsiveContainer>
   )
