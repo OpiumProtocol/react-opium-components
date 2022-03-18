@@ -322,6 +322,10 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 32, y: -1.3 }, { x: 32, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 42, y: -1.3 }, { x: 42, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth={0.5} segment={[{ x: 26, y: -1.3 }, { x: 26, y: 1.3 }]} />
+        <ReferenceArea x1={6} x2={14} y1={-0.05} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={15} x2={25} y1={-0.3} y2={0.05} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={27} x2={37} y1={-0.3} y2={0.05} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={38} x2={46} y1={-0.05} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}

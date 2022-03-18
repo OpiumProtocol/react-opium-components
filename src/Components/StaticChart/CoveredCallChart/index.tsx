@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, useRef } from 'react'
 import { ETheme } from '../../../Constants/Types/theme.types'
 import {
   XAxis,
@@ -219,6 +219,23 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
 
 const CoveredCallChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
+  // const dotLabelRef = useRef<SVGCircleElement>(null)
+
+  const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
+    const {
+      cx, cy,
+      fill
+    } = props
+  
+    return (
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle className="dot-bg" cx={cx} cy={cy} r="5" stroke={fill} />
+        <circle cx={cx} cy={cy} r="2" fill={fill} />
+      </svg>
+    )
+  })
+  
+  CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
 
@@ -263,6 +280,8 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth={0.5} stroke='white' dot={false} strokeOpacity={1}/>
+        <ReferenceArea x1={7} x2={13} y1={-0.1} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={18} x2={22} y1={-0.35} y2={0.01} fill={'rgba(10, 10, 30, 0.7)'} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={1} strokeWidth={0.5} stroke='white' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />

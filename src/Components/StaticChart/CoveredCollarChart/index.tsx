@@ -199,6 +199,9 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 5, y: -1.3 }, { x: 5, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 15, y: -1.3 }, { x: 15, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
+        <ReferenceArea x1={8} x2={12} y1={-0.05} y2={0.3} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={3} x2={7} y1={-0.3} y2={0.05} fill={'rgba(10, 10, 30, 0.7)'} />
+        <ReferenceArea x1={13} x2={17} y1={-0.3} y2={0.05} fill={'rgba(10, 10, 30, 0.7)'} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
