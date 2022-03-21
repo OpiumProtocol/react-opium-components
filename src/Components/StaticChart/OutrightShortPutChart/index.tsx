@@ -246,6 +246,32 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
     )
   }
 
+  const ReferenceRectDot = (props: any) => {
+    const { width, color, value, viewBox, top, topY, leftX } = props
+
+    return (
+      <g>
+        <g style={{ zIndex: -1 }}>
+          <rect
+            x={viewBox.x - (leftX ? leftX : 70)}
+            y={viewBox.y - (top ? top : 0)}
+            rx="12"
+            ry="12"
+            width={width ? width : 170}
+            height={24}
+            fill={color ? color : '#0A0A1E'}
+            fillOpacity={0.7}
+          />
+        </g>
+        <g style={{ zIndex: 1000 }}> 
+          <text x={viewBox.x} y={viewBox.y - (topY ? topY : 10)} fill="#999BBC" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {value}
+          </text>
+        </g>
+      </g>
+    )
+  }
+
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
 
   return (
@@ -266,8 +292,8 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
-        <ReferenceArea x1={7} x2={13} y1={0.015} y2={0.35} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={18} x2={22} y1={-0.35} y2={-0.015} fill={'rgba(10, 10, 30, 1)'} />
+        {/* <ReferenceArea x1={7} x2={13} y1={0.015} y2={0.35} shape={<ReferenceRect hasTop/>} />
+        <ReferenceArea x1={18} x2={22} y1={-0.35} y2={-0.015} shape={<ReferenceRect />} /> */}
         <ReferenceLine strokeOpacity={1} strokeWidth={0.5} stroke='white' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
@@ -306,8 +332,10 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', position: 'top', className: 'tspan-color' }}/> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={{ value: 'Strike price', position: 'bottom', className: 'tspan-color' }}/>
+        {/* <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', position: 'top', className: 'tspan-color' }}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={{ value: 'Strike price', position: 'bottom', className: 'tspan-color' }}/> */}
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Strike price'} top={-10} topY={-25} leftX={65} width={130} />} /> 
       </ComposedChart>
     </ResponsiveContainer>
   )

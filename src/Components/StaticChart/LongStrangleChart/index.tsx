@@ -254,6 +254,32 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
     )
   }
 
+  const ReferenceRectDot = (props: any) => {
+    const { width, color, value, viewBox, top, topY, leftX } = props
+
+    return (
+      <g>
+        <g>
+          <rect
+            x={viewBox.x - (leftX ? leftX : 70)}
+            y={viewBox.y - (top ? top : 0)}
+            rx="12"
+            ry="12"
+            width={width ? width : 170}
+            height={24}
+            fill={color ? color : '#0A0A1E'}
+            fillOpacity={0.7}
+          />
+        </g>
+        <g> 
+          <text x={viewBox.x} y={viewBox.y - (topY ? topY : 10)} fill="#999BBC" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {value}
+          </text>
+        </g>
+      </g>
+    )
+  }
+
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
 
   return (
@@ -261,12 +287,12 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
       <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.15}/>
-            <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
+            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.01}/>
+            <stop offset="100%" stopColor="#F6029C" stopOpacity={0.01}/>
           </linearGradient>
           <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1BA159" stopOpacity={0.15}/>
-            <stop offset="100%" stopColor="#1BA159" stopOpacity={0}/>
+            <stop offset="0%" stopColor="#1BA159" stopOpacity={0.01}/>
+            <stop offset="100%" stopColor="#1BA159" stopOpacity={0.01}/>
           </linearGradient>
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
@@ -275,9 +301,6 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine strokeWidth={0.5} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 30, y: -1.3 }, { x: 30, y: 1.3 }]} />
-        <ReferenceArea x1={5} x2={15} y1={0.015} y2={0.3} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={15} x2={25} y1={-0.3} y2={-0.015} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={26} x2={34} y1={0.015} y2={0.3} fill={'rgba(10, 10, 30, 1)'} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
@@ -315,9 +338,9 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="#F6029C" strokeDasharray="3 3" segment={[{ x: 0, y: -1 }, { x: 20, y: -1 }]} >
           <Label color={'#F6029C'} value={'Max loss'} x={isMobile ? 100 : 200} y={190} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: `${isMobile ? 'Break-Even' : 'Break-Even point downside'}`, position: 'top', className: 'tspan-color' }}/>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={{ value: 'Both Put and Call Strike price', position: 'bottom', className: 'tspan-color' }}/> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={30} y={0} label={{ value: `${isMobile ? 'Break-Even' : 'Break-Even point upside'}`, position: 'top', className: 'tspan-color' }}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point downside'}`} top={25} leftX={isMobile ? 45 : 95} width={isMobile ? 90 : 185} />} />
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Both Put and Call Strike price'} top={-10} topY={-25} leftX={95} width={190} />} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={30} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point upside'}`} top={25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
       </ComposedChart>
     </ResponsiveContainer>
   )

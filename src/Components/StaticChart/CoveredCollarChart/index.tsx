@@ -179,18 +179,66 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
     )
   }
 
+  const ReferenceRect = (props: any) => {
+    const { x, y, width, hasTop, color } = props
+
+    return (
+      <g>
+        {
+          <rect
+            x={x}
+            y={y - (hasTop ? 2 : 0)}
+            rx="12"
+            ry="12"
+            width={width ? width : 170}
+            height={24}
+            fill={color ? color : '#0A0A1E'}
+            fillOpacity={0.75}
+            className="chart-shape"
+          />
+        }
+      </g>
+    )
+  }
+
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
+
+  const ReferenceRectDot = (props: any) => {
+    const { width, color, value, viewBox, top, topY, leftX } = props
+
+    return (
+      <g>
+        <g>
+          <rect
+            x={viewBox.x - (leftX ? leftX : 70)}
+            y={viewBox.y - (top ? top : 0)}
+            rx="12"
+            ry="12"
+            width={width ? width : 170}
+            height={24}
+            fill={color ? color : '#0A0A1E'}
+            fillOpacity={0.7}
+          />
+        </g>
+        <g> 
+          <text x={viewBox.x} y={viewBox.y - (topY ? topY : 10)} fill="#999BBC" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {value}
+          </text>
+        </g>
+      </g>
+    )
+  }
 
   return (
     <ResponsiveContainer width='100%' height="100%">
       <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
         <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.15}/>
+          <linearGradient id="colorUv" x1="0" y1="-0.3" x2="1" y2="-1" style={{ zIndex: -1 }} >
+            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.05}/>
             <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
           </linearGradient>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1BA159" stopOpacity={0.15}/>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1" style={{ zIndex: -1 }}>
+            <stop offset="0%" stopColor="#1BA159" stopOpacity={0.05}/>
             <stop offset="100%" stopColor="#1BA159" stopOpacity={0}/>
           </linearGradient>
         </defs>
@@ -200,9 +248,6 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 15, y: -1.3 }, { x: 15, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
-        <ReferenceArea x1={8} x2={12} y1={0.01} y2={0.3} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={3} x2={7} y1={-0.3} y2={-0.01} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={13} x2={17} y1={-0.3} y2={-0.01} fill={'rgba(10, 10, 30, 1)'} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
@@ -232,7 +277,7 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
           strokeWidth={2}
           fillOpacity={1}
           fill="url(#colorPv)"
-
+          style={{ zIndex: -1 }}
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={0} x2={1} y1={0} y2={-1} strokeDasharray="3 3" fill={'transparent'} label={{ value: 'Max loss', className: 'protactive-collar-area-text' }} />
@@ -240,9 +285,9 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 15, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={5} y={0} label={{ value: 'Put strike price', position: 'bottom', className: 'tspan-color' }}/> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: 'Break-even point', position: 'top', className: 'tspan-color' }}/>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={15} y={0} label={{ value: 'Call strike price', position: 'bottom', className: 'tspan-color' }}/>
+        <ReferenceDot r={3} stroke="none" x={5} y={0} label={<ReferenceRectDot value={'Put strike price'} top={-15} width={140} topY={-30}/>}/>
+        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even point'} top={25} width={140} />}/>
+        <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Call strike price'} top={25} width={140} />}/>
       </ComposedChart>
     </ResponsiveContainer>
   )

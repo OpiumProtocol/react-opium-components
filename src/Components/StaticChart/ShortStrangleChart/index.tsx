@@ -300,6 +300,32 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
     )
   }
 
+  const ReferenceRectDot = (props: any) => {
+    const { width, color, value, viewBox, top, topY, leftX } = props
+
+    return (
+      <g>
+        <g>
+          <rect
+            x={viewBox.x - (leftX ? leftX : 70)}
+            y={viewBox.y - (top ? top : 0)}
+            rx="12"
+            ry="12"
+            width={width ? width : 170}
+            height={24}
+            fill={color ? color : '#0A0A1E'}
+            fillOpacity={0.7}
+          />
+        </g>
+        <g> 
+          <text x={viewBox.x} y={viewBox.y - (topY ? topY : 10)} fill="#999BBC" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {value}
+          </text>
+        </g>
+      </g>
+    )
+  }
+
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
 
   return (
@@ -323,10 +349,6 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 42, y: -1.3 }, { x: 42, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth={0.5} segment={[{ x: 26, y: -1.3 }, { x: 26, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
-        <ReferenceArea x1={6} x2={14} y1={0.01} y2={0.3} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={15} x2={25} y1={-0.3} y2={-0.01} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={27} x2={37} y1={-0.3} y2={-0.01} fill={'rgba(10, 10, 30, 1)'} />
-        <ReferenceArea x1={38} x2={46} y1={0.01} y2={0.3} fill={'rgba(10, 10, 30, 1)'} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
@@ -364,10 +386,10 @@ const ShortStrangleChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', fontSize: '8', position: 'top', className: 'tspan-color' }}/>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={{ value: `${isMobile ? 'Short put' : 'Short Put Strike price'}`, fontSize: '8', position: 'bottom', offset: isMobile ? 20 : 5, className: 'tspan-color' }}/> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={32} y={0} label={{ value: `${isMobile ? 'Short call' : 'Short Call Strike price'}`, fontSize: '8', position: 'bottom', className: 'tspan-color' }}/> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={42} y={0} label={{ value: 'Break-Even point', fontSize: '8', position: 'top', className: 'tspan-color' }}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />}/>
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Short put' : 'Short Put Strike price'}`} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={32} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Short call' : 'Short Call Strike price'}`} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={42} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
       </ComposedChart>
     </ResponsiveContainer>
   )
