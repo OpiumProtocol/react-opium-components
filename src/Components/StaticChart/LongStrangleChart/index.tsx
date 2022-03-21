@@ -213,7 +213,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
           className="custom-tooltip__container"
           style={{ backgroundColor: payload[1].color }}
         >
-          <p className="label" style={{ fontSize: '14px' }}>
+          <p className="label" style={{ fontSize: '14px', color: 'white' }}>
             {payload[1].value > 0 ? 'Profit' : 'Loss'}
           </p>
         </div>)
@@ -296,10 +296,10 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
           </linearGradient>
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
-        <Line dataKey="zeroLine" strokeWidth={0.5} stroke='white' dot={false} strokeOpacity={1}/>
+        <Line dataKey="zeroLine" strokeWidth="1" stroke='white' dot={false} strokeOpacity={1}/>
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
+        <ReferenceLine strokeWidth="1" stroke='#FFFFFF' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
-        <ReferenceLine strokeWidth={0.5} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
-        <ReferenceLine stroke="white" strokeWidth="0.5" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 30, y: -1.3 }, { x: 30, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
