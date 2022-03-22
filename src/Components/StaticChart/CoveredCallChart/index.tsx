@@ -308,6 +308,7 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
         <Line dataKey="zeroLine" strokeWidth={1} stroke='white' dot={false} strokeOpacity={1}/>
         <Line dataKey="zeroLine" strokeWidth="1" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine strokeWidth={1} stroke='white' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
