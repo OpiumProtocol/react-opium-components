@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, useRef } from 'react'
 import { ETheme } from '../../../Constants/Types/theme.types'
 import {
   XAxis,
@@ -205,7 +205,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
           className="custom-tooltip__container"
           style={{ backgroundColor: payload[1].color }}
         >
-          <p className="label">
+          <p className="label" style={{ fontSize: '14px', color: 'white' }}>
             {payload[1].value > 0 ? 'Profit' : 'Loss'}
           </p>
         </div>)
@@ -219,6 +219,23 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
 
 const CoveredCallChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
+  // const dotLabelRef = useRef<SVGCircleElement>(null)
+
+  const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
+    const {
+      cx, cy,
+      fill
+    } = props
+  
+    return (
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle className="dot-bg" cx={cx} cy={cy} r="5" stroke={fill} />
+        <circle cx={cx} cy={cy} r="2" fill={fill} />
+      </svg>
+    )
+  })
+  
+  CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
 
@@ -248,6 +265,32 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
 
+  const ReferenceRectDot = (props: any) => {
+    const { width, color, value, viewBox, top, topY, leftX } = props
+
+    return (
+      <g>
+        <g>
+          <rect
+            x={viewBox.x - (leftX ? leftX : 70)}
+            y={viewBox.y - (top ? top : 0)}
+            rx="12"
+            ry="12"
+            width={width ? width : 170}
+            height={24}
+            fill={color ? color : '#0A0A1E'}
+            fillOpacity={0.7}
+          />
+        </g>
+        <g> 
+          <text x={viewBox.x} y={viewBox.y - (topY ? topY : 10)} fill="#999BBC" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {value}
+          </text>
+        </g>
+      </g>
+    )
+  }
+
   return (
     <ResponsiveContainer width='100%' height="100%">
       <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
@@ -261,10 +304,13 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
             <stop offset="100%" stopColor="#1BA159" stopOpacity={0}/>
           </linearGradient>
         </defs>
-        <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
-        <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' dot={false} strokeOpacity={0.2}/>
+        <CartesianGrid strokeOpacity={0.06} strokeDasharray="3 3"/>
+        <Line dataKey="zeroLine" strokeWidth={1} stroke='white' dot={false} strokeOpacity={1}/>
+        <Line dataKey="zeroLine" strokeWidth="1" stroke='white' dot={false} strokeOpacity={1}/>
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
+        <ReferenceLine strokeWidth={1} stroke='white' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
@@ -302,8 +348,8 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="white" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', fill: 'white', fontSize: '9', position: 'top' }}/> 
-        <ReferenceDot r={3} fill="white" stroke="none" x={20} y={0} label={{ value: 'Strike price', fill: 'white', fontSize: '9', position: 'bottom' }}/>
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Strike price'} top={-10} topY={-25} leftX={65} width={130} />} />
       </ComposedChart>
     </ResponsiveContainer>
   )
