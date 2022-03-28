@@ -221,11 +221,10 @@ const CoveredCollarChart: FC<TProps> = (props: TProps) => {
           </linearGradient>
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
-        <Line dataKey="zeroLine" strokeWidth="1" stroke='white' dot={false} strokeOpacity={1}/>
+        <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
-        <Line dataKey="zeroLine" strokeWidth="1" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 5, y: -1.3 }, { x: 5, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 15, y: -1.3 }, { x: 15, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
