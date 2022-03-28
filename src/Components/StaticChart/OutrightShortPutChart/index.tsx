@@ -288,8 +288,7 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
           </linearGradient>
         </defs>
         <CartesianGrid strokeOpacity={0.06} strokeDasharray="3 3"/>
-        <Line dataKey="zeroLine" strokeWidth="1" stroke='white' dot={false} strokeOpacity={1}/>
-        <Line dataKey="zeroLine" strokeWidth="1" stroke='white' dot={false} strokeOpacity={1}/>
+        <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine strokeWidth={1} stroke='white' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
