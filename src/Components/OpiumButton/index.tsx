@@ -15,7 +15,7 @@ export type Props = {
   /** Define theme */
   theme?: ETheme
   /** Set button title */
-  label: string
+  label: string | JSX.Element
   /** Providing a href will render an <a> element, styled as a button. */
   href?: string
   /** If the component is an <a> element, should be link opened in a new tab. */
