@@ -46,7 +46,7 @@
         pointer-events: none;
 
         transition: opacity .4s ease, transform .4s ease;
-        transform: translate(0px, 4px)!important;
+        transform: translate(0px, 10px)!important;
 
         &.show {
             opacity: 1;
@@ -64,7 +64,7 @@
             padding: 5px 35px;
             display: flex;
             align-items: center;
-            
+
             img {
                 position: relative;
                 width: 16px;
