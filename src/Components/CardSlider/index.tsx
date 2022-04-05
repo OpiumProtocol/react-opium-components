@@ -34,6 +34,8 @@ export type Props = {
   sliderType?: string;
   /** responsive settings */
   responsive?: any;
+  /** Apply number of sliders in view */
+  hasNumberOfSliders?: Boolean;
 };
 
 const defaultProps: Props = {
@@ -55,7 +57,8 @@ const CardSlider: FC<Props> = (props: Props) => {
     autoplay,
     sliderType,
     children,
-    responsive
+    responsive,
+    hasNumberOfSliders
   } = renderProps
   const settings = {
     dots,
@@ -69,14 +72,14 @@ const CardSlider: FC<Props> = (props: Props) => {
       {
         breakpoint: 1600,
         settings: {
-          slidesToShow: sliderType === 'box' ? 3 : 1,
+          slidesToShow: sliderType === 'box' ? hasNumberOfSliders ? slidesToShow : 3 : 1,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: sliderType === 'box' ? 2 : 1,
+          slidesToShow: sliderType === 'box' ? hasNumberOfSliders ? slidesToShow : 2 : 1,
           slidesToScroll: 1,
           initialSlide: 1
         }
