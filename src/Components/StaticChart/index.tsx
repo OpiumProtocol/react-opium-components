@@ -5,6 +5,8 @@ import ShortStrangleChart from './ShortStrangleChart'
 import LongStrangleChart from './LongStrangleChart'
 import CoveredCollarChart from './CoveredCollarChart'
 import OutrightShortPutChart from './OutrightShortPutChart'
+import OptionCallChart from './OptionCallChart'
+import OptionPutChart from './OptionPutChart'
 
 import { scaleLog } from 'd3-scale'
 import { generateRenderProps } from '../../Utils/helpers'
@@ -94,19 +96,6 @@ const StaticChart: React.FC<Props> = (props: Props) => {
     type
   } = renderProps
 
-  const tickChanger = (dataIndex: number) => {
-   
-    let tick: string = ''
-    if (dataIndex === -1.1) {
-      tick = 'Loss'
-    } else if (dataIndex === 1.1) {
-      return 'Profit'
-    } else if (dataIndex === 0) {
-      return '0'
-    }
-    return tick
-  }
-
   const scale = scaleLog().base(Math.E)
 
   const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
@@ -121,7 +110,9 @@ const StaticChart: React.FC<Props> = (props: Props) => {
       ShortStrangleChart,
       LongStrangleChart,
       CoveredCollarChart,
-      OutrightShortPutChart
+      OutrightShortPutChart,
+      OptionPutChart,
+      OptionCallChart
     }
 
     const componentName = camel2title(type)

@@ -280,6 +280,14 @@
   @media (max-width: 425px) {
     font-size: 8px;
   }
+
+  &.axis-text-pink {
+    fill: #F6029C;
+  }
+
+  &.axis-text-green {
+    fill: #1BA159;
+  }
 }
 
 .tspan-color {
