@@ -228,7 +228,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
 const OptionPutChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
-  const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
+  const { increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
 
   const tickChanger = (dataIndex: number) => {
     let tick: string = ''
@@ -297,7 +297,6 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
         <YAxis
           axisLine 
           scale={logScaleY ? scale : 'auto'} 
-          domain={domainAxisY} 
           tick={{ dx: -20 }} 
           tickFormatter={tickChanger}
           padding={{ bottom: increaseDomainY ? 1 : 0, top: increaseDomainY ? 1 : 0 }}/>
