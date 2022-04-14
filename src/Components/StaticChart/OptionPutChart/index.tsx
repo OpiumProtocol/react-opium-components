@@ -36,53 +36,53 @@ export type TProps = {
 
 const data = [
   {
-    data1: 1,
-    data2: -1,
+    data1: -1,
+    data2: 1,
     price: 0.1
   },
   {
-    data1: 0.9,
-    data2: -0.9,
+    data1: -0.9,
+    data2: 0.9,
     price: 0.15
   },
   {
-    data1: 0.8,
-    data2: -0.8,
+    data1: -0.8,
+    data2: 0.8,
     price: 0.2
   },
   {
-    data1: 0.7,
-    data2: -0.7,
+    data1: -0.7,
+    data2: 0.7,
     price: 0.25
   },
   {
-    data1: 0.6,
-    data2: -0.6,
+    data1: -0.6,
+    data2: 0.6,
     price: 0.3
   },
   {
-    data1: 0.5,
-    data2: -0.5,
+    data1: -0.5,
+    data2: 0.5,
     price: 0.35
   },
   {
-    data1: 0.4,
-    data2: -0.4,
+    data1: -0.4,
+    data2: 0.4,
     price: 0.4
   },
   {
-    data1: 0.3,
-    data2: -0.3,
+    data1: -0.3,
+    data2: 0.3,
     price: 0.45
   },
   {
-    data1: 0.2,
-    data2: -0.2,
+    data1: -0.2,
+    data2: 0.2,
     price: 0.5
   },
   {
-    data1: 0.1,
-    data2: -0.1,
+    data1: -0.1,
+    data2: 0.1,
     price: 0.55
   },
   {
@@ -214,7 +214,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
             style={{ backgroundColor: payload[i + 1].color }}
           >
             <p className="label" style={{ fontSize: '14px', color: 'white' }}>
-              {chartData.tooltipTitle}
+              {(i % 2 == 0) ? payload[i + 1].value > 0 ? 'Profit' : 'Loss' : payload[i + 1].value < 0 ? 'Loss' : 'Profit'}
             </p>
           </div>)
         })}
@@ -320,8 +320,8 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={25} x2={30} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
-        <ReferenceArea x1={25} x2={30} y1={0} y2={1} fill={'transparent'} label={{ value: 'Short Put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
-        <ReferenceArea x1={25} x2={30} y1={-0.8} y2={-0.9} fill={'transparent'} label={{ value: 'Long Put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
+        <ReferenceArea x1={25} x2={30} y1={0} y2={1} fill={'transparent'} label={{ value: 'Short put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
+        <ReferenceArea x1={25} x2={30} y1={-0.8} y2={-0.9} fill={'transparent'} label={{ value: 'Long put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
         <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'} />}/>
         <ReferenceDot r={3} stroke="none" x={17} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={45} top={25} width={90} color={'rgba(10, 10, 30, 0.8)'} />}/>
       </ComposedChart>

@@ -118,87 +118,87 @@ const data = [
   {
     data1: 0.6,
     data2: -0.6,
-    price: 0.9
+    price: 1.1
   },
   {
     data1: 0.5,
     data2: -0.5,
-    price: 0.85
+    price: 1.15
   },
   {
     data1: 0.4,
     data2: -0.4,
-    price: 0.8
+    price: 1.2
   },
   {
     data1: 0.3,
     data2: -0.3,
-    price: 0.75
+    price: 1.25
   },
   {
     data1: 0.2,
     data2: -0.2,
-    price: 0.7
+    price: 1.3
   },
   {
     data1: 0.1,
     data2: -0.1,
-    price: 0.65
+    price: 1.35
   },
   {
     data1: 0,
     data2: 0,
-    price: 0.6
+    price: 1.4
   },
   {
-    data1: 0.1,
-    data2: -0.1,
-    price: 0.55
+    data1: -0.1,
+    data2: 0.1,
+    price: 1.45
   },
   {
-    data1: 0.2,
-    data2: -0.2,
-    price: 0.5
+    data1: -0.2,
+    data2: 0.2,
+    price: 1.5
   },
   {
-    data1: 0.3,
-    data2: -0.3,
-    price: 0.45
+    data1: -0.3,
+    data2: 0.3,
+    price: 1.55
   },
   {
-    data1: 0.4,
-    data2: -0.4,
-    price: 0.4
+    data1: -0.4,
+    data2: 0.4,
+    price: 1.6
   },
   {
-    data1: 0.5,
-    data2: -0.5,
-    price: 0.35
+    data1: -0.5,
+    data2: 0.5,
+    price: 1.65
   },
   {
-    data1: 0.6,
-    data2: -0.6,
-    price: 0.3
+    data1: -0.6,
+    data2: 0.6,
+    price: 1.7
   },
   {
-    data1: 0.7,
-    data2: -0.7,
-    price: 0.25
+    data1: -0.7,
+    data2: 0.7,
+    price: 1.75
   },
   {
-    data1: 0.8,
-    data2: -0.8,
-    price: 0.2
+    data1: -0.8,
+    data2: 0.8,
+    price: 1.8
   },
   {
-    data1: 0.9,
-    data2: -0.9,
-    price: 0.15
+    data1: -0.9,
+    data2: 0.9,
+    price: 1.85
   },
   {
-    data1: 1,
-    data2: -1,
-    price: 0.1
+    data1: -1,
+    data2: 1,
+    price: 1.9
   },
 ]
 
@@ -214,7 +214,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: { active?: b
             style={{ backgroundColor: payload[i + 1].color }}
           >
             <p className="label" style={{ fontSize: '14px', color: 'white' }}>
-              {chartData.tooltipTitle}
+              {(i % 2 == 0) ? payload[i + 1].value > 0 ? 'Profit' : 'Loss' : payload[i + 1].value < 0 ? 'Loss' : 'Profit'}
             </p>
           </div>)
         })}
@@ -320,8 +320,8 @@ const OptionCallChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={28} x2={30} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
-        <ReferenceArea x1={0} x2={2} y1={0} y2={1} fill={'transparent'} label={{ value: 'Short Put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
-        <ReferenceArea x1={0} x2={2} y1={-0.8} y2={-0.9} fill={'transparent'} label={{ value: 'Long Put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
+        <ReferenceArea x1={0} x2={2} y1={0} y2={1} fill={'transparent'} label={{ value: 'Short call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
+        <ReferenceArea x1={0} x2={2} y1={-0.8} y2={-0.9} fill={'transparent'} label={{ value: 'Long call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={43} top={25} width={85} color={'rgba(10, 10, 30, 0.8)'}/> }/>
         <ReferenceDot r={3} stroke="none" x={22} y={0} label={<ReferenceRectDot value={'Break-even point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'}/> }/>
       </ComposedChart>
