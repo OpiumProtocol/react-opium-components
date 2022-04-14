@@ -325,13 +325,10 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
 
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Covered call', className: 'covered-area-text' }} />
         <ReferenceArea x1={35} x2={39} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: 'insideTop', className: 'axis-text' }} />
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        {/* <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={{ value: 'Break-Even point', position: 'top', className: 'tspan-color' }}/> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={{ value: 'Strike price', position: 'bottom', className: 'tspan-color' }}/> */}
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Strike price'} top={-10} topY={-25} leftX={65} width={130} />} /> 
       </ComposedChart>

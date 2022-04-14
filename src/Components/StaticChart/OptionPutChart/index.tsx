@@ -207,13 +207,13 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
   
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
+      <div className="custom-tooltip static-tooltip">
         {tooltips.map((chartData, i) => {
           return chartData && (<div
             className="custom-tooltip__container"
             style={{ backgroundColor: payload[i + 1].color }}
           >
-            <p className="label">
+            <p className="label" style={{ fontSize: '14px', color: 'white' }}>
               {chartData.tooltipTitle}
             </p>
           </div>)
@@ -253,8 +253,8 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
           <rect
             x={viewBox.x - (leftX ? leftX : 70)}
             y={viewBox.y - (top ? top : 0)}
-            rx="12"
-            ry="12"
+            rx="13"
+            ry="13"
             width={width ? width : 170}
             height={24}
             fill={color ? color : '#0A0A1E'}
@@ -286,8 +286,7 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 17, y: -1.3 }, { x: 17, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 5, y: -1.3 }, { x: 5, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 15, y: -1.3 }, { x: 15, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
@@ -323,8 +322,8 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
         <ReferenceArea x1={25} x2={30} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceArea x1={25} x2={30} y1={0} y2={1} fill={'transparent'} label={{ value: 'Short Put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
         <ReferenceArea x1={25} x2={30} y1={-0.8} y2={-0.9} fill={'transparent'} label={{ value: 'Long Put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
-        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even point'} top={-15} width={140} topY={-30}/>}/>
-        <ReferenceDot r={3} stroke="none" x={17} y={0} label={<ReferenceRectDot value={'Strike price'} top={25} width={140} />}/>
+        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'} />}/>
+        <ReferenceDot r={3} stroke="none" x={17} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={45} top={25} width={90} color={'rgba(10, 10, 30, 0.8)'} />}/>
       </ComposedChart>
     </ResponsiveContainer>
   )
