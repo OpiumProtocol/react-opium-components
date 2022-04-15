@@ -81,6 +81,21 @@
       }
     }
   }
+
+  &.LIGHT {
+    &:hover {
+      .box-wrapper {
+        .opiumBtn {
+          background-color: $white0!important;
+  
+          &:hover {
+            background-color: #212529!important;
+            color: $white0;
+          }
+        }
+      }
+    }
+  }
 }
 
 .box-wrapper {
