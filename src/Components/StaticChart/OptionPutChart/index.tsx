@@ -195,6 +195,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
       <div className="custom-tooltip static-tooltip">
         {tooltips.map((chartData, i) => {
           return chartData && (<div
+            key={i}
             className="custom-tooltip__container"
             style={{ backgroundColor: payload[i + 1].color }}
           >
@@ -217,11 +218,11 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
 
   const tickChanger = (dataIndex: number) => {
     let tick: string = ''
-    if (dataIndex === -1.3) {
+    if (dataIndex === -1.35) {
       tick = 'Loss'
-    } else if (dataIndex === 1.3) {
+    } else if (dataIndex === 1.35) {
       return 'Profit'
-    } else if (dataIndex === 0) {
+    } else if (dataIndex === 0.05) {
       return '0'
     }
     return tick
@@ -271,6 +272,8 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.35 }, { x: 15, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 9, y: -1.35 }, { x: 9, y: 1.35 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
