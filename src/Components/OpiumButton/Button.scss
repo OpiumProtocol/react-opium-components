@@ -272,6 +272,52 @@
                     }
                 }
             }
+            &.white {
+                &.color-scheme {
+                    &-DARK {
+                        color: $white0;
+                        border-color: $white0;
+                        &:hover {
+                            background-color: $white0;
+                            color: black;
+                            border-color: $white0;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            background-color: rgba($white0, .5);
+                            color: black;
+                            border-color: transparent;
+                        }
+                        &:disabled {
+                            background-color: transparent;
+                            color: rgba($white0, .5);
+                            border-color: rgba($white0, .5);
+                        }
+                    }
+                    &-LIGHT {
+                        background-color: $white0;
+                        color: black;
+                        border-color: black;
+                        &:hover {
+                            color: $white0;
+                            background-color: $darkblue1;
+                            border-color: $darkblue1;
+                        }
+                        &:not(:disabled):not(.disabled):active {
+                            color: $white0;
+                            background-color: rgba(10, 10, 30, 0.5);
+                            border-color: transparent;
+                        }
+                        &:disabled {
+                            background-color: rgba($darkblue1,.5);
+                            color: rgba($darkblue1,.5);
+                            border-color: transparent;
+                            // background-color: transparent;
+                            // color: rgba($darkblue1, .5);
+                            // border-color: rgba($darkblue1, .5);
+                        }
+                    }
+                } 
+            }
         }
         &.btn-danger {
             background-color: hsla(0, 84%, 65%, 0.2);

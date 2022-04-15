@@ -41,6 +41,15 @@ export const button = () => {
         <Button
           theme={theme}
           variant={'secondary'}
+          label={'secondary white'}
+          className="white"
+          style={{ margin: '1rem' }}
+          onClick={() => { }}
+          size="sm"
+        />
+        <Button
+          theme={theme}
+          variant={'secondary'}
           label={'secondary red'}
           className="red"
           style={{ margin: '1rem' }}
