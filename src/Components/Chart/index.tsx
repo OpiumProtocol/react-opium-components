@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import numeral from 'numeral'
 
 import {
@@ -113,6 +113,13 @@ const Chart: React.FC<Props> = (props: Props) => {
     increaseDomainY
   } = renderProps
 
+  const [updateDomainY, setUpdateDomainY] = useState<(string | number)[]>(domainY)
+
+  useEffect(() => {
+    setUpdateDomainY(domainY)
+  }, [domainY])
+
+
   const tickChanger = (dataIndex: number) => {
     return numeral(data[dataIndex].price).format('0[.]00').toString()
   }
@@ -121,7 +128,7 @@ const Chart: React.FC<Props> = (props: Props) => {
   const scale = scaleLog().base(Math.E)
 
   const [activeRefLabel, setActiveRefLabel] = useState<number | null>(null)
-  const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
+  const domainAxisY = useDomainY(updateDomainY as string[] | number[], increaseDomainY)
 
   const showRefLabel: any = (label: number | null) => {
     setActiveRefLabel(label)
@@ -137,7 +144,6 @@ const Chart: React.FC<Props> = (props: Props) => {
 
 
   const CustomLabel = (props: any) => {
-    console.log(props)
     return (
       <g>
         <rect
