@@ -126,17 +126,17 @@
                     }
                 }
                 &-LIGHT {
-                    background-color: $white0;
+                    background-color: $white2;
                     color: black;
                     border-color: black;
                     &:hover {
-                        color: $white0;
+                        color: $white2;
                         background-color: $darkblue1;
                         border-color: $darkblue1;
                     }
                     &:not(:disabled):not(.disabled):active {
                         background-color: rgba(10, 10, 30, 0.5);
-                        color: $white0;
+                        color: $white2;
                         border-color: transparent;
                     }
                     &:disabled {
