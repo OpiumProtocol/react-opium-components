@@ -74,7 +74,7 @@ export const useDomainY = (domainY: (string | number)[], increaseDomainY?: numbe
       ? calculateIncreaseDomain(domainY as number[], increaseDomainY) 
       : null
     domainValue ? setDomainAxisY(domainValue) : setDomainAxisY(domainY)
-  }, [])
+  }, [domainY])
 
   return domainAxisY as string[] | number[]
 }
