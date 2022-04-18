@@ -68,16 +68,14 @@ const OpiumBanner: React.FC<Props> = (props: Props) => {
             </div>
             <div className='banner-actions' style={{ display: 'flex' }}>
               <Button 
-                theme={theme}
                 label={leftBtn.text}
                 variant={'primary'}
-                className='green'
+                className={leftBtn.className}
                 onClick={leftBtn.onClick}
                 style={{ marginRight: deviceWidth <= 768 ? '1rem' : '2rem' }}
                 size={deviceWidth < 1440 ? 'sm' : 'md'}
               />
               {rightBtn && <Button 
-                theme={theme}
                 label={rightBtn.text}
                 variant={'secondary'}
                 onClick={rightBtn.onClick}
