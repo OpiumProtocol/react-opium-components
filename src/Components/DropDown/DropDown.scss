@@ -77,11 +77,12 @@
               &.disabled {
                 cursor: not-allowed!important;
                 pointer-events: auto;
-                background-color: rgba(93, 95, 124, 0.15)!important;
+                color: #5D5F7C!important;
 
                 &.DropDown-items-LIGHT {
+                    color: #5D5F7C!important;
                     &:hover {
-                        color: #000!important;
+                        color: #5D5F7C!important;
                     }
                   }
               }
