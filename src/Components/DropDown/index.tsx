@@ -95,20 +95,14 @@ const DropDown: React.FC<Props> = (props: Props) => {
     borderStyle: 'solid',
   }
 
-  const prevItems = usePrevious(items)
   const prevValue = usePrevious(value)
 
   useEffect(() => {
-    if (!objectsEqual(items, prevItems)) {
-      setTitle(items[0].title ? items[0].title : items[0])
-      setEventKey(items[0].id ? items[0].id : items[0])
-    }
-
     if (!objectsEqual(value, prevValue)) {
       setTitle(value.title ? value.title : value)
       setEventKey(value.id ? value.id : value)
     }
-  }, [items, prevItems, value])
+  }, [value, prevValue])
 
   useEffect(() => {
     if (arrayNumbers && upperValue) {
