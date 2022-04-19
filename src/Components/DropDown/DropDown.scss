@@ -78,7 +78,14 @@
                 cursor: not-allowed!important;
                 pointer-events: auto;
                 background-color: rgba(93, 95, 124, 0.15)!important;
+
+                &.DropDown-items-LIGHT {
+                    &:hover {
+                        color: #000!important;
+                    }
+                  }
               }
+
         }
     }
 
