@@ -9,9 +9,9 @@ import './OpiumBanner.scss'
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 // @ts-ignore
-import imagePathDesktop from '../../Images/bannerDesktop.svg'
+import imageDumpDesktop from '../../Images/banners/EthDumpProtectionDesktop.svg'
 // @ts-ignore
-import imagePathMobile from '../../Images/bannerMobile.svg'
+import imageDumpMobile from '../../Images/banners/EthDumpProtectionMobile.svg'
 
 export const OpiumBannerStory = () => {
   const message = text('Text', 'Banner')
@@ -41,14 +41,14 @@ export const OpiumBannerStory = () => {
       </div>
       <OpiumBanner 
         theme={theme}
-        imagePathDesktop={imagePathDesktop}
-        imagePathMobile={imagePathMobile}
-        title={'ETH Dump Protection'}
+        imagePathDesktop={imageDumpDesktop}
+        imagePathMobile={imageDumpMobile}
+        title={'ETH Dump Protection staking pool'}
         content={<>
           <span>0%</span>
           <div>return annualy*</div>
         </>}
-        note={'*Past performance doesn&apos;t guarantee future results.'}
+        note={'* Past performance doesn’t guarantee future results.'}
         leftBtn={ { text: 'go to staking', className: 'green', onClick: () => {} } }
         rightBtn={ { text: 'found out more', onClick: () => {} } }
       />

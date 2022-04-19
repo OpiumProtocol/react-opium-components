@@ -17,7 +17,7 @@ export type Props = {
   /** Set Image Path for mobile*/
   imagePathMobile?: string
   /** Insert title */
-  title: string | ReactNode
+  title?: string | ReactNode
   /** Insert content */
   content?: string | ReactNode
   /** Set note */
@@ -30,7 +30,6 @@ export type Props = {
 
 export const defaultProps: Props = {
   theme: ETheme.DARK,
-  title: 'ETH Dump Protection',
   content: '',
   note: '',
   leftBtn: { text: 'go to staking', onClick: () => {}, className: 'green' }
@@ -40,7 +39,7 @@ const OpiumBanner: React.FC<Props> = (props: Props) => {
   const renderProps = generateRenderProps(defaultProps, props)
 
   const { width: deviceWidth } = useMobile()
-
+  
   const { 
     theme,
     imagePathDesktop,
@@ -57,10 +56,10 @@ const OpiumBanner: React.FC<Props> = (props: Props) => {
       <div className='OpiumBanner-wrapper' style={{ backgroundImage: `url('${deviceWidth <= 768 ? imagePathMobile : imagePathDesktop}')` }}>
         <div className='OpiumBanner-content'>
           <div className='banner-wrapper'>
-            <div className='banner-title'>{
-              typeof title === 'string' ? (
-                <div dangerouslySetInnerHTML={{ __html: title }}></div>
-              ) : title }</div>
+            <div className='banner-title'>{title && (typeof title === 'string' ? (
+              <div dangerouslySetInnerHTML={{ __html: title }}></div>
+            ) : title)
+            }</div>
             <div className='banner-content'>{
               typeof content === 'string' ? (
                 <div dangerouslySetInnerHTML={{ __html: content }}></div>
@@ -70,7 +69,7 @@ const OpiumBanner: React.FC<Props> = (props: Props) => {
               <Button 
                 label={leftBtn.text}
                 variant={'primary'}
-                className={leftBtn.className}
+                className={`banner-btn ${leftBtn.className}`}
                 onClick={leftBtn.onClick}
                 style={{ marginRight: deviceWidth <= 768 ? '1rem' : '2rem' }}
                 size={deviceWidth < 1440 ? 'sm' : 'md'}
@@ -81,6 +80,7 @@ const OpiumBanner: React.FC<Props> = (props: Props) => {
                 onClick={rightBtn.onClick}
                 style={{ marginRight: deviceWidth <= 768 ? '1rem' : '2rem' }}
                 size={deviceWidth < 1440 ? 'sm' : 'md'}
+                className={`banner-btn ${rightBtn.className}`}
               />}
             </div>
             <div className='banner-bottom-text'>{note}</div>
