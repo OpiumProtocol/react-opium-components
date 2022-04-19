@@ -16,7 +16,8 @@ export type Props = {
   arrayNumbers?: boolean
   characters?: number
   value?: string | number,
-  disabled?: boolean
+  disabled?: boolean,
+  upperValue?: number,
 }
 
 export type OptionsData = {
@@ -74,7 +75,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
     arrayNumbers,
     characters,
     value,
-    disabled
+    disabled,
+    upperValue
   } = renderProps
   
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
@@ -93,14 +95,24 @@ const DropDown: React.FC<Props> = (props: Props) => {
     borderStyle: 'solid',
   }
 
-  const prevItems = usePrevious(items)
+  const prevValue = usePrevious(value)
 
   useEffect(() => {
-    if (!objectsEqual(items, prevItems)) {
-      setTitle(items[0].title ? items[0].title : items[0])
-      setEventKey(items[0].id ? items[0].id : items[0])
+    if (!objectsEqual(value, prevValue)) {
+      setTitle(value.title ? value.title : value)
+      setEventKey(value.id ? value.id : value)
     }
-  }, [items, prevItems])
+  }, [value, prevValue])
+
+  useEffect(() => {
+    if (arrayNumbers && upperValue) {
+      const values = items.filter((item: number) => item > upperValue)
+      const sorted = values.sort((a: number, b: number) => a - b)
+      
+      setTitle(sorted[0])
+      setEventKey(sorted[0])
+    }
+  }, [upperValue])
 
   const handleEnter = (i: number) => {
     setIndex(i)
@@ -114,6 +126,20 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   const cutString = (text: string) => {
     return text && text.substring(0, characters)
+  }
+
+  const onSelectHandler = (key: any, event: React.BaseSyntheticEvent) => {
+    if (upperValue) {
+      if (key > upperValue) {
+        setEventKey(key)
+        setTitle(event.target.innerText)
+        onSelect(key)
+      }
+    } else {
+      setEventKey(key)
+      setTitle(event.target.innerText)
+      onSelect(key)
+    }
   }
 
   const list = (
@@ -145,11 +171,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
               key={item}
               title={item}
               eventKey={`${item}`}
-              onSelect={(key: any, event: React.BaseSyntheticEvent) => {
-                setEventKey(key)
-                setTitle(event.target.innerText)
-                onSelect(key)
-              }}
+              disabled={upperValue && item <= upperValue}
+              onSelect={onSelectHandler}
               onMouseEnter={() => handleEnter(idx)}
               onMouseLeave={handleLeave}
               className={`DropDown-items-${theme}`}

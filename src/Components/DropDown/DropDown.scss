@@ -73,6 +73,20 @@
                 border-radius: 50%;
                 margin-right: 8px;
               }
+
+              &.disabled {
+                cursor: not-allowed!important;
+                pointer-events: auto;
+                color: #5D5F7C!important;
+
+                &.DropDown-items-LIGHT {
+                    color: #5D5F7C!important;
+                    &:hover {
+                        color: #5D5F7C!important;
+                    }
+                  }
+              }
+
         }
     }
 
