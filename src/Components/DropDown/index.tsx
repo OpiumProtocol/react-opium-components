@@ -114,6 +114,11 @@ const DropDown: React.FC<Props> = (props: Props) => {
     }
   }, [upperValue])
 
+  useEffect(() => {
+    setTitle(value.title ? value.title : value)
+    setEventKey(value.id ? value.id : value)
+  }, [value])
+
   const handleEnter = (i: number) => {
     setIndex(i)
     setHover(true)
