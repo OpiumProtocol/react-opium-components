@@ -96,13 +96,19 @@ const DropDown: React.FC<Props> = (props: Props) => {
   }
 
   const prevItems = usePrevious(items)
+  const prevValue = usePrevious(value)
 
   useEffect(() => {
     if (!objectsEqual(items, prevItems)) {
       setTitle(items[0].title ? items[0].title : items[0])
       setEventKey(items[0].id ? items[0].id : items[0])
     }
-  }, [items, prevItems])
+
+    if (!objectsEqual(value, prevValue)) {
+      setTitle(value.title ? value.title : value)
+      setEventKey(value.id ? value.id : value)
+    }
+  }, [items, prevItems, value])
 
   useEffect(() => {
     if (arrayNumbers && upperValue) {
@@ -113,11 +119,6 @@ const DropDown: React.FC<Props> = (props: Props) => {
       setEventKey(sorted[0])
     }
   }, [upperValue])
-
-  useEffect(() => {
-    setTitle(value.title ? value.title : value)
-    setEventKey(value.id ? value.id : value)
-  }, [value])
 
   const handleEnter = (i: number) => {
     setIndex(i)
