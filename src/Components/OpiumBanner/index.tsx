@@ -21,7 +21,7 @@ export type Props = {
   /** Insert content */
   content?: string | ReactNode
   /** Set note */
-  note?: string
+  note?: string | ReactNode
   /** Set on click action */
   leftBtn: {text: string, onClick: Function, className?: string }
   /** Set on click action */
@@ -83,7 +83,10 @@ const OpiumBanner: React.FC<Props> = (props: Props) => {
                 className={`banner-btn ${rightBtn.className}`}
               />}
             </div>
-            <div className='banner-bottom-text'>{note}</div>
+            <div className='banner-bottom-text'>{note && (typeof note === 'string' ? (
+              <div dangerouslySetInnerHTML={{ __html: note }}></div>
+            ) : note)
+            }</div>
           </div>
         </div>
       </div>

@@ -9,9 +9,9 @@ import './OpiumBanner.scss'
 import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 
 // @ts-ignore
-import imageDumpDesktop from '../../Images/banners/EthDumpProtectionDesktop.svg'
+import imageDumpDesktop from '../../Images/banners/ethDumpProtectionDesktop.svg'
 // @ts-ignore
-import imageDumpMobile from '../../Images/banners/EthDumpProtectionMobile.svg'
+import imageDumpMobile from '../../Images/banners/ethDumpProtectionMobile.svg'
 // @ts-ignore
 import imageWonderlandDesktop from '../../Images/banners/opiumWonderlandDesktop.svg'
 // @ts-ignore

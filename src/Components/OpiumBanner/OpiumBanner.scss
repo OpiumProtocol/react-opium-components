@@ -20,7 +20,7 @@
         }
 
         .OpiumBanner-content {
-            margin: 4rem 14rem 1rem 14rem;
+            margin: 3rem 14rem 1rem 14rem;
             width: 1050px;
             height: calc(100% - 40px);
             display: flex;
@@ -52,7 +52,7 @@
                 }
                 .banner {
                     &-title {
-                        font-size: 30px;
+                        font-size: 36px;
                         color: $white0;
                         font-weight: 700;
                         font-family: "Montserrat", sans-serif;
@@ -166,6 +166,7 @@
                         .blue {
                             background-color: $blue1!important;
                             border-color: $blue1!important;
+                            color: $white0!important;
             
                             &:hover {
                                 background-color: transparent!important;
@@ -208,12 +209,18 @@
                     }
 
                     &-btn {
-                        height: 28px;
-                        padding: 0 1.5rem;
+                        height: 30px;
+                        padding: 0 1.7rem;
+                        font-size: 14px;
+                        width: 11rem;
 
-                        @media (max-width: 768px) {
-                            height: 26px;
-                            padding: 0 0.7rem;
+                        @media (max-width: 1536px) {
+                            font-size: 12px;
+
+                            @media (max-width: 768px) {
+                                height: 26px;
+                                padding: 0 0.7rem;
+                            }
                         }
                     }
                 }
