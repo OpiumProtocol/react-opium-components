@@ -21,7 +21,11 @@
                     height: 160px;
 
                     @media (max-width: 1024px) {
-                        height: 130px;
+                        height: 140px;
+
+                        @media (max-width: 768px) {
+                            height: 210px;
+                        }
                     }
                 }
             }
@@ -35,6 +39,7 @@
         background-size: cover;
         display: flex;
         position: relative;
+        background-position: 50%;
 
         @media (max-width: 1680px) {
             background-size: 100%;
@@ -106,6 +111,10 @@
                                 @media (max-width: 1024px) {
                                     font-size: 1.5rem;
                                     height: 30px;
+
+                                    img {
+                                        width: 19rem;
+                                    }
 
                                     @media (max-width: 768px) {
                                         font-size: 20px;
@@ -283,14 +292,6 @@
                                 justify-content: flex-start;
                               }
                           }
-                        }
-                    }
-
-                    &-note {
-                        margin: 1.5rem 0;
-
-                        @media (max-width: 1536px) {
-                            margin: 0;
                         }
                     }
 
