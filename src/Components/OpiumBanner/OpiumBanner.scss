@@ -20,7 +20,7 @@
         }
 
         .OpiumBanner-content {
-            margin: 3rem 14rem 1rem 14rem;
+            margin: 4rem 14rem 1rem 14rem;
             width: 1050px;
             height: calc(100% - 40px);
             display: flex;
@@ -210,9 +210,10 @@
 
                     &-btn {
                         height: 30px;
-                        padding: 0 1.7rem;
+                        padding: 0 1.1rem;
                         font-size: 14px;
                         width: 11rem;
+                        font-weight: 500;
 
                         @media (max-width: 1536px) {
                             font-size: 12px;
