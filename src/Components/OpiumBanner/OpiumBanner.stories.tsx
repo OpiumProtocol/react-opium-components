@@ -12,6 +12,10 @@ import { ETheme, sectionThemes } from '../../Constants/Types/theme.types'
 import imageDumpDesktop from '../../Images/banners/EthDumpProtectionDesktop.svg'
 // @ts-ignore
 import imageDumpMobile from '../../Images/banners/EthDumpProtectionMobile.svg'
+// @ts-ignore
+import imageWonderlandDesktop from '../../Images/banners/opiumWonderlandDesktop.svg'
+// @ts-ignore
+import imageWonderlandMobile from '../../Images/banners/opiumWonderlandMobile.svg'
 
 export const OpiumBannerStory = () => {
   const message = text('Text', 'Banner')
@@ -52,6 +56,18 @@ export const OpiumBannerStory = () => {
         leftBtn={ { text: 'go to staking', className: 'green', onClick: () => {} } }
         rightBtn={ { text: 'found out more', onClick: () => {} } }
       />
+      <div style={{ margin: '15px 0 30px 0' }}>
+        <OpiumBanner 
+          theme={theme}
+          imagePathDesktop={imageWonderlandDesktop}
+          imagePathMobile={imageWonderlandMobile}
+          title={<>Opium&nbsp;<div>Wonderland</div></>}
+          content={'Opium Team presents NFT avatars'}
+          note={'*Please note, that these NFTs are not for sale and are not transferable for now!'}
+          leftBtn={ { text: 'go to staking', className: 'blue', onClick: () => {} } }
+          rightBtn={ { text: 'found out more', onClick: () => {} } }
+        />
+      </div>
     </div>
   )
 }
