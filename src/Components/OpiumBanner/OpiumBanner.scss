@@ -5,19 +5,30 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 240px;
+    overflow: hidden;
+
+    @media (max-width: 1440px) {
+        height: 210px;
+    }
 
     &-wrapper {
         width: 100%;
         height: 100%;
         background-repeat: no-repeat;
-        background-size: 100% 100%;
+        background-size: cover;
         display: flex;
         position: relative;
 
         @media (max-width: 768px) {
             max-width: 349px;
             margin: 1.12rem;
+
+            @media (max-width: 425px) {
+                margin: 0;
+            }
         }
+        
 
         .OpiumBanner-content {
             margin: 4rem 14rem 1rem 14rem;
@@ -83,6 +94,10 @@
                                         font-weight: 700;
                                         height: 40px;
                                         flex-direction: column;
+
+                                        img {
+                                            width: 16.5rem;
+                                        }
 
                                         @media (max-width: 425px) {
                                             letter-spacing: 0.01em;
@@ -179,6 +194,14 @@
                         }
                     }
 
+                    &-margin-large {
+                        margin-top: 15px;
+
+                        @media (max-width: 1440px) {
+                            margin-top: 0.6rem;
+                        }
+                    }
+
                     &-empty-content {
                         height: 30px;
                     }
@@ -261,9 +284,17 @@
                         @media (max-width: 1536px) {
                             font-size: 12px;
 
-                            @media (max-width: 768px) {
-                                height: 26px;
-                                padding: 0 0.7rem;
+                            @media (max-width: 1024px) {
+                                height: 20px;
+                                width: 9rem;
+                                font-size: 10px;
+
+                                @media (max-width: 768px) {
+                                    height: 24px;
+                                    padding: 0 0.7rem;
+                                    width: 9rem;
+                                    font-size: 11px;
+                                }
                             }
                         }
                     }
