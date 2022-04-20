@@ -26,9 +26,9 @@
                         @media (max-width: 768px) {
                             height: 220px;
 
-                        //     @media (max-width: 425px) {
-                        //     height: 210px;
-                        // }
+                            @media (max-width: 425px) {
+                                height: 100%;
+                            }
                         }
                     }
                 }
@@ -82,7 +82,7 @@
                             margin: 3rem 1.3rem 1rem 1.3rem;
     
                             @media (max-width: 425px) {
-                                margin: 1.3rem;
+                                margin: 2rem 1rem 1rem 1rem;
                             }
                         }
                     } 
@@ -175,6 +175,10 @@
 
                                         @media (max-width: 375px) {
                                             height: 25px;
+
+                                            @media (max-width: 320px) {
+                                                height: 10px;
+                                            }
                                         }
                                     }
                                 }
