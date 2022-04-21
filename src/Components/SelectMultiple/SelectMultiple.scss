@@ -1,0 +1,47 @@
+@import '../../Styles/index.scss';
+@import '../../Styles/colors.scss';
+
+.SelectMultiple {
+
+    .DropDown__label {
+        font-size: 16px;
+    }
+
+    &-items {
+        padding: 5px 10px!important;
+
+        &.color-scheme-DARK {
+            .CheckBox {
+
+                .checkmark {
+                    border-color: #999BBC;
+    
+                    svg {
+                        stroke: #999BBC!important; 
+                    }
+                }
+            }
+        }
+    }
+
+    &-label {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px!important;
+        line-height: 16px;
+
+        &.color-scheme {
+            &-DARK {
+                color: #999BBC!important; 
+            }
+        }
+    }
+
+    &-checkbox {
+        &-DARK {
+            stroke: #999BBC!important; 
+        }
+        
+    }
+}
