@@ -273,10 +273,6 @@
                             margin-top: 0.6rem;
                         }
                     }
-
-                    &-empty-content {
-                        height: 30px;
-                    }
             
                     &-actions {
                         display: flex;
@@ -327,7 +323,7 @@
                             font-size: 7px; 
 
                             @media (max-width: 768px) {
-                                margin-top: 0.2rem;
+                                margin-top: 0.5rem;
                                 font-weight: 500;
                                 font-size: 7px;
                                 margin-bottom: 0;
