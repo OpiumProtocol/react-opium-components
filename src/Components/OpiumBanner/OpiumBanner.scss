@@ -17,7 +17,7 @@
             @media (max-width: 1440px) {
                 height: 180px;
     
-                @media (max-width: 1200px) {
+                @media (max-width: 1280px) {
                     height: 160px;
 
                     @media (max-width: 1024px) {
@@ -74,7 +74,7 @@
                 @media (max-width: 1440px) {
                     margin: 1.5rem 10rem 1rem 10rem;
     
-                    @media (max-width: 1200px) {
+                    @media (max-width: 1280px) {
                         margin: 1rem 9rem;
         
                         @media (max-width: 768px) {
@@ -109,7 +109,7 @@
                         @media (max-width: 1680px) {
                             font-size: 2.2rem;
 
-                            @media (max-width: 1200px) {
+                            @media (max-width: 1280px) {
                                 font-size: 2rem;
                                 height: 40px;
 
@@ -151,7 +151,7 @@
                     &-content {
                         color: $white0;
                         display: flex;
-                        align-items: start;
+                        align-items: baseline;
                         font-size: 1.2rem;
                         font-weight: 300;
                         font-family: "Montserrat", sans-serif;
@@ -162,26 +162,34 @@
                         @media (max-width: 1536px) {
                             height: 50px;
 
-                            @media (max-width: 1200px) {
+                            @media (max-width: 1280px) {
                                 font-size: 1rem;
                                 height: 40px;
 
-                                @media (max-width: 768px) {
-                                    height: 25px;
-                                    margin: 0.5rem 0 1.7rem 0; 
+                                @media (max-width: 820px) {
+                                    margin: 1.3rem 3rem;
+                                    transform: scale(0.8);
 
-                                    @media (max-width: 425px) {
-                                        height: 35px;
 
-                                        @media (max-width: 375px) {
-                                            height: 25px;
-
-                                            @media (max-width: 320px) {
-                                                height: 10px;
+                                    @media (max-width: 768px) {
+                                        height: 25px;
+                                        margin: 0.5rem 0 1.7rem 0; 
+                                        transform: scale(1);
+    
+                                        @media (max-width: 425px) {
+                                            height: 20px;
+    
+                                            @media (max-width: 375px) {
+                                                height: 25px;
+    
+                                                @media (max-width: 320px) {
+                                                    height: 10px;
+                                                }
                                             }
                                         }
                                     }
                                 }
+
                             }
                         }
             
@@ -199,7 +207,7 @@
                                 font-size: 1.8rem;
                                 margin-bottom: 0;
 
-                                @media (max-width: 1200px) {
+                                @media (max-width: 1280px) {
                                     font-size: 1.4rem;
                                     margin-top: 0.2rem;
 
@@ -214,7 +222,7 @@
                         div {
                             margin-top: 0.6rem;
 
-                            @media (max-width: 1200px) {
+                            @media (max-width: 1280px) {
                                 margin-top: 0.8rem;
                             }
                         }
@@ -226,7 +234,7 @@
                         @media (max-width: 1536px) {
                             font-size: 20px;
 
-                            @media (max-width: 1200px) {
+                            @media (max-width: 1280px) {
                                 font-size: 12px;
                             }
                         }
@@ -239,7 +247,7 @@
                         @media (max-width: 1536px) {
                             font-size: 2.2rem;  
 
-                            @media (max-width: 1200px) {
+                            @media (max-width: 1280px) {
                                 font-size: 1.8rem;
                             }
                         }
