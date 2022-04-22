@@ -37,6 +37,7 @@ import SearchBox from './Components/SearchBox'
 import StaticChart from './Components/StaticChart'
 import MenuCollapse from './Components/MenuCollapse'
 import SidebarMenu from './Components/SidebarMenu'
+import OpiumBanner from './Components/OpiumBanner'
 
 import {
   themes,
@@ -95,6 +96,7 @@ export {
   StaticChart,
   MenuCollapse,
   SidebarMenu,
+  OpiumBanner,
 }
 
 export {
