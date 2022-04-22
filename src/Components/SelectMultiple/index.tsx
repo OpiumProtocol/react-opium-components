@@ -13,7 +13,6 @@ export type Props = {
   className?: string
   items: Array<OptionsData>,
   onSelect?: Function,
-  disabled?: boolean,
   placeholder?: string,
   removedItem?: string | null
 }
@@ -26,12 +25,11 @@ export type OptionsData = {
 const defaultProps: Props = {
   theme: ETheme.DARK,
   items: [],
-  onSelect: () => { },
-  disabled: false,
+  onSelect: () => {}
 }
 
 // @ts-ignore
-const CustomToggle = React.forwardRef(({ children, disable, onClick }: {children: any, disable: boolean, onClick: (e: any) => void}, ref) => ( 
+const CustomToggle = React.forwardRef(({ children, onClick }: {children: any, onClick: (e: any) => void}, ref) => (
   // @ts-ignore
   <button
     // @ts-ignore
@@ -40,15 +38,14 @@ const CustomToggle = React.forwardRef(({ children, disable, onClick }: {children
       e.preventDefault()
       onClick(e)
     }}
-    disabled={disable}
   >
     <div className="DropDown__label">
       {children}
     </div>
 
-    {!disable && (<svg className="DropDown__arrow" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className="DropDown__arrow" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6 6L0 0L12 8.80993e-07L6 6Z" fill="#999BBC"/>
-    </svg>) }
+    </svg>
   </button>
 ))
 
@@ -65,7 +62,6 @@ const SelectMultiple: React.FC<Props> = (props: Props) => {
     className,
     items,
     onSelect,
-    disabled,
     placeholder,
     removedItem
   } = renderProps
@@ -112,9 +108,8 @@ const SelectMultiple: React.FC<Props> = (props: Props) => {
     setTitle(event.target.innerText)
   }
 
-  const onSelectHandler = (key: any, event: React.BaseSyntheticEvent) => {
+  const onSelectHandler = (key: any, e: React.BaseSyntheticEvent) => {
     setEventKey(key)
-
     const i = checkedValues.indexOf(key)
     if (i !== -1) {
       const temp = [...checkedValues]
@@ -126,10 +121,20 @@ const SelectMultiple: React.FC<Props> = (props: Props) => {
     onSelect(key)
   }
 
+  const [ isShow, setIsShow ] = useState(false)
+
+  const handleToggle = (isOpen: boolean, event: BaseSyntheticEvent, metadata: {source: 'select' | 'click' | 'rootClose' | 'keydown'}) => {
+    event.preventDefault()
+    if (isOpen && metadata.source === 'click') setIsShow(true)
+    if (!isOpen && metadata.source === 'rootClose') setIsShow(false)
+    if (metadata.source === 'select') setIsShow(true)
+  }
+
   const list = (
     <>
       { items?.map((item: any, idx: number) => (
         <Dropdown.Item
+          multiple
           style={idx === index ? hoveredItem : styledItem}
           key={item.title}
           eventKey={item.title}
@@ -151,8 +156,8 @@ const SelectMultiple: React.FC<Props> = (props: Props) => {
   )
   
   return (
-    <Dropdown className={`DropDown SelectMultiple ${className} color-scheme-${theme}`}>
-      <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle" disable={disabled}>
+    <Dropdown className={`DropDown SelectMultiple ${className} color-scheme-${theme}`} onToggle={handleToggle} show={isShow}>
+      <Dropdown.Toggle as={CustomToggle} id="dropdown-selector-toggle">
         { title }
       </Dropdown.Toggle>
       <Dropdown.Menu className={`color-scheme-${theme}`}>
