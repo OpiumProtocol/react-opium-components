@@ -51,7 +51,7 @@ export const DropDownStory = () => {
   const [value, setValue] = useState(data[0])
 
 
-  const handler = (e: string) => {
+  const handler = (e: any) => {
     const value = data.find(item => item.id === e) 
     if (value) {
       setValue(value)
