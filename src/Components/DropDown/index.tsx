@@ -102,7 +102,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
     if (!objectsEqual(value, prevValue)) {
       console.log('1', value, prevValue, title)
       if (upperValue && arrayNumbers) {
-        if (value > +title || !title) {
+        if (value > +title || !title || !objectsEqual(items, prevItems)) {
           console.log('2', value, title)
           setTitle(value)
           setEventKey(value)
