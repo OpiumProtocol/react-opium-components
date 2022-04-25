@@ -100,10 +100,16 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   useEffect(() => {
     if (!objectsEqual(value, prevValue)) {
-      setTitle(value.title ? value.title : value)
-      setEventKey(value.id ? value.id : value)
+      console.log(value, prevValue)
       if (upperValue && arrayNumbers) {
         prevValue = value
+        if ((value > +title)) {
+          setTitle(value.title ? value.title : value)
+          setEventKey(value.id ? value.id : value)
+        }
+      } else {
+        setTitle(value.title ? value.title : value)
+        setEventKey(value.id ? value.id : value)
       }
     }
   }, [value, prevValue])
