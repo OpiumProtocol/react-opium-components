@@ -38,6 +38,7 @@ import StaticChart from './Components/StaticChart'
 import MenuCollapse from './Components/MenuCollapse'
 import SidebarMenu from './Components/SidebarMenu'
 import SelectMultiple from './Components/SelectMultiple'
+import OpiumBanner from './Components/OpiumBanner'
 
 import {
   themes,
@@ -97,6 +98,7 @@ export {
   MenuCollapse,
   SidebarMenu,
   SelectMultiple,
+  OpiumBanner,
 }
 
 export {
