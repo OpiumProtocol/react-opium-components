@@ -98,19 +98,33 @@ const DropDown: React.FC<Props> = (props: Props) => {
   let prevValue = usePrevious(value)
   const prevItems = usePrevious(items)
 
+  // useEffect(() => {
+  //   if (!objectsEqual(value, prevValue)) {
+  //     setTitle(value.title ? value.title : value)
+  //     setEventKey(value.id ? value.id : value)
+  //     if (upperValue && arrayNumbers) {
+  //       prevValue = value
+  //     }
+  //   }
+  // }, [value, prevValue])
+
   useEffect(() => {
-    if (!objectsEqual(value, prevValue)) {
+    if (upperValue && arrayNumbers) {
+      if (upperValue > value) {
+        setTitle(value.title ? value.title : value)
+        setEventKey(value.id ? value.id : value)
+      }
+      prevValue = value
+    } else {
       setTitle(value.title ? value.title : value)
       setEventKey(value.id ? value.id : value)
-      if (upperValue && arrayNumbers) {
-        prevValue = value
-      }
     }
-  }, [value, prevValue])
+
+  }, [value])
 
   useEffect(() => {
     if (arrayNumbers && upperValue) {
-      if (upperValue > value || !objectsEqual(items, prevItems)) {
+      if (upperValue < value || !objectsEqual(items, prevItems)) {
         const values = items.filter((item: number) => item > upperValue)
         const sorted = values.sort((a: number, b: number) => a - b)
         setTitle(sorted[0])
