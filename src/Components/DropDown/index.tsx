@@ -78,6 +78,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
     disabled,
     upperValue
   } = renderProps
+  console.log(items)
   
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
   const [title, setTitle] = useState<string>(items[0].title || items[0])
@@ -99,11 +100,24 @@ const DropDown: React.FC<Props> = (props: Props) => {
   const prevItems = usePrevious(items)
 
   useEffect(() => {
+    if (upperValue && arrayNumbers) {
+      setEventKey(value)
+      setTitle(value)
+    }
+  }, [items])
+
+  useEffect(() => {
     if (!objectsEqual(value, prevValue)) {
       if (upperValue && arrayNumbers) {
+        console.log('1', value, +title, !objectsEqual(items, prevItems))
+        console.log('2', items)
+        console.log('2', prevItems)
+        
         if (value > +title || !title || !objectsEqual(items, prevItems)) {
           setTitle(value)
           setEventKey(value)
+          console.log('change')
+          
         }
       } else {
         setTitle(value.title ? value.title : value)
@@ -140,6 +154,8 @@ const DropDown: React.FC<Props> = (props: Props) => {
   const onSelectHandler = (key: any, event: React.BaseSyntheticEvent) => {
     if (upperValue) {
       if (+key > upperValue) {
+        console.log('1', key, upperValue)
+        
         setEventKey(key)
         setTitle(event.target.innerText)
         onSelect(key)
