@@ -100,13 +100,10 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   useEffect(() => {
     if (!objectsEqual(value, prevValue)) {
-      console.log('1', value, prevValue, title)
       if (upperValue && arrayNumbers) {
         if (value > +title || !title || !objectsEqual(items, prevItems)) {
-          console.log('2', value, title)
           setTitle(value)
           setEventKey(value)
-          // prevValue = value
         }
       } else {
         setTitle(value.title ? value.title : value)
@@ -117,14 +114,11 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   useEffect(() => {
     if (arrayNumbers && upperValue) {
-      console.log('3', upperValue, +title)
-      
       if (upperValue > +title || !objectsEqual(items, prevItems) || !title) {
         const values = items.filter((item: number) => item > upperValue)
         const sorted = values.sort((a: number, b: number) => a - b)
         setTitle(sorted[0])
         setEventKey(sorted[0])
-        console.log('4', title, eventKey)
       }
     }
   }, [upperValue])
