@@ -110,8 +110,10 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   useEffect(() => {
     if (upperValue && arrayNumbers) {
-      setTitle(value.title ? value.title : value)
-      setEventKey(value.id ? value.id : value)
+      if (upperValue < value) {
+        setTitle(value.title ? value.title : value)
+        setEventKey(value.id ? value.id : value)
+      }
       prevValue = value
     } else {
       setTitle(value.title ? value.title : value)
