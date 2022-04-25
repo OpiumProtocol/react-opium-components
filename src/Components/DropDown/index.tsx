@@ -78,7 +78,6 @@ const DropDown: React.FC<Props> = (props: Props) => {
     disabled,
     upperValue
   } = renderProps
-  console.log(items)
   
   const [eventKey, setEventKey] = useState<string>(items[0].id || items[0])
   const [title, setTitle] = useState<string>(items[0].title || items[0])
@@ -148,8 +147,6 @@ const DropDown: React.FC<Props> = (props: Props) => {
   const onSelectHandler = (key: any, event: React.BaseSyntheticEvent) => {
     if (upperValue) {
       if (+key > upperValue) {
-        console.log('1', key, upperValue)
-        
         setEventKey(key)
         setTitle(event.target.innerText)
         onSelect(key)
