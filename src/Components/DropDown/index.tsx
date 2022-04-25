@@ -110,10 +110,9 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   useEffect(() => {
     if (arrayNumbers && upperValue) {
-      if (value > upperValue || objectsEqual(items, prevItems)) {
+      if (upperValue > value || !objectsEqual(items, prevItems)) {
         const values = items.filter((item: number) => item > upperValue)
         const sorted = values.sort((a: number, b: number) => a - b)
-        
         setTitle(sorted[0])
         setEventKey(sorted[0])
       }
