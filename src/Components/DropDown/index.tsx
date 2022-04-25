@@ -95,22 +95,26 @@ const DropDown: React.FC<Props> = (props: Props) => {
     borderStyle: 'solid',
   }
 
-  const prevValue = usePrevious(value)
+  let prevValue = usePrevious(value)
+  const prevItems = usePrevious(items)
 
   useEffect(() => {
     if (!objectsEqual(value, prevValue)) {
       setTitle(value.title ? value.title : value)
       setEventKey(value.id ? value.id : value)
+      prevValue = value
     }
   }, [value, prevValue])
 
   useEffect(() => {
     if (arrayNumbers && upperValue) {
-      const values = items.filter((item: number) => item > upperValue)
-      const sorted = values.sort((a: number, b: number) => a - b)
-      
-      setTitle(sorted[0])
-      setEventKey(sorted[0])
+      if (value < upperValue || objectsEqual(items, prevItems)) {
+        const values = items.filter((item: number) => item > upperValue)
+        const sorted = values.sort((a: number, b: number) => a - b)
+        
+        setTitle(sorted[0])
+        setEventKey(sorted[0])
+      }
     }
   }, [upperValue])
 
@@ -130,7 +134,7 @@ const DropDown: React.FC<Props> = (props: Props) => {
 
   const onSelectHandler = (key: any, event: React.BaseSyntheticEvent) => {
     if (upperValue) {
-      if (key > upperValue) {
+      if (+key > upperValue) {
         setEventKey(key)
         setTitle(event.target.innerText)
         onSelect(key)
