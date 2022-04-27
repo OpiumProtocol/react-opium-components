@@ -39,6 +39,7 @@ import MenuCollapse from './Components/MenuCollapse'
 import SidebarMenu from './Components/SidebarMenu'
 import SelectMultiple from './Components/SelectMultiple'
 import OpiumBanner from './Components/OpiumBanner'
+import Pagination from './Components/Pagination'
 
 import {
   themes,
@@ -99,6 +100,7 @@ export {
   SidebarMenu,
   SelectMultiple,
   OpiumBanner,
+  Pagination
 }
 
 export {

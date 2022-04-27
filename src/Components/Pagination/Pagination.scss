@@ -1,0 +1,89 @@
+.TablePagination {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: flex-start;
+  
+    .pagination-list {
+      display: flex;
+      justify-content: flex-start;
+  
+      .pagination-item {
+        width: 8px;
+        height: 16px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 26px;
+        padding: 0.9rem 1.5rem!important;
+        border-color:#2C2C4A!important;
+        margin: 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        &:first-child {
+          margin: 0 8px 0 0;
+          @media screen and (max-width: 360px) {
+            margin: 0 4px 0 0;
+          }
+        }
+  
+        @media screen and (max-width: 414px) {
+          padding: 12px 18px!important;
+  
+          @media screen and (max-width: 360px) {
+            margin: 0 4px;
+          }
+        }
+
+        &.color-scheme {
+            &-DARK {
+                color: #FFFFFF!important;
+
+                &:hover {
+                    background-color: #2C2C4A!important;
+                    color: #FFFFFF!important;
+                }
+
+                &.active {
+                    background-color: #2C2C4A!important;
+                    color: #FFFFFF!important;
+                  }
+            }
+
+            &-LIGHT {
+                color: #2C2C4A!important;
+
+                &:hover {
+                    color: #FFFFFF!important;
+                }
+
+                &.active {
+                    color: #FFFFFF!important;
+                  }
+            }
+        }
+      }
+  
+      .pagination-points {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+        margin: 0px 20px;
+        letter-spacing: 2.5px;
+        display: flex;
+        align-items: center;
+        width: 17px;
+  
+        @media screen and (max-width: 414px) {
+          margin: 0px 10px;
+
+          @media screen and (max-width: 360px) {
+            margin: 0px 5px;
+          }
+        }
+      }
+    }
+  }
