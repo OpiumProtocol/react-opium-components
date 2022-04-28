@@ -52,7 +52,7 @@ const SearchBox: React.FC<Props> = (props: Props) => {
   }
 
   const handleClick = () => {
-    onClick(value)
+    onClick(search)
   }
 
   const renderInput = () => {
