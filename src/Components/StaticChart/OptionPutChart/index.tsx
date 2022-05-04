@@ -199,7 +199,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
             className="custom-tooltip__container"
             style={{ backgroundColor: payload[i + 1].color }}
           >
-            <p className="label" style={{ fontSize: '14px', color: 'white' }}>
+            <p className="label" style={{ fontSize: '14px', color: 'white', opacity: chartData.tooltipTitle === 'Loss' ? '0.3' : '1' }}>
               {(i % 2 == 0) ? payload[i + 1].value > 0 ? 'Profit' : 'Loss' : payload[i + 1].value < 0 ? 'Loss' : 'Profit'}
             </p>
           </div>)
