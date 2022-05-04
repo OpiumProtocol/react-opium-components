@@ -292,7 +292,7 @@ const OptionCallChart: FC<TProps> = (props: TProps) => {
           fillOpacity={1}
           fill="url(#colorUv)"
 
-          stroke={'rgba(246, 2, 156, 0.5)'}
+          stroke={'rgba(246, 2, 156, 0.3)'}
         />}
         {chartData2 && <Area
           type="linear"
