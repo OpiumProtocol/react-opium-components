@@ -287,11 +287,12 @@ const OptionCallChart: FC<TProps> = (props: TProps) => {
         {chartData1 && <Area
           type="linear"
           dataKey="data1"
+          strokeDasharray="3 3"
           strokeWidth={2}
           fillOpacity={1}
           fill="url(#colorUv)"
 
-          stroke={'#F6029C'}
+          stroke={'rgba(246, 2, 156, 0.5)'}
         />}
         {chartData2 && <Area
           type="linear"
