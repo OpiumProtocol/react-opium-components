@@ -217,7 +217,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
+const CashSecuredPutChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -336,4 +336,4 @@ const OutrightShortPutChart: FC<TProps> = (props: TProps) => {
   )
 }
 
-export default OutrightShortPutChart
+export default CashSecuredPutChart
