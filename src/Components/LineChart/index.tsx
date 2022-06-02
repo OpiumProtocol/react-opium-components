@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
   ComposedChart,
@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  ReferenceDot,
 } from 'recharts'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -38,7 +39,8 @@ export type Props = {
   intervalX?: number
   intervalY?: number
   dontShowLabel?: boolean,
-  increaseDomainY?: number
+  increaseDomainY?: number,
+  animation?: { end: number, interval: number}
 }
 
 const defaultProps: Props = {
@@ -93,12 +95,14 @@ const LineChart: React.FC<Props> = (props: Props) => {
     tickFormatterY,
     intervalX,
     dontShowLabel,
-    increaseDomainY
+    increaseDomainY,
+    animation
   } = renderProps
 
   const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
+    
     if (active) {
       return (
         <div className="custom-tooltip">
@@ -117,6 +121,53 @@ const LineChart: React.FC<Props> = (props: Props) => {
     }
 
     return null
+  }
+
+  const [dotAnimation, setDotAnimation] = useState({ x: data[0].label, y: data[0].lineData })
+  const [showDot, setShowDot] = useState(true)
+
+  const animationStart = () => {
+    let i = 0
+    const interval = setInterval(function() {
+      setDotAnimation(
+        { x: data[i].label, y: data[i].lineData }
+      )
+      i++
+      if (data[i].label >= animation.end) {
+        clearInterval(interval)
+        setShowDot(false)
+      }
+    }, animation.interval)
+  }
+
+  useEffect(() => {
+    animation && animationStart()
+  }, [])
+
+  const ReferenceRectDot = (props: any) => {
+    const { width, color, value, viewBox, top, topY, leftX } = props
+
+    return (
+      <g>
+        <g>
+          <rect
+            x={viewBox.x - (leftX ? leftX : 70)}
+            y={viewBox.y - (top ? top : 0)}
+            rx="9"
+            ry="9"
+            width={width ? width : 170}
+            height={34}
+            fill={color ? color : '#12122C'}
+            style={{ stroke: '#5D5F7C' }}
+          />
+        </g>
+        <g> 
+          <text x={viewBox.x} y={viewBox.y + 45} fill="#197CD8" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {value}
+          </text>
+        </g>
+      </g>
+    )
   }
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
@@ -144,6 +195,8 @@ const LineChart: React.FC<Props> = (props: Props) => {
             stroke="#31EDA9"
           />
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
+          {(animation && showDot) 
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={dotAnimation.y} top={-25} topY={10} leftX={80} width={160} />} />}
         </ComposedChart>
       </ResponsiveContainer>
     </div>
