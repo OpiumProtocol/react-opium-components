@@ -127,23 +127,24 @@ const LineChart: React.FC<Props> = (props: Props) => {
   const [showDot, setShowDot] = useState(true)
 
   const animationStart = () => {
-    let i = 0
-    const interval = setInterval(function() {
-      console.log('data', data[i])
-      setDotAnimation(
-        { x: data[i].label, y: data[i].lineData }
-      )
-      i++
-      if (data[i].label >= animation.end) {
-        clearInterval(interval)
-        setShowDot(false)
-      }
-    }, animation.interval)
+    if (data.length) {
+      let i = 0
+      const interval = setInterval(function() {
+        setDotAnimation(
+          { x: data[i].label, y: data[i].lineData }
+        )
+        i++
+        if (data[i].label >= animation.end) {
+          clearInterval(interval)
+          setShowDot(false)
+        }
+      }, animation.interval)
+    }
   }
 
   useEffect(() => {
     animation && animationStart()
-  }, [])
+  }, [data])
 
   const ReferenceRectDot = (props: any) => {
     const { width, color, value, viewBox, top, topY, leftX } = props
