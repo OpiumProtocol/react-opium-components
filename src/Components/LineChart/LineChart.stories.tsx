@@ -89,6 +89,7 @@ export const chart = () => {
         // domainY={[-5.07, 109.19]}
         increaseDomainY={0.1}
         animation={{ end: 1654180228, interval: 200, title: 'ETH' }}
+        timeNow={1654180227}
       />
     </div>
   )

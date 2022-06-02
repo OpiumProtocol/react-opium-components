@@ -42,6 +42,7 @@ export type Props = {
   dontShowLabel?: boolean,
   increaseDomainY?: number,
   animation?: { end: number, interval: number, title: string}
+  timeNow?: number
 }
 
 const defaultProps: Props = {
@@ -97,7 +98,8 @@ const LineChart: React.FC<Props> = (props: Props) => {
     intervalX,
     dontShowLabel,
     increaseDomainY,
-    animation
+    animation,
+    timeNow
   } = renderProps
 
   const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
@@ -124,28 +126,37 @@ const LineChart: React.FC<Props> = (props: Props) => {
     return null
   }
 
-  const [dotAnimation, setDotAnimation] = useState({ x: data[0].label || 0, y: data[0].lineData || 0 })
-  const [showDot, setShowDot] = useState(true)
+  // const [dotAnimation, setDotAnimation] = useState({ x: data[0].label || 0, y: data[0].lineData || 0 })
+  // const [showDot, setShowDot] = useState(true)
 
-  const animationStart = () => {
-    if (data.length) {
-      let i = 0
-      const interval = setInterval(function() {
-        setDotAnimation(
-          { x: data[i].label, y: data[i].lineData }
-        )
-        i++
-        if (data[i].label >= animation.end) {
-          clearInterval(interval)
-          setShowDot(false)
-        }
-      }, animation.interval)
+  // const animationStart = () => {
+  //   if (data.length) {
+  //     let i = 0
+  //     const interval = setInterval(function() {
+  //       setDotAnimation(
+  //         { x: data[i].label, y: data[i].lineData }
+  //       )
+  //       i++
+  //       if (data[i].label >= animation.end) {
+  //         clearInterval(interval)
+  //         setShowDot(false)
+  //       }
+  //     }, animation.interval)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   animation && animationStart()
+  // }, [])
+
+  const findY = (time: number) => {
+    console.log(time)
+    const el = data.find((el: any) => el.label === time)
+    if (el) {
+      return el.lineData
     }
+    return undefined
   }
-
-  useEffect(() => {
-    animation && animationStart()
-  }, [])
 
   const ReferenceRectDot = (props: any) => {
     const { width, color, value, viewBox, top, topY, leftX } = props
@@ -198,8 +209,10 @@ const LineChart: React.FC<Props> = (props: Props) => {
             stroke="#31EDA9"
           />
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
-          {(animation && showDot) 
-            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={`${+numeral(dotAnimation.y).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />}
+          {/* {(animation && showDot) 
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={`${+numeral(dotAnimation.y).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />} */}
+          {(timeNow && findY(timeNow)) 
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={timeNow} y={findY(timeNow)} label={<ReferenceRectDot value={`${+numeral(findY(timeNow)).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />}
         </ComposedChart>
       </ResponsiveContainer>
     </div>
