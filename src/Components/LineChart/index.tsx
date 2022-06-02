@@ -18,6 +18,7 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import './LineChart.scss'
 import { useDomainY } from '../../Utils/hooks'
+import numeral from 'numeral'
 
 export type ChartData = {
   tooltipTitle: string
@@ -40,7 +41,7 @@ export type Props = {
   intervalY?: number
   dontShowLabel?: boolean,
   increaseDomainY?: number,
-  animation?: { end: number, interval: number}
+  animation?: { end: number, interval: number, title: string}
 }
 
 const defaultProps: Props = {
@@ -198,7 +199,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
           />
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
           {(animation && showDot) 
-            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={dotAnimation.y} top={-25} topY={10} leftX={80} width={160} />} />}
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={`${+numeral(dotAnimation.y).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />}
         </ComposedChart>
       </ResponsiveContainer>
     </div>
