@@ -129,6 +129,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
   const animationStart = () => {
     let i = 0
     const interval = setInterval(function() {
+      console.log('data', data[i])
       setDotAnimation(
         { x: data[i].label, y: data[i].lineData }
       )
