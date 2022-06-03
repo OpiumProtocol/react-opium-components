@@ -150,7 +150,6 @@ const LineChart: React.FC<Props> = (props: Props) => {
   // }, [])
 
   const findY = (time: number) => {
-    console.log(time)
     const el = data.find((el: any) => el.label === time)
     if (el) {
       return el.lineData
