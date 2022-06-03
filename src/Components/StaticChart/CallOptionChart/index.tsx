@@ -146,28 +146,38 @@ const data = [
     price: 1.4
   },
   {
-    data1: -0.2,
-    data2: 0.2,
+    data1: -0.15,
+    data2: 0.15,
     price: 1.45
   },
   {
-    data1: -0.4,
-    data2: 0.4,
+    data1: -0.3,
+    data2: 0.3,
     price: 1.5
+  },
+  {
+    data1: -0.45,
+    data2: 0.45,
+    price: 1.55
   },
   {
     data1: -0.6,
     data2: 0.6,
-    price: 1.55
-  },
-  {
-    data1: -0.8,
-    data2: 0.8,
     price: 1.6
   },
   {
-    data1: -1,
-    data2: 1,
+    data1: -0.75,
+    data2: 0.75,
+    price: 1.6
+  },
+  {
+    data1: -0.9,
+    data2: 0.9,
+    price: 1.6
+  },
+  {
+    data1: -1.05,
+    data2: 1.05,
     price: 1.65
   },
   {
@@ -176,8 +186,8 @@ const data = [
     price: 1.7
   },
   {
-    data1: -1.4,
-    data2: 1.4,
+    data1: -1.35,
+    data2: 1.35,
     price: 1.75
   }
 ]
