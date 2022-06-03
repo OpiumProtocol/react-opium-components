@@ -223,9 +223,9 @@ const CallOptionChart: FC<TProps> = (props: TProps) => {
 
   const tickChanger = (dataIndex: number) => {
     let tick: string = ''
-    if (dataIndex === -1.4) {
+    if (dataIndex === -1.35) {
       tick = 'Loss'
-    } else if (dataIndex === 1.4) {
+    } else if (dataIndex === 1.35) {
       return 'Profit'
     } else if (dataIndex === 0) {
       return '0'
@@ -276,10 +276,10 @@ const CallOptionChart: FC<TProps> = (props: TProps) => {
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.4 }, { x: 0, y: 1.4 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.4 }, { x: 0, y: 1.4 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.4 }, { x: 15, y: 1.4 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 21, y: -1.4 }, { x: 21, y: 1.4 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.35 }, { x: 15, y: 1.35 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 21, y: -1.35 }, { x: 21, y: 1.35 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
@@ -312,7 +312,7 @@ const CallOptionChart: FC<TProps> = (props: TProps) => {
           style={{ zIndex: -1 }}
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={28} x2={30} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
+        <ReferenceArea x1={26} x2={29} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceArea x1={0} x2={2} y1={0} y2={1.2} fill={'transparent'} label={{ value: 'Short call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
         <ReferenceArea x1={0} x2={2} y1={-1} y2={-1.2} fill={'transparent'} label={{ value: 'Long call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={43} top={25} width={85} color={'rgba(10, 10, 30, 0.8)'}/> }/>
