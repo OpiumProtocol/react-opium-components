@@ -272,8 +272,8 @@ const PutOptionChart: FC<TProps> = (props: TProps) => {
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.35 }, { x: 15, y: 1.35 }]} />
-        <ReferenceLine stroke="white" strokeWidth="2" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
-        {/* <ReferenceLine stroke="white" strokeWidth="3" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} /> */}
+        <ReferenceLine stroke="white" strokeWidth="" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} style={{ zIndex: 1000 }} alwaysShow/>
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} alwaysShow/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 9, y: -1.35 }, { x: 9, y: 1.35 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
