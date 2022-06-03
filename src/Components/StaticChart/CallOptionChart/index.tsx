@@ -206,7 +206,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: { active?: b
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const OptionCallChart: FC<TProps> = (props: TProps) => {
+const CallOptionChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -312,4 +312,4 @@ const OptionCallChart: FC<TProps> = (props: TProps) => {
   )
 }
 
-export default OptionCallChart
+export default CallOptionChart

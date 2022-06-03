@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { ETheme } from '../../../Constants/Types/theme.types'
 import {
   XAxis,
@@ -10,16 +10,16 @@ import {
   ReferenceLine,
   Label,
   ReferenceDot,
-  ReferenceArea,
   Line,
+  ReferenceArea,
   Tooltip
 } from 'recharts'
 import { useMobile } from '../../../Utils/hooks'
 
 export type ChartData = {
-    tooltipTitle: string
-    tooltipSuffix: string
-  }
+  tooltipTitle: string
+  tooltipSuffix: string
+}
 
 export type TProps = {
   /** Define theme */
@@ -27,185 +27,110 @@ export type TProps = {
   /** Set class selectors */
   className?: string
   domainAxisY: any
-  increaseDomainY: number
+  increaseDomainY: any
   chartData1: ChartData,
   chartData2: ChartData,
-  logScaleY: boolean,
+  logScaleY: any,
   scale: any
 }
 
 const data = [
   {
-    data2: 1,
-    price: 0
-  },
-  {
-    data2: 0.9,
-    price: 0.05
-  },
-  {
-    data2: 0.8,
-    price: 0.01
-  },
-  {
-    data2: 0.7,
-    price: 0.15
-  },
-  {
-    data2: 0.6,
-    price: 0.2
-  },
-
-  {
-    data2: 0.5,
-    price: 0.08
-  },
-  {
-    data2: 0.4,
-    price: 0.16
-  },
-  {
-    data2: 0.3,
-    price: 0.24
-  },
-  {
-    data2: 0.2,
-    price: 0.32
-  },
-  {
-    data2: 0.1,
-    price: 0.4
-  },
-
-  {
-    data2: 0,
-    data1: 0,
-    price: -0.1
-  },
-  {
-    data1: -0.1,
+    data1: -1,
     price: 0.1
   },
   {
-    data1: -0.2,
+    data1: -1,
     price: 0.2
   },
   {
-    data1: -0.3,
+    data1: -1,
     price: 0.3
   },
   {
-    data1: -0.4,
+    data1: -1,
     price: 0.4
   },
   {
-    data1: -0.5,
+    data1: -1,
     price: 0.5
-  },
-  {
-    data1: -0.6,
-    price: 0.6
-  },
-  {
-    data1: -0.7,
-    price: 0.7
-  },
-  {
-    data1: -0.8,
-    price: 0.8
-  },
-  {
-    data1: -0.9,
-    price: 0.9
-  },
+  }, 
+
   {
     data1: -1,
     price: 1
   },
   {
-    data1: -0.9,
-    price: 1.1
-  },
-  {
     data1: -0.8,
-    price: 1.1
-  },
-  {
-    data1: -0.7,
-    price: 1.1
-  },
-  {
-    data1: -0.6,
-    price: 1.2
-  },
-  {
-    data1: -0.5,
-    price: 1.1
-  },
-  {
-    data1: -0.4,
-    price: 1.3
-  },
-  {
-    data1: -0.3,
-    price: 1.1
-  },
-  {
-    data1: -0.2,
-    price: 1.4
-  },
-  {
-    data1: -0.1,
-    price: 1.1
-  },
-  {
-    data2: 0,
-    data1: 0,
-    price: 1.5
-  },
-  {
-    data2: 0.1,
     price: 1.25
   },
   {
-    data2: 0.2,
-    price: 1.15
+    data1: -0.6,
+    price: 1.5
   },
   {
-    data2: 0.3,
-    price: 1.15
+    data1: -0.4,
+    price: 1.75
+  },
+  {
+    data1: -0.2,
+    price: 2
+  },
+  {
+    data1: 0,
+    data2: 0,
+    price: 2
+  },
+
+  {
+    data2: 0.2,
+    price: 2.2
   },
   {
     data2: 0.4,
-    price: 1.15
-  },
-  {
-    data2: 0.5,
-    price: 1.2
+    price: 2.4
   },
   {
     data2: 0.6,
-    price: 1.3
-  },
-  {
-    data2: 0.7,
-    price: 1.45
+    price: 2.6
   },
   {
     data2: 0.8,
-    price: 1.6
-  },
-  {
-    data2: 0.9,
-    price: 1.85
+    price: 2.8
   },
   {
     data2: 1,
-    price: 2
+    price: 3
   },
-]
+
+  {
+    data2: 1,
+    price: 3.5
+  },
+  {
+    data2: 1,
+    price: 3.6
+  },
+  {
+    data2: 1,
+    price: 3.7
+  },
+  {
+    data2: 1,
+    price: 3.8
+  },
+  {
+    data2: 1,
+    price: 3.9
+  },
+  {
+    data2: 1,
+    price: 4
+  }]
+
 
 const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) => {
+
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
@@ -213,7 +138,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
           className="custom-tooltip__container"
           style={{ backgroundColor: payload[1].color }}
         >
-          <p className="label" style={{ fontSize: '14px', color: 'white' }}>
+          <p className="label static-chart-label" style={{ fontSize: '14px', color: 'white' }}>
             {payload[1].value > 0 ? 'Profit' : 'Loss'}
           </p>
         </div>)
@@ -225,7 +150,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const LongStraddleChart: FC<TProps> = (props: TProps) => {
+const CollarChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -254,6 +179,8 @@ const LongStraddleChart: FC<TProps> = (props: TProps) => {
     )
   }
 
+  const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
+
   const ReferenceRectDot = (props: any) => {
     const { width, color, value, viewBox, top, topY, leftX } = props
 
@@ -280,28 +207,26 @@ const LongStraddleChart: FC<TProps> = (props: TProps) => {
     )
   }
 
-  const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
-
   return (
     <ResponsiveContainer width='100%' height="100%">
       <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
         <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.01}/>
-            <stop offset="100%" stopColor="#F6029C" stopOpacity={0.01}/>
+          <linearGradient id="colorUv" x1="0" y1="-0.3" x2="1" y2="-1" style={{ zIndex: -1 }} >
+            <stop offset="0%" stopColor="#F6029C" stopOpacity={0.05}/>
+            <stop offset="100%" stopColor="#F6029C" stopOpacity={0}/>
           </linearGradient>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1BA159" stopOpacity={0.01}/>
-            <stop offset="100%" stopColor="#1BA159" stopOpacity={0.01}/>
+          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1" style={{ zIndex: -1 }}>
+            <stop offset="0%" stopColor="#1BA159" stopOpacity={0.05}/>
+            <stop offset="100%" stopColor="#1BA159" stopOpacity={0}/>
           </linearGradient>
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
-        <Line dataKey="zeroLine" strokeWidth="1.7" stroke='white' dot={false} strokeOpacity={1}/> 
+        <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 30, y: -1.3 }, { x: 30, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 5, y: -1.3 }, { x: 5, y: 1.3 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 15, y: -1.3 }, { x: 15, y: 1.3 }]} />
         <Tooltip content={<CustomTooltip />} />
         <XAxis
           height={50}
@@ -331,20 +256,20 @@ const LongStraddleChart: FC<TProps> = (props: TProps) => {
           strokeWidth={2}
           fillOpacity={1}
           fill="url(#colorPv)"
-
+          style={{ zIndex: -1 }}
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited Profit', className: 'long-strangle-area-text' }} />
-        <ReferenceArea x1={34} x2={39} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
-        <ReferenceLine stroke="#F6029C" strokeDasharray="3 3" segment={[{ x: 0, y: -1 }, { x: 20, y: -1 }]} >
-          <Label color={'#F6029C'} value={'Max loss'} x={isMobile ? 100 : 200} y={190} content={<ReferenceLabel />}/>
+        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} strokeDasharray="3 3" fill={'transparent'} label={{ value: 'Max loss', className: 'protactive-collar-area-text' }} />
+        <ReferenceArea x1={15} x2={20} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
+        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 15, y: 1 }]} >
+          <Label color={'#1BA159'} value={'Max profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point downside'}`} top={25} leftX={isMobile ? 45 : 95} width={isMobile ? 90 : 185} />} />
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Both Put and Call Strike price'} top={-10} topY={-25} leftX={95} width={190} />} /> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={30} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point upside'}`} top={25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
+        <ReferenceDot r={3} stroke="none" x={5} y={0} label={<ReferenceRectDot value={'Put strike price'} top={-15} width={140} topY={-30}/>}/>
+        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even point'} top={25} width={140} />}/>
+        <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Call strike price'} top={25} width={140} />}/>
       </ComposedChart>
     </ResponsiveContainer>
   )
 }
 
-export default LongStraddleChart
+export default CollarChart

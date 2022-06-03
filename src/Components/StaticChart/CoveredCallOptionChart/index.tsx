@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, useRef } from 'react'
 import { ETheme } from '../../../Constants/Types/theme.types'
 import {
   XAxis,
@@ -217,8 +217,25 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const CashSecuredPutChart: FC<TProps> = (props: TProps) => {
+const CoveredCallOptionChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
+  // const dotLabelRef = useRef<SVGCircleElement>(null)
+
+  const CustomizedActiveDot = React.forwardRef((props: { cx: number, cy: number, fill: string}, ref) => {
+    const {
+      cx, cy,
+      fill
+    } = props
+  
+    return (
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle className="dot-bg" cx={cx} cy={cy} r="5" stroke={fill} />
+        <circle cx={cx} cy={cy} r="2" fill={fill} />
+      </svg>
+    )
+  })
+  
+  CustomizedActiveDot.displayName = 'CustomizedActiveDot'
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
 
@@ -246,12 +263,14 @@ const CashSecuredPutChart: FC<TProps> = (props: TProps) => {
     )
   }
 
+  const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
+
   const ReferenceRectDot = (props: any) => {
     const { width, color, value, viewBox, top, topY, leftX } = props
 
     return (
       <g>
-        <g style={{ zIndex: -1 }}>
+        <g>
           <rect
             x={viewBox.x - (leftX ? leftX : 70)}
             y={viewBox.y - (top ? top : 0)}
@@ -263,7 +282,7 @@ const CashSecuredPutChart: FC<TProps> = (props: TProps) => {
             fillOpacity={0.7}
           />
         </g>
-        <g style={{ zIndex: 1000 }}> 
+        <g> 
           <text x={viewBox.x} y={viewBox.y - (topY ? topY : 10)} fill="#999BBC" fontSize={12} fontWeight="bold" textAnchor="middle">
             {value}
           </text>
@@ -271,8 +290,6 @@ const CashSecuredPutChart: FC<TProps> = (props: TProps) => {
       </g>
     )
   }
-
-  const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
 
   return (
     <ResponsiveContainer width='100%' height="100%">
@@ -325,15 +342,16 @@ const CashSecuredPutChart: FC<TProps> = (props: TProps) => {
 
           stroke={'#1BA159'}
         />}
+        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Covered call', className: 'covered-area-text' }} />
         <ReferenceArea x1={35} x2={39} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: 'insideTop', className: 'axis-text' }} />
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Strike price'} top={-10} topY={-25} leftX={65} width={130} />} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Strike price'} top={-10} topY={-25} leftX={65} width={130} />} />
       </ComposedChart>
     </ResponsiveContainer>
   )
 }
 
-export default CashSecuredPutChart
+export default CoveredCallOptionChart
