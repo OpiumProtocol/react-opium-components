@@ -312,7 +312,7 @@ const CallOptionChart: FC<TProps> = (props: TProps) => {
           style={{ zIndex: -1 }}
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={26} x2={29} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
+        <ReferenceArea x1={25} x2={28} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceArea x1={0} x2={2} y1={0} y2={1.2} fill={'transparent'} label={{ value: 'Short call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
         <ReferenceArea x1={0} x2={2} y1={-1} y2={-1.2} fill={'transparent'} label={{ value: 'Long call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={43} top={25} width={85} color={'rgba(10, 10, 30, 0.8)'}/> }/>
