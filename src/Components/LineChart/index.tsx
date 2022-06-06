@@ -119,6 +119,11 @@ const LineChart: React.FC<Props> = (props: Props) => {
               {`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}
             </p>
           )}
+          {(payload && payload[0] && payload[0].payload.valueTime) && (
+            <p className="label performance">
+              {`${payload[0].payload.valueTime}`}
+            </p>
+          )}
         </div>
       )
     }
