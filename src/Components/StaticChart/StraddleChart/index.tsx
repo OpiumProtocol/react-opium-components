@@ -376,9 +376,8 @@ const StraddleChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={34} x2={39} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
-        <ReferenceLine stroke="#F6029C" strokeDasharray="3 3" segment={[{ x: 0, y: -1 }, { x: 20, y: -1 }]} >
-          <Label color={'#F6029C'} value={'Max loss'} x={isMobile ? 100 : 200} y={190} content={<ReferenceLabel />}/>
-        </ReferenceLine>
+        <ReferenceArea x1={4} x2={6} y1={1.2} y2={1.3} fill={'transparent'} label={{ value: 'Long Straddle', className: 'long-straddle-area-text' }} />
+        <ReferenceArea x1={0} x2={2} y1={-1.2} y2={-1.3} fill={'transparent'} label={{ value: 'Short Straddle', className: 'short-straddle-area-text' }} />
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point'}`} top={25} leftX={isMobile ? 45 : 95} width={isMobile ? 90 : 185} />} />
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Both Put and Call Strike price'} top={-10} topY={-25} leftX={95} width={190} />} /> 
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={30} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point'}`} top={25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 

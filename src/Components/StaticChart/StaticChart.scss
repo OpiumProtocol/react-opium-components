@@ -194,74 +194,28 @@
   }
 }
 
+.long-straddle-area-text {
+  fill: #1BA159;
+  font-size: 0.8rem;
+  transform: rotate(24deg) translate(-20px, -30px);
+}
+
+.short-straddle-area-text {
+  fill: #F6029C;
+  font-size: 0.8rem;
+  transform: rotate(-24deg) translate(-50px, 7px);
+}
+
 .long-strangle-area-text {
   fill: #1BA159;
   font-size: 0.8rem;
-  transform: rotate(-15deg) translate(58rem, 16rem);
-
-  @media (max-width: 1680px) {
-    transform: rotate(-16deg) translate(58rem, 14rem);
-
-    @media (max-width: 1536px) {
-      transform: rotate(-18deg) translate(46rem, 13.5rem);
-
-      @media (max-width: 1440px) {
-        transform: rotate(-23deg) translate(44em, 16rem);
-    
-        @media (max-width: 1024px) {
-            transform: rotate(-24deg) translate(37em, 16rem);
-    
-            @media (max-width: 768px) {
-                transform: rotate(-28deg) translate(34em, 15rem);
-    
-                @media (max-width: 425px) {
-                  transform: rotate(-49deg) translate(3rem, 7.5rem);
-    
-                    @media (max-width: 375px) {
-                        transform: rotate(-56deg) translate(0rem, 5.8rem);
-                    }
-                }
-            }
-        }
-     }
-  }
-    
-}
-
+  transform: rotate(30deg) translate(-5px, -40px);
 }
 
 .short-strangle-area-text {
   fill: #F6029C;
   font-size: 0.8rem;
-  transform: rotate(20deg) translate(850px, -400px);
-
-  @media (max-width: 1680px) {
-    transform: rotate(20deg) translate(750px, -360px);
-
-    @media (max-width: 1536px) {
-      transform: rotate(26deg) translate(620px, -350px);
-
-      @media (max-width: 1440px) {
-        transform: rotate(28deg) translate(580px, -340px);
-    
-        @media (max-width: 1024px) {
-          transform: rotate(30deg) translate(540px, -340px);
-    
-            @media (max-width: 768px) {
-              transform: rotate(34deg) translate(440px, -340px);
-    
-                @media (max-width: 425px) {
-                  transform: rotate(57deg) translate(200px, -320px);
-    
-                    @media (max-width: 375px) {
-                      transform: rotate(64deg) translate(170px, -310px);
-                    }
-                }
-            }
-        }
-    }
-    }
-  }
+  transform: rotate(-30deg) translate(-76px, 5px);
 }
 
 .protactive-collar-area-text {

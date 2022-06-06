@@ -36,268 +36,268 @@ export type TProps = {
 }
 
 const data = [{
-  data1: 1,
-  data2: -1,
+  data2: 1,
+  data1: -1,
   price: 0
 },
 {
-  data1: 0.9,
-  data2: -0.9,
+  data2: 0.9,
+  data1: -0.9,
   price: 0.1
 },
 {
-  data1: 0.8,
-  data2: -0.8,
+  data2: 0.8,
+  data1: -0.8,
   price: 0.2
 },
 {
-  data1: 0.7,
-  data2: -0.7,
+  data2: 0.7,
+  data1: -0.7,
   price: 0.3
 },
 {
-  data1: 0.6,
-  data2: -0.6,
+  data2: 0.6,
+  data1: -0.6,
   price: 0.4
 },
 {
-  data1: 0.5,
-  data2: -0.5,
+  data2: 0.5,
+  data1: -0.5,
   price: 0.5
 },
 {
-  data1: 0.4,
-  data2: -0.4,
+  data2: 0.4,
+  data1: -0.4,
   price: 0.6
 },
 {
-  data1: 0.3,
-  data2: -0.3,
+  data2: 0.3,
+  data1: -0.3,
   price: 0.7
 },
 {
-  data1: 0.2,
-  data2: -0.2,
+  data2: 0.2,
+  data1: -0.2,
   price: 0.8
 },
 {
-  data1: 0.1,
-  data2: -0.1,
+  data2: 0.1,
+  data1: -0.1,
   price: 0.9
 },
 {
-  data1: 0,
   data2: 0,
+  data1: 0,
   price: 1
 },
 {
-  data1: -0.1,
-  data2: 0.1,
+  data2: -0.1,
+  data1: 0.1,
   price: 1.1
 },
 {
-  data1: -0.2,
-  data2: 0.2,
+  data2: -0.2,
+  data1: 0.2,
   price: 1.1
 },
 {
-  data1: -0.3,
-  data2: 0.3,
+  data2: -0.3,
+  data1: 0.3,
   price: 1.1
 },
 {
-  data1: -0.4,
-  data2: 0.4,
+  data2: -0.4,
+  data1: 0.4,
   price: 1.1
 },
 {
-  data1: -0.5,
-  data2: 0.5,
+  data2: -0.5,
+  data1: 0.5,
   price: 1.1
 },
 {
-  data1: -0.6,
-  data2: 0.6,
+  data2: -0.6,
+  data1: 0.6,
   price: 1.2
 },
 {
-  data1: -0.7,
-  data2: 0.7,
+  data2: -0.7,
+  data1: 0.7,
   price: 1.3
 },
 {
-  data1: -0.8,
-  data2: 0.8,
+  data2: -0.8,
+  data1: 0.8,
   price: 1.4
 },
 {
-  data1: -0.9,
-  data2: 0.9,
+  data2: -0.9,
+  data1: 0.9,
   price: 1.5
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 1.5
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.1
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.2
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.3
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.4
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.5
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.6
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.7
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.8
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 2.9
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 3
 },
 {
-  data1: -1,
-  data2: 1,
+  data2: -1,
+  data1: 1,
   price: 3
 },
 {
-  data1: -0.9,
-  data2: 0.9,
+  data2: -0.9,
+  data1: 0.9,
   price: 2.9
 },
 {
-  data1: -0.8,
-  data2: 0.8,
+  data2: -0.8,
+  data1: 0.8,
   price: 2.8
 },
 {
-  data1: -0.7,
-  data2: 0.7,
+  data2: -0.7,
+  data1: 0.7,
   price: 2.7
 },
 {
-  data1: -0.6,
-  data2: 0.6,
+  data2: -0.6,
+  data1: 0.6,
   price: 2.6
 },
 {
-  data1: -0.5,
-  data2: 0.5,
+  data2: -0.5,
+  data1: 0.5,
   price: 2.5
 },
 {
-  data1: -0.4,
-  data2: 0.4,
+  data2: -0.4,
+  data1: 0.4,
   price: 2.7
 },
 {
-  data1: -0.3,
-  data2: 0.3,
+  data2: -0.3,
+  data1: 0.3,
   price: 2.9
 },
 {
-  data1: -0.2,
-  data2: 0.2,
+  data2: -0.2,
+  data1: 0.2,
   price: 3.2
 },
 {
-  data1: -0.1,
-  data2: 0.1,
+  data2: -0.1,
+  data1: 0.1,
   price: 3.4
 },
 {
-  data1: 0,
   data2: 0,
+  data1: 0,
   price: 3.5
 },
 {
-  data1: 0.1,
-  data2: -0.1,
+  data2: 0.1,
+  data1: -0.1,
   price: 3.1
 },
 {
-  data1: 0.2,
-  data2: -0.2,
+  data2: 0.2,
+  data1: -0.2,
   price: 3.2
 },
 {
-  data1: 0.3,
-  data2: -0.3,
+  data2: 0.3,
+  data1: -0.3,
   price: 3.3
 },
 {
-  data1: 0.4,
-  data2: -0.4,
+  data2: 0.4,
+  data1: -0.4,
   price: 3.4
 },
 {
-  data1: 0.5,
-  data2: -0.5,
+  data2: 0.5,
+  data1: -0.5,
   price: 3.5
 },
 {
-  data1: 0.6,
-  data2: -0.6,
+  data2: 0.6,
+  data1: -0.6,
   price: 3.6
 },
 {
-  data1: 0.7,
-  data2: -0.7,
+  data2: 0.7,
+  data1: -0.7,
   price: 3.7
 },
 {
-  data1: 0.8,
-  data2: -0.8,
+  data2: 0.8,
+  data1: -0.8,
   price: 3.8
 },
 {
-  data1: 0.9,
-  data2: -0.9,
+  data2: 0.9,
+  data1: -0.9,
   price: 3.9
 },
 {
-  data1: 1,
-  data2: -1,
+  data2: 1,
+  data1: -1,
   price: 4
 }]
 
@@ -314,7 +314,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
             style={{ backgroundColor: payload[i + 1].color }}
           >
             <p className="label" style={{ fontSize: '14px', color: 'white' }}>
-              {(i % 2 == 0) ? payload[i + 1].value > 0 ? 'Profit' : 'Loss' : payload[i + 1].value < 0 ? 'Loss' : 'Profit'}
+              {(i % 2 == 0) ? payload[i + 1].value < 0 ? 'Loss' : 'Profit' : payload[i + 1].value > 0 ? 'Profit' : 'Loss'}
             </p>
           </div>)
         })}
@@ -437,12 +437,11 @@ const StrangleChart: FC<TProps> = (props: TProps) => {
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={41} x2={50} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
-        <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
-          <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
-        </ReferenceLine>
+        <ReferenceArea x1={4} x2={6} y1={1.2} y2={1.3} fill={'transparent'} label={{ value: 'Long Strangle', className: 'long-strangle-area-text' }} />
+        <ReferenceArea x1={0} x2={2} y1={-1.2} y2={-1.3} fill={'transparent'} label={{ value: 'Short Strangle', className: 'short-strangle-area-text' }} />
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />}/>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Short put' : 'Short Put Strike price'}`} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>} /> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={32} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Short call' : 'Short Call Strike price'}`} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Put Strike price'} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={32} y={0} label={<ReferenceRectDot value={'Call Strike price'} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={42} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
       </ComposedChart>
     </ResponsiveContainer>
