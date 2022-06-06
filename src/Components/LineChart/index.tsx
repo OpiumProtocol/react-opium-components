@@ -19,6 +19,7 @@ import { ETheme } from '../../Constants/Types/theme.types'
 import './LineChart.scss'
 import { useDomainY } from '../../Utils/hooks'
 import numeral from 'numeral'
+import moment from 'moment'
 
 export type ChartData = {
   tooltipTitle: string
@@ -163,7 +164,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
   }
 
   const ReferenceRectDot = (props: any) => {
-    const { width, color, value, viewBox, top, topY, leftX } = props
+    const { width, color, value, valueTime, viewBox, top, topY, leftX } = props
 
     return (
       <g>
@@ -174,14 +175,17 @@ const LineChart: React.FC<Props> = (props: Props) => {
             rx="9"
             ry="9"
             width={width ? width : 170}
-            height={34}
+            height={53}
             fill={color ? color : '#12122C'}
             style={{ stroke: '#5D5F7C' }}
           />
         </g>
         <g> 
-          <text x={viewBox.x} y={viewBox.y + 45} fill="#197CD8" fontSize={12} fontWeight="bold" textAnchor="middle">
+          <text x={viewBox.x} y={viewBox.y + 47} fill="#197CD8" fontSize={12} fontWeight="bold" textAnchor="middle">
             {value}
+          </text>
+          <text x={viewBox.x} y={viewBox.y + 65} fill="#31EDA9" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {valueTime}
           </text>
         </g>
       </g>
@@ -216,7 +220,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
           {/* {(animation && showDot) 
             && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={`${+numeral(dotAnimation.y).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />} */}
           {(timeNow && findY(timeNow)) 
-            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={timeNow} y={findY(timeNow)} label={<ReferenceRectDot value={`${+numeral(findY(timeNow)).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />}
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={timeNow} y={findY(timeNow)} label={<ReferenceRectDot value={`${+numeral(findY(timeNow)).format('0[.]000000')} ${animation.title}`} valueTime={moment.unix(timeNow).utc().format('HH:mm:ss UTC')} top={-25} topY={10} leftX={80} width={160} />} />}
         </ComposedChart>
       </ResponsiveContainer>
     </div>
