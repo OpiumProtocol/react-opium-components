@@ -299,25 +299,25 @@
 .short-strangle-area-text {
   fill: #F6029C;
   font-size: 0.8rem;
-  transform: rotate(-20deg) translate(-29px, 7px);
+  transform: rotate(-20deg) translate(-50px, 7px);
 
   @media (max-width: 1680px) {
-    transform: rotate(-23deg) translate(-30px, -30px);
+    transform: rotate(-23deg) translate(-70px, 10px);
 
     @media (max-width: 1536px) {
-      transform: rotate(-27deg) translate(-56px, 6px);
+      transform: rotate(-27deg) translate(-75px, 10px);
 
       @media (max-width: 1440px) {
-        transform: rotate(-30deg) translate(-75px, 6px);
+        transform: rotate(-30deg) translate(-85px, 6px);
 
         @media (max-width: 1024px) {
-          transform: rotate(-32deg) translate(-87px, 6px);
+          transform: rotate(-32deg) translate(-100px, 6px);
 
           @media (max-width: 768px) {
-            transform: rotate(-36deg) translate(-97px, 6px);
+            transform: rotate(-36deg) translate(-110px, 6px);
 
             @media (max-width: 425px) {
-              transform: rotate(-59deg) translate(-180px, -40px);
+              transform: rotate(-59deg) translate(-185px, -40px);
 
               @media (max-width: 375px) {
                 transform: rotate(-62deg) translate(-190px, -48px);
