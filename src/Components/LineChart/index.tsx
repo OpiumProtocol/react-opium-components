@@ -184,7 +184,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
           <text x={viewBox.x} y={viewBox.y + 47} fill="#197CD8" fontSize={12} fontWeight="bold" textAnchor="middle">
             {value}
           </text>
-          <text x={viewBox.x} y={viewBox.y + 65} fill="#31EDA9" fontSize={12} fontWeight="bold" textAnchor="middle">
+          <text x={viewBox.x - 14} y={viewBox.y + 65} fill="#31EDA9" fontSize={12} fontWeight="bold" textAnchor="middle">
             {valueTime}
           </text>
         </g>
@@ -220,7 +220,7 @@ const LineChart: React.FC<Props> = (props: Props) => {
           {/* {(animation && showDot) 
             && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={`${+numeral(dotAnimation.y).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />} */}
           {(timeNow && findY(timeNow)) 
-            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={timeNow} y={findY(timeNow)} label={<ReferenceRectDot value={`${+numeral(findY(timeNow)).format('0[.]000000')} ${animation.title}`} valueTime={moment.unix(timeNow).utc().format('HH:mm:ss UTC')} top={-25} topY={10} leftX={80} width={160} />} />}
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={timeNow} y={findY(timeNow)} label={<ReferenceRectDot value={`Premium: ${+numeral(findY(timeNow)).format('0[.]000000')} ${animation.title}`} valueTime={`Time: ${moment.unix(timeNow).utc().format('HH:mm:ss UTC')}`} top={-25} topY={10} leftX={80} width={160} />} />}
         </ComposedChart>
       </ResponsiveContainer>
     </div>
