@@ -211,7 +211,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const OptionPutChart: FC<TProps> = (props: TProps) => {
+const PutOptionChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -272,8 +272,8 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.35 }, { x: 15, y: 1.35 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} style={{ zIndex: 1000 }} alwaysShow/>
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} alwaysShow/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 9, y: -1.35 }, { x: 9, y: 1.35 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
@@ -317,4 +317,4 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
   )
 }
 
-export default OptionPutChart
+export default PutOptionChart

@@ -36,7 +36,7 @@ export const StaticChartStory = () => {
         height={'286px'}
         width={'100%'}
         chartData2={{ tooltipTitle: 'Profit', tooltipSuffix: '%' }}
-        type='Option put'
+        type='Strangle'
         chartData1={{ tooltipTitle: 'Loss', tooltipSuffix: '%' }}
         domainY={[-1, 1]}
         increaseDomainY={0.3}

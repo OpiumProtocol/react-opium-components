@@ -217,7 +217,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const CoveredCallChart: FC<TProps> = (props: TProps) => {
+const CoveredCallOptionChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
   // const dotLabelRef = useRef<SVGCircleElement>(null)
 
@@ -354,4 +354,4 @@ const CoveredCallChart: FC<TProps> = (props: TProps) => {
   )
 }
 
-export default CoveredCallChart
+export default CoveredCallOptionChart

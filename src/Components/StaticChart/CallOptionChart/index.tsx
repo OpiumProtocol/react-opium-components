@@ -146,28 +146,38 @@ const data = [
     price: 1.4
   },
   {
-    data1: -0.2,
-    data2: 0.2,
+    data1: -0.15,
+    data2: 0.15,
     price: 1.45
   },
   {
-    data1: -0.4,
-    data2: 0.4,
+    data1: -0.3,
+    data2: 0.3,
     price: 1.5
+  },
+  {
+    data1: -0.45,
+    data2: 0.45,
+    price: 1.55
   },
   {
     data1: -0.6,
     data2: 0.6,
-    price: 1.55
-  },
-  {
-    data1: -0.8,
-    data2: 0.8,
     price: 1.6
   },
   {
-    data1: -1,
-    data2: 1,
+    data1: -0.75,
+    data2: 0.75,
+    price: 1.6
+  },
+  {
+    data1: -0.9,
+    data2: 0.9,
+    price: 1.6
+  },
+  {
+    data1: -1.05,
+    data2: 1.05,
     price: 1.65
   },
   {
@@ -176,8 +186,8 @@ const data = [
     price: 1.7
   },
   {
-    data1: -1.4,
-    data2: 1.4,
+    data1: -1.35,
+    data2: 1.35,
     price: 1.75
   }
 ]
@@ -206,16 +216,16 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: { active?: b
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const OptionCallChart: FC<TProps> = (props: TProps) => {
+const CallOptionChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
 
   const tickChanger = (dataIndex: number) => {
     let tick: string = ''
-    if (dataIndex === -1.4) {
+    if (dataIndex === -1.35) {
       tick = 'Loss'
-    } else if (dataIndex === 1.4) {
+    } else if (dataIndex === 1.35) {
       return 'Profit'
     } else if (dataIndex === 0) {
       return '0'
@@ -266,10 +276,10 @@ const OptionCallChart: FC<TProps> = (props: TProps) => {
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.4 }, { x: 0, y: 1.4 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.4 }, { x: 0, y: 1.4 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.4 }, { x: 15, y: 1.4 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 21, y: -1.4 }, { x: 21, y: 1.4 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.35 }, { x: 15, y: 1.35 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 21, y: -1.35 }, { x: 21, y: 1.35 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
@@ -302,7 +312,7 @@ const OptionCallChart: FC<TProps> = (props: TProps) => {
           style={{ zIndex: -1 }}
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={28} x2={30} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
+        <ReferenceArea x1={26} x2={29} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceArea x1={0} x2={2} y1={0} y2={1.2} fill={'transparent'} label={{ value: 'Short call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
         <ReferenceArea x1={0} x2={2} y1={-1} y2={-1.2} fill={'transparent'} label={{ value: 'Long call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={43} top={25} width={85} color={'rgba(10, 10, 30, 0.8)'}/> }/>
@@ -312,4 +322,4 @@ const OptionCallChart: FC<TProps> = (props: TProps) => {
   )
 }
 
-export default OptionCallChart
+export default CallOptionChart
