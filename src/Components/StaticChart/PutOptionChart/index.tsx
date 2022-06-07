@@ -310,7 +310,7 @@ const PutOptionChart: FC<TProps> = (props: TProps) => {
         <ReferenceArea x1={25} x2={28} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceArea x1={25} x2={28} y1={1} y2={1.2} fill={'transparent'} label={{ value: 'Short put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
         <ReferenceArea x1={25} x2={28} y1={-1} y2={-1.2} fill={'transparent'} label={{ value: 'Long put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
-        <ReferenceDot r={3} stroke="none" x={9} y={0} label={<ReferenceRectDot value={'Break-even point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'} />}/>
+        <ReferenceDot r={3} stroke="none" x={9} y={0} label={<ReferenceRectDot value={'Break-even Point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'} />}/>
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={45} top={25} width={90} color={'rgba(10, 10, 30, 0.8)'} />}/>
       </ComposedChart>
     </ResponsiveContainer>

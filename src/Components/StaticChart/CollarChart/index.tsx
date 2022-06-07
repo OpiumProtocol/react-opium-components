@@ -262,10 +262,10 @@ const CollarChart: FC<TProps> = (props: TProps) => {
         <ReferenceArea x1={0} x2={1} y1={0} y2={-1} strokeDasharray="3 3" fill={'transparent'} label={{ value: 'Max loss', className: 'protactive-collar-area-text' }} />
         <ReferenceArea x1={15} x2={20} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 15, y: 1 }]} >
-          <Label color={'#1BA159'} value={'Max profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
+          <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
         <ReferenceDot r={3} stroke="none" x={5} y={0} label={<ReferenceRectDot value={'Put strike price'} top={-15} width={140} topY={-30}/>}/>
-        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even point'} top={25} width={140} />}/>
+        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even Point'} top={25} width={140} />}/>
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Call strike price'} top={25} width={140} />}/>
       </ComposedChart>
     </ResponsiveContainer>

@@ -329,7 +329,7 @@ const CashSecuredPutOptionChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="green" strokeDasharray="3 3" segment={[{ x: 0, y: 1 }, { x: 20, y: 1 }]} >
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even Point'} top={25} topY={10} leftX={65} width={130} />} /> 
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Strike price'} top={-10} topY={-25} leftX={65} width={130} />} /> 
       </ComposedChart>
     </ResponsiveContainer>
