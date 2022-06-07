@@ -265,7 +265,7 @@ const CollarChart: FC<TProps> = (props: TProps) => {
           <Label color={'#1BA159'} value={'Max Profit'} x={isMobile ? 150 : 300} y={20} content={<ReferenceLabel />}/>
         </ReferenceLine>
         <ReferenceDot r={3} stroke="none" x={5} y={0} label={<ReferenceRectDot value={'Put strike price'} top={-15} width={140} topY={-30}/>}/>
-        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-even Point'} top={25} width={140} />}/>
+        <ReferenceDot r={3} stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even Point'} top={25} width={140} />}/>
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Call strike price'} top={25} width={140} />}/>
       </ComposedChart>
     </ResponsiveContainer>
