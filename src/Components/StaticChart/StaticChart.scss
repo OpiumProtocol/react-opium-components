@@ -200,10 +200,10 @@
   transform: rotate(16deg) translate(-60px, -21px);
 
   @media (max-width: 1680px) {
-    transform: rotate(18deg) translate(-60px, -21px);
+    transform: rotate(18deg) translate(-58px, -21px);
 
     @media (max-width: 1536px) {
-      transform: rotate(22deg) translate(-40px, -32px);
+      transform: rotate(22deg) translate(-39px, -32px);
 
       @media (max-width: 1440px) {
         transform: rotate(24deg) translate(-25px, -34px);
@@ -326,13 +326,13 @@
   transform: rotate(-20deg) translate(-50px, 7px);
 
   @media (max-width: 1680px) {
-    transform: rotate(-23deg) translate(-70px, 8px);
+    transform: rotate(-23deg) translate(-72px, 8px);
 
     @media (max-width: 1536px) {
       transform: rotate(-27deg) translate(-80px, 10px);
 
       @media (max-width: 1440px) {
-        transform: rotate(-30deg) translate(-85px, 6px);
+        transform: rotate(-30deg) translate(-86px, 6px);
 
         @media (max-width: 1280px) {
           transform: rotate(-36deg) translate(-107px, 0px);
