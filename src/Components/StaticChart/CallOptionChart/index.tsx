@@ -316,7 +316,7 @@ const CallOptionChart: FC<TProps> = (props: TProps) => {
         <ReferenceArea x1={0} x2={2} y1={0} y2={1.2} fill={'transparent'} label={{ value: 'Short call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
         <ReferenceArea x1={0} x2={2} y1={-1} y2={-1.2} fill={'transparent'} label={{ value: 'Long call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
         <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={43} top={25} width={85} color={'rgba(10, 10, 30, 0.8)'}/> }/>
-        <ReferenceDot r={3} stroke="none" x={21} y={0} label={<ReferenceRectDot value={'Break-even point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'}/> }/>
+        <ReferenceDot r={3} stroke="none" x={21} y={0} label={<ReferenceRectDot value={'Break-Even Point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'}/> }/>
       </ComposedChart>
     </ResponsiveContainer>
   )

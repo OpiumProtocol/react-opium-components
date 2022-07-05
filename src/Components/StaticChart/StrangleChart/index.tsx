@@ -398,8 +398,8 @@ const StrangleChart: FC<TProps> = (props: TProps) => {
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
         <ReferenceLine stroke="white" strokeWidth={1} segment={[{ x: 26, y: -1.3 }, { x: 26, y: 1.3 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} alwaysShow/>
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.3 }, { x: 0, y: 1.3 }]} alwaysShow/>
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 32, y: -1.3 }, { x: 32, y: 1.3 }]} />
@@ -433,16 +433,16 @@ const StrangleChart: FC<TProps> = (props: TProps) => {
           strokeWidth={2}
           fillOpacity={1}
           fill="url(#colorPv)"
-
+          
           stroke={'#1BA159'}
         />}
         <ReferenceArea x1={41} x2={50} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
         <ReferenceArea x1={4} x2={6} y1={1.2} y2={1.3} fill={'transparent'} label={{ value: 'Long Strangle', className: 'long-strangle-area-text' }} />
         <ReferenceArea x1={1} x2={3} y1={-1.2} y2={-1.3} fill={'transparent'} label={{ value: 'Short Strangle', className: 'short-strangle-area-text' }} />
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />}/>
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={'Break-Even Point'} top={25} topY={10} leftX={65} width={130} />}/>
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Put Strike price'} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>} /> 
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={32} y={0} label={<ReferenceRectDot value={'Call Strike price'} top={-10} topY={-25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={42} y={0} label={<ReferenceRectDot value={'Break-Even point'} top={25} topY={10} leftX={65} width={130} />} /> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={42} y={0} label={<ReferenceRectDot value={'Break-Even Point'} top={25} topY={10} leftX={65} width={130} />} /> 
       </ComposedChart>
     </ResponsiveContainer>
   )
