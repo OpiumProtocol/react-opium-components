@@ -50,7 +50,7 @@
   }
 
   & .popover-body.color-scheme-DARK {
-    @include tooltip-component($darkblue1, $white0, $white0);
+    @include tooltip-component($darkblue1, $white0, #5D5F7C);
   }
 
   &.color-scheme-LIGHT {
