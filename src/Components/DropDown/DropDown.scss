@@ -87,6 +87,12 @@
                   }
               }
 
+              &.DropDown-items-LIGHT {
+                &:hover {
+                    color: #212529!important;
+                }
+              }
+
         }
     }
 
