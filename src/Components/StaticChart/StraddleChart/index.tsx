@@ -36,188 +36,229 @@ export type TProps = {
 
 const data = [
   {
+    data1: -1,
     data2: 1,
     price: 0
   },
   {
+    data1: -0.9,
     data2: 0.9,
     price: 0.05
   },
   {
+    data1: -0.8,
     data2: 0.8,
     price: 0.01
   },
   {
+    data1: -0.7,
     data2: 0.7,
     price: 0.15
   },
   {
+    data1: -0.6,
     data2: 0.6,
     price: 0.2
   },
-
   {
+    data1: -0.5,
     data2: 0.5,
     price: 0.08
   },
   {
+    data1: -0.4,
     data2: 0.4,
     price: 0.16
   },
   {
+    data1: -0.3,
     data2: 0.3,
     price: 0.24
   },
   {
+    data1: -0.2,
     data2: 0.2,
     price: 0.32
   },
   {
+    data1: -0.1,
     data2: 0.1,
     price: 0.4
   },
-
   {
-    data2: 0,
     data1: 0,
+    data2: 0,
     price: -0.1
   },
   {
-    data1: -0.1,
+    data1: 0.1,
+    data2: -0.1,
     price: 0.1
   },
   {
-    data1: -0.2,
+    data1: 0.2,
+    data2: -0.2,
     price: 0.2
   },
   {
-    data1: -0.3,
+    data1: 0.3,
+    data2: -0.3,
     price: 0.3
   },
   {
-    data1: -0.4,
+    data1: 0.4,
+    data2: -0.4,
     price: 0.4
   },
   {
-    data1: -0.5,
+    data1: 0.5,
+    data2: -0.5,
     price: 0.5
   },
   {
-    data1: -0.6,
+    data1: 0.6,
+    data2: -0.6,
     price: 0.6
   },
   {
-    data1: -0.7,
+    data1: 0.7,
+    data2: -0.7,
     price: 0.7
   },
   {
-    data1: -0.8,
+    data1: 0.8,
+    data2: -0.8,
     price: 0.8
   },
   {
-    data1: -0.9,
+    data1: 0.9,
+    data2: -0.9,
     price: 0.9
   },
   {
-    data1: -1,
+    data1: 1,
+    data2: -1,
     price: 1
   },
   {
-    data1: -0.9,
+    data1: 0.9,
+    data2: -0.9,
     price: 1.1
   },
   {
-    data1: -0.8,
+    data1: 0.8,
+    data2: -0.8,
     price: 1.1
   },
   {
-    data1: -0.7,
+    data1: 0.7,
+    data2: -0.7,
     price: 1.1
   },
   {
-    data1: -0.6,
+    data1: 0.6,
+    data2: -0.6,
     price: 1.2
   },
   {
-    data1: -0.5,
+    data1: 0.5,
+    data2: -0.5,
     price: 1.1
   },
   {
-    data1: -0.4,
+    data1: 0.4,
+    data2: -0.4,
     price: 1.3
   },
   {
-    data1: -0.3,
+    data1: 0.3,
+    data2: -0.3,
     price: 1.1
   },
   {
-    data1: -0.2,
+    data1: 0.2,
+    data2: -0.2,
     price: 1.4
   },
   {
-    data1: -0.1,
+    data1: 0.1,
+    data2: -0.1,
     price: 1.1
   },
   {
-    data2: 0,
     data1: 0,
+    data2: 0,
     price: 1.5
   },
   {
+    data1: -0.1,
     data2: 0.1,
     price: 1.25
   },
   {
+    data1: -0.2,
     data2: 0.2,
     price: 1.15
   },
   {
+    data1: -0.3,
     data2: 0.3,
     price: 1.15
   },
   {
+    data1: -0.4,
     data2: 0.4,
     price: 1.15
   },
   {
+    data1: -0.5,
     data2: 0.5,
     price: 1.2
   },
   {
+    data1: -0.6,
     data2: 0.6,
     price: 1.3
   },
   {
+    data1: -0.7,
     data2: 0.7,
     price: 1.45
   },
   {
+    data1: -0.8,
     data2: 0.8,
     price: 1.6
   },
   {
+    data1: -0.9,
     data2: 0.9,
     price: 1.85
   },
   {
+    data1: -1,
     data2: 1,
     price: 2
   },
 ]
 
-const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) => {
+const CustomTooltip = ({ active, payload, chartData1, chartData2 }: { active?: boolean, payload?: any, chartData1?: ChartData, chartData2?: ChartData}) => {
+  const tooltips = (chartData1 && chartData2) ? [chartData1, chartData2] : chartData1 ? [chartData1] : [chartData2]
+
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
-        { (<div
-          className="custom-tooltip__container"
-          style={{ backgroundColor: payload[1].color }}
-        >
-          <p className="label" style={{ fontSize: '14px', color: 'white' }}>
-            {payload[1].value > 0 ? 'Profit' : 'Loss'}
-          </p>
-        </div>)
-        }
+      <div className="custom-tooltip static-tooltip">
+        {tooltips.map((chartData, i) => {
+          return chartData && (<div
+            key={i}
+            className="custom-tooltip__container"
+            style={{ backgroundColor: payload[i + 1].color }}
+          >
+            <p className="label" style={{ fontSize: '14px', color: 'white' }}>
+              {(i % 2 == 0) ? payload[i + 1].value > 0 ? 'Profit' : 'Loss' : payload[i + 1].value < 0 ? 'Loss' : 'Profit'}
+            </p>
+          </div>)
+        })}
       </div>
     )
   }
@@ -225,7 +266,7 @@ const CustomTooltip = ({ active, payload }: {active?: boolean, payload?: any}) =
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const LongStrangleChart: FC<TProps> = (props: TProps) => {
+const StraddleChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { theme, className, domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -302,7 +343,7 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 20, y: -1.3 }, { x: 20, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 10, y: -1.3 }, { x: 10, y: 1.3 }]} />
         <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 30, y: -1.3 }, { x: 30, y: 1.3 }]} />
-        <Tooltip content={<CustomTooltip />} />
+        <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
           allowDataOverflow
@@ -334,17 +375,15 @@ const LongStrangleChart: FC<TProps> = (props: TProps) => {
 
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={0} x2={1} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Unlimited Profit', className: 'long-strangle-area-text' }} />
         <ReferenceArea x1={34} x2={39} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
-        <ReferenceLine stroke="#F6029C" strokeDasharray="3 3" segment={[{ x: 0, y: -1 }, { x: 20, y: -1 }]} >
-          <Label color={'#F6029C'} value={'Max loss'} x={isMobile ? 100 : 200} y={190} content={<ReferenceLabel />}/>
-        </ReferenceLine>
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point downside'}`} top={25} leftX={isMobile ? 45 : 95} width={isMobile ? 90 : 185} />} />
+        <ReferenceArea x1={4} x2={6} y1={1.2} y2={1.3} fill={'transparent'} label={{ value: 'Long Straddle', className: 'long-straddle-area-text' }} />
+        <ReferenceArea x1={0} x2={2} y1={-1.2} y2={-1.3} fill={'transparent'} label={{ value: 'Short Straddle', className: 'short-straddle-area-text' }} />
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={10} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even Point'}`} top={25} leftX={isMobile ? 45 : 95} width={isMobile ? 90 : 185} />} />
         <ReferenceDot r={3} fill="#999BBC" stroke="none" x={20} y={0} label={<ReferenceRectDot value={'Both Put and Call Strike price'} top={-10} topY={-25} leftX={95} width={190} />} /> 
-        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={30} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even point upside'}`} top={25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
+        <ReferenceDot r={3} fill="#999BBC" stroke="none" x={30} y={0} label={<ReferenceRectDot value={`${isMobile ? 'Break-Even' : 'Break-Even Point'}`} top={25} leftX={isMobile ? 45 : 85} width={isMobile ? 90 : 165}/>}/> 
       </ComposedChart>
     </ResponsiveContainer>
   )
 }
 
-export default LongStrangleChart
+export default StraddleChart

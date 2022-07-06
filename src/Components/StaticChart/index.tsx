@@ -1,12 +1,12 @@
 import React, { FC, useMemo, useState } from 'react'
 import numeral from 'numeral'
-import CoveredCallChart from './CoveredCallChart'
-import ShortStrangleChart from './ShortStrangleChart'
-import LongStrangleChart from './LongStrangleChart'
-import CoveredCollarChart from './CoveredCollarChart'
-import OutrightShortPutChart from './OutrightShortPutChart'
-import OptionCallChart from './OptionCallChart'
-import OptionPutChart from './OptionPutChart'
+import CoveredCallOptionChart from './CoveredCallOptionChart'
+import StrangleChart from './StrangleChart'
+import StraddleChart from './StraddleChart'
+import CollarChart from './CollarChart'
+import CashSecuredPutOptionChart from './CashSecuredPutOptionChart'
+import CallOptionChart from './CallOptionChart'
+import PutOptionChart from './PutOptionChart'
 
 import { scaleLog } from 'd3-scale'
 import { generateRenderProps } from '../../Utils/helpers'
@@ -106,13 +106,13 @@ const StaticChart: React.FC<Props> = (props: Props) => {
 
   const content = useMemo(() => {
     const components: TArticlesComponents = {
-      CoveredCallChart,
-      ShortStrangleChart,
-      LongStrangleChart,
-      CoveredCollarChart,
-      OutrightShortPutChart,
-      OptionPutChart,
-      OptionCallChart
+      CoveredCallOptionChart,
+      StrangleChart,
+      StraddleChart,
+      CollarChart,
+      CashSecuredPutOptionChart,
+      PutOptionChart,
+      CallOptionChart
     }
 
     const componentName = camel2title(type)

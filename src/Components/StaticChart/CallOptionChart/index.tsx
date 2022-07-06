@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import { ETheme } from '../../../Constants/Types/theme.types'
 import {
   XAxis,
@@ -36,144 +36,14 @@ export type TProps = {
 
 const data = [
   {
-    data1: -1.35,
-    data2: 1.35,
-    price: 0.15
-  },
-  {
-    data1: -1.2,
-    data2: 1.2,
-    price: 0.2
-  },
-  {
-    data1: -1.05,
-    data2: 1.05,
-    price: 0.25
-  },
-  {
-    data1: -0.9,
-    data2: 0.9,
-    price: 0.3
-  },
-  {
-    data1: -0.75,
-    data2: 0.75,
-    price: 0.35
-  },
-  {
-    data1: -0.6,
-    data2: 0.6,
-    price: 0.4
-  },
-  {
-    data1: -0.45,
-    data2: 0.45,
-    price: 0.45
-  },
-  {
-    data1: -0.3,
-    data2: 0.3,
-    price: 0.5
-  },
-  {
-    data1: -0.15,
-    data2: 0.15,
-    price: 0.55
-  },
-  {
-    data1: 0,
-    data2: 0,
-    price: 0.6
-  },
-  {
-    data1: 0.15,
-    data2: -0.15,
-    price: 0.65
-  },
-  {
-    data1: 0.3,
-    data2: -0.3,
-    price: 0.7
-  },
-  {
-    data1: 0.45,
-    data2: -0.45,
-    price: 0.75
-  },
-  {
-    data1: 0.6,
-    data2: -0.6,
-    price: 0.8
-  },
-  {
-    data1: 0.75,
-    data2: -0.75,
-    price: 0.85
+    data1: 0.9,
+    data2: -0.9,
+    price: 2.5
   },
   {
     data1: 0.9,
     data2: -0.9,
-    price: 1
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.1
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.2
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.3
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.4
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.5
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.6
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.7
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.8
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 1.9
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 2
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 2.1
-  },
-  {
-    data1: 0.9,
-    data2: -0.9,
-    price: 2.2
+    price: 2.4
   },
   {
     data1: 0.9,
@@ -183,13 +53,148 @@ const data = [
   {
     data1: 0.9,
     data2: -0.9,
-    price: 2.4
+    price: 2.2
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 2.1
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 2
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.9
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.8
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.7
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.6
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.5
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.4
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.3
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.2
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1.1
+  },
+  {
+    data1: 0.9,
+    data2: -0.9,
+    price: 1
+  },
+  {
+    data1: 0.75,
+    data2: -0.75,
+    price: 1.15
+  },
+  {
+    data1: 0.6,
+    data2: -0.6,
+    price: 1.2
+  },
+  {
+    data1: 0.45,
+    data2: -0.45,
+    price: 1.25
+  },
+  {
+    data1: 0.3,
+    data2: -0.3,
+    price: 1.3
+  },
+  {
+    data1: 0.15,
+    data2: -0.15,
+    price: 1.35
+  },
+  {
+    data1: 0,
+    data2: 0,
+    price: 1.4
+  },
+  {
+    data1: -0.15,
+    data2: 0.15,
+    price: 1.45
+  },
+  {
+    data1: -0.3,
+    data2: 0.3,
+    price: 1.5
+  },
+  {
+    data1: -0.45,
+    data2: 0.45,
+    price: 1.55
+  },
+  {
+    data1: -0.6,
+    data2: 0.6,
+    price: 1.6
+  },
+  {
+    data1: -0.75,
+    data2: 0.75,
+    price: 1.6
+  },
+  {
+    data1: -0.9,
+    data2: 0.9,
+    price: 1.6
+  },
+  {
+    data1: -1.05,
+    data2: 1.05,
+    price: 1.65
+  },
+  {
+    data1: -1.2,
+    data2: 1.2,
+    price: 1.7
+  },
+  {
+    data1: -1.35,
+    data2: 1.35,
+    price: 1.75
   }
 ]
 
-const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: boolean, payload?: any, chartData1?: ChartData, chartData2?: ChartData}) => {
+const CustomTooltip = ({ active, payload, chartData1, chartData2 }: { active?: boolean, payload?: any, chartData1?: ChartData, chartData2?: ChartData}) => {
   const tooltips = (chartData1 && chartData2) ? [chartData1, chartData2] : chartData1 ? [chartData1] : [chartData2]
-  
+
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip static-tooltip">
@@ -211,7 +216,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active?: bo
   return (<div className="tooltip-loading" style={{ backgroundColor: 'white', padding: '0px 8px', borderRadius: '10px' }}>Loading...</div>)
 }
 
-const OptionPutChart: FC<TProps> = (props: TProps) => {
+const CallOptionChart: FC<TProps> = (props: TProps) => {
   const { isMobile } = useMobile()
 
   const { domainAxisY, increaseDomainY, chartData1, chartData2, logScaleY, scale } = props
@@ -222,7 +227,7 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
       tick = 'Loss'
     } else if (dataIndex === 1.35) {
       return 'Profit'
-    } else if (dataIndex === 0.05) {
+    } else if (dataIndex === 0) {
       return '0'
     }
     return tick
@@ -258,7 +263,7 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
 
   return (
     <ResponsiveContainer width='100%' height="100%">
-      <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }}>
+      <ComposedChart data={dataWithZeros} margin={{ top: 25, right: 30, left: 20, bottom: 5 }} >
         <defs>
           <linearGradient id="colorUv" x1="0" y1="-0.3" x2="1" y2="-1" style={{ zIndex: -1 }} >
             <stop offset="0%" stopColor="#F6029C" stopOpacity={0.05}/>
@@ -271,10 +276,10 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
         </defs>
         <CartesianGrid strokeOpacity={0.05} strokeDasharray="3 3"/>
         <Line dataKey="zeroLine" strokeWidth="1.8" stroke='white' dot={false} strokeOpacity={1}/>
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
+        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
         <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 15, y: -1.35 }, { x: 15, y: 1.35 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
-        <ReferenceLine stroke="white" strokeWidth="1" segment={[{ x: 0, y: -1.35 }, { x: 0, y: 1.35 }]} />
-        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 9, y: -1.35 }, { x: 9, y: 1.35 }]} />
+        <ReferenceLine strokeOpacity={0.2} strokeWidth={1} stroke='#C4C4C4' segment={[{ x: 21, y: -1.35 }, { x: 21, y: 1.35 }]} />
         <Tooltip content={<CustomTooltip chartData1={chartData1} chartData2={chartData2} />} />
         <XAxis
           height={50}
@@ -283,7 +288,7 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
           tick={false}
         />
         <YAxis
-          axisLine
+          axisLine 
           domain={domainAxisY}
           scale={logScaleY ? scale : 'auto'} 
           tick={{ dx: -20 }} 
@@ -294,7 +299,7 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
           dataKey="data1"
           strokeDasharray="3 3"
           strokeWidth={2}
-          fillOpacity={0.1}
+          fillOpacity={1}
           fill="url(#colorUv)"
 
           stroke={'rgba(246, 2, 156, 0.3)'}
@@ -308,14 +313,14 @@ const OptionPutChart: FC<TProps> = (props: TProps) => {
           style={{ zIndex: -1 }}
           stroke={'#1BA159'}
         />}
-        <ReferenceArea x1={25} x2={28} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
-        <ReferenceArea x1={25} x2={28} y1={1} y2={1.2} fill={'transparent'} label={{ value: 'Short put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
-        <ReferenceArea x1={25} x2={28} y1={-1} y2={-1.2} fill={'transparent'} label={{ value: 'Long put', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
-        <ReferenceDot r={3} stroke="none" x={9} y={0} label={<ReferenceRectDot value={'Break-even point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'} />}/>
-        <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={45} top={25} width={90} color={'rgba(10, 10, 30, 0.8)'} />}/>
+        <ReferenceArea x1={26} x2={29} y1={0} y2={-1} fill={'transparent'} label={{ value: 'Asset price', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text' }} />
+        <ReferenceArea x1={0} x2={2} y1={0} y2={1.2} fill={'transparent'} label={{ value: 'Short call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-pink' }} />
+        <ReferenceArea x1={0} x2={2} y1={-1} y2={-1.2} fill={'transparent'} label={{ value: 'Long call', position: `${isMobile ? 'right' : 'insideTopRight'}`, className: 'axis-text axis-text-green' }} />
+        <ReferenceDot r={3} stroke="none" x={15} y={0} label={<ReferenceRectDot value={'Strike price'} leftX={43} top={25} width={85} color={'rgba(10, 10, 30, 0.8)'}/> }/>
+        <ReferenceDot r={3} stroke="none" x={21} y={0} label={<ReferenceRectDot value={'Break-Even Point'} leftX={60} top={-17} width={120} topY={-32} color={'rgba(10, 10, 30, 0.8)'}/> }/>
       </ComposedChart>
     </ResponsiveContainer>
   )
 }
 
-export default OptionPutChart
+export default CallOptionChart

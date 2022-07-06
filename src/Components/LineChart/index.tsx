@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
   ComposedChart,
@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  ReferenceDot,
 } from 'recharts'
 
 import { generateRenderProps } from '../../Utils/helpers'
@@ -17,6 +18,8 @@ import { ETheme } from '../../Constants/Types/theme.types'
 
 import './LineChart.scss'
 import { useDomainY } from '../../Utils/hooks'
+import numeral from 'numeral'
+import moment from 'moment'
 
 export type ChartData = {
   tooltipTitle: string
@@ -38,7 +41,9 @@ export type Props = {
   intervalX?: number
   intervalY?: number
   dontShowLabel?: boolean,
-  increaseDomainY?: number
+  increaseDomainY?: number,
+  animation?: { end: number, interval: number, title: string}
+  timeNow?: number
 }
 
 const defaultProps: Props = {
@@ -93,12 +98,15 @@ const LineChart: React.FC<Props> = (props: Props) => {
     tickFormatterY,
     intervalX,
     dontShowLabel,
-    increaseDomainY
+    increaseDomainY,
+    animation,
+    timeNow
   } = renderProps
 
   const domainAxisY = useDomainY(domainY as string[] | number[], increaseDomainY)
 
   const CustomTooltip = ({ payload, active }: ICustomTooltip) => {
+    
     if (active) {
       return (
         <div className="custom-tooltip">
@@ -112,11 +120,76 @@ const LineChart: React.FC<Props> = (props: Props) => {
               {`${payload[0].payload.valueMeaning}: ${payload[0].value}%`}
             </p>
           )}
+          {(payload && payload[0] && payload[0].payload.valueTime) && (
+            <p className="label performance">
+              {`${payload[0].payload.valueTime}`}
+            </p>
+          )}
         </div>
       )
     }
 
     return null
+  }
+
+  // const [dotAnimation, setDotAnimation] = useState({ x: data[0].label || 0, y: data[0].lineData || 0 })
+  // const [showDot, setShowDot] = useState(true)
+
+  // const animationStart = () => {
+  //   if (data.length) {
+  //     let i = 0
+  //     const interval = setInterval(function() {
+  //       setDotAnimation(
+  //         { x: data[i].label, y: data[i].lineData }
+  //       )
+  //       i++
+  //       if (data[i].label >= animation.end) {
+  //         clearInterval(interval)
+  //         setShowDot(false)
+  //       }
+  //     }, animation.interval)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   animation && animationStart()
+  // }, [])
+
+  const findY = (time: number) => {
+    const el = data.find((el: any) => el.label === time)
+    if (el) {
+      return el.lineData
+    }
+    return undefined
+  }
+
+  const ReferenceRectDot = (props: any) => {
+    const { width, color, value, valueTime, viewBox, top, topY, leftX } = props
+
+    return (
+      <g>
+        <g>
+          <rect
+            x={viewBox.x - (leftX ? leftX : 70)}
+            y={viewBox.y - (top ? top : 0)}
+            rx="9"
+            ry="9"
+            width={width ? width : 170}
+            height={53}
+            fill={color ? color : '#12122C'}
+            style={{ stroke: '#5D5F7C' }}
+          />
+        </g>
+        <g> 
+          <text x={viewBox.x} y={viewBox.y + 47} fill="#197CD8" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {value}
+          </text>
+          <text x={viewBox.x - 14} y={viewBox.y + 65} fill="#31EDA9" fontSize={12} fontWeight="bold" textAnchor="middle">
+            {valueTime}
+          </text>
+        </g>
+      </g>
+    )
   }
 
   const dataWithZeros = data.map((el: any) => ({ ...el, zeroLine: 0 }))
@@ -144,6 +217,10 @@ const LineChart: React.FC<Props> = (props: Props) => {
             stroke="#31EDA9"
           />
           <Line dataKey="zeroLine" strokeWidth={1} stroke='#C4C4C4' strokeDasharray="4 2 1" dot={false} strokeOpacity={0.2}/>
+          {/* {(animation && showDot) 
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={dotAnimation.x} y={dotAnimation.y} label={<ReferenceRectDot value={`${+numeral(dotAnimation.y).format('0[.]000000')} ${animation.title}`} top={-25} topY={10} leftX={80} width={160} />} />} */}
+          {(timeNow && findY(timeNow)) 
+            && <ReferenceDot r={4} fill="#31EDA9" stroke="white" x={timeNow} y={findY(timeNow)} label={<ReferenceRectDot value={`Premium: ${+numeral(findY(timeNow)).format('0[.]000000')} ${animation.title}`} valueTime={`Time: ${moment.unix(timeNow).utc().format('HH:mm:ss UTC')}`} top={-25} topY={10} leftX={80} width={160} />} />}
         </ComposedChart>
       </ResponsiveContainer>
     </div>
