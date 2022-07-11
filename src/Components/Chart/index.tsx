@@ -75,6 +75,7 @@ const CustomTooltip = ({ active, payload, chartData1, chartData2 }: {active: boo
       <div className="custom-tooltip">
         {tooltips.map((chartData, i) => {
           return chartData && (<div
+            key={chartData.tooltipSuffix}
             className="custom-tooltip__container"
             style={{ backgroundColor: payload[i].color }}
           >
